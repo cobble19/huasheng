@@ -13,9 +13,9 @@
            http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 	
-	<bean id="loginAction" class="com.school.leho.action.LoginAction" scope="prototype">
+	<bean id="loginAction" class="com.cobble.huasheng.action.LoginAction" scope="prototype">
 	</bean>	
-	<bean id="userAction" class="com.school.leho.action.UserAction" scope="prototype">
+	<bean id="userAction" class="com.cobble.huasheng.action.UserAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>	 
 </beans>

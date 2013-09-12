@@ -40,7 +40,7 @@
 		<!-- <property name="configLocation" value="hibernate.cfg.xml"/> -->
 		<property name="mappingResources">
 			<list>
-				<value>com/school/leho/entity/User.hbm.xml</value>
+				<value>com/cobble/huasheng/entity/User.hbm.xml</value>
 			</list>
 		</property>
 		<!-- <property name="packagesToScan">
@@ -77,7 +77,7 @@
 	</bean>
 	<aop:config>
 		<aop:pointcut id="bussinessService"
-			expression="execution(public * com.school.leho.service.*.*(..))" />
+			expression="execution(public * com.cobble.huasheng.service.*.*(..))" />
 		<aop:advisor pointcut-ref="bussinessService"
 			advice-ref="txAdvice" />
 	</aop:config>

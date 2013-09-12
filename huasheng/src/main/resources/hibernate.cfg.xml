@@ -4,6 +4,7 @@
         xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-configuration hibernate-configuration-4.0.xsd"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <session-factory>
+  <!-- 此文件没有被使用 -->
     <!-- Database connection settings -->
     <!-- <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="connection.url">jdbc:mysql://localhost:3306/leho</property>
@@ -27,6 +28,6 @@
 
     <!-- Drop and re-create the database schema on startup -->
     <property name="hbm2ddl.auto">update</property>
-    <mapping resource="com/school/leho/entity/User.hbm.xml"/>
+    <mapping resource="com/cobble/huasheng/entity/User.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -1,7 +1,67 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	id="WebApp_ID" version="2.4">
+	<display-name>leho</display-name>
+	<!-- 加载Spring配置文件 -->  
+    <context-param>  
+        <param-name>contextConfigLocation</param-name>  
+        <param-value>
+        	classpath:applicationContext.xml
+        	classpath:applicationContext-*.xml
+        </param-value>  
+    </context-param>  
+      
+    <!-- ContextLoaderListener的作用就是启动Web容器时，自动装配ApplicationContext的配置信息。 -->  
+    <listener>  
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
+    </listener>  
+  
+    <!-- 指定字符集 -->  
+    <filter>  
+        <filter-name>encodingFilter</filter-name>  
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+        <init-param>  
+            <param-name>encoding</param-name>  
+            <param-value>UTF-8</param-value>  
+        </init-param>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>encodingFilter</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>  
+  
+    <!-- 保持session到页面 -->  
+    <filter>  
+        <filter-name>openSessionInView</filter-name>  
+        <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>  
+        <init-param>  
+            <param-name>sessionFactoryBeanName</param-name>  
+            <param-value>sessionFactory</param-value>  
+        </init-param>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>openSessionInView</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>  
+    
+	<!-- struts2 -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>

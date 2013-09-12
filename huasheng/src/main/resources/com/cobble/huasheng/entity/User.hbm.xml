@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cobble.huasheng.entity">
+	<class name="UserEntity" table="B_USER">
+		<id name="userId" column="USER_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="accountNo" column="ACCOUNT_NO" not-null="true"></property>
+		<property name="password" column="PASSWORD"></property>
+		<property name="name" column="NAME"></property>
+	</class>
+</hibernate-mapping>
