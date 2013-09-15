@@ -40,7 +40,7 @@
 		<!-- <property name="configLocation" value="hibernate.cfg.xml"/> -->
 		<property name="mappingResources">
 			<list>
-				<value>com/cobble/huasheng/entity/User.hbm.xml</value>
+				<!-- <value>com/cobble/huasheng/entity/User.hbm.xml</value> -->
 			</list>
 		</property>
 		<!-- <property name="packagesToScan">
