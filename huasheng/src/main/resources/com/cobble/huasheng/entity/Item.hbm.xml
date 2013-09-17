@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cobble.huasheng.entity">
+	<class name="ItemEntity" table="B_ITEM">
+		<id name="itemId" column="ITEM_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="NAME" not-null="true"></property>
+		<list name="videoEntityList" inverse="true">
+			<key column="ITEM_ID" />
+			<list-index column="itemIdx"></list-index>
+			<one-to-many class="VideoEntity"/>
+		</list>
+		<one-to-one name="itemBaseInfoEntity" property-ref="itemEntity"></one-to-one>
+	</class>
+</hibernate-mapping>

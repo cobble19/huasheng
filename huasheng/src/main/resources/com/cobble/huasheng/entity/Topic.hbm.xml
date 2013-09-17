@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cobble.huasheng.entity">
+	<class name="TopicEntity" table="B_TOPIC">
+		<id name="topicId" column="TOPIC_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="NAME" not-null="true"></property>
+		<list name="categoryEntityList" inverse="true">
+			<key column="TOPIC_ID" />
+			<list-index column="topicIdx"></list-index>
+			<one-to-many class="CategoryEntity"/>
+		</list>
+	</class>
+</hibernate-mapping>

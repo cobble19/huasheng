@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cobble.huasheng.entity">
+	<class name="ActorEntity" table="B_ACTOR">
+		<id name="actorId" column="ACTOR_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="NAME"></property>
+		<list name="itemBaseInfoEntityList" table="R_ITEM_BASE_INFO_ACTOR" inverse="true">
+			<key column="ACTOR_ID" />
+			<list-index column="itemBaseInfoIdx"></list-index>
+			<many-to-many class="ItemBaseInfoEntity" column="ITEM_BASE_INFO_ID"/>
+		</list>
+	</class>
+</hibernate-mapping>
