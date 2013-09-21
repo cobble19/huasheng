@@ -10,10 +10,9 @@
 		</id>
 		<property name="name" column="NAME" not-null="true"></property>
 		<many-to-one name="topicEntity" column="TOPIC_ID"></many-to-one>
-		<list name="itemEntityList" table="R_CATEGORY_ITEM">
+		<set name="itemEntityList" table="R_CATEGORY_ITEM" inverse="true">
 			<key column="CATEGORY_ID" />
-			<list-index column="categoryIdx"></list-index>
 			<many-to-many class="ItemEntity" column="ITEM_ID"/>
-		</list>
+		</set>
 	</class>
 </hibernate-mapping>

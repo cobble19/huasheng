@@ -44,7 +44,9 @@ public class UserServiceImpl implements UserService {
 		List<UserDTO> ret = new ArrayList<UserDTO>(0);
 		try {
 			UserEntitySearch userEntitySearch = new UserEntitySearch();
-			BeanUtil.copyProperties(userEntitySearch, userDTOSearch);
+			if (userDTOSearch != null) {
+				BeanUtil.copyProperties(userEntitySearch, userDTOSearch);
+			}
 			List<UserEntity> userEntityList = userDAO.finds(userEntitySearch);
 			if (ListUtil.isNotEmpty(userEntityList)) {
 				for (UserEntity userEntity : userEntityList) {

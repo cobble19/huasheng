@@ -24,7 +24,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public void add(UserEntity userEntity) throws Exception {
 		try {
-			this.getSessionFactory().openSession().save(userEntity);
+			this.getSessionFactory().getCurrentSession().save(userEntity);
 		} catch (Exception e) {
 			logger.fatal("添加用户 occurs Exception", e);
 			throw e;
@@ -44,7 +44,7 @@ public class UserDAOImpl implements UserDAO {
 			throws Exception {
 		List<UserEntity> ret = null;
 		try {
-			 Query query = this.getSessionFactory().openSession().createQuery("from UserEntity");
+			 Query query = this.getSessionFactory().getCurrentSession().createQuery("from UserEntity");
 			 ret = (List<UserEntity>) query.list();
 		} catch (Exception e) {
 			logger.fatal("查询用户 occurs Exception", e);

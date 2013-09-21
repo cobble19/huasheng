@@ -9,10 +9,9 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="name" column="NAME" not-null="true"></property>
-		<list name="videoEntityList" inverse="true">
+		<set name="videoEntityList" inverse="true">
 			<key column="VIDEO_SRC_ID" />
-			<list-index column="videoIdx"></list-index>
 			<one-to-many class="VideoEntity"/>
-		</list>
+		</set>
 	</class>
 </hibernate-mapping>

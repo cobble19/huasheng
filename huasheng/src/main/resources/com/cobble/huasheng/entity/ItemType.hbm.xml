@@ -9,10 +9,9 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="name" column="NAME"></property>
-		<list name="itemBaseInfoEntityList" table="R_ITEM_BASE_INFO_ITEM_TYPE" inverse="true">
+		<set name="itemBaseInfoEntityList" table="R_ITEM_BASE_INFO_ITEM_TYPE" inverse="true">
 			<key column="ITEM_TYPE_ID" />
-			<list-index column="itemBaseInfo_Idx"></list-index>
 			<many-to-many class="ItemBaseInfoEntity" column="ITEM_BASE_INFO_ID"/>
-		</list>
+		</set>
 	</class>
 </hibernate-mapping>
