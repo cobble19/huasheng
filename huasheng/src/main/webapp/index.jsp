@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,17 +18,19 @@
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/index.css">
 
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/index.js"></script>
 
 </head>
 <body>
+	<input type="hidden" id="contextPath" name="contextPath" value="<%=request.getContextPath() %>" />
 	<div class="container">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav id="header" class="navbar navbar-default" role="navigation">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="">花生网</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">首页</a></li>
-				<li class="active"><a href="#">电视剧</a></li>
+				<li><a href="#">电视剧</a></li>
 				<li><a href="#">动漫</a></li>
 			</ul>
 		</nav>

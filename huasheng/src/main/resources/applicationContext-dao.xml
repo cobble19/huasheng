@@ -16,4 +16,7 @@
 	<bean id="userDAO" class="com.cobble.huasheng.dao.impl.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="topicDAO" class="com.cobble.huasheng.dao.impl.TopicDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 </beans>

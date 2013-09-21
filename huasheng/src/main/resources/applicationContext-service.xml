@@ -15,5 +15,8 @@
 	
 	<bean id="userService" class="com.cobble.huasheng.service.impl.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
-	</bean>	 
+	</bean>	
+	<bean id="topicService" class="com.cobble.huasheng.service.impl.TopicServiceImpl">
+		<property name="topicDAO" ref="topicDAO"></property>
+	</bean>	  
 </beans>

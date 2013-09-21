@@ -8,5 +8,6 @@
     <include file="struts-default.xml"></include>
     <include file="struts-index.xml"></include>
     <include file="struts-login.xml"></include>
+    <include file="struts-topic.xml"></include>
  
 </struts>

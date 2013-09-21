@@ -23,5 +23,11 @@
             </result>
         </action>
     </package>
+    
+    <!-- <package name="defaultJson" extends="json-default">
+    	<global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+    </package> -->
  
 </struts>
