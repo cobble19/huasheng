@@ -36,6 +36,7 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests   {
 		UserDTO userDTO = new UserDTO();
 		userDTO.setAccountNo("admin");
 		userDTO.setPassword("p1");
+		userDTO.setName("Admin");
 		userService.add(userDTO);
 		List<UserDTO> userDTOs = userService.finds(null);
 		System.err.println(userDTOs.isEmpty());

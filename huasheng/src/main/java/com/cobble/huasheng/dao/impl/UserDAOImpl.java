@@ -4,27 +4,18 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
-import org.hibernate.SessionFactory;
 
 import com.cobble.huasheng.dao.UserDAO;
 import com.cobble.huasheng.entity.UserEntity;
 import com.cobble.huasheng.entity.UserEntitySearch;
 
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl extends CommonDAOImpl implements UserDAO {
+	private static final long serialVersionUID = -6148872554709996703L;
 	private final static Logger logger = Logger.getLogger(UserDAOImpl.class);
-	private SessionFactory sessionFactory;
 
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-
-	public void add(UserEntity userEntity) throws Exception {
+	public void create(UserEntity userEntity) throws Exception {
 		try {
-			this.getSessionFactory().getCurrentSession().save(userEntity);
+			this.getCurrentSession().save(userEntity);
 		} catch (Exception e) {
 			logger.fatal("添加用户 occurs Exception", e);
 			throw e;
@@ -33,7 +24,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public void update(UserEntity userEntity) throws Exception {
 		try {
-			this.getSessionFactory().openSession().update(userEntity);
+			this.getCurrentSession().update(userEntity);
 		} catch (Exception e) {
 			logger.fatal("更新用户 occurs Exception", e);
 			throw e;
@@ -44,7 +35,7 @@ public class UserDAOImpl implements UserDAO {
 			throws Exception {
 		List<UserEntity> ret = null;
 		try {
-			 Query query = this.getSessionFactory().getCurrentSession().createQuery("from UserEntity");
+			 Query query = this.getCurrentSession().createQuery("from UserEntity");
 			 ret = (List<UserEntity>) query.list();
 		} catch (Exception e) {
 			logger.fatal("查询用户 occurs Exception", e);
@@ -56,7 +47,7 @@ public class UserDAOImpl implements UserDAO {
 	public UserEntity findById(Long userId) throws Exception {
 		UserEntity ret = null;
 		try {
-			ret = (UserEntity) this.getSessionFactory().openSession().get(UserEntity.class, userId);
+			ret = (UserEntity) this.getCurrentSession().get(UserEntity.class, userId);
 		} catch (Exception e) {
 			logger.fatal("查询用户byId occurs Exception", e);
 			throw e;
@@ -67,14 +58,14 @@ public class UserDAOImpl implements UserDAO {
 	public long getCount(UserEntitySearch userEntitySearch) throws Exception {
 		long ret = 0;
 		try {
-			Query query = this.getSessionFactory().openSession().createQuery("select count(1) from UserEntity");
+			Query query = this.getCurrentSession().createQuery("select count(1) from UserEntity");
 			Object object = query.uniqueResult();
 			ret = Long.parseLong(object.toString());
 		} catch (Exception e) {
 			logger.fatal("得到用户个数 occurs Exception", e);
 			throw e;
 		}
-		return 0;
+		return ret;
 	}
 
 }

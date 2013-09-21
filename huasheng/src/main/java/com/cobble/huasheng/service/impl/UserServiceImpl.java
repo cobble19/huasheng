@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 		UserEntity userEntity = new UserEntity();
 		try {
 			BeanUtil.copyProperties(userEntity, userDTO);
-			userDAO.add(userEntity);
+			userDAO.create(userEntity);
 		} catch (Exception e) {
 			logger.fatal("add excep", e);
 			throw e;
