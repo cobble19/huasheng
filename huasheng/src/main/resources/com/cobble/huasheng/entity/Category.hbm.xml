@@ -10,7 +10,7 @@
 		</id>
 		<property name="name" column="NAME" not-null="true"></property>
 		<many-to-one name="topicEntity" column="TOPIC_ID" not-null="false"></many-to-one>
-		<set name="itemEntityList" table="R_CATEGORY_ITEM" inverse="true">
+		<set name="itemEntities" table="R_CATEGORY_ITEM" inverse="true">
 			<key column="CATEGORY_ID" />
 			<many-to-many class="ItemEntity" column="ITEM_ID"/>
 		</set>

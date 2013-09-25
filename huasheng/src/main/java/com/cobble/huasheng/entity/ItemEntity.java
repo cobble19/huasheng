@@ -1,13 +1,13 @@
 package com.cobble.huasheng.entity;
 
-import java.util.List;
+import java.util.Set;
 
 public class ItemEntity extends BaseEntity {
 	private Long itemId;
 	private String name;
-	private List<CategoryEntity> categoryEntityList;
+	private Set<CategoryEntity> categoryEntities;
 	private ItemBaseInfoEntity itemBaseInfoEntity;
-	private List<VideoEntity> videoEntityList;
+	private Set<VideoEntity> videoEntities;
 	public Long getItemId() {
 		return itemId;
 	}
@@ -20,11 +20,11 @@ public class ItemEntity extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<CategoryEntity> getCategoryEntityList() {
-		return categoryEntityList;
+	public Set<CategoryEntity> getCategoryEntities() {
+		return categoryEntities;
 	}
-	public void setCategoryEntityList(List<CategoryEntity> categoryEntityList) {
-		this.categoryEntityList = categoryEntityList;
+	public void setCategoryEntities(Set<CategoryEntity> categoryEntities) {
+		this.categoryEntities = categoryEntities;
 	}
 	public ItemBaseInfoEntity getItemBaseInfoEntity() {
 		return itemBaseInfoEntity;
@@ -32,11 +32,11 @@ public class ItemEntity extends BaseEntity {
 	public void setItemBaseInfoEntity(ItemBaseInfoEntity itemBaseInfoEntity) {
 		this.itemBaseInfoEntity = itemBaseInfoEntity;
 	}
-	public List<VideoEntity> getVideoEntityList() {
-		return videoEntityList;
+	public Set<VideoEntity> getVideoEntities() {
+		return videoEntities;
 	}
-	public void setVideoEntityList(List<VideoEntity> videoEntityList) {
-		this.videoEntityList = videoEntityList;
+	public void setVideoEntities(Set<VideoEntity> videoEntities) {
+		this.videoEntities = videoEntities;
 	}
 	
 }

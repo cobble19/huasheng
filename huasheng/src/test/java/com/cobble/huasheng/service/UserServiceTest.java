@@ -30,7 +30,7 @@ public class UserServiceTest extends AbstractJUnit4SpringContextTests   {
 		userDTO.setAccountNo("admin");
 		userDTO.setPassword("p1");
 		userDTO.setName("Admin");
-		userService.add(userDTO);
+		userService.create(userDTO);
 		List<UserDTO> userDTOs = userService.finds(null);
 		System.err.println(userDTOs.isEmpty());
 	}

@@ -2,6 +2,7 @@ package com.cobble.huasheng.entity;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class ItemBaseInfoEntity extends BaseEntity {
 	private Long itemBaseInfoId;
@@ -10,8 +11,8 @@ public class ItemBaseInfoEntity extends BaseEntity {
 	private Double score;
 	private String description;
 	private ItemEntity itemEntity;
-	private List<ActorEntity> actorEntityList;
-	private List<ItemTypeEntity> itemTypeEntityList;
+	private Set<ActorEntity> actorEntities;
+	private Set<ItemTypeEntity> itemTypeEntities;
 	public Long getItemBaseInfoId() {
 		return itemBaseInfoId;
 	}
@@ -48,16 +49,16 @@ public class ItemBaseInfoEntity extends BaseEntity {
 	public void setItemEntity(ItemEntity itemEntity) {
 		this.itemEntity = itemEntity;
 	}
-	public List<ActorEntity> getActorEntityList() {
-		return actorEntityList;
+	public Set<ActorEntity> getActorEntities() {
+		return actorEntities;
 	}
-	public void setActorEntityList(List<ActorEntity> actorEntityList) {
-		this.actorEntityList = actorEntityList;
+	public void setActorEntities(Set<ActorEntity> actorEntities) {
+		this.actorEntities = actorEntities;
 	}
-	public List<ItemTypeEntity> getItemTypeEntityList() {
-		return itemTypeEntityList;
+	public Set<ItemTypeEntity> getItemTypeEntities() {
+		return itemTypeEntities;
 	}
-	public void setItemTypeEntityList(List<ItemTypeEntity> itemTypeEntityList) {
-		this.itemTypeEntityList = itemTypeEntityList;
+	public void setItemTypeEntities(Set<ItemTypeEntity> itemTypeEntities) {
+		this.itemTypeEntities = itemTypeEntities;
 	}
 }

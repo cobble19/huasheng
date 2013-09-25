@@ -1,11 +1,11 @@
 package com.cobble.huasheng.entity;
 
-import java.util.List;
+import java.util.Set;
 
 public class ActorEntity extends BaseEntity {
 	private Long actorId;
 	private String name;
-	private List<ItemBaseInfoEntity> itemBaseInfoEntityList;
+	private Set<ItemBaseInfoEntity> itemBaseInfoEntities;
 	
 	public Long getActorId() {
 		return actorId;
@@ -19,11 +19,10 @@ public class ActorEntity extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<ItemBaseInfoEntity> getItemBaseInfoEntityList() {
-		return itemBaseInfoEntityList;
+	public Set<ItemBaseInfoEntity> getItemBaseInfoEntities() {
+		return itemBaseInfoEntities;
 	}
-	public void setItemBaseInfoEntityList(
-			List<ItemBaseInfoEntity> itemBaseInfoEntityList) {
-		this.itemBaseInfoEntityList = itemBaseInfoEntityList;
+	public void setItemBaseInfoEntities(Set<ItemBaseInfoEntity> itemBaseInfoEntities) {
+		this.itemBaseInfoEntities = itemBaseInfoEntities;
 	}
 }

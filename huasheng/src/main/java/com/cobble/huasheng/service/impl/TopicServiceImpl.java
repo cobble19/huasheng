@@ -8,6 +8,7 @@ import com.cobble.huasheng.dto.TopicDTO;
 import com.cobble.huasheng.dto.TopicDTOSearch;
 import com.cobble.huasheng.entity.TopicEntity;
 import com.cobble.huasheng.entity.TopicEntitySearch;
+import com.cobble.huasheng.factory.ConvertFactory;
 import com.cobble.huasheng.service.TopicService;
 import com.cobble.huasheng.util.BeanUtil;
 import com.cobble.huasheng.util.ListUtil;
@@ -18,8 +19,9 @@ public class TopicServiceImpl implements TopicService {
 	public void create(TopicDTO tDTO) throws Exception {
 		TopicEntity topicEntity = new TopicEntity();
 		try {
-			BeanUtil.copyProperties(topicEntity, tDTO);
+			topicEntity = ConvertFactory.getTopicConvert().toEntity(tDTO);
 			topicDAO.create(topicEntity);
+			tDTO = ConvertFactory.getTopicConvert().toDTO(topicEntity);
 		} catch (Exception e) {
 			throw e;
 		}
@@ -28,7 +30,7 @@ public class TopicServiceImpl implements TopicService {
 	public void update(TopicDTO tDTO) throws Exception {
 		try {
 			TopicEntity topicEntity = topicDAO.findById(tDTO.getTopicId());
-			BeanUtil.copyProperties(topicEntity, topicDAO);
+			topicEntity = ConvertFactory.getTopicConvert().toEntity(tDTO);
 			topicDAO.update(topicEntity);
 		} catch (Exception e) {
 			throw e;
@@ -39,14 +41,11 @@ public class TopicServiceImpl implements TopicService {
 		List<TopicDTO> ret = new ArrayList<TopicDTO>(0);
 		try {
 			TopicEntitySearch topicEntitySearch = new TopicEntitySearch();
-			if (stDTO != null) {
-				BeanUtil.copyProperties(topicEntitySearch, stDTO);
-			}
+			topicEntitySearch = ConvertFactory.getTopicConvert().toEntitySearch(stDTO);
 			List<TopicEntity> topicEntities = topicDAO.finds(topicEntitySearch);
 			if (ListUtil.isNotEmpty(topicEntities)) {
 				for (TopicEntity topicEntity : topicEntities) {
-					TopicDTO topicDTO = new TopicDTO();
-					BeanUtil.copyProperties(topicDTO, topicEntity);
+					TopicDTO topicDTO = ConvertFactory.getTopicConvert().toDTO(topicEntity);
 					ret.add(topicDTO);
 				}
 			}
@@ -60,7 +59,7 @@ public class TopicServiceImpl implements TopicService {
 		TopicDTO ret = new TopicDTO();
 		try {
 			TopicEntity topicEntity = topicDAO.findById(id);
-			BeanUtil.copyProperties(ret, topicEntity);
+			ret = ConvertFactory.getTopicConvert().toDTO(topicEntity);
 		} catch (Exception e) {
 			throw e;
 		}

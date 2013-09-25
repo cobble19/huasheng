@@ -13,11 +13,11 @@
 		<property name="score" column="SCORE"></property>
 		<property name="description" column="DESCRIPTION"></property>
 		<many-to-one name="itemEntity" column="ITEM_ID"></many-to-one>
-		<set name="actorEntityList" table="R_ITEM_BASE_INFO_ACTOR">
+		<set name="actorEntities" table="R_ITEM_BASE_INFO_ACTOR">
 			<key column="ITEM_BASE_INFO_ID" />
 			<many-to-many class="ActorEntity" column="ACTOR_ID"/>
 		</set>
-		<set name="itemTypeEntityList" table="R_ITEM_BASE_INFO_ITEM_TYPE">
+		<set name="itemTypeEntities" table="R_ITEM_BASE_INFO_ITEM_TYPE">
 			<key column="ITEM_BASE_INFO_ID" />
 			<many-to-many class="ItemTypeEntity" column="ITEM_TYPE_ID"/>
 		</set>

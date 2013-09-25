@@ -9,7 +9,7 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="name" column="NAME"></property>
-		<set name="itemBaseInfoEntityList" table="R_ITEM_BASE_INFO_ITEM_TYPE" inverse="true">
+		<set name="itemBaseInfoEntities" table="R_ITEM_BASE_INFO_ITEM_TYPE" inverse="true">
 			<key column="ITEM_TYPE_ID" />
 			<many-to-many class="ItemBaseInfoEntity" column="ITEM_BASE_INFO_ID"/>
 		</set>

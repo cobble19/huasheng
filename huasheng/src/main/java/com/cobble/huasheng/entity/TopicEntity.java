@@ -5,7 +5,7 @@ import java.util.Set;
 public class TopicEntity extends BaseEntity {
 	private Long topicId;
 	private String name;
-	private Set<CategoryEntity> categoryEntityList;
+	private Set<CategoryEntity> categoryEntities;
 	public Long getTopicId() {
 		return topicId;
 	}
@@ -18,10 +18,11 @@ public class TopicEntity extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Set<CategoryEntity> getCategoryEntityList() {
-		return categoryEntityList;
+	public Set<CategoryEntity> getCategoryEntities() {
+		return categoryEntities;
 	}
-	public void setCategoryEntityList(Set<CategoryEntity> categoryEntityList) {
-		this.categoryEntityList = categoryEntityList;
+	public void setCategoryEntities(Set<CategoryEntity> categoryEntities) {
+		this.categoryEntities = categoryEntities;
 	}
+	
 }

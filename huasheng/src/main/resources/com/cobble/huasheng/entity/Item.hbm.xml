@@ -9,14 +9,14 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="name" column="NAME" not-null="true"></property>
-		<set name="videoEntityList" inverse="true">
-			<key column="ITEM_ID" />
-			<one-to-many class="VideoEntity"/>
-		</set>
-		<one-to-one name="itemBaseInfoEntity" property-ref="itemEntity"></one-to-one>
-		<set name="categoryEntityList" table="R_CATEGORY_ITEM">
+		<set name="categoryEntities" table="R_CATEGORY_ITEM">
 			<key column="ITEM_ID"></key>
 			<many-to-many class="CategoryEntity" column="CATEGORY_ID"></many-to-many>
+		</set>
+		<one-to-one name="itemBaseInfoEntity" property-ref="itemEntity"></one-to-one>
+		<set name="videoEntities" inverse="true">
+			<key column="ITEM_ID" />
+			<one-to-many class="VideoEntity"/>
 		</set>
 	</class>
 </hibernate-mapping>

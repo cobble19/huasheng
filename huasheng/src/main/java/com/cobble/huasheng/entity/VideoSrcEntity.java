@@ -5,7 +5,7 @@ import java.util.List;
 public class VideoSrcEntity extends BaseEntity {
 	private Long videoSrcId;
 	private String name;
-	private List<VideoEntity> videoEntityList;
+	private List<VideoEntity> videoEntities;
 	public Long getVideoSrcId() {
 		return videoSrcId;
 	}
@@ -18,10 +18,10 @@ public class VideoSrcEntity extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<VideoEntity> getVideoEntityList() {
-		return videoEntityList;
+	public List<VideoEntity> getVideoEntities() {
+		return videoEntities;
 	}
-	public void setVideoEntityList(List<VideoEntity> videoEntityList) {
-		this.videoEntityList = videoEntityList;
+	public void setVideoEntities(List<VideoEntity> videoEntities) {
+		this.videoEntities = videoEntities;
 	}
 }

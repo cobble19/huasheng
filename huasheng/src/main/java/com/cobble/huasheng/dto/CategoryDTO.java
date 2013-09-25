@@ -1,16 +1,16 @@
 package com.cobble.huasheng.dto;
 
 import java.util.List;
+import java.util.Set;
 
-import com.cobble.huasheng.entity.BaseEntity;
 import com.cobble.huasheng.entity.ItemEntity;
 import com.cobble.huasheng.entity.TopicEntity;
 
-public class CategoryDTO extends BaseEntity {
+public class CategoryDTO extends BaseDTO {
 	private Long categoryId;
 	private String name;
-	private TopicEntity topicEntity;
-	private List<ItemEntity> itemEntityList;
+	private TopicDTO topicDTO;
+	private Set<ItemDTO> itemDTOs;
 	public Long getCategoryId() {
 		return categoryId;
 	}
@@ -23,18 +23,17 @@ public class CategoryDTO extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public TopicEntity getTopicEntity() {
-		return topicEntity;
+	public TopicDTO getTopicDTO() {
+		return topicDTO;
 	}
-	public void setTopicEntity(TopicEntity topicEntity) {
-		this.topicEntity = topicEntity;
+	public void setTopicDTO(TopicDTO topicDTO) {
+		this.topicDTO = topicDTO;
 	}
-	public List<ItemEntity> getItemEntityList() {
-		return itemEntityList;
+	public Set<ItemDTO> getItemDTOs() {
+		return itemDTOs;
 	}
-	public void setItemEntityList(List<ItemEntity> itemEntityList) {
-		this.itemEntityList = itemEntityList;
+	public void setItemDTOs(Set<ItemDTO> itemDTOs) {
+		this.itemDTOs = itemDTOs;
 	}
-	
 	
 }

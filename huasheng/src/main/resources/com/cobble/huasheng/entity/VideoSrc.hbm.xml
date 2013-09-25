@@ -9,7 +9,7 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="name" column="NAME" not-null="true"></property>
-		<set name="videoEntityList" inverse="true">
+		<set name="videoEntities" inverse="true">
 			<key column="VIDEO_SRC_ID" />
 			<one-to-many class="VideoEntity"/>
 		</set>

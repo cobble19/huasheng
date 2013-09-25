@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 	private final static Logger logger = Logger.getLogger(UserServiceImpl.class);
 	private UserDAO userDAO;
 
-	public void add(UserDTO userDTO) throws Exception {
+	public void create(UserDTO userDTO) throws Exception {
 		UserEntity userEntity = new UserEntity();
 		try {
 			BeanUtil.copyProperties(userEntity, userDTO);

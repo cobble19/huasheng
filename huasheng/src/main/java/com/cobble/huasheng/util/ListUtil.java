@@ -15,4 +15,11 @@ public class ListUtil extends ListUtils {
 	public static boolean isNotEmpty(Collection collection) {
 		return !isEmpty(collection);
 	}
+	
+	public static boolean isNull(Collection collection) {
+		return collection == null ? true : false;
+	}
+	public static boolean isNotNull(Collection collection) {
+		return !isNull(collection);
+	}
 }
