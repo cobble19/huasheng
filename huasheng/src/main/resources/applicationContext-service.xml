@@ -15,8 +15,26 @@
 	
 	<bean id="userService" class="com.cobble.huasheng.service.impl.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
-	</bean>	
+	</bean>
 	<bean id="topicService" class="com.cobble.huasheng.service.impl.TopicServiceImpl">
 		<property name="topicDAO" ref="topicDAO"></property>
-	</bean>	  
+	</bean>
+	<bean id="categoryService" class="com.cobble.huasheng.service.impl.CategoryServiceImpl">
+		<property name="categoryDAO" ref="categoryDAO"></property>
+	</bean>
+	<bean id="itemService" class="com.cobble.huasheng.service.impl.ItemServiceImpl">
+		<property name="itemDAO" ref="itemDAO"></property>
+	</bean>
+	<bean id="itemBaseInfoService" class="com.cobble.huasheng.service.impl.ItemBaseInfoServiceImpl">
+		<property name="itemBaseInfoDAO" ref="itemBaseInfoDAO"></property>
+	</bean>
+	<bean id="itemTypeService" class="com.cobble.huasheng.service.impl.ItemTypeServiceImpl">
+		<property name="itemTypeDAO" ref="itemTypeDAO"></property>
+	</bean>
+	<bean id="videoService" class="com.cobble.huasheng.service.impl.VideoServiceImpl">
+		<property name="videoDAO" ref="videoDAO"></property>
+	</bean>
+	<bean id="videoSrcService" class="com.cobble.huasheng.service.impl.VideoSrcServiceImpl">
+		<property name="videoSrcDAO" ref="videoSrcDAO"></property>
+	</bean>
 </beans>

@@ -17,8 +17,26 @@
 	</bean>	
 	<bean id="userAction" class="com.cobble.huasheng.action.UserAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
-	</bean>	 
+	</bean>
 	<bean id="topicAction" class="com.cobble.huasheng.action.TopicAction" scope="prototype">
 		<property name="topicService" ref="topicService"></property>
-	</bean>	 
+	</bean>
+	<bean id="categoryAction" class="com.cobble.huasheng.action.CategoryAction" scope="prototype">
+		<property name="categoryService" ref="categoryService"></property>
+	</bean>
+	<bean id="itemAction" class="com.cobble.huasheng.action.ItemAction" scope="prototype">
+		<property name="itemService" ref="itemService"></property>
+	</bean>
+	<bean id="itemBaseInfoAction" class="com.cobble.huasheng.action.ItemBaseInfoAction" scope="prototype">
+		<property name="itemBaseInfoService" ref="itemBaseInfoService"></property>
+	</bean>
+	<bean id="itemTypeAction" class="com.cobble.huasheng.action.ItemTypeAction" scope="prototype">
+		<property name="itemTypeService" ref="itemTypeService"></property>
+	</bean>
+	<bean id="videoAction" class="com.cobble.huasheng.action.VideoAction" scope="prototype">
+		<property name="videoService" ref="videoService"></property>
+	</bean>
+	<bean id="videoSrcAction" class="com.cobble.huasheng.action.VideoSrcAction" scope="prototype">
+		<property name="videoSrcService" ref="videoSrcService"></property>
+	</bean>
 </beans>

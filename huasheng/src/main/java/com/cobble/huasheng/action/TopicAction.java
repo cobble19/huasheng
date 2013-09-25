@@ -19,6 +19,7 @@ public class TopicAction extends BaseAction {
 	
 	@Override
 	public String execute() throws Exception {
+		logger.debug("execute() start...");
 		topicDTOList = topicService.finds(topicDTOSearch);
 		return this.SUCCESS;
 	}

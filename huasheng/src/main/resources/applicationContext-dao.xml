@@ -19,4 +19,22 @@
 	<bean id="topicDAO" class="com.cobble.huasheng.dao.impl.TopicDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="categoryDAO" class="com.cobble.huasheng.dao.impl.CategoryDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="itemDAO" class="com.cobble.huasheng.dao.impl.ItemDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="itemBaseInfoDAO" class="com.cobble.huasheng.dao.impl.ItemBaseInfoDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="itemTypeDAO" class="com.cobble.huasheng.dao.impl.ItemTypeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="videoDAO" class="com.cobble.huasheng.dao.impl.VideoDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="videoSrcDAO" class="com.cobble.huasheng.dao.impl.VideoSrcDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 </beans>
