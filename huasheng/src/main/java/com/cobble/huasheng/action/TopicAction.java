@@ -16,6 +16,8 @@ public class TopicAction extends BaseAction {
 	private TopicDTOSearch topicDTOSearch = new TopicDTOSearch();
 	private TopicDTO topicDTO = new TopicDTO();
 	private List<TopicDTO> topicDTOList = new ArrayList<TopicDTO>(0);
+	// topicId
+	private Long topicId = -10000L;
 	
 	@Override
 	public String execute() throws Exception {
@@ -23,7 +25,11 @@ public class TopicAction extends BaseAction {
 		topicDTOList = topicService.finds(topicDTOSearch);
 		return this.SUCCESS;
 	}
-
+	
+	public String getTopicById() throws Exception {
+		topicDTO = topicService.findById(topicId);
+		return this.SUCCESS;
+	}
 	public TopicDTOSearch getTopicDTOSearch() {
 		return topicDTOSearch;
 	}
@@ -50,6 +56,14 @@ public class TopicAction extends BaseAction {
 
 	public void setTopicService(TopicService topicService) {
 		this.topicService = topicService;
+	}
+
+	public Long getTopicId() {
+		return topicId;
+	}
+
+	public void setTopicId(Long topicId) {
+		this.topicId = topicId;
 	}
 
 }

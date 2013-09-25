@@ -5,6 +5,7 @@ import java.util.Set;
 public class ItemDTO extends BaseDTO {
 	private Long itemId;
 	private String name;
+	private Long hits;
 	private Set<CategoryDTO> categoryDTOs;
 	private ItemBaseInfoDTO itemBaseInfoDTO;
 	private Set<VideoDTO> videoDTOs;
@@ -37,6 +38,12 @@ public class ItemDTO extends BaseDTO {
 	}
 	public void setVideoDTOs(Set<VideoDTO> videoDTOs) {
 		this.videoDTOs = videoDTOs;
+	}
+	public Long getHits() {
+		return hits;
+	}
+	public void setHits(Long hits) {
+		this.hits = hits;
 	}
 	
 }

@@ -5,6 +5,7 @@ import java.util.Set;
 public class ItemEntity extends BaseEntity {
 	private Long itemId;
 	private String name;
+	private Long hits;
 	private Set<CategoryEntity> categoryEntities;
 	private ItemBaseInfoEntity itemBaseInfoEntity;
 	private Set<VideoEntity> videoEntities;
@@ -37,6 +38,12 @@ public class ItemEntity extends BaseEntity {
 	}
 	public void setVideoEntities(Set<VideoEntity> videoEntities) {
 		this.videoEntities = videoEntities;
+	}
+	public Long getHits() {
+		return hits;
+	}
+	public void setHits(Long hits) {
+		this.hits = hits;
 	}
 	
 }

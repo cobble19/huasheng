@@ -1,11 +1,19 @@
 package com.cobble.huasheng.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.cobble.huasheng.dao.TopicDAO;
+import com.cobble.huasheng.dto.CategoryDTO;
+import com.cobble.huasheng.dto.ItemBaseInfoDTO;
+import com.cobble.huasheng.dto.ItemDTO;
 import com.cobble.huasheng.dto.TopicDTO;
 import com.cobble.huasheng.dto.TopicDTOSearch;
+import com.cobble.huasheng.entity.CategoryEntity;
+import com.cobble.huasheng.entity.ItemBaseInfoEntity;
+import com.cobble.huasheng.entity.ItemEntity;
 import com.cobble.huasheng.entity.TopicEntity;
 import com.cobble.huasheng.entity.TopicEntitySearch;
 import com.cobble.huasheng.factory.ConvertFactory;
@@ -60,6 +68,38 @@ public class TopicServiceImpl implements TopicService {
 		try {
 			TopicEntity topicEntity = topicDAO.findById(id);
 			ret = ConvertFactory.getTopicConvert().toDTO(topicEntity);
+			if (topicEntity == null) {
+				return ret;
+			}
+			Set<CategoryEntity> categoryEntities = topicEntity.getCategoryEntities();
+			if (topicEntity != null && ListUtil.isNotEmpty(categoryEntities)) {
+				Set<CategoryDTO> categoryDTOs = new HashSet<CategoryDTO>();
+				for (CategoryEntity categoryEntity : categoryEntities) {
+					if (categoryEntity == null) {
+						continue;
+					}
+					CategoryDTO categoryDTO = ConvertFactory.getCategoryConvert().toDTO(categoryEntity);
+					categoryDTOs.add(categoryDTO);
+					Set<ItemEntity> itemEntities = categoryEntity.getItemEntities();
+					if (ListUtil.isNotEmpty(itemEntities)) {
+						Set<ItemDTO> itemDTOs = new HashSet<ItemDTO>();
+						for (ItemEntity itemEntity : itemEntities) {
+							if (itemEntity == null) {
+								continue;
+							}
+							ItemDTO itemDTO = ConvertFactory.getItemConvert().toDTO(itemEntity);
+							itemDTOs.add(itemDTO);
+							ItemBaseInfoEntity itemBaseInfoEntity = itemEntity.getItemBaseInfoEntity();
+							if (itemBaseInfoEntity != null) {
+								ItemBaseInfoDTO itemBaseInfoDTO = ConvertFactory.getItemBaseInfoConvert().toDTO(itemBaseInfoEntity);
+								itemDTO.setItemBaseInfoDTO(itemBaseInfoDTO);
+							}
+						}
+						categoryDTO.setItemDTOs(itemDTOs);
+					}
+				}
+				ret.setCategoryDTOs(categoryDTOs);
+			}
 		} catch (Exception e) {
 			throw e;
 		}

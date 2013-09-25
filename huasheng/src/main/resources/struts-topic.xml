@@ -5,13 +5,21 @@
  
 <struts>
  	
- 	<package name="topic" namespace="/topicJson" extends="json-default">
+ 	<package name="topicJson" namespace="/topicJson" extends="json-default">
  		<action name="topic" class="topicAction">
  			<result name="success" type="json">
  				<param name="ignoreHierarchy">false</param>
 				<param name="includeProperties">
 				*, *\.*
 				</param>
+ 			</result>
+ 		</action>
+    </package>
+    
+    <package name="topic" namespace="/topic" extends="default">
+ 		<action name="topic" class="topicAction">
+ 			<result name="success">
+ 				/index.jsp
  			</result>
  		</action>
     </package>

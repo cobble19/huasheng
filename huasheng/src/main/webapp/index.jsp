@@ -38,16 +38,11 @@
 		<div class="row">
 			<div class="col-lg-3" role="navigation">
 				<div class="list-group">
-		            <a href="#" class="list-group-item active">Link</a>
+		            <a href="<%=request.getContextPath() %>/topic/topic!getTopicById?topicId=${topicDTO.topicId }" class="list-group-item active"><c:out value="${topicDTO.name}"></c:out> </a>
 		            <a href="#" class="list-group-item">Link</a>
-		            <a href="#" class="list-group-item">Link</a>
-		            <a href="#" class="list-group-item">Link</a>
-		            <a href="#" class="list-group-item">Link</a>
-		            <a href="#" class="list-group-item">Link</a>
-		            <a href="#" class="list-group-item">Link</a>
-		            <a href="#" class="list-group-item">Link</a>
-		            <a href="#" class="list-group-item">Link</a>
-		            <a href="#" class="list-group-item">Link</a>
+		            <c:forEach items="${topicDTO.categoryDTOs }" var="category">
+		            	<a href="<%=request.getContextPath() %>/category/category!getCategoryById?categoryId=${category.categoryId }" class="list-group-item">${category.name }</a>
+		            </c:forEach>
 		          </div>
 			</div>
 			<div class="col-lg-9">
@@ -83,9 +78,6 @@
 						  <div class="panel-body">
 						    
 						  </div>
-						  <!-- Table -->
-						  <!-- <table class="table">
-						  </table> -->
 							<div class="panel-footer">
 								<h3 class="panel-title">Panel title
 						  			<p class="pull-right"><a href="" class="navbar-link">更多</a></p>
@@ -93,21 +85,44 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4">
-						<div class="panel panel-default">
-						  <!-- Default panel contents -->
-						  <div class="panel-heading">
-						  	<h3 class="panel-title">Panel title</h3>
-						  </div>
-						  <div class="panel-body">
-						    <p>...</p>
-						  </div>
-						  <!-- Table -->
-						  <table class="table">
-						  </table>
-							<div class="panel-footer">Panel footer</div>
+					<c:forEach items="${topicDTO.categoryDTOs }" var="category">
+		            	<div class="col-lg-4">
+							<div class="panel panel-default">
+							  <!-- Default panel contents -->
+							  <div class="panel-heading">
+							  	<h3 class="panel-title">${category.name }
+							  		<p class="pull-right">
+										<a href="<%=request.getContextPath() %>/category/category!getCategoryById?categoryId=${category.categoryId }" class="navbar-link">更多</a>
+									</p>
+							  	</h3>
+							  </div>
+							  <div class="row c-panel-title">
+							    	<div class="col-sm-3">排名</div>
+							    	<div class="col-sm-5">名称</div>
+							    	<div class="col-sm-4">点击数</div>
+							    </div>
+							    <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
+							    	<div class="row c-panel-content">
+								    	<div class="col-sm-3">${st.index + 1 }</div>
+								    	<div class="col-sm-5">${item.name }</div>
+								    	<div class="col-sm-4"><span class="badge">${item.hits }</span></div>
+								    </div>
+							    </c:forEach>
+							    
+							  <div class="panel-body">
+							    
+							  </div>
+								<div class="panel-footer">
+									<h3 class="panel-title">From DB
+							  			<p class="pull-right">
+											<a href="<%=request.getContextPath() %>/category/category!getCategoryById?categoryId=${category.categoryId }" class="navbar-link">更多</a>
+										</p>
+							  		</h3>
+								</div>
+							</div>
 						</div>
-					</div>
+		            </c:forEach>
+					
 					<div class="col-lg-4">
 						<div class="panel panel-default">
 						  <!-- Default panel contents -->
