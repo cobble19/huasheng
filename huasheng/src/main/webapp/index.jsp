@@ -26,30 +26,64 @@
 	<div class="container">
 		<nav id="header" class="navbar navbar-default" role="navigation">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="">花生网</a>
+				<a class="navbar-brand" href="<%=request.getContextPath() %>">花生网</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">首页</a></li>
+				<c:forEach items="${topicDTOList}" var="topic" varStatus="st">
+					<c:choose>
+						<c:when test="${(st.index == 0 and empty param.topicId) or (param.topicId == topic.topicId)}">
+							<li class="active"><a href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topic.topicId }">${topic.name}</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topic.topicId }">${topic.name }</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<!-- <li class="active"><a href="#">首页</a></li>
 				<li><a href="#">电视剧</a></li>
-				<li><a href="#">动漫</a></li>
+				<li><a href="#">动漫</a></li> -->
 			</ul>
 		</nav>
 		<!-- 行 -->
 		<div class="row">
 			<div class="col-lg-3" role="navigation">
-				<div class="list-group">
-		            <a href="<%=request.getContextPath() %>/topic/topic!getTopicById?topicId=${topicDTO.topicId }" class="list-group-item active"><c:out value="${topicDTO.name}"></c:out> </a>
-		            <a href="#" class="list-group-item">Link</a>
+					<div class="list-group">
+						<c:choose>
+			            		<c:when test="${(empty param.categoryId)}">
+			            			<a class="list-group-item active" href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topicDTO.topicId }"><c:out value="${topicDTO.name}"></c:out> </a>
+			            		</c:when>
+			            		<c:otherwise>
+			            			<a class="list-group-item" href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topicDTO.topicId }"><c:out value="${topicDTO.name}"></c:out> </a>
+			            		</c:otherwise>
+			            	</c:choose>
+			            
+			            <!-- <a href="#" class="list-group-item">Link</a> -->
+			            <c:forEach items="${topicDTO.categoryDTOs }" var="category">
+			            	<c:choose>
+			            		<c:when test="${category.categoryId == param.categoryId}">
+			            			<a class="list-group-item active" href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${category.name }</a>
+			            		</c:when>
+			            		<c:otherwise>
+			            			<a class="list-group-item" href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${category.name }</a>
+			            		</c:otherwise>
+			            	</c:choose>
+			            </c:forEach>
+			        </div>
+				</div>
+			<div class="col-lg-3" role="navigation">
+				<%-- <div class="list-group">
+		            <a href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topicDTO.topicId }" class="list-group-item active"><c:out value="${topicDTO.name}"></c:out> </a>
+		            <!-- <a href="#" class="list-group-item">Link</a> -->
 		            <c:forEach items="${topicDTO.categoryDTOs }" var="category">
-		            	<a href="<%=request.getContextPath() %>/category/category!getCategoryById?categoryId=${category.categoryId }" class="list-group-item">${category.name }</a>
+		            	<a href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }" class="list-group-item">${category.name }</a>
 		            </c:forEach>
-		          </div>
+		        </div> --%>
 			</div>
 			<div class="col-lg-9">
 				<div class="row">
-					<div class="col-lg-4">
+					<!-- <div class="col-lg-4">
 						<div class="panel panel-default">
-						  <!-- Default panel contents -->
+						  Default panel contents
 						  <div class="panel-heading">
 						  	<h3 class="panel-title">Panel title
 						  		<p class="pull-right"><a href="" class="navbar-link">更多</a></p>
@@ -84,7 +118,7 @@
 						  		</h3>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<c:forEach items="${topicDTO.categoryDTOs }" var="category">
 		            	<div class="col-lg-4">
 							<div class="panel panel-default">
@@ -92,7 +126,7 @@
 							  <div class="panel-heading">
 							  	<h3 class="panel-title">${category.name }
 							  		<p class="pull-right">
-										<a href="<%=request.getContextPath() %>/category/category!getCategoryById?categoryId=${category.categoryId }" class="navbar-link">更多</a>
+										<a href="<%=request.getContextPath() %>/category!getCategoryById?categoryId=${category.categoryId }&topicId=${topicDTO.topicId }" class="navbar-link">更多</a>
 									</p>
 							  	</h3>
 							  </div>
@@ -104,7 +138,7 @@
 							    <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
 							    	<div class="row c-panel-content">
 								    	<div class="col-sm-3">${st.index + 1 }</div>
-								    	<div class="col-sm-5">${item.name }</div>
+								    	<div class="col-sm-5"><a href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${item.name }</a></div>
 								    	<div class="col-sm-4"><span class="badge">${item.hits }</span></div>
 								    </div>
 							    </c:forEach>
@@ -115,7 +149,7 @@
 								<div class="panel-footer">
 									<h3 class="panel-title">From DB
 							  			<p class="pull-right">
-											<a href="<%=request.getContextPath() %>/category/category!getCategoryById?categoryId=${category.categoryId }" class="navbar-link">更多</a>
+											<a href="<%=request.getContextPath() %>/category!getCategoryById?categoryId=${category.categoryId }&topicId=${topicDTO.topicId }" class="navbar-link">更多</a>
 										</p>
 							  		</h3>
 								</div>
@@ -123,31 +157,31 @@
 						</div>
 		            </c:forEach>
 					
-					<div class="col-lg-4">
+					<!-- <div class="col-lg-4">
 						<div class="panel panel-default">
-						  <!-- Default panel contents -->
+						  Default panel contents
 						  <div class="panel-heading">
 						  	<h3 class="panel-title">Panel title</h3>
 						  </div>
 						  <div class="panel-body">
 						    <p>...</p>
 						  </div>
-						  <!-- Table -->
+						  Table
 						  <table class="table">
 						  </table>
 							<div class="panel-footer">Panel footer</div>
 						</div>
-					</div>
-					<div class="col-lg-4">
+					</div> -->
+					<!-- <div class="col-lg-4">
 						<div class="panel panel-default">
-						  <!-- Default panel contents -->
+						  Default panel contents
 						  <div class="panel-heading">
 						  	<h3 class="panel-title">Panel title</h3>
 						  </div>
 						  <div class="panel-body">
 						    <p>...</p>
 						  </div>
-						  <!-- Table -->
+						  Table
 						  <table class="table">
 						  	<tr>
 						  		<td>td</td>
@@ -155,7 +189,7 @@
 						  </table>
 							<div class="panel-footer">Panel footer</div>
 						</div>
-					</div>
+					</div> -->
 				
 				</div>
 			</div>

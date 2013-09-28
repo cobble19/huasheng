@@ -11,20 +11,22 @@ import com.cobble.huasheng.service.TopicService;
 import com.cobble.huasheng.util.ListUtil;
 
 
-public class TopicAction extends BaseAction {
-	private final static Logger logger = Logger.getLogger(TopicAction.class);
+public class IndexAction extends BaseAction {
+	private final static Logger logger = Logger.getLogger(IndexAction.class);
 	private TopicService topicService;
 	private TopicDTOSearch topicDTOSearch = new TopicDTOSearch();
 	private TopicDTO topicDTO = new TopicDTO();
 	private List<TopicDTO> topicDTOList = new ArrayList<TopicDTO>(0);
 	// topicId
-	private Long topicId = -10000L;
+	private Long topicId;
 	
 	@Override
 	public String execute() throws Exception {
 		logger.debug("execute() start...");
 		topicDTOList = topicService.finds(topicDTOSearch);
-		topicId = ListUtil.isNotEmpty(topicDTOList) ? topicDTOList.get(0).getTopicId() : (-10000L);
+		if (topicId == null && ListUtil.isNotEmpty(topicDTOList)) {
+			topicId = topicDTOList.get(0).getTopicId();
+		}
 		topicDTO = topicService.findById(topicId);
 		return this.SUCCESS;
 	}

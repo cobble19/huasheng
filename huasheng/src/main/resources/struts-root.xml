@@ -5,7 +5,7 @@
  
 <struts>
  	
- 	<package name="topicJson" namespace="/topicJson" extends="json-default">
+ 	<package name="rootjson" namespace="/json" extends="json-default">
  		<action name="topic" class="topicAction">
  			<result name="success" type="json">
  				<param name="ignoreHierarchy">false</param>
@@ -16,10 +16,25 @@
  		</action>
     </package>
     
-    <package name="topic" namespace="/topic" extends="default">
+    <package name="root" namespace="/" extends="default">
  		<action name="topic" class="topicAction">
  			<result name="success">
  				/index.jsp
+ 			</result>
+ 		</action>
+ 		<action name="item" class="itemAction">
+ 			<result name="success">
+ 				/jsp/item.jsp
+ 			</result>
+ 		</action>
+ 		<action name="category" class="categoryAction">
+ 			<result name="success">
+ 				/jsp/items.jsp
+ 			</result>
+ 		</action>
+ 		<action name="videoplay" class="videoplayAction">
+ 			<result name="success">
+ 				/jsp/videoplay.jsp
  			</result>
  		</action>
     </package>

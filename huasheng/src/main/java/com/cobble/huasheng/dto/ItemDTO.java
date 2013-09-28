@@ -9,6 +9,8 @@ public class ItemDTO extends BaseDTO {
 	private Set<CategoryDTO> categoryDTOs;
 	private ItemBaseInfoDTO itemBaseInfoDTO;
 	private Set<VideoDTO> videoDTOs;
+	// addition added
+	private Set<VideoSrcDTO> videoSrcDTOs;
 	public Long getItemId() {
 		return itemId;
 	}
@@ -44,6 +46,12 @@ public class ItemDTO extends BaseDTO {
 	}
 	public void setHits(Long hits) {
 		this.hits = hits;
+	}
+	public Set<VideoSrcDTO> getVideoSrcDTOs() {
+		return videoSrcDTOs;
+	}
+	public void setVideoSrcDTOs(Set<VideoSrcDTO> videoSrcDTOs) {
+		this.videoSrcDTOs = videoSrcDTOs;
 	}
 	
 }

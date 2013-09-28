@@ -18,7 +18,7 @@
          <level value="DEBUG" />
     </logger>
    
-   <!-- for all other loggers log only info and above log messages -->
+   <!-- for all other loggers log only DEBUG and above log messages -->
      <root>
         <priority value="DEBUG"/> 
         <appender-ref ref="STDOUT" /> 

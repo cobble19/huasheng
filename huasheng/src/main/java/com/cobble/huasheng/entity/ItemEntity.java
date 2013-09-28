@@ -6,9 +6,10 @@ public class ItemEntity extends BaseEntity {
 	private Long itemId;
 	private String name;
 	private Long hits;
-	private Set<CategoryEntity> categoryEntities;
 	private ItemBaseInfoEntity itemBaseInfoEntity;
-	private Set<VideoEntity> videoEntities;
+	private Set<CategoryEntity> categoryEntities;
+	private Set<VideoSrcEntity> videoSrcEntities;
+	/*private Set<VideoEntity> videoEntities;*/
 	public Long getItemId() {
 		return itemId;
 	}
@@ -33,17 +34,17 @@ public class ItemEntity extends BaseEntity {
 	public void setItemBaseInfoEntity(ItemBaseInfoEntity itemBaseInfoEntity) {
 		this.itemBaseInfoEntity = itemBaseInfoEntity;
 	}
-	public Set<VideoEntity> getVideoEntities() {
-		return videoEntities;
-	}
-	public void setVideoEntities(Set<VideoEntity> videoEntities) {
-		this.videoEntities = videoEntities;
-	}
 	public Long getHits() {
 		return hits;
 	}
 	public void setHits(Long hits) {
 		this.hits = hits;
+	}
+	public Set<VideoSrcEntity> getVideoSrcEntities() {
+		return videoSrcEntities;
+	}
+	public void setVideoSrcEntities(Set<VideoSrcEntity> videoSrcEntities) {
+		this.videoSrcEntities = videoSrcEntities;
 	}
 	
 }

@@ -1,11 +1,11 @@
 package com.cobble.huasheng.entity;
 
-import java.util.List;
+import java.util.Set;
 
 public class VideoSrcEntity extends BaseEntity {
 	private Long videoSrcId;
 	private String name;
-	private List<VideoEntity> videoEntities;
+	private Set<VideoEntity> videoEntities;
 	public Long getVideoSrcId() {
 		return videoSrcId;
 	}
@@ -18,10 +18,10 @@ public class VideoSrcEntity extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<VideoEntity> getVideoEntities() {
+	public Set<VideoEntity> getVideoEntities() {
 		return videoEntities;
 	}
-	public void setVideoEntities(List<VideoEntity> videoEntities) {
+	public void setVideoEntities(Set<VideoEntity> videoEntities) {
 		this.videoEntities = videoEntities;
 	}
 }

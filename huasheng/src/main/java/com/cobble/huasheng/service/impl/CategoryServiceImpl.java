@@ -1,13 +1,17 @@
 package com.cobble.huasheng.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.cobble.huasheng.dao.CategoryDAO;
 import com.cobble.huasheng.dto.CategoryDTO;
 import com.cobble.huasheng.dto.CategoryDTOSearch;
+import com.cobble.huasheng.dto.ItemDTO;
 import com.cobble.huasheng.entity.CategoryEntity;
 import com.cobble.huasheng.entity.CategoryEntitySearch;
+import com.cobble.huasheng.entity.ItemEntity;
 import com.cobble.huasheng.factory.ConvertFactory;
 import com.cobble.huasheng.service.CategoryService;
 import com.cobble.huasheng.util.BeanUtil;
@@ -60,6 +64,17 @@ public class CategoryServiceImpl implements CategoryService {
 		try {
 			CategoryEntity categoryEntity = categoryDAO.findById(id);
 			ret = ConvertFactory.getCategoryConvert().toDTO(categoryEntity);
+			if (categoryEntity != null) {
+				Set<ItemEntity> itemEntities = categoryEntity.getItemEntities();
+				if (ListUtil.isNotEmpty(itemEntities)) {
+					Set<ItemDTO> itemDTOs = new HashSet<ItemDTO>();
+					for (ItemEntity itemEntity : itemEntities) {
+						ItemDTO itemDTO = ConvertFactory.getItemConvert().toDTO(itemEntity);
+						itemDTOs.add(itemDTO);
+					}
+					ret.setItemDTOs(itemDTOs);
+				}
+			}
 		} catch (Exception e) {
 			throw e;
 		}

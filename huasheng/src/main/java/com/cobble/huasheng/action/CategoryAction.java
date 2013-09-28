@@ -7,7 +7,11 @@ import org.apache.log4j.Logger;
 
 import com.cobble.huasheng.dto.CategoryDTO;
 import com.cobble.huasheng.dto.CategoryDTOSearch;
+import com.cobble.huasheng.dto.TopicDTO;
+import com.cobble.huasheng.dto.TopicDTOSearch;
 import com.cobble.huasheng.service.CategoryService;
+import com.cobble.huasheng.service.TopicService;
+import com.cobble.huasheng.util.ListUtil;
 
 
 public class CategoryAction extends BaseAction {
@@ -16,6 +20,14 @@ public class CategoryAction extends BaseAction {
 	private CategoryDTOSearch categoryDTOSearch = new CategoryDTOSearch();
 	private CategoryDTO categoryDTO = new CategoryDTO();
 	private List<CategoryDTO> categoryDTOList = new ArrayList<CategoryDTO>(0);
+	// 
+	private Long categoryId;
+	// 
+	private Long topicId;
+	private TopicService topicService;
+	private TopicDTOSearch topicDTOSearch = new TopicDTOSearch();
+	private TopicDTO topicDTO = new TopicDTO();
+	private List<TopicDTO> topicDTOList = new ArrayList<TopicDTO>(0);
 	
 	@Override
 	public String execute() throws Exception {
@@ -24,6 +36,16 @@ public class CategoryAction extends BaseAction {
 		return this.SUCCESS;
 	}
 
+	public String getCategoryById() throws Exception {
+		topicDTOList = topicService.finds(topicDTOSearch);
+		if (topicId == null && ListUtil.isNotEmpty(topicDTOList)) {
+			topicId = topicDTOList.get(0).getTopicId();
+		}
+		topicDTO = topicService.findById(topicId);
+		// 
+		categoryDTO = categoryService.findById(categoryId);
+		return this.SUCCESS;
+	}
 	public CategoryDTOSearch getCategoryDTOSearch() {
 		return categoryDTOSearch;
 	}
@@ -50,6 +72,50 @@ public class CategoryAction extends BaseAction {
 
 	public void setCategoryService(CategoryService categoryService) {
 		this.categoryService = categoryService;
+	}
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public Long getTopicId() {
+		return topicId;
+	}
+
+	public void setTopicId(Long topicId) {
+		this.topicId = topicId;
+	}
+
+	public TopicDTOSearch getTopicDTOSearch() {
+		return topicDTOSearch;
+	}
+
+	public void setTopicDTOSearch(TopicDTOSearch topicDTOSearch) {
+		this.topicDTOSearch = topicDTOSearch;
+	}
+
+	public TopicDTO getTopicDTO() {
+		return topicDTO;
+	}
+
+	public void setTopicDTO(TopicDTO topicDTO) {
+		this.topicDTO = topicDTO;
+	}
+
+	public List<TopicDTO> getTopicDTOList() {
+		return topicDTOList;
+	}
+
+	public void setTopicDTOList(List<TopicDTO> topicDTOList) {
+		this.topicDTOList = topicDTOList;
+	}
+
+	public void setTopicService(TopicService topicService) {
+		this.topicService = topicService;
 	}
 
 }
