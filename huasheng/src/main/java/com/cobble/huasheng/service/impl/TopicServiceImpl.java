@@ -38,8 +38,11 @@ public class TopicServiceImpl implements TopicService {
 	public void update(TopicDTO tDTO) throws Exception {
 		try {
 			TopicEntity topicEntity = topicDAO.findById(tDTO.getTopicId());
-			topicEntity = ConvertFactory.getTopicConvert().toEntity(tDTO);
-			topicDAO.update(topicEntity);
+			//topicEntity = ConvertFactory.getTopicConvert().toEntity(tDTO);
+			if (topicEntity != null) {
+				BeanUtil.copyProperties(topicEntity, tDTO);
+				topicDAO.update(topicEntity);
+			}
 		} catch (Exception e) {
 			throw e;
 		}
@@ -64,6 +67,9 @@ public class TopicServiceImpl implements TopicService {
 	}
 
 	public TopicDTO findById(Long id) throws Exception {
+		if (id == null) {
+			return null;
+		}
 		TopicDTO ret = new TopicDTO();
 		try {
 			TopicEntity topicEntity = topicDAO.findById(id);
@@ -120,6 +126,14 @@ public class TopicServiceImpl implements TopicService {
 
 	public void setTopicDAO(TopicDAO topicDAO) {
 		this.topicDAO = topicDAO;
+	}
+
+	public void delete(TopicDTO tDTO) throws Exception {
+		if (tDTO == null || tDTO.getTopicId() == null) {
+			return;
+		}
+		TopicEntity topicEntity = topicDAO.findById(tDTO.getTopicId());
+		topicDAO.delete(topicEntity);
 	}
 
 }

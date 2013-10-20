@@ -166,4 +166,9 @@ public class ItemServiceImpl implements ItemService {
 		this.videoDAO = videoDAO;
 	}
 
+	public void delete(ItemDTO tDTO) throws Exception {
+		ItemEntity itemEntity = itemDAO.findById(tDTO.getItemId());
+		itemDAO.delete(itemEntity);
+	}
+
 }

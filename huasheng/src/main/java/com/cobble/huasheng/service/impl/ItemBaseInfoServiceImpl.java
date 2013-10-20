@@ -82,4 +82,9 @@ public class ItemBaseInfoServiceImpl implements ItemBaseInfoService {
 		this.itemBaseInfoDAO = itemBaseInfoDAO;
 	}
 
+	public void delete(ItemBaseInfoDTO tDTO) throws Exception {
+		ItemBaseInfoEntity itemBaseInfoEntity = itemBaseInfoDAO.findById(tDTO.getItemBaseInfoId());
+		itemBaseInfoDAO.delete(itemBaseInfoEntity);
+	}
+
 }

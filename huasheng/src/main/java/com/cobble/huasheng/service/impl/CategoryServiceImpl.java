@@ -97,4 +97,9 @@ public class CategoryServiceImpl implements CategoryService {
 		this.categoryDAO = categoryDAO;
 	}
 
+	public void delete(CategoryDTO tDTO) throws Exception {
+		CategoryEntity categoryEntity = categoryDAO.findById(tDTO.getCategoryId());
+		categoryDAO.delete(categoryEntity);
+	}
+
 }

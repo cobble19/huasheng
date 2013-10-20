@@ -4,7 +4,6 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
  
 <struts>
- 
     <include file="struts-default.xml"></include>
     <include file="struts-index.xml"></include>
     <include file="struts-login.xml"></include>

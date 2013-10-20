@@ -8,4 +8,5 @@ public interface CommonDAO<TEntity, STEntity> {
 	public List<TEntity> finds(STEntity stEntity) throws Exception;
 	public TEntity findById(Long id) throws Exception;
 	public long getCount(STEntity stEntity) throws Exception;
+	public void delete(TEntity tEntity) throws Exception;
 }

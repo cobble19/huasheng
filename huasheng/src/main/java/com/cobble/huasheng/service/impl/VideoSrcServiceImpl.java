@@ -82,4 +82,9 @@ public class VideoSrcServiceImpl implements VideoSrcService {
 		this.videoSrcDAO = videoSrcDAO;
 	}
 
+	public void delete(VideoSrcDTO tDTO) throws Exception {
+		VideoSrcEntity videoSrcEntity = videoSrcDAO.findById(tDTO.getVideoSrcId());
+		videoSrcDAO.delete(videoSrcEntity);
+	}
+
 }

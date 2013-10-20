@@ -82,4 +82,9 @@ public class VideoServiceImpl implements VideoService {
 		this.videoDAO = videoDAO;
 	}
 
+	public void delete(VideoDTO tDTO) throws Exception {
+		VideoEntity videoEntity = videoDAO.findById(tDTO.getVideoId());
+		videoDAO.delete(videoEntity);
+	}
+
 }

@@ -82,4 +82,9 @@ public class ItemTypeServiceImpl implements ItemTypeService {
 		this.itemTypeDAO = itemTypeDAO;
 	}
 
+	public void delete(ItemTypeDTO tDTO) throws Exception {
+		ItemTypeEntity itemTypeEntity = itemTypeDAO.findById(tDTO.getItemTypeId());
+		itemTypeDAO.delete(itemTypeEntity);
+	}
+
 }

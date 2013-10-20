@@ -68,4 +68,8 @@ public class UserDAOImpl extends CommonDAOImpl implements UserDAO {
 		return ret;
 	}
 
+	public void delete(UserEntity tEntity) throws Exception {
+		this.getCurrentSession().delete(tEntity);
+	}
+
 }

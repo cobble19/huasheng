@@ -92,5 +92,10 @@ public class UserServiceImpl implements UserService {
 		this.userDAO = userDAO;
 	}
 
+	public void delete(UserDTO tDTO) throws Exception {
+		UserEntity userEntity = userDAO.findById(tDTO.getUserId());
+		userDAO.delete(userEntity);
+	}
+
 
 }

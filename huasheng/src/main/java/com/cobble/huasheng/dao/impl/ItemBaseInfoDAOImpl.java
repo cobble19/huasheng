@@ -53,4 +53,8 @@ public class ItemBaseInfoDAOImpl extends CommonDAOImpl implements ItemBaseInfoDA
 		return ret;
 	}
 
+	public void delete(ItemBaseInfoEntity tEntity) throws Exception {
+		this.getCurrentSession().delete(tEntity);
+	}
+
 }

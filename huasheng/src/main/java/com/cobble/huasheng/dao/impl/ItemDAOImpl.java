@@ -51,5 +51,9 @@ public class ItemDAOImpl extends CommonDAOImpl implements ItemDAO {
 		return ret;
 	}
 
+	public void delete(ItemEntity tEntity) throws Exception {
+		this.getCurrentSession().delete(tEntity);
+	}
+
 
 }

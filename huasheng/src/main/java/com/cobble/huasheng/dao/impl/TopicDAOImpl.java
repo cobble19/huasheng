@@ -54,4 +54,11 @@ public class TopicDAOImpl extends CommonDAOImpl implements TopicDAO {
 		return ret;
 	}
 
+	public void delete(TopicEntity tEntity) throws Exception {
+		if (tEntity == null) {
+			return;
+		}
+		this.getCurrentSession().delete(tEntity);
+	}
+
 }

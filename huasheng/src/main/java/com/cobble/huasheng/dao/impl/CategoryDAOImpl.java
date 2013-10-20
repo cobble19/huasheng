@@ -51,4 +51,8 @@ public class CategoryDAOImpl extends CommonDAOImpl implements CategoryDAO {
 		return ret;
 	}
 
+	public void delete(CategoryEntity tEntity) throws Exception {
+		this.getCurrentSession().delete(tEntity);
+	}
+
 }

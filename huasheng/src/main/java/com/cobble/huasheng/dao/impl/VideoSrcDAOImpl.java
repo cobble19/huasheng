@@ -53,4 +53,8 @@ public class VideoSrcDAOImpl extends CommonDAOImpl implements VideoSrcDAO {
 		return ret;
 	}
 
+	public void delete(VideoSrcEntity tEntity) throws Exception {
+		this.getCurrentSession().delete(tEntity);
+	}
+
 }
