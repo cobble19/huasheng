@@ -25,5 +25,21 @@ Ext.define('MNG.store.TopicStore', {
             encode: true,
             root: 'updatedStr'
         }
+	},
+	listeners: {
+		update: function(store, record, operation, modifiedFieldNames, eOpts) {
+			console.log("record been updated." + 'operation:' + operation);
+			/*var tr = Ext.query('tr[data-recordindex=' + record.index + ']');
+			Ext.get(tr).addCls('red')*/
+            /*var el = Ext.get(tr).select('td');
+            el.addCls('red');  */
+		},
+		add: function( store, records, index, eOpts ) {
+			console.log('record been added. index=' + index);
+			/*var tr = Ext.query('tr[data-recordindex=' + index + ']');
+			Ext.get(tr).addCls('red')*/
+            /*el = Ext.get(tr).select('td');
+            el.addCls('red');   */                     
+		}
 	}
 })

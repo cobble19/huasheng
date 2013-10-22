@@ -3,6 +3,7 @@ package com.cobble.huasheng.dto;
 import java.util.Set;
 
 public class TopicDTO extends BaseDTO {
+	private static final long serialVersionUID = 1L;
 	private Long topicId;
 	private String name;
 	private Set<CategoryDTO> categoryDTOs;

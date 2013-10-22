@@ -13,19 +13,19 @@ Ext.define('MNG.controller.TopicController', {
 			'topicedit button[action=save]': {
 				click: this.updateTopic
 			},
-			'viewport > topiclist button[text=add]': {
+			'viewport > topiclist button[action=add]': {
 				click: this.openDialog4Add
 			},
 			'topicedit button[action=add]': {
 				click: this.addTopic
 			},
-			'viewport > topiclist button[text=update]': {
+			'viewport > topiclist button[action=update]': {
 				click: this.openDialog4Update
 			},
 			'topicedit button[action=save]': {
 				click: this.updateTopic
 			},
-			'viewport > topiclist button[text=delete]': {
+			'viewport > topiclist button[action=delete]': {
 				click: this.openDialog4Delete
 			}
 			/*'viewport > panel' : {
@@ -37,13 +37,19 @@ Ext.define('MNG.controller.TopicController', {
 		console.log('add dialog...');
 		/*var grid = button.up('topiclist'),
 			selModel = grid.getSelectionModel( ),
-			data = selModel.getSelection();
-		if (data == null || data.length == 0) {
+			records = selModel.getSelection();
+		if (records == null || records.length == 0) {
 			Ext.MessageBox.alert('Info', 'please select ONE row');
 		} else {
-			Ext.MessageBox.alert('Info', data);
+			Ext.MessageBox.alert('Info', records);
 		}*/
 		var view = Ext.widget('topicedit');
+		var btns = Ext.query('a[id=btnSave]');
+		Ext.Array.each(btns, function(btn) {
+			Ext.get(btn).hide();
+		})
+		var inputTopicId = Ext.query('input[name=topicId]');
+		Ext.get(inputTopicId).hide();
 	},
 	addTopic: function(button) {
 		var win = button.up('window'),
@@ -54,7 +60,13 @@ Ext.define('MNG.controller.TopicController', {
 			method: 'POST',
 			success: function(form, action) {
 				win.close();
-				Ext.MessageBox.alert(action.response.statusText);
+				var topicDTO = action.result.topicDTO;
+				var index = 0;
+				var records = Ext.getStore('TopicStore').insert(index, topicDTO);
+				// change color
+				var tr = Ext.query('tr[data-recordindex=' + index + ']');
+				Ext.get(tr).addCls('red')
+				//Ext.MessageBox.alert(action.response.statusText);
 			},
 			failure: function(form, action) {
 				Ext.MessageBox.alert(action.response.statusText);
@@ -67,15 +79,19 @@ Ext.define('MNG.controller.TopicController', {
 		console.log('update dialog...');
 		var grid = button.up('topiclist'),
 			selModel = grid.getSelectionModel( ),
-			data = selModel.getSelection();
-		if (data == null || data.length == 0) {
+			records = selModel.getSelection();
+		if (records == null || records.length == 0) {
 			Ext.MessageBox.alert('Info', 'please select ONE row');
 			return;
 		} else {
-			Ext.MessageBox.alert('Info', data[0].data.name);
+			//Ext.MessageBox.alert('Info', records[0].data.name);
+			var view = Ext.widget('topicedit');
+			var btns = Ext.query('a[id=btnAdd]');
+			Ext.Array.each(btns, function(btn) {
+				Ext.get(btn).hide();
+			})
+			view.down('form').loadRecord(records[0]);
 		}
-		var view = Ext.widget('topicedit');
-		view.down('form').loadRecord(data[0]);
 	},
 	updateTopic: function(button) {
 		var win = button.up('window'),
@@ -90,8 +106,12 @@ Ext.define('MNG.controller.TopicController', {
 				record.set(form.getValues());
 				record.commit();
 				win.close();
+				// change color
+				var tr = Ext.query('tr[data-recordindex=' + record.index + ']');
+				Ext.get(tr).addCls('red')
+				
 				//Ext.getStore('TopicStore').sync();
-				Ext.MessageBox.alert(action.response.statusText);
+				//Ext.MessageBox.alert(action.response.statusText);
 			},
 			failure: function(form, action) {
 				Ext.MessageBox.alert(action.response.statusText);
@@ -102,8 +122,8 @@ Ext.define('MNG.controller.TopicController', {
 		console.log('delete dialog...');
 		var grid = button.up('topiclist'),
 			selModel = grid.getSelectionModel( ),
-			data = selModel.getSelection();
-		if (data == null || data.length == 0) {
+			records = selModel.getSelection();
+		if (records == null || records.length == 0) {
 			Ext.MessageBox.alert('Info', 'please select ONE row');
 			return;
 		} else {
@@ -112,43 +132,44 @@ Ext.define('MNG.controller.TopicController', {
 				msg: '确认删除数据？',
 				buttons: Ext.Msg.OKCANCEL,
 				/*multiline: true,*/
-				fn : function(button) {
-					console.log('button');
+				fn : function(buttonId, text, opt) {
+					if (buttonId == 'ok') {
+						var ids = [];
+						/*for (var i = 0; i < records.length; i++) {
+							ids.push(records[i].data.topicId);
+						}*/
+						Ext.Array.each(records, function(record) {
+							ids.push(record.get('topicId'));
+						});
+						params = {
+							'ids': ids.join(',')
+						};
+						Ext.Ajax.request({
+							url: Ext.get('contextPath').dom.value + '/json/topic!delete',
+							method: 'POST',
+							params: params,
+							/*jsonData : params,*/
+							/*headers: {
+								'Content-Type': 'application/json; charset=UTF-8'
+							},*/
+							success: function(response, options) {
+								Ext.Array.each(records, function(record) {
+									Ext.getStore('TopicStore').remove(record);
+								}
+								);
+								Ext.getStore('TopicStore').sync();
+								Ext.MessageBox.alert(response.statusText);
+							},
+							failure: function(response, options) {
+								Ext.MessageBox.alert(response.statusText);
+							}
+						});
+						
+					}// end if
 				},
 				icon: Ext.MessageBox.WARNING
 			});
 		}
-		
-		var ids = [];
-		/*for (var i = 0; i < data.length; i++) {
-			ids.push(data[i].data.topicId);
-		}*/
-		Ext.Array.each(data, function(record) {
-			ids.push(record.get('topicId'));
-		});
-		params = {
-			'ids': ids.join(',')
-		};
-		Ext.Ajax.request({
-			url: Ext.get('contextPath').dom.value + '/json/topic!delete',
-			method: 'POST',
-			params: params,
-			/*jsonData : params,*/
-			/*headers: {
-				'Content-Type': 'application/json; charset=UTF-8'
-			},*/
-			success: function(response, options) {
-				Ext.Array.each(data, function(record) {
-					Ext.getStore('TopicStore').remove(record);
-				}
-				);
-				Ext.getStore('TopicStore').sync();
-				Ext.MessageBox.alert(response.statusText);
-			},
-			failure: function(response, options) {
-				Ext.MessageBox.alert(response.statusText);
-			}
-		});
 		
 	},
 	/*editTopic: function(grid, record) {

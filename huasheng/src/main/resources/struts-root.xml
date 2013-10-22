@@ -33,9 +33,11 @@
  		<action name="topic" class="topicAction">
  			<result name="success" type="json">
  				<param name="ignoreHierarchy">false</param>
-				<param name="includeProperties">
-				*, *\.*
-				</param>
+ 				<!-- <param name="noCache">true</param> -->
+ 				<param name="includeProperties">
+ 					topicDTO\.\w+, ^topicDTOList\[\d+\]\.\w+, success,
+ 					page, start, limit
+ 				</param>
  			</result>
  			
  		</action>

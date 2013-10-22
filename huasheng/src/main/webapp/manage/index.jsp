@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/extjs4/resources/css/ext-all.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/extjs4/ext-debug.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/manage/app.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/extjs-common.css">
 
 </head>
 <body>

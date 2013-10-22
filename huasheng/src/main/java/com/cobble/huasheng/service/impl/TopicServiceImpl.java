@@ -29,7 +29,7 @@ public class TopicServiceImpl implements TopicService {
 		try {
 			topicEntity = ConvertFactory.getTopicConvert().toEntity(tDTO);
 			topicDAO.create(topicEntity);
-			tDTO = ConvertFactory.getTopicConvert().toDTO(topicEntity);
+			BeanUtil.copyProperties(tDTO, topicEntity);
 		} catch (Exception e) {
 			throw e;
 		}

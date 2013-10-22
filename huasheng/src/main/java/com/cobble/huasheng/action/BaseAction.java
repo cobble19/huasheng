@@ -11,7 +11,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-@SuppressWarnings("serial")
 public class BaseAction extends ActionSupport implements ServletRequestAware, SessionAware, ServletResponseAware{
 	public HttpServletRequest request;
 	public HttpServletResponse response;

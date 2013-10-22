@@ -26,11 +26,13 @@ Ext.define('MNG.view.topic.Edit', {
 		this.buttons = [
 			{
 				text: 'Save',
-				action: 'save'
+				action: 'save',
+				id: 'btnSave'
 			},
 			{
 				text: 'Add',
-				action: 'add'
+				action: 'add',
+				id: 'btnAdd'
 			},
 			{
 				text: 'Cancel',

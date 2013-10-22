@@ -6,15 +6,18 @@ Ext.define('MNG.view.topic.List', {
 	tbar: [
 		{
 			xtype: 'button',
-			text: 'add'
+			text: 'add',
+			action: 'add'
 		},
 		{
 			xtype: 'button',
-			text: 'update'
+			text: 'update',
+			action: 'update'
 		},
 		{
 			xtype: 'button',
-			text: 'delete'
+			text: 'delete',
+			action: 'delete'
 		}
 	],
 	initComponent: function() {
