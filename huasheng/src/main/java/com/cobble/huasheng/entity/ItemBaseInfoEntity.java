@@ -4,14 +4,28 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 个体元素的基本信息。
+ * 认为过度设计， 先转到ItemEntity @2013/10/23
+ * @author publiclzhc@sina.com
+ *
+ */
 public class ItemBaseInfoEntity extends BaseEntity {
+	// 唯一标识
 	private Long itemBaseInfoId;
+	// 区域名称
 	private String areaName;
+	// 上映日期
 	private Date showDate;
+	// 总评分
 	private Double score;
+	// 描述
 	private String description;
+	// 所属个体
 	private ItemEntity itemEntity;
+	// 参与的演员
 	private Set<ActorEntity> actorEntities;
+	// 个体种类
 	private Set<ItemTypeEntity> itemTypeEntities;
 	public Long getItemBaseInfoId() {
 		return itemBaseInfoId;

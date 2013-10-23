@@ -95,11 +95,11 @@ public class TopicServiceImpl implements TopicService {
 							}
 							ItemDTO itemDTO = ConvertFactory.getItemConvert().toDTO(itemEntity);
 							itemDTOs.add(itemDTO);
-							ItemBaseInfoEntity itemBaseInfoEntity = itemEntity.getItemBaseInfoEntity();
+							/*ItemBaseInfoEntity itemBaseInfoEntity = itemEntity.getItemBaseInfoEntity();
 							if (itemBaseInfoEntity != null) {
 								ItemBaseInfoDTO itemBaseInfoDTO = ConvertFactory.getItemBaseInfoConvert().toDTO(itemBaseInfoEntity);
 								itemDTO.setItemBaseInfoDTO(itemBaseInfoDTO);
-							}
+							}*/
 						}
 						categoryDTO.setItemDTOs(itemDTOs);
 					}

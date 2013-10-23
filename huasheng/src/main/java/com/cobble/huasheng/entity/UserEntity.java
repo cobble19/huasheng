@@ -1,5 +1,10 @@
 package com.cobble.huasheng.entity;
 
+/**
+ * 登陆用户
+ * @author publiclzhc@sina.com
+ *
+ */
 public class UserEntity extends BaseEntity {
 	/**ID*/
 	private Long userId;

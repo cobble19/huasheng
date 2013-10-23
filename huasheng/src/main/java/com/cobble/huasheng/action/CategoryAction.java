@@ -3,6 +3,7 @@ package com.cobble.huasheng.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import com.cobble.huasheng.dto.CategoryDTO;
@@ -13,6 +14,8 @@ import com.cobble.huasheng.service.CategoryService;
 import com.cobble.huasheng.service.TopicService;
 import com.cobble.huasheng.util.ListUtil;
 
+import freemarker.template.utility.StringUtil;
+
 
 public class CategoryAction extends BaseAction {
 	private final static Logger logger = Logger.getLogger(CategoryAction.class);
@@ -22,12 +25,15 @@ public class CategoryAction extends BaseAction {
 	private List<CategoryDTO> categoryDTOList = new ArrayList<CategoryDTO>(0);
 	// 
 	private Long categoryId;
+	private String name;
 	// 
 	private Long topicId;
 	private TopicService topicService;
 	private TopicDTOSearch topicDTOSearch = new TopicDTOSearch();
 	private TopicDTO topicDTO = new TopicDTO();
 	private List<TopicDTO> topicDTOList = new ArrayList<TopicDTO>(0);
+	// for delete, id1,id2,id3. [,]分割
+	private String ids;
 	
 	@Override
 	public String execute() throws Exception {
@@ -46,6 +52,43 @@ public class CategoryAction extends BaseAction {
 		categoryDTO = categoryService.findById(categoryId);
 		return this.SUCCESS;
 	}
+	
+	public String add() throws Exception {
+		categoryDTO = new CategoryDTO();
+		categoryDTO.setName(name);
+		topicDTO = new TopicDTO();
+		topicDTO.setTopicId(topicId);
+		categoryDTO.setTopicDTO(topicDTO);
+		categoryService.create(categoryDTO);
+		this.setSuccess(true);
+		return SUCCESS;
+	}
+	
+	public String update() throws Exception {
+		categoryDTO = new CategoryDTO();
+		categoryDTO.setCategoryId(categoryId);
+		categoryDTO.setName(name);
+		topicDTO = new TopicDTO();
+		topicDTO.setTopicId(topicId);
+		categoryDTO.setTopicDTO(topicDTO);
+		categoryService.update(categoryDTO);
+		this.setSuccess(true);
+		return SUCCESS;
+	}
+	
+	public String delete() throws Exception {
+		if (StringUtils.isNotBlank(ids)) {
+			String[] idsSplit = StringUtil.split(ids, ',');
+			for (String id : idsSplit) {
+				categoryDTO = new CategoryDTO();
+				categoryDTO.setCategoryId(Long.parseLong(id));
+				categoryService.delete(categoryDTO);
+			}
+		}
+		this.setSuccess(true);
+		return SUCCESS;
+	}
+	
 	public CategoryDTOSearch getCategoryDTOSearch() {
 		return categoryDTOSearch;
 	}
@@ -116,6 +159,22 @@ public class CategoryAction extends BaseAction {
 
 	public void setTopicService(TopicService topicService) {
 		this.topicService = topicService;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getIds() {
+		return ids;
+	}
+
+	public void setIds(String ids) {
+		this.ids = ids;
 	}
 
 }

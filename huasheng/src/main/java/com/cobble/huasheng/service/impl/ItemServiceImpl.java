@@ -75,7 +75,7 @@ public class ItemServiceImpl implements ItemService {
 			ItemEntity itemEntity = itemDAO.findById(id);
 			ret = ConvertFactory.getItemConvert().toDTO(itemEntity);
 			if (itemEntity != null) {
-				ItemBaseInfoEntity itemBaseInfoEntity = itemEntity.getItemBaseInfoEntity();
+				/*ItemBaseInfoEntity itemBaseInfoEntity = itemEntity.getItemBaseInfoEntity();
 				ItemBaseInfoDTO itemBaseInfoDTO = ConvertFactory.getItemBaseInfoConvert().toDTO(itemBaseInfoEntity);
 				ret.setItemBaseInfoDTO(itemBaseInfoDTO);
 				if (itemBaseInfoEntity != null) {
@@ -98,8 +98,7 @@ public class ItemServiceImpl implements ItemService {
 						}
 						itemBaseInfoDTO.setItemTypeDTOs(itemTypeDTOs);
 					}
-				}
-				
+				}*/
 				
 				Set<VideoSrcEntity> videoSrcEntities = itemEntity.getVideoSrcEntities();
 				if (ListUtil.isNotEmpty(videoSrcEntities)) {

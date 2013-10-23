@@ -26,8 +26,8 @@ public class TopicAction extends BaseAction {
 	// name
 	private String name;
 	// 更新数据的时候，用JSON
-	private String updatedStr;
-	// for delete
+	/*private String updatedStr;*/
+	// for delete, id1,id2,id3. [,]分割
 	private String ids;
 	
 	@Override
@@ -35,8 +35,8 @@ public class TopicAction extends BaseAction {
 		logger.debug("execute() start...");
 		topicDTOList = topicService.finds(topicDTOSearch);
 		// only for test
-		topicId = ListUtil.isNotEmpty(topicDTOList) ? topicDTOList.get(0).getTopicId() : (-10000L);
-		topicDTO = topicService.findById(topicId);
+		/*topicId = ListUtil.isNotEmpty(topicDTOList) ? topicDTOList.get(0).getTopicId() : (-10000L);
+		topicDTO = topicService.findById(topicId);*/
 		
 		this.setSuccess(true);
 		return this.SUCCESS;
@@ -129,13 +129,13 @@ public class TopicAction extends BaseAction {
 		this.name = name;
 	}
 
-	public String getUpdatedStr() {
+/*	public String getUpdatedStr() {
 		return updatedStr;
 	}
 
 	public void setUpdatedStr(String updatedStr) {
 		this.updatedStr = updatedStr;
-	}
+	}*/
 
 	public String getIds() {
 		return ids;

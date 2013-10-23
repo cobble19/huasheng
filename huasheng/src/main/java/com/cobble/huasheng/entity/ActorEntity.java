@@ -1,9 +1,15 @@
 package com.cobble.huasheng.entity;
 
 import java.util.Set;
-
+/**
+ * 演员
+ * @author publiclzhc@sina.com
+ *
+ */
 public class ActorEntity extends BaseEntity {
+	// 唯一标识
 	private Long actorId;
+	// 演员名称
 	private String name;
 	private Set<ItemBaseInfoEntity> itemBaseInfoEntities;
 	

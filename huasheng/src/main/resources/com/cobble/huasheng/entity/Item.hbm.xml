@@ -10,7 +10,15 @@
 		</id>
 		<property name="name" column="NAME" not-null="true"></property>
 		<property name="hits" column="HITS"></property>
-		<one-to-one name="itemBaseInfoEntity" property-ref="itemEntity"></one-to-one>
+		
+		<property name="areaName" column="AREA_NAME"></property>
+		<property name="showDate" column="SHOW_DATE"></property>
+		<property name="score" column="SCORE"></property>
+		<property name="description" column="DESCRIPTION"></property>
+		<property name="actorName" column="ACTOR_NAME"></property>
+		<property name="itemType" column="ITEM_TYPE"></property>
+		
+		<!-- <one-to-one name="itemBaseInfoEntity" property-ref="itemEntity"></one-to-one> -->
 		<set name="categoryEntities" table="R_CATEGORY_ITEM">
 			<key column="ITEM_ID"></key>
 			<many-to-many class="CategoryEntity" column="CATEGORY_ID"></many-to-many>
