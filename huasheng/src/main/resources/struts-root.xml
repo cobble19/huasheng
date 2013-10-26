@@ -39,7 +39,16 @@
  					page, start, limit
  				</param>
  			</result>
- 			
+ 		</action>
+ 		<action name="category" class="categoryAction">
+ 			<result name="success" type="json">
+ 				<param name="ignoreHierarchy">false</param>
+ 				<!-- <param name="noCache">true</param> -->
+ 				<param name="includeProperties">
+ 					categoryDTO\.\w+, ^categoryDTOList\[\d+\]\.\w+, success,
+ 					page, start, limit
+ 				</param>
+ 			</result>
  		</action>
     </package>
 </struts>

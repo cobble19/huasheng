@@ -11,7 +11,7 @@ public class VideoEntity extends BaseEntity {
 	// 视频地址
 	private String url;
 	// 第几集， 顺序
-	private Integer orederNum;
+	private Integer orderNum;
 	// 所属的个体
 	private ItemEntity itemEntity;
 	// 所属的厂家
@@ -40,10 +40,10 @@ public class VideoEntity extends BaseEntity {
 	public void setVideoSrcEntity(VideoSrcEntity videoSrcEntity) {
 		this.videoSrcEntity = videoSrcEntity;
 	}
-	public Integer getOrederNum() {
-		return orederNum;
+	public Integer getOrderNum() {
+		return orderNum;
 	}
-	public void setOrederNum(Integer orederNum) {
-		this.orederNum = orederNum;
+	public void setOrderNum(Integer orderNum) {
+		this.orderNum = orderNum;
 	}
 }

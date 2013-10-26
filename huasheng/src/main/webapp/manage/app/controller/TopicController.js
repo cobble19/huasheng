@@ -123,54 +123,51 @@ Ext.define('MNG.controller.TopicController', {
 		var grid = button.up('topiclist'),
 			selModel = grid.getSelectionModel( ),
 			records = selModel.getSelection();
+		var deleteTopic = this.deleteTopic;
 		if (records == null || records.length == 0) {
 			Ext.MessageBox.alert('Info', 'please select ONE row');
 			return;
 		} else {
 			Ext.MessageBox.show({
 				title: 'Confirm',
+				icon: Ext.MessageBox.WARNING,
 				msg: '确认删除数据？',
 				buttons: Ext.Msg.OKCANCEL,
 				/*multiline: true,*/
 				fn : function(buttonId, text, opt) {
 					if (buttonId == 'ok') {
-						var ids = [];
-						/*for (var i = 0; i < records.length; i++) {
-							ids.push(records[i].data.topicId);
-						}*/
-						Ext.Array.each(records, function(record) {
-							ids.push(record.get('topicId'));
-						});
-						params = {
-							'ids': ids.join(',')
-						};
-						Ext.Ajax.request({
-							url: Ext.get('contextPath').dom.value + '/json/topic!delete',
-							method: 'POST',
-							params: params,
-							/*jsonData : params,*/
-							/*headers: {
-								'Content-Type': 'application/json; charset=UTF-8'
-							},*/
-							success: function(response, options) {
-								Ext.Array.each(records, function(record) {
-									Ext.getStore('TopicStore').remove(record);
-								}
-								);
-								Ext.getStore('TopicStore').sync();
-								Ext.MessageBox.alert(response.statusText);
-							},
-							failure: function(response, options) {
-								Ext.MessageBox.alert(response.statusText);
-							}
-						});
-						
+						deleteTopic(records);
 					}// end if
-				},
-				icon: Ext.MessageBox.WARNING
+				}
 			});
 		}
 		
+	},
+	deleteTopic: function(records) {
+		var ids = [];
+		Ext.Array.each(records, function(record) {
+			ids.push(record.get('topicId'));
+		});
+		params = {
+			'ids': ids.join(',')
+		};
+		Ext.Ajax.request({
+			url: Ext.get('contextPath').dom.value + '/json/topic!delete',
+			method: 'POST',
+			params: params,
+			/*jsonData : params,*/
+			success: function(response, options) {
+				Ext.Array.each(records, function(record) {
+					Ext.getStore('TopicStore').remove(record);
+				}
+				);
+				Ext.getStore('TopicStore').sync();
+				Ext.MessageBox.alert(response.statusText);
+			},
+			failure: function(response, options) {
+				Ext.MessageBox.alert(response.statusText);
+			}
+		});
 	},
 	/*editTopic: function(grid, record) {
 		console.log('Double clicked on ' + record.get('name'));

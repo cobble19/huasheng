@@ -39,6 +39,7 @@ public class CategoryAction extends BaseAction {
 	public String execute() throws Exception {
 		logger.debug("execute() start...");
 		categoryDTOList = categoryService.finds(categoryDTOSearch);
+		this.setSuccess(true);
 		return this.SUCCESS;
 	}
 
