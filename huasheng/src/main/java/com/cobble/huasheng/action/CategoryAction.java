@@ -57,8 +57,8 @@ public class CategoryAction extends BaseAction {
 	public String add() throws Exception {
 		categoryDTO = new CategoryDTO();
 		categoryDTO.setName(name);
-		topicDTO = new TopicDTO();
-		topicDTO.setTopicId(topicId);
+		/*topicDTO = new TopicDTO();
+		topicDTO.setTopicId(topicId);*/
 		categoryDTO.setTopicDTO(topicDTO);
 		categoryService.create(categoryDTO);
 		this.setSuccess(true);
@@ -69,8 +69,8 @@ public class CategoryAction extends BaseAction {
 		categoryDTO = new CategoryDTO();
 		categoryDTO.setCategoryId(categoryId);
 		categoryDTO.setName(name);
-		topicDTO = new TopicDTO();
-		topicDTO.setTopicId(topicId);
+		/*topicDTO = new TopicDTO();
+		topicDTO.setTopicId(topicId);*/
 		categoryDTO.setTopicDTO(topicDTO);
 		categoryService.update(categoryDTO);
 		this.setSuccess(true);

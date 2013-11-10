@@ -45,7 +45,8 @@
  				<param name="ignoreHierarchy">false</param>
  				<!-- <param name="noCache">true</param> -->
  				<param name="includeProperties">
- 					categoryDTO\.\w+, ^categoryDTOList\[\d+\]\.\w+, success,
+ 					categoryDTO\.\w+, categoryDTO\.\w+\.\w+, ^categoryDTOList\[\d+\]\.\w+, ^categoryDTOList\[\d+\]\.\w+\.\w+, 
+ 					success,
  					page, start, limit
  				</param>
  			</result>

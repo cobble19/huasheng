@@ -3,6 +3,10 @@ Ext.define('CATEG.view.category.List', {
 	alias: 'widget.categorylist',
 	
 	title: 'Category List',
+	selType: 'checkboxmodel',
+	selModel: {
+		model: 'MULTI'
+	},
 	store: 'CategoryStore',
 	tbar: [
 	{
@@ -31,6 +35,12 @@ Ext.define('CATEG.view.category.List', {
 		{
 			header: 'Name',
 			dataIndex: 'name',
+			flex: 1
+		}
+		, 
+		{
+			header: 'Topic Id',
+			dataIndex: 'topicDTO.topicId',
 			flex: 1
 		}
 		];

@@ -1,4 +1,4 @@
-Ext.define('MNG.view.topic.List', {
+Ext.define('TPC.view.topic.List', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.topiclist',
 	title: 'Topic',

@@ -1,4 +1,4 @@
-Ext.define('MNG.controller.TopicController', {
+Ext.define('TPC.controller.TopicController', {
 	extend: 'Ext.app.Controller',
 	requires: ['Ext.window.MessageBox'],
 	stores: ['TopicStore'],

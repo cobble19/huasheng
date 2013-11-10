@@ -1,4 +1,4 @@
-Ext.define('MNG.view.topic.Edit', {
+Ext.define('TPC.view.topic.Edit', {
 	extend: 'Ext.window.Window',
 	alias: 'widget.topicedit',
 	

@@ -6,12 +6,15 @@ import java.util.List;
 import java.util.Set;
 
 import com.cobble.huasheng.dao.CategoryDAO;
+import com.cobble.huasheng.dao.TopicDAO;
 import com.cobble.huasheng.dto.CategoryDTO;
 import com.cobble.huasheng.dto.CategoryDTOSearch;
 import com.cobble.huasheng.dto.ItemDTO;
+import com.cobble.huasheng.dto.TopicDTO;
 import com.cobble.huasheng.entity.CategoryEntity;
 import com.cobble.huasheng.entity.CategoryEntitySearch;
 import com.cobble.huasheng.entity.ItemEntity;
+import com.cobble.huasheng.entity.TopicEntity;
 import com.cobble.huasheng.factory.ConvertFactory;
 import com.cobble.huasheng.service.CategoryService;
 import com.cobble.huasheng.util.BeanUtil;
@@ -19,13 +22,21 @@ import com.cobble.huasheng.util.ListUtil;
 
 public class CategoryServiceImpl implements CategoryService {
 	private CategoryDAO categoryDAO;
+	private TopicDAO topicDAO;
 
 	public void create(CategoryDTO tDTO) throws Exception {
 		CategoryEntity categoryEntity = new CategoryEntity();
 		try {
 			categoryEntity = ConvertFactory.getCategoryConvert().toEntity(tDTO);
+			if (tDTO.getTopicDTO() != null && tDTO.getTopicDTO().getTopicId() != null) {
+				TopicEntity topicEntity = topicDAO.findById(tDTO.getTopicDTO().getTopicId());
+				if (topicEntity != null) {
+					categoryEntity.setTopicEntity(topicEntity);
+				}
+			}
 			categoryDAO.create(categoryEntity);
-			tDTO = ConvertFactory.getCategoryConvert().toDTO(categoryEntity);
+			BeanUtil.copyProperties(tDTO, categoryEntity);
+			/*tDTO = ConvertFactory.getCategoryConvert().toDTO(categoryEntity);*/
 		} catch (Exception e) {
 			throw e;
 		}
@@ -34,7 +45,15 @@ public class CategoryServiceImpl implements CategoryService {
 	public void update(CategoryDTO tDTO) throws Exception {
 		try {
 			CategoryEntity categoryEntity = categoryDAO.findById(tDTO.getCategoryId());
-			categoryEntity = ConvertFactory.getCategoryConvert().toEntity(tDTO);
+			BeanUtil.copyProperties(categoryEntity, tDTO);
+			if (tDTO.getTopicDTO() != null && tDTO.getTopicDTO().getTopicId() != null) {
+				TopicEntity topicEntity = topicDAO.findById(tDTO.getTopicDTO().getTopicId());
+				if (topicEntity != null) {
+					categoryEntity.setTopicEntity(topicEntity);
+				}
+			}
+			//categoryEntity = ConvertFactory.getCategoryConvert().toEntity(tDTO);
+			
 			categoryDAO.update(categoryEntity);
 		} catch (Exception e) {
 			throw e;
@@ -50,6 +69,9 @@ public class CategoryServiceImpl implements CategoryService {
 			if (ListUtil.isNotEmpty(categoryEntities)) {
 				for (CategoryEntity categoryEntity : categoryEntities) {
 					CategoryDTO categoryDTO = ConvertFactory.getCategoryConvert().toDTO(categoryEntity);
+					TopicEntity topicEntity = categoryEntity.getTopicEntity();
+					TopicDTO topicDTO = ConvertFactory.getTopicConvert().toDTO(topicEntity);
+					categoryDTO.setTopicDTO(topicDTO);
 					ret.add(categoryDTO);
 				}
 			}
@@ -100,6 +122,10 @@ public class CategoryServiceImpl implements CategoryService {
 	public void delete(CategoryDTO tDTO) throws Exception {
 		CategoryEntity categoryEntity = categoryDAO.findById(tDTO.getCategoryId());
 		categoryDAO.delete(categoryEntity);
+	}
+
+	public void setTopicDAO(TopicDAO topicDAO) {
+		this.topicDAO = topicDAO;
 	}
 
 }

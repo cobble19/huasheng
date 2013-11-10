@@ -19,6 +19,11 @@ Ext.define('CATEG.view.category.Edit', {
 						xtype: 'textfield',
 						name: 'name',
 						fieldLabel: 'Name'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'topicDTO.topicId',
+						fieldLabel: 'Topic Id'
 					}
 				]
 			}

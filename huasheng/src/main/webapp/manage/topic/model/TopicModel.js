@@ -1,4 +1,4 @@
-Ext.define('MNG.model.TopicModel', {
+Ext.define('TPC.model.TopicModel', {
 	extend: 'Ext.data.Model',
 	fields: [
 		{name: 'topicId', type: 'long', convert: null},

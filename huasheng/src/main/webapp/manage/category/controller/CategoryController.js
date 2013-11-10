@@ -45,8 +45,15 @@ Ext.define('CATEG.controller.CategoryController', {
 			success: function(form, action) {
 				win.close();
 				var categoryDTO = action.result.categoryDTO;
+				var encode = Ext.JSON.encode(categoryDTO);
+				var decode = Ext.JSON.decode(encode);
+				var record = Ext.create('CATEG.model.CategoryModel', {
+					categoryId: categoryDTO.categoryId,
+					name: categoryDTO.name,
+					'topicDTO.topicId': categoryDTO.topicDTO.topicId
+				});
 				var index = 0;
-				var records = Ext.getStore('CategoryStore').insert(index, categoryDTO);
+				var records = Ext.getStore('CategoryStore').insert(index, record);
 				// change color
 				var tr = Ext.query('tr[data-recordindex=' + index + ']');
 				Ext.get(tr).addCls('red');
@@ -84,7 +91,14 @@ Ext.define('CATEG.controller.CategoryController', {
 			url: Ext.get('contextPath').dom.value + '/json/category!update',
 			method: 'POST',
 			success: function(form, action) {
-				
+				record = form.getRecord();
+				record.set(form.getValues());
+				record.commit();
+				// 1. set record, 2. close it.
+				win.close();
+				// change color
+				var tr = Ext.query('tr[data-recordindex=' + record.index + ']');
+				Ext.get(tr).addCls('red');
 			},
 			failure: function(form, action) {
 				Ext.MessageBox.alert('Alarm', action.response.statusText);

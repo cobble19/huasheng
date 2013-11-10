@@ -21,6 +21,7 @@
 	</bean>
 	<bean id="categoryService" class="com.cobble.huasheng.service.impl.CategoryServiceImpl">
 		<property name="categoryDAO" ref="categoryDAO"></property>
+		<property name="topicDAO" ref="topicDAO"></property>
 	</bean>
 	<bean id="itemService" class="com.cobble.huasheng.service.impl.ItemServiceImpl">
 		<property name="itemDAO" ref="itemDAO"></property>

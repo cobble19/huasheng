@@ -1,7 +1,7 @@
 Ext.application({
 	requires: ['Ext.container.Viewport'],
-	name: 'MNG',
-	appFolder: 'app',
+	name: 'TPC',
+	appFolder: 'topic',
 	controllers: [
 		'TopicController'
 	],

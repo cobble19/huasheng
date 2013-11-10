@@ -1,7 +1,7 @@
-Ext.define('MNG.store.TopicStore', {
+Ext.define('TPC.store.TopicStore', {
 	extend: 'Ext.data.Store',
 	/*fields: ['topicId', 'name'],*/
-	model: 'MNG.model.TopicModel',
+	model: 'TPC.model.TopicModel',
 	/*data: [
 		{topicId: 1, name: 'TopicName1'},
 		{topicId: 2, name: 'topicName2'}
