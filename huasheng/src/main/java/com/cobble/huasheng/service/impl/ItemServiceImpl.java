@@ -5,20 +5,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.cobble.huasheng.dao.CategoryDAO;
 import com.cobble.huasheng.dao.ItemDAO;
 import com.cobble.huasheng.dao.VideoDAO;
-import com.cobble.huasheng.dto.ActorDTO;
-import com.cobble.huasheng.dto.ItemBaseInfoDTO;
+import com.cobble.huasheng.dto.CategoryDTO;
 import com.cobble.huasheng.dto.ItemDTO;
 import com.cobble.huasheng.dto.ItemDTOSearch;
-import com.cobble.huasheng.dto.ItemTypeDTO;
 import com.cobble.huasheng.dto.VideoDTO;
 import com.cobble.huasheng.dto.VideoSrcDTO;
-import com.cobble.huasheng.entity.ActorEntity;
-import com.cobble.huasheng.entity.ItemBaseInfoEntity;
+import com.cobble.huasheng.entity.CategoryEntity;
 import com.cobble.huasheng.entity.ItemEntity;
 import com.cobble.huasheng.entity.ItemEntitySearch;
-import com.cobble.huasheng.entity.ItemTypeEntity;
 import com.cobble.huasheng.entity.VideoEntity;
 import com.cobble.huasheng.entity.VideoSrcEntity;
 import com.cobble.huasheng.factory.ConvertFactory;
@@ -29,13 +26,25 @@ import com.cobble.huasheng.util.ListUtil;
 public class ItemServiceImpl implements ItemService {
 	private ItemDAO itemDAO;
 	private VideoDAO videoDAO;
+	private CategoryDAO categoryDAO;
 
 	public void create(ItemDTO tDTO) throws Exception {
 		ItemEntity itemEntity = new ItemEntity();
 		try {
 			itemEntity = ConvertFactory.getItemConvert().toEntity(tDTO);
+			if (tDTO.getCategoryDTO() != null && tDTO.getCategoryDTO().getCategoryId() != null) {
+				CategoryEntity categoryEntity = categoryDAO.findById(tDTO.getCategoryDTO().getCategoryId());
+				if (categoryEntity != null && itemEntity != null) {
+					itemEntity.setCategoryEntity(categoryEntity);
+				}
+			}
 			itemDAO.create(itemEntity);
-			tDTO = ConvertFactory.getItemConvert().toDTO(itemEntity);
+			BeanUtil.copyProperties(tDTO, itemEntity);
+			if (itemEntity != null && tDTO != null && itemEntity.getCategoryEntity() != null) {
+				CategoryDTO categoryDTO = ConvertFactory.getCategoryConvert().toDTO(itemEntity.getCategoryEntity());
+				tDTO.setCategoryDTO(categoryDTO);
+			}
+//			tDTO = ConvertFactory.getItemConvert().toDTO(itemEntity);
 		} catch (Exception e) {
 			throw e;
 		}
@@ -44,7 +53,12 @@ public class ItemServiceImpl implements ItemService {
 	public void update(ItemDTO tDTO) throws Exception {
 		try {
 			ItemEntity itemEntity = itemDAO.findById(tDTO.getItemId());
-			itemEntity = ConvertFactory.getItemConvert().toEntity(tDTO);
+			if (tDTO.getCategoryDTO() != null && tDTO.getCategoryDTO().getCategoryId() != null) {
+				CategoryEntity categoryEntity = categoryDAO.findById(tDTO.getCategoryDTO().getCategoryId());
+				if (categoryEntity != null && itemEntity != null) {
+					itemEntity.setCategoryEntity(categoryEntity);
+				}
+			}
 			itemDAO.update(itemEntity);
 		} catch (Exception e) {
 			throw e;
@@ -60,6 +74,9 @@ public class ItemServiceImpl implements ItemService {
 			if (ListUtil.isNotEmpty(itemEntities)) {
 				for (ItemEntity itemEntity : itemEntities) {
 					ItemDTO itemDTO = ConvertFactory.getItemConvert().toDTO(itemEntity);
+					CategoryEntity categoryEntity = itemEntity.getCategoryEntity();
+					CategoryDTO categoryDTO = ConvertFactory.getCategoryConvert().toDTO(categoryEntity);
+					itemDTO.setCategoryDTO(categoryDTO);
 					ret.add(itemDTO);
 				}
 			}
@@ -75,31 +92,6 @@ public class ItemServiceImpl implements ItemService {
 			ItemEntity itemEntity = itemDAO.findById(id);
 			ret = ConvertFactory.getItemConvert().toDTO(itemEntity);
 			if (itemEntity != null) {
-				/*ItemBaseInfoEntity itemBaseInfoEntity = itemEntity.getItemBaseInfoEntity();
-				ItemBaseInfoDTO itemBaseInfoDTO = ConvertFactory.getItemBaseInfoConvert().toDTO(itemBaseInfoEntity);
-				ret.setItemBaseInfoDTO(itemBaseInfoDTO);
-				if (itemBaseInfoEntity != null) {
-					Set<ActorEntity> actorEntities = itemBaseInfoEntity.getActorEntities();
-					Set<ActorDTO> actorDTOs = new HashSet<ActorDTO>();
-					if (ListUtil.isNotEmpty(actorEntities)) {
-						for (ActorEntity actorEntity : actorEntities) {
-							ActorDTO actorDTO = ConvertFactory.getActorConvert().toDTO(actorEntity);
-							actorDTOs.add(actorDTO);
-						}
-					}
-					itemBaseInfoDTO.setActorDTOs(actorDTOs);
-					
-					Set<ItemTypeEntity> itemTypeEntities = itemBaseInfoEntity.getItemTypeEntities();
-					Set<ItemTypeDTO> itemTypeDTOs = new HashSet<ItemTypeDTO>();
-					if (ListUtil.isNotEmpty(itemTypeEntities)) {
-						for (ItemTypeEntity itemTypeEntity : itemTypeEntities) {
-							ItemTypeDTO itemTypeDTO = ConvertFactory.getItemTypeConvert().toDTO(itemTypeEntity);
-							itemTypeDTOs.add(itemTypeDTO);
-						}
-						itemBaseInfoDTO.setItemTypeDTOs(itemTypeDTOs);
-					}
-				}*/
-				
 				Set<VideoSrcEntity> videoSrcEntities = itemEntity.getVideoSrcEntities();
 				if (ListUtil.isNotEmpty(videoSrcEntities)) {
 					Set<VideoSrcDTO> videoSrcDTOs = new HashSet<VideoSrcDTO>();
@@ -168,6 +160,10 @@ public class ItemServiceImpl implements ItemService {
 	public void delete(ItemDTO tDTO) throws Exception {
 		ItemEntity itemEntity = itemDAO.findById(tDTO.getItemId());
 		itemDAO.delete(itemEntity);
+	}
+
+	public void setCategoryDAO(CategoryDAO categoryDAO) {
+		this.categoryDAO = categoryDAO;
 	}
 
 }

@@ -20,8 +20,9 @@ public class ItemDTO extends BaseDTO {
 	private String actorName;
 	// 个体种类, 如剧情，动作，[,]分割
 	private String itemType;
-	
-	private Set<CategoryDTO> categoryDTOs;
+	// 用于创建和修改
+	private CategoryDTO categoryDTO;
+	/*private Set<CategoryDTO> categoryDTOs;*/
 	/*private ItemBaseInfoDTO itemBaseInfoDTO;*/
 	private Set<VideoDTO> videoDTOs;
 	// addition added
@@ -37,12 +38,6 @@ public class ItemDTO extends BaseDTO {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public Set<CategoryDTO> getCategoryDTOs() {
-		return categoryDTOs;
-	}
-	public void setCategoryDTOs(Set<CategoryDTO> categoryDTOs) {
-		this.categoryDTOs = categoryDTOs;
 	}
 	/*public ItemBaseInfoDTO getItemBaseInfoDTO() {
 		return itemBaseInfoDTO;
@@ -103,6 +98,12 @@ public class ItemDTO extends BaseDTO {
 	}
 	public void setItemType(String itemType) {
 		this.itemType = itemType;
+	}
+	public CategoryDTO getCategoryDTO() {
+		return categoryDTO;
+	}
+	public void setCategoryDTO(CategoryDTO categoryDTO) {
+		this.categoryDTO = categoryDTO;
 	}
 	
 }

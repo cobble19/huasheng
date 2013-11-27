@@ -47,6 +47,7 @@ public class ItemAction extends BaseAction {
 	private String itemType;
 	
 	private Set<CategoryDTO> categoryDTOs = new HashSet<CategoryDTO>(); 
+	private CategoryDTO categoryDTO = new CategoryDTO();
 	
 	private TopicService topicService;
 	private TopicDTO topicDTO;
@@ -90,7 +91,7 @@ public class ItemAction extends BaseAction {
 		itemDTO.setShowDate(showDate);
 		itemDTO.setDescription(description);
 		itemDTO.setItemType(itemType);
-		itemDTO.setCategoryDTOs(categoryDTOs);
+		itemDTO.setCategoryDTO(categoryDTO);
 		itemService.create(itemDTO);
 		this.setSuccess(true);
 		return SUCCESS;
@@ -107,7 +108,7 @@ public class ItemAction extends BaseAction {
 		itemDTO.setShowDate(showDate);
 		itemDTO.setDescription(description);
 		itemDTO.setItemType(itemType);
-		itemDTO.setCategoryDTOs(categoryDTOs);
+		itemDTO.setCategoryDTO(categoryDTO);
 		itemService.update(itemDTO);
 		this.setSuccess(true);
 		return SUCCESS;
@@ -276,6 +277,14 @@ public class ItemAction extends BaseAction {
 
 	public void setIds(String ids) {
 		this.ids = ids;
+	}
+
+	public CategoryDTO getCategoryDTO() {
+		return categoryDTO;
+	}
+
+	public void setCategoryDTO(CategoryDTO categoryDTO) {
+		this.categoryDTO = categoryDTO;
 	}
 
 }

@@ -30,7 +30,8 @@ public class ItemEntity extends BaseEntity {
 	private String itemType;
 		
 	/*private ItemBaseInfoEntity itemBaseInfoEntity;*/
-	private Set<CategoryEntity> categoryEntities;
+	/*private Set<CategoryEntity> categoryEntities;*/
+	private CategoryEntity categoryEntity;
 	private Set<VideoSrcEntity> videoSrcEntities;
 	/*private Set<VideoEntity> videoEntities;*/
 	public Long getItemId() {
@@ -45,18 +46,6 @@ public class ItemEntity extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Set<CategoryEntity> getCategoryEntities() {
-		return categoryEntities;
-	}
-	public void setCategoryEntities(Set<CategoryEntity> categoryEntities) {
-		this.categoryEntities = categoryEntities;
-	}
-	/*public ItemBaseInfoEntity getItemBaseInfoEntity() {
-		return itemBaseInfoEntity;
-	}
-	public void setItemBaseInfoEntity(ItemBaseInfoEntity itemBaseInfoEntity) {
-		this.itemBaseInfoEntity = itemBaseInfoEntity;
-	}*/
 	public Long getHits() {
 		return hits;
 	}
@@ -104,6 +93,12 @@ public class ItemEntity extends BaseEntity {
 	}
 	public void setItemType(String itemType) {
 		this.itemType = itemType;
+	}
+	public CategoryEntity getCategoryEntity() {
+		return categoryEntity;
+	}
+	public void setCategoryEntity(CategoryEntity categoryEntity) {
+		this.categoryEntity = categoryEntity;
 	}
 	
 }

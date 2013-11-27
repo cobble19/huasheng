@@ -19,10 +19,7 @@
 		<property name="itemType" column="ITEM_TYPE"></property>
 		
 		<!-- <one-to-one name="itemBaseInfoEntity" property-ref="itemEntity"></one-to-one> -->
-		<set name="categoryEntities" table="R_CATEGORY_ITEM">
-			<key column="ITEM_ID"></key>
-			<many-to-many class="CategoryEntity" column="CATEGORY_ID"></many-to-many>
-		</set>
+		<many-to-one name="categoryEntity" column="CATEGORY_ID"></many-to-one>
 		<set name="VideoSrcEntities" table="R_ITEM_VIDEO_SRC">
 			<key column="ITEM_ID"></key>
 			<many-to-many class="VideoSrcEntity" column="VIDEO_SRC_ID"></many-to-many>

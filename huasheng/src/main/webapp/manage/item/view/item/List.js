@@ -1,13 +1,13 @@
-Ext.define('CATEG.view.category.List', {
+Ext.define('ITEM.view.item.List', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.categorylist',
+	alias: 'widget.itemlist',
 	
-	title: 'Category List',
+	title: 'Item List',
 	selType: 'checkboxmodel',
 	selModel: {
 		model: 'MULTI'
 	},
-	store: 'CategoryStore',
+	store: 'ItemStore',
 	tbar: [
 	{
 		xtype: 'button',
@@ -28,8 +28,8 @@ Ext.define('CATEG.view.category.List', {
 	initComponent: function() {
 		this.columns = [
 		{
-			header: 'Category Id',
-			dataIndex: 'categoryId',
+			header: 'Item Id',
+			dataIndex: 'itemId',
 			flex: 1
 		}, 
 		{
@@ -38,8 +38,8 @@ Ext.define('CATEG.view.category.List', {
 			flex: 1
 		}, 
 		{
-			header: 'Topic Id',
-			dataIndex: 'topicDTO.topicId',
+			header: 'Category Id',
+			dataIndex: 'categoryDTO.categoryId',
 			flex: 1
 		}
 		];
