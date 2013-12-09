@@ -1,13 +1,13 @@
-Ext.define('ITEM.view.item.List', {
+Ext.define('VS.view.videoSrc.List', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.itemlist',
+	alias: 'widget.videoSrclist',
 	
-	title: 'Item List',
+	title: 'VideoSrc List',
 	selType: 'checkboxmodel',
 	selModel: {
 		model: 'MULTI'
 	},
-	store: 'ItemStore',
+	store: 'VideoSrcStore',
 	tbar: [
 	{
 		xtype: 'button',
@@ -27,20 +27,20 @@ Ext.define('ITEM.view.item.List', {
 	],
 	initComponent: function() {
 		this.columns = [
-		{xtype: 'rownumberer'},
 		{
-			header: 'Item Id',
-			dataIndex: 'itemId',
+			xtype: 'rownumberer',
+			align: 'center',
+			text: 'RowNum',
+			width: '40'
+		},
+		{
+			header: 'VideoSrc Id',
+			dataIndex: 'videoSrcId',
 			flex: 1
 		}, 
 		{
 			header: 'Name',
 			dataIndex: 'name',
-			flex: 1
-		}, 
-		{
-			header: 'Category Id',
-			dataIndex: 'categoryDTO.categoryId',
 			flex: 1
 		}
 		];

@@ -29,7 +29,7 @@ public class VideoAction extends BaseAction {
 	// 视频地址
 	private String url;
 	// 第几集， 顺序
-	private Integer orederNum;
+	private Integer orderNum;
 	private ItemDTO itemDTO;
 	private VideoSrcDTO videoSrcDTO;
 	// for delete, id1,id2,id3. [,]分割
@@ -45,7 +45,7 @@ public class VideoAction extends BaseAction {
 	public String add() throws Exception {
 		videoDTO = new VideoDTO();
 		videoDTO.setUrl(url);
-		videoDTO.setOrederNum(orederNum);
+		videoDTO.setOrderNum(orderNum);
 		videoDTO.setItemDTO(itemDTO);
 		videoDTO.setVideoSrcDTO(videoSrcDTO);
 		videoService.create(videoDTO);
@@ -57,7 +57,7 @@ public class VideoAction extends BaseAction {
 		videoDTO = new VideoDTO();
 		videoDTO.setVideoId(videoId);
 		videoDTO.setUrl(url);
-		videoDTO.setOrederNum(orederNum);
+		videoDTO.setOrderNum(orderNum);
 		videoDTO.setItemDTO(itemDTO);
 		videoDTO.setVideoSrcDTO(videoSrcDTO);
 		videoService.update(videoDTO);
@@ -122,14 +122,6 @@ public class VideoAction extends BaseAction {
 		this.url = url;
 	}
 
-	public Integer getOrederNum() {
-		return orederNum;
-	}
-
-	public void setOrederNum(Integer orederNum) {
-		this.orederNum = orederNum;
-	}
-
 	public String getIds() {
 		return ids;
 	}
@@ -152,6 +144,14 @@ public class VideoAction extends BaseAction {
 
 	public void setVideoSrcDTO(VideoSrcDTO videoSrcDTO) {
 		this.videoSrcDTO = videoSrcDTO;
+	}
+
+	public Integer getOrderNum() {
+		return orderNum;
+	}
+
+	public void setOrderNum(Integer orderNum) {
+		this.orderNum = orderNum;
 	}
 
 }

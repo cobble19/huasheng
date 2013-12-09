@@ -29,6 +29,7 @@ Ext.define('TPC.view.topic.List', {
 			]
 		};*/
 		this.columns = [
+			{xtype: 'rownumberer'},
 			{header: 'TopicId', dataIndex: 'topicId', flex: 1},
 			{header: 'name', dataIndex: 'name', flex: 1}
 		];

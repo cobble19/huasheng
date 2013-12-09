@@ -21,7 +21,8 @@ public class VideoSrcServiceImpl implements VideoSrcService {
 		try {
 			videoSrcEntity = ConvertFactory.getVideoSrcConvert().toEntity(tDTO);
 			videoSrcDAO.create(videoSrcEntity);
-			tDTO = ConvertFactory.getVideoSrcConvert().toDTO(videoSrcEntity);
+			BeanUtil.copyProperties(tDTO, videoSrcEntity);
+			/*tDTO = ConvertFactory.getVideoSrcConvert().toDTO(videoSrcEntity);*/
 		} catch (Exception e) {
 			throw e;
 		}
@@ -30,7 +31,8 @@ public class VideoSrcServiceImpl implements VideoSrcService {
 	public void update(VideoSrcDTO tDTO) throws Exception {
 		try {
 			VideoSrcEntity videoSrcEntity = videoSrcDAO.findById(tDTO.getVideoSrcId());
-			videoSrcEntity = ConvertFactory.getVideoSrcConvert().toEntity(tDTO);
+			/*videoSrcEntity = ConvertFactory.getVideoSrcConvert().toEntity(tDTO);*/
+			BeanUtil.copyProperties(videoSrcEntity, tDTO);
 			videoSrcDAO.update(videoSrcEntity);
 		} catch (Exception e) {
 			throw e;

@@ -3,7 +3,7 @@ package com.cobble.huasheng.dto;
 public class VideoDTO extends BaseDTO {
 	private Long videoId;
 	private String url;
-	private Integer orederNum;
+	private Integer orderNum;
 	private ItemDTO itemDTO;
 	private VideoSrcDTO videoSrcDTO;
 	public Long getVideoId() {
@@ -30,10 +30,10 @@ public class VideoDTO extends BaseDTO {
 	public void setVideoSrcDTO(VideoSrcDTO videoSrcDTO) {
 		this.videoSrcDTO = videoSrcDTO;
 	}
-	public Integer getOrederNum() {
-		return orederNum;
+	public Integer getOrderNum() {
+		return orderNum;
 	}
-	public void setOrederNum(Integer orederNum) {
-		this.orederNum = orederNum;
+	public void setOrderNum(Integer orderNum) {
+		this.orderNum = orderNum;
 	}
 }

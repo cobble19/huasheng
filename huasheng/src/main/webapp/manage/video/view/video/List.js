@@ -1,13 +1,13 @@
-Ext.define('CATEG.view.category.List', {
+Ext.define('VIDEO.view.video.List', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.categorylist',
+	alias: 'widget.videolist',
 	
-	title: 'Category List',
+	title: 'Video List',
 	selType: 'checkboxmodel',
 	selModel: {
 		model: 'MULTI'
 	},
-	store: 'CategoryStore',
+	store: 'VideoStore',
 	tbar: [
 	{
 		xtype: 'button',
@@ -29,21 +29,33 @@ Ext.define('CATEG.view.category.List', {
 		this.columns = [
 		{
 			xtype: 'rownumberer',
-			align: 'center'
+			align: 'center',
+			text: 'RowNum',
+			width: '40'
 		},
 		{
-			header: 'Category Id',
-			dataIndex: 'categoryId',
+			header: 'Video Id',
+			dataIndex: 'videoId',
 			flex: 1
 		}, 
 		{
-			header: 'Name',
-			dataIndex: 'name',
+			header: 'URL',
+			dataIndex: 'url',
 			flex: 1
 		}, 
 		{
-			header: 'Topic Id',
-			dataIndex: 'topicDTO.topicId',
+			header: 'Order Num',
+			dataIndex: 'orderNum',
+			flex: 1
+		}, 
+		{
+			header: 'Item Id',
+			dataIndex: 'itemDTO.itemId',
+			flex: 1
+		}, 
+		{
+			header: 'VideoSrc Id',
+			dataIndex: 'videoSrcDTO.videoSrcId',
 			flex: 1
 		}
 		];

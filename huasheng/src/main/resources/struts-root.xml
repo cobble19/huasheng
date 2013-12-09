@@ -23,6 +23,16 @@
  				/jsp/item.jsp
  			</result>
  		</action>
+ 		<action name="videoSrc" class="itemAction">
+ 			<result name="success">
+ 				/jsp/videoSrc.jsp
+ 			</result>
+ 		</action>
+ 		<action name="video" class="itemAction">
+ 			<result name="success">
+ 				/jsp/video.jsp
+ 			</result>
+ 		</action>
  		<action name="videoplay" class="videoplayAction">
  			<result name="success">
  				/jsp/videoplay.jsp
@@ -57,6 +67,28 @@
  				<!-- <param name="noCache">true</param> -->
  				<param name="includeProperties">
  					itemDTO\.\w+, itemDTO\.categoryDTO\.\w+, itemDTO\.\w+\.\w+, ^itemDTOList\[\d+\]\.\w+, ^itemDTOList\[\d+\]\.\w+\.\w+, 
+ 					success,
+ 					page, start, limit
+ 				</param>
+ 			</result>
+ 		</action>
+ 		<action name="videoSrc" class="videoSrcAction">
+ 			<result name="success" type="json">
+ 				<param name="ignoreHierarchy">false</param>
+ 				<!-- <param name="noCache">true</param> -->
+ 				<param name="includeProperties">
+ 					videoSrcDTO\.\w+, videoSrcDTO\.\w+\.\w+, ^videoSrcDTOList\[\d+\]\.\w+, ^videoSrcDTOList\[\d+\]\.\w+\.\w+, 
+ 					success,
+ 					page, start, limit
+ 				</param>
+ 			</result>
+ 		</action>
+ 		<action name="video" class="videoAction">
+ 			<result name="success" type="json">
+ 				<param name="ignoreHierarchy">false</param>
+ 				<!-- <param name="noCache">true</param> -->
+ 				<param name="includeProperties">
+ 					videoDTO\.\w+, videoDTO\.\w+\.\w+, ^videoDTOList\[\d+\]\.\w+, ^videoDTOList\[\d+\]\.\w+\.\w+, 
  					success,
  					page, start, limit
  				</param>
