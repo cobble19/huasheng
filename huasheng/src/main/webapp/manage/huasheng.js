@@ -4,21 +4,19 @@ Ext.application({
 	appFolder: "huasheng",
 	
 	controllers: [
-		'TopicController'
+//		'TopicController'
 	],
 	launch: function() {
 		Ext.create('Ext.container.Viewport', {
 			layout: "fit",
 			items: [
 				{
-					xtype: 'topiclist'
+					xtype: 'panel',
+					html: 'test huasheng'
+					
 				}
-				/*{
-					xtype: "panel",
-					title: "manage index",
-					html: "manage index content"
-				}*/
 			]
 		});
 	}
-});
+	
+})

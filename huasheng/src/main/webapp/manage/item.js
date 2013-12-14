@@ -2,8 +2,9 @@ Ext.application({
 	requires: [
 		'Ext.container.Viewport'
 	],
-	name: 'ITEM',
-	appFolder: 'item',
+	name: "HS",
+	appFolder: "huasheng",
+	
 	controllers: [
 		'ItemController'
 	],

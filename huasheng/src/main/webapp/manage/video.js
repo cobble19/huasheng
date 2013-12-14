@@ -2,8 +2,9 @@ Ext.application({
 	requires: [
 		'Ext.container.Viewport'
 	],
-	name: 'VIDEO',
-	appFolder: 'video',
+	name: "HS",
+	appFolder: "huasheng",
+	
 	controllers: [
 		'VideoController'
 	],

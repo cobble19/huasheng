@@ -2,8 +2,9 @@ Ext.application({
 	requires: [
 		'Ext.container.Viewport'
 	],
-	name: 'CATEG',
-	appFolder: 'category',
+	name: "HS",
+	appFolder: "huasheng",
+	
 	controllers: [
 		'CategoryController'
 	],
