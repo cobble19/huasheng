@@ -4,16 +4,40 @@ Ext.application({
 	appFolder: "huasheng",
 	
 	controllers: [
-//		'TopicController'
+		'MenuTreeController',
+		'ContentController',
+		'TopicController',
+		'CategoryController'
 	],
+	stores: ['TopicStore'],
+	models: ['TopicModel'],
+	views: ['content.Panel', 'topic.List', 'topic.Edit'],
 	launch: function() {
 		Ext.create('Ext.container.Viewport', {
-			layout: "fit",
+			layout: "border",
+			title: 'manage platform view',
 			items: [
 				{
-					xtype: 'panel',
-					html: 'test huasheng'
-					
+					xtype: 'component',
+					region: 'north',
+					id: 'header',
+					height: 40,
+					html: '<h4>Manage Platform</h4>'
+				}, {
+					xtype: 'menutreelist',
+					region: 'west',
+					width: 150
+				}, {
+					xtype: 'contentpanel',
+					region: 'center'
+				}, {
+					xtype: 'component',
+					region: 'east',
+					html: 'east'
+				}, {
+					xtype: 'component',
+					region: 'south',
+					html: 'south'
 				}
 			]
 		});

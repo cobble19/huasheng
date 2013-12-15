@@ -6,19 +6,19 @@ Ext.define('HS.controller.VideoController', {
 	views: ['video.List','video.Edit'],
 	init: function() {
 		this.control({
-			'viewport > videolist button[action=add]': {
+			'viewport videolist button[action=add]': {
 				click: this.openDialog4Add
 			},
 			'videoedit button[action=add]': {
 				click: this.addVideo
 			},
-			'viewport > videolist button[action=update]': {
+			'viewport videolist button[action=update]': {
 				click: this.openDialog4Update
 			},
 			'videoedit button[action=update]': {
 				click: this.updateVideo
 			},
-			'viewport > videolist button[action=delete]': {
+			'viewport videolist button[action=delete]': {
 				click: this.openDialog4Delete
 			}
 		});

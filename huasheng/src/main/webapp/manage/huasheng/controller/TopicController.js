@@ -13,19 +13,19 @@ Ext.define('HS.controller.TopicController', {
 			'topicedit button[action=save]': {
 				click: this.updateTopic
 			},
-			'viewport > topiclist button[action=add]': {
+			'viewport topiclist button[action=add]': {
 				click: this.openDialog4Add
 			},
 			'topicedit button[action=add]': {
 				click: this.addTopic
 			},
-			'viewport > topiclist button[action=update]': {
+			'viewport topiclist button[action=update]': {
 				click: this.openDialog4Update
 			},
 			'topicedit button[action=save]': {
 				click: this.updateTopic
 			},
-			'viewport > topiclist button[action=delete]': {
+			'viewport topiclist button[action=delete]': {
 				click: this.openDialog4Delete
 			}
 			/*'viewport > panel' : {
@@ -161,11 +161,11 @@ Ext.define('HS.controller.TopicController', {
 					Ext.getStore('TopicStore').remove(record);
 				}
 				);
-				Ext.getStore('TopicStore').sync();
-				Ext.MessageBox.alert(response.statusText);
+				/*Ext.getStore('TopicStore').sync();*/
+				Ext.MessageBox.alert('Info', 'Deleted successfully!');
 			},
 			failure: function(response, options) {
-				Ext.MessageBox.alert(response.statusText);
+				Ext.MessageBox.alert('Alarm', 'Deleted fail!');
 			}
 		});
 	},

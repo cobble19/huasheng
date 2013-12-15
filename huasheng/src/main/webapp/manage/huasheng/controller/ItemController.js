@@ -6,19 +6,19 @@ Ext.define('HS.controller.ItemController', {
 	views: ['item.List','item.Edit'],
 	init: function() {
 		this.control({
-			'viewport > itemlist button[action=add]': {
+			'viewport itemlist button[action=add]': {
 				click: this.openDialog4Add
 			},
 			'itemedit button[action=add]': {
 				click: this.addItem
 			},
-			'viewport > itemlist button[action=update]': {
+			'viewport itemlist button[action=update]': {
 				click: this.openDialog4Update
 			},
 			'itemedit button[action=update]': {
 				click: this.updateItem
 			},
-			'viewport > itemlist button[action=delete]': {
+			'viewport itemlist button[action=delete]': {
 				click: this.openDialog4Delete
 			}
 		});

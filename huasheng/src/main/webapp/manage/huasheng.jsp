@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="publiclzhc@sina.com">
-<title>manage > topic.jsp</title>
+<title>manage > huasheng.jsp</title>
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.png">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/extjs4/resources/css/ext-all.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/extjs4/ext-debug.js"></script>

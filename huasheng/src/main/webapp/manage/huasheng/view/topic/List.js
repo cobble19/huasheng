@@ -2,6 +2,11 @@ Ext.define('HS.view.topic.List', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.topiclist',
 	title: 'Topic',
+	id: 'topic-list',
+	selType: 'checkboxmodel',
+	selModel: {
+		model: 'MULTI'
+	},
 	store: 'TopicStore',
 	tbar: [
 		{

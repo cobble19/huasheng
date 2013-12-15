@@ -6,19 +6,19 @@ Ext.define('HS.controller.CategoryController', {
 	views: ['category.List', 'category.Edit'],
 	init: function() {
 		this.control({
-			'viewport > categorylist button[action=add]': {
+			'viewport categorylist button[action=add]': {
 				click: this.openDialog4Add
 			},
 			'categoryedit button[action=add]': {
 				click: this.addCategory
 			},
-			'viewport > categorylist button[action=update]': {
+			'viewport categorylist button[action=update]': {
 				click: this.openDialog4Update
 			},
 			'categoryedit button[action=update]': {
 				click: this.updateCategory
 			},
-			'viewport > categorylist button[action=delete]': {
+			'viewport categorylist button[action=delete]': {
 				click: this.openDialog4Delete
 			}
 		});
