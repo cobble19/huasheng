@@ -3,6 +3,7 @@ Ext.define('HS.view.item.List', {
 	alias: 'widget.itemlist',
 	
 	title: 'Item List',
+	id: 'item-list',
 	selType: 'checkboxmodel',
 	selModel: {
 		model: 'MULTI'

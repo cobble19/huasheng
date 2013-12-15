@@ -8,10 +8,14 @@ Ext.define('HS.view.content.Panel', {
 	activeItem: 0,
 	border: false,
 	items: [{
-		xtype: 'topiclist',
-		layout: 'fit'
+		xtype: 'topiclist'
 	}, {
-		xtype: 'categorylist',
-		html: '2'
+		xtype: 'categorylist'
+	}, {
+		xtype: 'itemlist'
+	}, {
+		xtype: 'videosrclist'
+	}, {
+		xtype: 'videolist'
 	}]
 })

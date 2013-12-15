@@ -1,8 +1,9 @@
 Ext.define('HS.view.videoSrc.List', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.videoSrclist',
+	alias: 'widget.videosrclist',
 	
 	title: 'VideoSrc List',
+	id: 'videoSrc-list',
 	selType: 'checkboxmodel',
 	selModel: {
 		model: 'MULTI'

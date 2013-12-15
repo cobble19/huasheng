@@ -3,6 +3,7 @@ Ext.define('HS.view.video.List', {
 	alias: 'widget.videolist',
 	
 	title: 'Video List',
+	id: 'video-list',
 	selType: 'checkboxmodel',
 	selModel: {
 		model: 'MULTI'

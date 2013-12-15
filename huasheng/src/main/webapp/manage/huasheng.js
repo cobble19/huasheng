@@ -5,13 +5,16 @@ Ext.application({
 	
 	controllers: [
 		'MenuTreeController',
-		'ContentController',
+		/*'ContentController',*/
 		'TopicController',
-		'CategoryController'
+		'CategoryController',
+		'ItemController',
+		'VideoSrcController',
+		'VideoController'
 	],
 	stores: ['TopicStore'],
 	models: ['TopicModel'],
-	views: ['content.Panel', 'topic.List', 'topic.Edit'],
+	views: ['content.Panel'],
 	launch: function() {
 		Ext.create('Ext.container.Viewport', {
 			layout: "border",

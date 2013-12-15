@@ -6,26 +6,26 @@ Ext.define('HS.controller.VideoSrcController', {
 	views: ['videoSrc.List','videoSrc.Edit'],
 	init: function() {
 		this.control({
-			'viewport videoSrclist button[action=add]': {
+			'viewport videosrclist button[action=add]': {
 				click: this.openDialog4Add
 			},
-			'videoSrcedit button[action=add]': {
+			'videosrcedit button[action=add]': {
 				click: this.addVideoSrc
 			},
-			'viewport videoSrclist button[action=update]': {
+			'viewport videosrclist button[action=update]': {
 				click: this.openDialog4Update
 			},
-			'videoSrcedit button[action=update]': {
+			'videosrcedit button[action=update]': {
 				click: this.updateVideoSrc
 			},
-			'viewport videoSrclist button[action=delete]': {
+			'viewport videosrclist button[action=delete]': {
 				click: this.openDialog4Delete
 			}
 		});
 	},
 	openDialog4Add: function(button) {
 		console.log('open dialog for add');
-		var view = Ext.widget('videoSrcedit');
+		var view = Ext.widget('videosrcedit');
 		// hide update button
 		var btns = Ext.query('a[id=btnUpdate]');
 		Ext.each(btns, function(btn) {
@@ -63,7 +63,7 @@ Ext.define('HS.controller.VideoSrcController', {
 		});
 	},
 	openDialog4Update: function(button) {
-		var grid = button.up('videoSrclist'),
+		var grid = button.up('videosrclist'),
 			selModel = grid.getSelectionModel(),
 			records = selModel.getSelection();
 		if (records == null || records.length == 0) {
@@ -71,7 +71,7 @@ Ext.define('HS.controller.VideoSrcController', {
 			return;
 		} else {
 			// display edit window
-			var view = Ext.widget('videoSrcedit');
+			var view = Ext.widget('videosrcedit');
 			// hide add button
 			var btns = Ext.query('a[id=btnAdd]');
 			Ext.each(btns, function(btn){
@@ -105,7 +105,7 @@ Ext.define('HS.controller.VideoSrcController', {
 		})
 	},
 	openDialog4Delete: function(button) {
-		var grid = button.up('videoSrclist'),
+		var grid = button.up('videosrclist'),
 			selModel = grid.getSelectionModel(),
 			records = selModel.getSelection();
 		var deleteVideoSrc = this.deleteVideoSrc;

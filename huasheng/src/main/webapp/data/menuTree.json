@@ -11,6 +11,18 @@ children: [{
         text:'Category',
         id:'category',
         leaf:true
+    },{
+        text:'Item',
+        id:'item',
+        leaf:true
+    },{
+        text:'Video Src',
+        id:'videoSrc',
+        leaf:true
+    },{
+        text:'Video',
+        id:'video',
+        leaf:true
     }]
 }]
 }

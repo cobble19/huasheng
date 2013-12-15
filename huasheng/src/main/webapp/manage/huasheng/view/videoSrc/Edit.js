@@ -1,6 +1,6 @@
 Ext.define('HS.view.videoSrc.Edit', {
 	extend: 'Ext.window.Window',
-	alias: 'widget.videoSrcedit',
+	alias: 'widget.videosrcedit',
 	
 	title: 'VideoSrc Edit',
 	layout: 'fit',
