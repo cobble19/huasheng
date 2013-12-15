@@ -29,18 +29,21 @@ Ext.application({
 				}, {
 					xtype: 'menutreelist',
 					region: 'west',
+					margins: '0 0 0 2',
 					width: 150
 				}, {
 					xtype: 'contentpanel',
+					margins: '0 2 0 2',
 					region: 'center'
 				}, {
 					xtype: 'component',
 					region: 'east',
-					html: 'east'
+					html: ''
 				}, {
 					xtype: 'component',
 					region: 'south',
-					html: 'south'
+					margins: '5',
+					html: 'copyright &copy; Email: publiclzhc@sina.com'
 				}
 			]
 		});

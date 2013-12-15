@@ -5,7 +5,8 @@ Ext.define('HS.view.topic.List', {
 	id: 'topic-list',
 	selType: 'checkboxmodel',
 	selModel: {
-		model: 'MULTI'
+		model: 'MULTI'/*,
+		checkOnly: true*/
 	},
 	store: 'TopicStore',
 	tbar: [

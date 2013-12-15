@@ -4,7 +4,6 @@ Ext.define('HS.view.content.Panel', {
 	id: 'content-panel',
 	region: 'center',
 	layout: 'card',
-	margins: '2 5 5 0',
 	activeItem: 0,
 	border: false,
 	items: [{

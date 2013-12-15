@@ -8,14 +8,19 @@ Ext.define('HS.controller.MenuTreeController', {
 	init: function() {
 		this.control({
 			'viewport menutreelist': {
-				select: this.onSelect
+				select: this.onSelect,
+				afterrender: this.onAfterrender
 			}
 		});
 	},
 	onSelect: function(selModel, record, index, options) {
+		console.log("selected: " + record.get('text') + ", index=" + index);
 		if (record.get('leaf')) {
-			console.log("selected: " + record.get('text'));
 			Ext.getCmp('content-panel').layout.setActiveItem(record.getId() + '-list');
 		}
+	},
+	onAfterrender: function(tree, options) {
+		console.log('tree after render');
+		tree.getSelectionModel().select(1);
 	}
 })

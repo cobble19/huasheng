@@ -7,6 +7,7 @@ Ext.define('HS.view.menuTree.List', {
 	rootVisible: false,
 	autoScroll: true,
 	store: 'MenuTreeStore', 
+	activeItem: 1,
 	initComponent: function() {
 		
 		this.callParent(arguments);
