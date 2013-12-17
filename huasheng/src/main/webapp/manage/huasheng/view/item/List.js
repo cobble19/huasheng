@@ -40,6 +40,41 @@ Ext.define('HS.view.item.List', {
 			flex: 1
 		}, 
 		{
+			header: 'Hits',
+			dataIndex: 'hits',
+			flex: 1
+		}, 
+		{
+			header: 'Area Name',
+			dataIndex: 'areaName',
+			flex: 1
+		}, 
+		{
+			header: 'Show Date',
+			dataIndex: 'showDate',
+			flex: 1
+		}, 
+		{
+			header: 'Score',
+			dataIndex: 'score',
+			flex: 1
+		}, 
+		{
+			header: 'Description',
+			dataIndex: 'description',
+			flex: 1
+		}, 
+		{
+			header: 'Actor Name',
+			dataIndex: 'actorName',
+			flex: 1
+		}, 
+		{
+			header: 'Item Type',
+			dataIndex: 'itemType',
+			flex: 1
+		}, 
+		{
 			header: 'Category Id',
 			dataIndex: 'categoryDTO.categoryId',
 			flex: 1

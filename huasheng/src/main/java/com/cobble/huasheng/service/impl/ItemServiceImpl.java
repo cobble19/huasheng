@@ -53,6 +53,7 @@ public class ItemServiceImpl implements ItemService {
 	public void update(ItemDTO tDTO) throws Exception {
 		try {
 			ItemEntity itemEntity = itemDAO.findById(tDTO.getItemId());
+			BeanUtil.copyProperties(itemEntity, tDTO);
 			if (tDTO.getCategoryDTO() != null && tDTO.getCategoryDTO().getCategoryId() != null) {
 				CategoryEntity categoryEntity = categoryDAO.findById(tDTO.getCategoryDTO().getCategoryId());
 				if (categoryEntity != null && itemEntity != null) {

@@ -19,6 +19,41 @@ Ext.define('HS.view.item.Edit', {
 						xtype: 'textfield',
 						name: 'name',
 						fieldLabel: 'Name'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'hits',
+						fieldLabel: 'Hits'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'areaName',
+						fieldLabel: 'Area Name'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'showDate',
+						fieldLabel: 'Show Date'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'score',
+						fieldLabel: 'Score'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'description',
+						fieldLabel: 'Description'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'actorName',
+						fieldLabel: 'Actor Name'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'itemType',
+						fieldLabel: 'Item Type'
 					}/*, 
 					{
 						xtype: 'textfield',
