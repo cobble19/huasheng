@@ -3,7 +3,7 @@ Ext.define('HS.controller.ItemController', {
 	requires: ['Ext.window.MessageBox'],
 	stores: ['ItemStore'],
 	models: ['ItemModel'],
-	views: ['item.List','item.Edit'],
+	views: ['item.List','item.Edit', 'comboBox.CategoryComboBox'],
 	init: function() {
 		this.control({
 			'viewport itemlist button[action=add]': {

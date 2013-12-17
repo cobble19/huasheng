@@ -19,11 +19,14 @@ Ext.define('HS.view.item.Edit', {
 						xtype: 'textfield',
 						name: 'name',
 						fieldLabel: 'Name'
-					}, 
+					}/*, 
 					{
 						xtype: 'textfield',
 						name: 'categoryDTO.categoryId',
 						fieldLabel: 'Category Id'
+					}*/,
+					{
+						xtype: 'categorycombobox'
 					}
 				]
 			}

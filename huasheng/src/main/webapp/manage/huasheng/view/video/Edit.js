@@ -24,7 +24,7 @@ Ext.define('HS.view.video.Edit', {
 						xtype: 'textfield',
 						name: 'orderNum',
 						fieldLabel: 'OrderNum'
-					}, 
+					}/*, 
 					{
 						xtype: 'textfield',
 						name: 'itemDTO.itemId',
@@ -34,6 +34,12 @@ Ext.define('HS.view.video.Edit', {
 						xtype: 'textfield',
 						name: 'videoSrcDTO.videoSrcId',
 						fieldLabel: 'VideoSrc Id'
+					}*/,
+					{
+						xtype: 'itemcombobox'
+					},
+					{
+						xtype: 'videosrccombobox'
 					}
 				]
 			}

@@ -3,7 +3,7 @@ Ext.define('HS.controller.VideoController', {
 	requires: ['Ext.window.MessageBox'],
 	stores: ['VideoStore'],
 	models: ['VideoModel'],
-	views: ['video.List','video.Edit'],
+	views: ['video.List','video.Edit', 'comboBox.ItemComboBox', 'comboBox.VideoSrcComboBox'],
 	init: function() {
 		this.control({
 			'viewport videolist button[action=add]': {

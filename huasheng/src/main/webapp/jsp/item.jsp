@@ -92,19 +92,15 @@
 								  </a>
 								  <div class="media-body">
 										<h4 class="media-heading">
-											<p><span class="c-info-title">地区： </span>${itemDTO.itemBaseInfoDTO.areaName } <span class="c-info-title">上映时间：</span>${itemDTO.itemBaseInfoDTO.showDate} 
-												<span class="c-info-title">豆瓣评分：</span>${itemDTO.itemBaseInfoDTO.score}</p>
+											<p><span class="c-info-title">地区： </span>${itemDTO.areaName } <span class="c-info-title">上映时间：</span>${itemDTO.showDate} 
+												<span class="c-info-title">豆瓣评分：</span>${itemDTO.score}</p>
 											<p><span class="c-info-title">主演： </span>
-												<c:forEach items="${itemDTO.itemBaseInfoDTO.actorDTOs}" var="actor">
-													${actor.name}
-												</c:forEach>
+													${itemDTO.actorName}
 											</p>
 											<p><span class="c-info-title">类型： </span>
-												<c:forEach items="${itemDTO.itemBaseInfoDTO.itemTypeDTOs}" var="itemType">
-													${itemType.name}
-												</c:forEach>
+												${itemDTO.itemType}
 											</p>
-											<p><span class="c-info-title">简介：</span> ${itemDTO.itemBaseInfoDTO.description}
+											<p><span class="c-info-title">简介：</span> ${itemDTO.description}
 											</p>
 										</h4>
 									</div>
