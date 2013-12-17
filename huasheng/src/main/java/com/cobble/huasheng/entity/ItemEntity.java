@@ -33,7 +33,7 @@ public class ItemEntity extends BaseEntity {
 	/*private Set<CategoryEntity> categoryEntities;*/
 	private CategoryEntity categoryEntity;
 	private Set<VideoSrcEntity> videoSrcEntities;
-	/*private Set<VideoEntity> videoEntities;*/
+	private Set<VideoEntity> videoEntities;
 	public Long getItemId() {
 		return itemId;
 	}
@@ -99,6 +99,12 @@ public class ItemEntity extends BaseEntity {
 	}
 	public void setCategoryEntity(CategoryEntity categoryEntity) {
 		this.categoryEntity = categoryEntity;
+	}
+	public Set<VideoEntity> getVideoEntities() {
+		return videoEntities;
+	}
+	public void setVideoEntities(Set<VideoEntity> videoEntities) {
+		this.videoEntities = videoEntities;
 	}
 	
 }
