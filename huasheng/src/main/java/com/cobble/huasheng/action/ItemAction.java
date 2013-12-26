@@ -78,6 +78,8 @@ public class ItemAction extends BaseAction {
 		topicDTO = topicService.findById(topicId);
 		// get Item
 		itemDTO = itemService.findById(itemId);
+		itemDTO.setHits(itemDTO.getHits() == null ? 0 : itemDTO.getHits() + 1);
+		itemService.update(itemDTO);
 		return this.SUCCESS;
 	}
 	

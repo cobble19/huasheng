@@ -147,7 +147,7 @@
 							    
 							  </div>
 								<div class="panel-footer">
-									<h3 class="panel-title">From DB
+									<h3 class="panel-title">谢谢收看
 							  			<p class="pull-right">
 											<a href="<%=request.getContextPath() %>/category!getCategoryById?categoryId=${category.categoryId }&topicId=${topicDTO.topicId }" class="navbar-link">更多</a>
 										</p>

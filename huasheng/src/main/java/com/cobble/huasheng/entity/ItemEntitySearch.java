@@ -1,13 +1,12 @@
 package com.cobble.huasheng.entity;
 
-import java.util.Set;
+import java.util.List;
 
 public class ItemEntitySearch extends BaseEntitySearch {
 	private Long itemId;
 	private String name;
-	private Set<CategoryEntity> categoryEntities;
-	private ItemBaseInfoEntity itemBaseInfoEntity;
-	private Set<VideoEntity> videoEntities;
+	private List<CategoryEntity> categoryEntities;
+	private List<VideoEntity> videoEntities;
 	public Long getItemId() {
 		return itemId;
 	}
@@ -20,22 +19,16 @@ public class ItemEntitySearch extends BaseEntitySearch {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Set<CategoryEntity> getCategoryEntities() {
+	public List<CategoryEntity> getCategoryEntities() {
 		return categoryEntities;
 	}
-	public void setCategoryEntities(Set<CategoryEntity> categoryEntities) {
+	public void setCategoryEntities(List<CategoryEntity> categoryEntities) {
 		this.categoryEntities = categoryEntities;
 	}
-	public ItemBaseInfoEntity getItemBaseInfoEntity() {
-		return itemBaseInfoEntity;
-	}
-	public void setItemBaseInfoEntity(ItemBaseInfoEntity itemBaseInfoEntity) {
-		this.itemBaseInfoEntity = itemBaseInfoEntity;
-	}
-	public Set<VideoEntity> getVideoEntities() {
+	public List<VideoEntity> getVideoEntities() {
 		return videoEntities;
 	}
-	public void setVideoEntities(Set<VideoEntity> videoEntities) {
+	public void setVideoEntities(List<VideoEntity> videoEntities) {
 		this.videoEntities = videoEntities;
 	}
 	

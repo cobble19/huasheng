@@ -1,7 +1,7 @@
 package com.cobble.huasheng.dto;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 public class ItemDTO extends BaseDTO {
 	private Long itemId;
@@ -22,11 +22,11 @@ public class ItemDTO extends BaseDTO {
 	private String itemType;
 	// 用于创建和修改
 	private CategoryDTO categoryDTO;
-	/*private Set<CategoryDTO> categoryDTOs;*/
+	/*private List<CategoryDTO> categoryDTOs;*/
 	/*private ItemBaseInfoDTO itemBaseInfoDTO;*/
-	private Set<VideoDTO> videoDTOs;
+	private List<VideoDTO> videoDTOs;
 	// addition added
-	private Set<VideoSrcDTO> videoSrcDTOs;
+	private List<VideoSrcDTO> videoSrcDTOs;
 	public Long getItemId() {
 		return itemId;
 	}
@@ -45,10 +45,10 @@ public class ItemDTO extends BaseDTO {
 	public void setItemBaseInfoDTO(ItemBaseInfoDTO itemBaseInfoDTO) {
 		this.itemBaseInfoDTO = itemBaseInfoDTO;
 	}*/
-	public Set<VideoDTO> getVideoDTOs() {
+	public List<VideoDTO> getVideoDTOs() {
 		return videoDTOs;
 	}
-	public void setVideoDTOs(Set<VideoDTO> videoDTOs) {
+	public void setVideoDTOs(List<VideoDTO> videoDTOs) {
 		this.videoDTOs = videoDTOs;
 	}
 	public Long getHits() {
@@ -57,10 +57,10 @@ public class ItemDTO extends BaseDTO {
 	public void setHits(Long hits) {
 		this.hits = hits;
 	}
-	public Set<VideoSrcDTO> getVideoSrcDTOs() {
+	public List<VideoSrcDTO> getVideoSrcDTOs() {
 		return videoSrcDTOs;
 	}
-	public void setVideoSrcDTOs(Set<VideoSrcDTO> videoSrcDTOs) {
+	public void setVideoSrcDTOs(List<VideoSrcDTO> videoSrcDTOs) {
 		this.videoSrcDTOs = videoSrcDTOs;
 	}
 	public String getAreaName() {

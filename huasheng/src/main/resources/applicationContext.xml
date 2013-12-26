@@ -44,9 +44,6 @@
 				<value>com/cobble/huasheng/entity/Topic.hbm.xml</value>
 				<value>com/cobble/huasheng/entity/Category.hbm.xml</value>
 				<value>com/cobble/huasheng/entity/Item.hbm.xml</value>
-				<!-- <value>com/cobble/huasheng/entity/ItemBaseInfo.hbm.xml</value> -->
-				<!-- <value>com/cobble/huasheng/entity/ItemType.hbm.xml</value> -->
-				<!-- <value>com/cobble/huasheng/entity/Actor.hbm.xml</value> -->
 				<value>com/cobble/huasheng/entity/VideoSrc.hbm.xml</value>
 				<value>com/cobble/huasheng/entity/Video.hbm.xml</value>
 			</list>

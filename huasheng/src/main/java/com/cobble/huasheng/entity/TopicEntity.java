@@ -1,6 +1,6 @@
 package com.cobble.huasheng.entity;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * 主题， 如电视剧， 动漫
@@ -12,7 +12,7 @@ public class TopicEntity extends BaseEntity {
 	private Long topicId;
 	// 主题名称
 	private String name;
-	private Set<CategoryEntity> categoryEntities;
+	private List<CategoryEntity> categoryEntities;
 	public Long getTopicId() {
 		return topicId;
 	}
@@ -25,10 +25,10 @@ public class TopicEntity extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Set<CategoryEntity> getCategoryEntities() {
+	public List<CategoryEntity> getCategoryEntities() {
 		return categoryEntities;
 	}
-	public void setCategoryEntities(Set<CategoryEntity> categoryEntities) {
+	public void setCategoryEntities(List<CategoryEntity> categoryEntities) {
 		this.categoryEntities = categoryEntities;
 	}
 	

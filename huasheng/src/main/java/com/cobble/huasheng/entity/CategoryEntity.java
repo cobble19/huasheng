@@ -1,7 +1,7 @@
 package com.cobble.huasheng.entity;
 
 import java.util.List;
-import java.util.Set;
+import java.util.List;
 
 /**
  * 类别， 如动作片， 剧情片
@@ -16,7 +16,7 @@ public class CategoryEntity extends BaseEntity {
 	// 所属主题
 	private TopicEntity topicEntity;
 	// 拥有的个体，如一部电视剧
-	private Set<ItemEntity> itemEntities;
+	private List<ItemEntity> itemEntities;
 	public Long getCategoryId() {
 		return categoryId;
 	}
@@ -35,10 +35,10 @@ public class CategoryEntity extends BaseEntity {
 	public void setTopicEntity(TopicEntity topicEntity) {
 		this.topicEntity = topicEntity;
 	}
-	public Set<ItemEntity> getItemEntities() {
+	public List<ItemEntity> getItemEntities() {
 		return itemEntities;
 	}
-	public void setItemEntities(Set<ItemEntity> itemEntities) {
+	public void setItemEntities(List<ItemEntity> itemEntities) {
 		this.itemEntities = itemEntities;
 	}
 	

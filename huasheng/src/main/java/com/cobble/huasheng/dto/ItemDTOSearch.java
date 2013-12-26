@@ -1,13 +1,12 @@
 package com.cobble.huasheng.dto;
 
-import java.util.Set;
+import java.util.List;
 
 public class ItemDTOSearch extends BaseDTOSearch {
 	private Long itemId;
 	private String name;
-	private Set<CategoryDTO> categoryDTOs;
-	private ItemBaseInfoDTO itemBaseInfoDTO;
-	private Set<VideoDTO> videoDTOs;
+	private List<CategoryDTO> categoryDTOs;
+	private List<VideoDTO> videoDTOs;
 	public Long getItemId() {
 		return itemId;
 	}
@@ -20,22 +19,16 @@ public class ItemDTOSearch extends BaseDTOSearch {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Set<CategoryDTO> getCategoryDTOs() {
+	public List<CategoryDTO> getCategoryDTOs() {
 		return categoryDTOs;
 	}
-	public void setCategoryDTOs(Set<CategoryDTO> categoryDTOs) {
+	public void setCategoryDTOs(List<CategoryDTO> categoryDTOs) {
 		this.categoryDTOs = categoryDTOs;
 	}
-	public ItemBaseInfoDTO getItemBaseInfoDTO() {
-		return itemBaseInfoDTO;
-	}
-	public void setItemBaseInfoDTO(ItemBaseInfoDTO itemBaseInfoDTO) {
-		this.itemBaseInfoDTO = itemBaseInfoDTO;
-	}
-	public Set<VideoDTO> getVideoDTOs() {
+	public List<VideoDTO> getVideoDTOs() {
 		return videoDTOs;
 	}
-	public void setVideoDTOs(Set<VideoDTO> videoDTOs) {
+	public void setVideoDTOs(List<VideoDTO> videoDTOs) {
 		this.videoDTOs = videoDTOs;
 	}
 	

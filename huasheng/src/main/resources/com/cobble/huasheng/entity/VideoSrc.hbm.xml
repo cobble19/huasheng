@@ -9,9 +9,9 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="name" column="NAME" not-null="true"></property>
-		<set name="videoEntities" inverse="false">
+		<bag name="videoEntities" inverse="false" order-by="orderNum asc">
 			<key column="VIDEO_SRC_ID" />
 			<one-to-many class="VideoEntity"/>
-		</set>
+		</bag>
 	</class>
 </hibernate-mapping>

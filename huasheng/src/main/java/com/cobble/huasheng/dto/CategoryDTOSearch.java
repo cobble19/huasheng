@@ -1,12 +1,12 @@
 package com.cobble.huasheng.dto;
 
-import java.util.Set;
+import java.util.List;
 
 public class CategoryDTOSearch extends BaseDTOSearch {
 	private Long categoryId;
 	private String name;
 	private TopicDTO topicDTO;
-	private Set<ItemDTO> itemDTOs;
+	private List<ItemDTO> itemDTOs;
 	public Long getCategoryId() {
 		return categoryId;
 	}
@@ -25,10 +25,10 @@ public class CategoryDTOSearch extends BaseDTOSearch {
 	public void setTopicDTO(TopicDTO topicDTO) {
 		this.topicDTO = topicDTO;
 	}
-	public Set<ItemDTO> getItemDTOs() {
+	public List<ItemDTO> getItemDTOs() {
 		return itemDTOs;
 	}
-	public void setItemDTOs(Set<ItemDTO> itemDTOs) {
+	public void setItemDTOs(List<ItemDTO> itemDTOs) {
 		this.itemDTOs = itemDTOs;
 	}
 	

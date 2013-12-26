@@ -1,9 +1,7 @@
 package com.cobble.huasheng.service.impl;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.cobble.huasheng.dao.CategoryDAO;
 import com.cobble.huasheng.dao.ItemDAO;
@@ -92,17 +90,51 @@ public class ItemServiceImpl implements ItemService {
 		try {
 			ItemEntity itemEntity = itemDAO.findById(id);
 			ret = ConvertFactory.getItemConvert().toDTO(itemEntity);
+			List<VideoSrcDTO> videoSrcDTOs = new ArrayList<VideoSrcDTO>();
+			ret.setVideoSrcDTOs(videoSrcDTOs);
 			if (itemEntity != null) {
-				Set<VideoSrcEntity> videoSrcEntities = itemEntity.getVideoSrcEntities();
+				List<VideoEntity> videoEntities = itemEntity.getVideoEntities();
+				if (ListUtil.isEmpty(videoEntities)) {
+					return ret;
+				}
+				for (VideoEntity videoEntity : videoEntities) {
+					VideoSrcEntity videoSrcEntity = videoEntity.getVideoSrcEntity();
+					VideoSrcDTO videoSrcDTO = new VideoSrcDTO();
+					BeanUtil.copyProperties(videoSrcDTO, videoSrcEntity);
+
+					if (!videoSrcDTOs.contains(videoSrcDTO)) {
+						videoSrcDTOs.add(videoSrcDTO);
+					}
+
+					VideoDTO videoDTO = new VideoDTO();
+					BeanUtil.copyProperties(videoDTO, videoEntity);
+					if (ListUtil.isNotEmpty(videoSrcDTOs)) {
+						for (int i = 0; i < videoSrcDTOs.size(); i++) {
+							VideoSrcDTO temp = videoSrcDTOs.get(i);
+							if (temp.getVideoSrcId().longValue() != videoSrcDTO.getVideoSrcId().longValue()) {
+								continue;
+							}
+							if (ListUtil.isEmpty(temp.getVideoDTOs())) {
+								temp.setVideoDTOs(new ArrayList<VideoDTO>());
+							}
+							if (!temp.getVideoDTOs().contains(videoDTO)) {
+								temp.getVideoDTOs().add(videoDTO);
+							}
+						}
+					}
+				}
+				ret.setVideoSrcDTOs(videoSrcDTOs);
+				
+				/*List<VideoSrcEntity> videoSrcEntities = itemEntity.getVideoSrcEntities();
 				if (ListUtil.isNotEmpty(videoSrcEntities)) {
-					Set<VideoSrcDTO> videoSrcDTOs = new HashSet<VideoSrcDTO>();
+					List<VideoSrcDTO> videoSrcDTOs = new ArrayList<VideoSrcDTO>();
 					for (VideoSrcEntity videoSrcEntity : videoSrcEntities) {
 						VideoSrcDTO videoSrcDTO = ConvertFactory.getVideoSrcConvert().toDTO(videoSrcEntity);
 						videoSrcDTOs.add(videoSrcDTO);
 						
-						Set<VideoEntity> videoEntities = videoSrcEntity.getVideoEntities();
+						List<VideoEntity> videoEntities = videoSrcEntity.getVideoEntities();
 						if (ListUtil.isNotEmpty(videoEntities)) {
-							Set<VideoDTO> videoDTOs = new HashSet<VideoDTO>();
+							List<VideoDTO> videoDTOs = new ArrayList<VideoDTO>();
 							for (VideoEntity videoEntity : videoEntities) {
 								VideoDTO videoDTO = ConvertFactory.getVideoConvert().toDTO(videoEntity);
 								videoDTOs.add(videoDTO);
@@ -110,24 +142,6 @@ public class ItemServiceImpl implements ItemService {
 							videoSrcDTO.setVideoDTOs(videoDTOs);
 						}
 					}
-					ret.setVideoSrcDTOs(videoSrcDTOs);
-				}
-				/*if (ListUtil.isNotEmpty(videoEntities)) {
-					Set<VideoDTO> videoDTOs = new HashSet<VideoDTO>();
-					Set<VideoSrcDTO> videoSrcDTOs = new HashSet<VideoSrcDTO>();
-					for (VideoEntity videoEntity : videoEntities) {
-						VideoDTO videoDTO = ConvertFactory.getVideoConvert().toDTO(videoEntity);
-						videoDTOs.add(videoDTO);
-						if (videoEntity != null) {
-							videoEntity = videoDAO.findById(videoEntity.getVideoId());
-							VideoSrcEntity videoSrcEntity = videoEntity.getVideoSrcEntity();
-							VideoSrcDTO videoSrcDTO = ConvertFactory.getVideoSrcConvert().toDTO(videoSrcEntity);
-							videoSrcDTO.setVideoDTOs(videoDTOs);
-							videoSrcDTOs.add(videoSrcDTO);
-							
-						}
-					}
-					ret.setVideoDTOs(videoDTOs);
 					ret.setVideoSrcDTOs(videoSrcDTOs);
 				}*/
 				

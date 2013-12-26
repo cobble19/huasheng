@@ -32,12 +32,6 @@
 		<property name="itemService" ref="itemService"></property>
 		<property name="topicService" ref="topicService"></property>
 	</bean>
-	<bean id="itemBaseInfoAction" class="com.cobble.huasheng.action.ItemBaseInfoAction" scope="prototype">
-		<property name="itemBaseInfoService" ref="itemBaseInfoService"></property>
-	</bean>
-	<bean id="itemTypeAction" class="com.cobble.huasheng.action.ItemTypeAction" scope="prototype">
-		<property name="itemTypeService" ref="itemTypeService"></property>
-	</bean>
 	<bean id="videoAction" class="com.cobble.huasheng.action.VideoAction" scope="prototype">
 		<property name="videoService" ref="videoService"></property>
 	</bean>

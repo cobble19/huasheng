@@ -4,9 +4,6 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
  
 <struts>
- 	
- 	
-    
     <package name="root" namespace="/" extends="default">
  		<action name="topic" class="topicAction">
  			<result name="success">
@@ -23,12 +20,12 @@
  				/jsp/item.jsp
  			</result>
  		</action>
- 		<action name="videoSrc" class="itemAction">
+ 		<action name="videoSrc" class="videoSrcAction">
  			<result name="success">
  				/jsp/videoSrc.jsp
  			</result>
  		</action>
- 		<action name="video" class="itemAction">
+ 		<action name="video" class="videoAction">
  			<result name="success">
  				/jsp/video.jsp
  			</result>

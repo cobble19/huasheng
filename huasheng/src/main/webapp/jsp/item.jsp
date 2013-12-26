@@ -114,37 +114,30 @@
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs">
 							<c:forEach items="${itemDTO.videoSrcDTOs}" var="videoSrc" varStatus="st">
-								<c:if test="${st.index == 0 }">
+								<li <c:if test="${st.index == 0 }"> class="active"</c:if> >
+									<a href="#${videoSrc.videoSrcId}" data-toggle="tab">${videoSrc.name}</a>
+								</li>
+								<%-- <c:if test="${st.index == 0 }">
 									<li class="active"><a href="#${videoSrc.videoSrcId}" data-toggle="tab">${videoSrc.name}</a></li>
 								</c:if>
 								<c:if test="${st.index >0 }">
 									<li><a href="#${videoSrc.videoSrcId}" data-toggle="tab">${videoSrc.name}</a></li>
-								</c:if>
+								</c:if> --%>
 							</c:forEach>
 							<!-- <li class="active"><a href="#tudou" data-toggle="tab">土豆</a></li>
 							<li><a href="#youku" data-toggle="tab">优酷</a></li> -->
 						</ul>
 						<div class="tab-content c-video-content">
 							<c:forEach items="${itemDTO.videoSrcDTOs}" var="videoSrc" varStatus="st">
-								<c:if test="${st.index == 0 }">
-									<div class="tab-pane active" id="${videoSrc.videoSrcId}">
+									<div 
+										<c:if test="${st.index == 0 }"> class="tab-pane active" </c:if>
+										<c:if test="${st.index > 0 }"> class="tab-pane" </c:if>
+									 id="${videoSrc.videoSrcId}">
 										<div class="c-video-list">
 											<ul class="nav navbar-nav">
 												<c:forEach items="${videoSrc.videoDTOs }" var="video" varStatus="st">
-													<c:if test="${st.index < 1 }">
-														<li><a href="${video.url}">${st.count }</a></li>
-													</c:if>
-													<c:if test="${st.index >= 1 }">
-														<li class="c-video-more-display"><a href="${video.url}">${st.count }</a></li>
-													</c:if>
+														<li <c:if test="${st.index >= 20 }"> class="c-video-more-display" </c:if> ><a href="${video.url}">第${st.count}集</a></li>
 												</c:forEach>
-												<!-- <li><a href="videoplay.html">第1集</a></li>
-												<li><a href="http://www.tudou.com/albumplay/YS-uKkKkgNI/sQkn0l1Smqo.html?resourceId=0_06_02_99">第1集</a></li>
-												<li><a href="">第1集</a></li>
-												<li><a href="">第1集</a></li>
-												<li><a href="">第1集</a></li>
-												<li class="c-video-more-display"><a href="">第4集</a></li>
-												<li class="c-video-more-display"><a href="">第5集</a></li> -->
 											</ul>
 										</div>
 										<div class="clearfix"></div>
@@ -153,26 +146,18 @@
 											<a class="c-video-collpase" href="">收起》</a>
 										</div>
 									</div>
-								</c:if>
-								<c:if test="${st.index >0 }">
+								<%-- <c:if test="${st.index >0 }">
 									<div class="tab-pane" id="${videoSrc.videoSrcId}">
 										<div class="c-video-list">
 											<ul class="nav navbar-nav">
 												<c:forEach items="${videoSrc.videoDTOs }" var="video" varStatus="st">
 													<c:if test="${st.index < 1 }">
-														<li><a href="${video.url}">${st.count }</a></li>
+														<li><a href="${video.url}">${st.count}_${video.videoId}</a></li>
 													</c:if>
 													<c:if test="${st.index >= 1 }">
-														<li class="c-video-more-display"><a href="${video.url}">${st.count }</a></li>
+														<li class="c-video-more-display"><a href="${video.url}">${st.count}_${video.videoId}</a></li>
 													</c:if>
 												</c:forEach>
-												<!-- <li><a href="videoplay.html">第1集</a></li>
-												<li><a href="http://www.tudou.com/albumplay/YS-uKkKkgNI/sQkn0l1Smqo.html?resourceId=0_06_02_99">第1集</a></li>
-												<li><a href="">第1集</a></li>
-												<li><a href="">第1集</a></li>
-												<li><a href="">第1集</a></li>
-												<li class="c-video-more-display"><a href="">第4集</a></li>
-												<li class="c-video-more-display"><a href="">第5集</a></li> -->
 											</ul>
 										</div>
 										<div class="clearfix"></div>
@@ -181,7 +166,7 @@
 											<a class="c-video-collpase" href="">收起》</a>
 										</div>
 									</div>
-								</c:if>
+								</c:if> --%>
 							</c:forEach>
 							<%-- <div class="tab-pane active" id="tudou">
 								<div class="c-video-list">

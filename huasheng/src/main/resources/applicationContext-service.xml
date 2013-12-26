@@ -28,12 +28,6 @@
 		<property name="videoDAO" ref="videoDAO"></property>
 		<property name="categoryDAO" ref="categoryDAO"></property>
 	</bean>
-	<bean id="itemBaseInfoService" class="com.cobble.huasheng.service.impl.ItemBaseInfoServiceImpl">
-		<property name="itemBaseInfoDAO" ref="itemBaseInfoDAO"></property>
-	</bean>
-	<bean id="itemTypeService" class="com.cobble.huasheng.service.impl.ItemTypeServiceImpl">
-		<property name="itemTypeDAO" ref="itemTypeDAO"></property>
-	</bean>
 	<bean id="videoService" class="com.cobble.huasheng.service.impl.VideoServiceImpl">
 		<property name="videoDAO" ref="videoDAO"></property>
 		<property name="itemDAO" ref="itemDAO"></property>

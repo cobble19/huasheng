@@ -20,13 +20,13 @@
 		
 		<!-- <one-to-one name="itemBaseInfoEntity" property-ref="itemEntity"></one-to-one> -->
 		<many-to-one name="categoryEntity" column="CATEGORY_ID"></many-to-one>
-		<set name="VideoSrcEntities" table="R_ITEM_VIDEO_SRC" cascade="delete">
+		<bag name="VideoSrcEntities" table="R_ITEM_VIDEO_SRC" cascade="delete">
 			<key column="ITEM_ID"></key>
 			<many-to-many class="VideoSrcEntity" column="VIDEO_SRC_ID"></many-to-many>
-		</set>
-		<set name="videoEntities" inverse="true" cascade="delete">
+		</bag>
+		<bag name="videoEntities" inverse="true" cascade="all" order-by="orderNum asc">
 			<key column="ITEM_ID" />
 			<one-to-many class="VideoEntity"/>
-		</set>
+		</bag>
 	</class>
 </hibernate-mapping>

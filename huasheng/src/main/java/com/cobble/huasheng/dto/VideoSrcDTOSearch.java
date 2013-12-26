@@ -1,11 +1,11 @@
 package com.cobble.huasheng.dto;
 
-import java.util.Set;
+import java.util.List;
 
 public class VideoSrcDTOSearch extends BaseDTOSearch {
 	private Long videoSrcId;
 	private String name;
-	private Set<VideoDTO> videoDTOs;
+	private List<VideoDTO> videoDTOs;
 	public Long getVideoSrcId() {
 		return videoSrcId;
 	}
@@ -18,10 +18,10 @@ public class VideoSrcDTOSearch extends BaseDTOSearch {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Set<VideoDTO> getVideoDTOs() {
+	public List<VideoDTO> getVideoDTOs() {
 		return videoDTOs;
 	}
-	public void setVideoDTOs(Set<VideoDTO> videoDTOs) {
+	public void setVideoDTOs(List<VideoDTO> videoDTOs) {
 		this.videoDTOs = videoDTOs;
 	}
 }

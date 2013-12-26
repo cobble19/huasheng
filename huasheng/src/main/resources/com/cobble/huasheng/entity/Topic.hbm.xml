@@ -9,9 +9,9 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="name" column="NAME" not-null="true"></property>
-		<set name="categoryEntities" inverse="true">
+		<bag name="categoryEntities" inverse="true" cascade="all" order-by="name asc">
 			<key column="TOPIC_ID" />
 			<one-to-many class="CategoryEntity"/>
-		</set>
+		</bag>
 	</class>
 </hibernate-mapping>

@@ -1,5 +1,6 @@
 package com.cobble.huasheng.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -7,6 +8,9 @@ import org.hibernate.Query;
 import com.cobble.huasheng.dao.ItemDAO;
 import com.cobble.huasheng.entity.ItemEntity;
 import com.cobble.huasheng.entity.ItemEntitySearch;
+import com.cobble.huasheng.entity.VideoEntity;
+import com.cobble.huasheng.entity.VideoSrcEntity;
+import com.cobble.huasheng.util.ListUtil;
 
 public class ItemDAOImpl extends CommonDAOImpl implements ItemDAO {
 
@@ -33,6 +37,21 @@ public class ItemDAOImpl extends CommonDAOImpl implements ItemDAO {
 		ItemEntity ret = null;
 		try {
 			ret = (ItemEntity) this.getCurrentSession().get(ItemEntity.class, id);
+			/*Query query = this.getCurrentSession().createQuery("from VideoEntity ve where ve.itemEntity = :itemEntity");
+			query = query.setParameter("itemEntity", ret);
+			List<VideoEntity> videoEntities = (List<VideoEntity>) query.list();
+			List<VideoSrcEntity> videoSrcEntities = new ArrayList<VideoSrcEntity>();
+			if (ListUtil.isNotEmpty(videoEntities)) {
+				for (int i = 0; i < videoEntities.size(); i++) {
+					VideoEntity videoEntity = videoEntities.get(i);
+					VideoSrcEntity videoSrcEntity = videoEntity.getVideoSrcEntity();
+					videoSrcEntity.getVideoEntities().add(videoEntity);
+					if (!videoSrcEntities.contains(videoSrcEntity)) {
+						videoSrcEntities.add(videoSrcEntity);
+					}
+				}
+			}
+			ret.setVideoSrcEntities(videoSrcEntities);*/
 		} catch (Exception e) {
 			throw e;
 		}

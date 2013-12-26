@@ -1,12 +1,12 @@
 package com.cobble.huasheng.entity;
 
-import java.util.Set;
+import java.util.List;
 
 public class CategoryEntitySearch extends BaseEntitySearch {
 	private Long categoryId;
 	private String name;
 	private TopicEntity topicEntity;
-	private Set<ItemEntity> itemEntities;
+	private List<ItemEntity> itemEntities;
 	public Long getCategoryId() {
 		return categoryId;
 	}
@@ -25,10 +25,10 @@ public class CategoryEntitySearch extends BaseEntitySearch {
 	public void setTopicEntity(TopicEntity topicEntity) {
 		this.topicEntity = topicEntity;
 	}
-	public Set<ItemEntity> getItemEntities() {
+	public List<ItemEntity> getItemEntities() {
 		return itemEntities;
 	}
-	public void setItemEntities(Set<ItemEntity> itemEntities) {
+	public void setItemEntities(List<ItemEntity> itemEntities) {
 		this.itemEntities = itemEntities;
 	}
 	
