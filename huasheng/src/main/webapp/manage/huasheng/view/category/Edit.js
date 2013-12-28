@@ -2,7 +2,7 @@ Ext.define('HS.view.category.Edit', {
 	extend: 'Ext.window.Window',
 	alias: 'widget.categoryedit',
 	
-	title: 'Category Edit',
+	title: '类别编辑',
 	layout: 'fit',
 	autoShow: true,
 	initComponent: function() {
@@ -13,12 +13,12 @@ Ext.define('HS.view.category.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'categoryId',
-						fieldLabel: 'Category Id'
+						fieldLabel: '类别唯一标识'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'name',
-						fieldLabel: 'Name'
+						fieldLabel: '类型名称'
 					}/*, 
 					{
 						xtype: 'textfield',
@@ -35,17 +35,17 @@ Ext.define('HS.view.category.Edit', {
 		];
 		this.buttons = [
 		{
-			text: 'Add',
+			text: '添加',
 			action: 'add',
 			id: 'btnAdd'
 		},
 		{
-			text: 'Update',
+			text: '修改',
 			action: 'update',
 			id: 'btnUpdate'
 		}, 
 		{
-			text: 'Cancel',
+			text: '取消',
 			scope: this,
 			handler: this.close
 		}

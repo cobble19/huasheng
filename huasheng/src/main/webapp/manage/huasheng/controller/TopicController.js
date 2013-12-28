@@ -66,8 +66,12 @@ Ext.define('HS.controller.TopicController', {
 			success: function(form, action) {
 				win.close();
 				var topicDTO = action.result.topicDTO;
+				var record = Ext.create('HS.model.TopicModel', {
+					topicId: topicDTO.topicId,
+					name: topicDTO.name
+				});
 				var index = 0;
-				var records = Ext.getStore('TopicStore').insert(index, topicDTO);
+				var records = Ext.getStore('TopicStore').insert(index, record);
 				// change color
 				me.getTopicList().getView().addRowCls(record, 'red');
 				/*var tr = Ext.query('tr[data-recordindex=' + index + ']');
@@ -87,7 +91,7 @@ Ext.define('HS.controller.TopicController', {
 			selModel = grid.getSelectionModel( ),
 			records = selModel.getSelection();
 		if (records == null || records.length == 0) {
-			Ext.MessageBox.alert('Info', 'please select ONE row');
+			Ext.MessageBox.alert('警告', '请选择一条记录');
 			return;
 		} else {
 			//Ext.MessageBox.alert('Info', records[0].data.name);
@@ -134,11 +138,11 @@ Ext.define('HS.controller.TopicController', {
 			records = selModel.getSelection();
 		var deleteTopic = this.deleteTopic;
 		if (records == null || records.length == 0) {
-			Ext.MessageBox.alert('Info', 'please select ONE row');
+			Ext.MessageBox.alert('警告', '请选择一条记录');
 			return;
 		} else {
 			Ext.MessageBox.show({
-				title: 'Confirm',
+				title: '确认提示',
 				icon: Ext.MessageBox.WARNING,
 				msg: '确认删除数据？',
 				buttons: Ext.Msg.OKCANCEL,
@@ -171,10 +175,10 @@ Ext.define('HS.controller.TopicController', {
 				}
 				);
 				/*Ext.getStore('TopicStore').sync();*/
-				Ext.MessageBox.alert('Info', 'Deleted successfully!');
+				Ext.MessageBox.alert('信息', '删除成功!');
 			},
 			failure: function(response, options) {
-				Ext.MessageBox.alert('Alarm', 'Deleted fail!');
+				Ext.MessageBox.alert('警告', '删除失败!');
 			}
 		});
 	},

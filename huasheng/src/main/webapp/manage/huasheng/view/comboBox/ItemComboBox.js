@@ -1,7 +1,7 @@
 Ext.define('HS.view.comboBox.ItemComboBox', {
 	extend: 'Ext.form.field.ComboBox',
 	alias: 'widget.itemcombobox',
-	fieldLabel: 'Select item',
+	fieldLabel: '选择影视',
 	displayField: 'name',
 	valueField: 'itemId',
 	name:'itemDTO.itemId',

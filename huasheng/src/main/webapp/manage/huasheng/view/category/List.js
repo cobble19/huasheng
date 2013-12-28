@@ -2,7 +2,7 @@ Ext.define('HS.view.category.List', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.categorylist',
 	
-	title: 'Category List',
+	title: '类别列表',
 	id: 'category-list',
 	selType: 'checkboxmodel',
 	selModel: {
@@ -12,17 +12,17 @@ Ext.define('HS.view.category.List', {
 	tbar: [
 	{
 		xtype: 'button',
-		text: 'Add',
+		text: '添加',
 		action: 'add'
 	},
 	{
 		xtype: 'button',
-		text: 'Update',
+		text: '修改',
 		action: 'update'
 	},
 	{
 		xtype: 'button',
-		text: 'Delete',
+		text: '删除',
 		action: 'delete'
 	}
 	],
@@ -33,17 +33,17 @@ Ext.define('HS.view.category.List', {
 			align: 'center'
 		},
 		{
-			header: 'Category Id',
+			header: '类别唯一标识',
 			dataIndex: 'categoryId',
 			flex: 1
 		}, 
 		{
-			header: 'Name',
+			header: '类型名称',
 			dataIndex: 'name',
 			flex: 1
 		}, 
 		{
-			header: 'Topic Id',
+			header: '主题唯一标识',
 			dataIndex: 'topicDTO.topicId',
 			flex: 1
 		}

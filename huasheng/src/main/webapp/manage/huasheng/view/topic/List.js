@@ -1,7 +1,7 @@
 Ext.define('HS.view.topic.List', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.topiclist',
-	title: 'Topic',
+	title: '主题列表',
 	id: 'topic-list',
 	selType: 'checkboxmodel',
 	selModel: {
@@ -12,17 +12,17 @@ Ext.define('HS.view.topic.List', {
 	tbar: [
 		{
 			xtype: 'button',
-			text: 'add',
+			text: '添加',
 			action: 'add'
 		},
 		{
 			xtype: 'button',
-			text: 'update',
+			text: '修改',
 			action: 'update'
 		},
 		{
 			xtype: 'button',
-			text: 'delete',
+			text: '删除',
 			action: 'delete'
 		}
 	],
@@ -36,8 +36,8 @@ Ext.define('HS.view.topic.List', {
 		};*/
 		this.columns = [
 			{xtype: 'rownumberer'},
-			{header: 'TopicId', dataIndex: 'topicId', flex: 1},
-			{header: 'name', dataIndex: 'name', flex: 1}
+			{header: '主题唯一标识', dataIndex: 'topicId', flex: 1},
+			{header: '主题名称', dataIndex: 'name', flex: 1}
 		];
 		this.callParent(arguments);
 			

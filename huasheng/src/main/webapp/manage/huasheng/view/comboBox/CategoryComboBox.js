@@ -1,7 +1,7 @@
 Ext.define('HS.view.comboBox.CategoryComboBox', {
 	extend: 'Ext.form.field.ComboBox',
 	alias: 'widget.categorycombobox',
-	fieldLabel: 'Select category',
+	fieldLabel: '选择类别',
 	displayField: 'name',
 	valueField: 'categoryId',
 	name:'categoryDTO.categoryId',

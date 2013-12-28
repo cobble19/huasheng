@@ -2,7 +2,7 @@ Ext.define('HS.view.video.List', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.videolist',
 	
-	title: 'Video List',
+	title: '视频列表',
 	id: 'video-list',
 	selType: 'checkboxmodel',
 	selModel: {
@@ -12,17 +12,17 @@ Ext.define('HS.view.video.List', {
 	tbar: [
 	{
 		xtype: 'button',
-		text: 'Add',
+		text: '添加',
 		action: 'add'
 	},
 	{
 		xtype: 'button',
-		text: 'Update',
+		text: '修改',
 		action: 'update'
 	},
 	{
 		xtype: 'button',
-		text: 'Delete',
+		text: '删除',
 		action: 'delete'
 	}
 	],
@@ -31,31 +31,31 @@ Ext.define('HS.view.video.List', {
 		{
 			xtype: 'rownumberer',
 			align: 'center',
-			text: 'RowNum',
+			text: '行号',
 			width: '40'
 		},
 		{
-			header: 'Video Id',
+			header: '视频唯一标识',
 			dataIndex: 'videoId',
 			flex: 1
 		}, 
 		{
-			header: 'URL',
+			header: '视频URL',
 			dataIndex: 'url',
 			flex: 1
 		}, 
 		{
-			header: 'Order Num',
+			header: '视频排序',
 			dataIndex: 'orderNum',
 			flex: 1
 		}, 
 		{
-			header: 'Item Id',
+			header: '影视唯一标识',
 			dataIndex: 'itemDTO.itemId',
 			flex: 1
 		}, 
 		{
-			header: 'VideoSrc Id',
+			header: '视频源唯一标识',
 			dataIndex: 'videoSrcDTO.videoSrcId',
 			flex: 1
 		}

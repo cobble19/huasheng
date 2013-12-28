@@ -2,7 +2,7 @@ Ext.define('HS.view.topic.Edit', {
 	extend: 'Ext.window.Window',
 	alias: 'widget.topicedit',
 	
-	title: 'Edit Topic',
+	title: '编辑主题',
 	layout: 'fit',
 	autoShow: true,
 	initComponent: function() {
@@ -13,29 +13,29 @@ Ext.define('HS.view.topic.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'topicId',
-						fieldLabel: 'TopicId'
+						fieldLabel: '主题唯一标识'
 					},
 					{
 						xtype: 'textfield',
 						name: 'name',
-						fieldLabel: 'Name'
+						fieldLabel: '主题名称'
 					}
 				]
 			}
 		];
 		this.buttons = [
 			{
-				text: 'Save',
+				text: '保存',
 				action: 'save',
 				id: 'btnSave'
 			},
 			{
-				text: 'Add',
+				text: '添加',
 				action: 'add',
 				id: 'btnAdd'
 			},
 			{
-				text: 'Cancel',
+				text: '取消',
 				scope: this,
 				handler: this.close
 			}

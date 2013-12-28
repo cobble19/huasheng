@@ -50,8 +50,6 @@ Ext.define('HS.controller.VideoSrcController', {
 			success: function(form, action) {
 				win.close();
 				var videoSrcDTO = action.result.videoSrcDTO;
-				var encode = Ext.JSON.encode(videoSrcDTO);
-				var decode = Ext.JSON.decode(encode);
 				var record = Ext.create('HS.model.VideoSrcModel', {
 					videoSrcId: videoSrcDTO.videoSrcId,
 					name: videoSrcDTO.name
@@ -73,7 +71,7 @@ Ext.define('HS.controller.VideoSrcController', {
 			selModel = grid.getSelectionModel(),
 			records = selModel.getSelection();
 		if (records == null || records.length == 0) {
-			Ext.MessageBox.alert('Alarm', 'Please select ONE row!');
+			Ext.MessageBox.alert('警告', '请选择一条记录!');
 			return;
 		} else {
 			// display edit window
@@ -108,7 +106,7 @@ Ext.define('HS.controller.VideoSrcController', {
 				Ext.get(tr).addCls('red');*/
 			},
 			failure: function(form, action) {
-				Ext.MessageBox.alert('Alarm', action.response.statusText);
+				Ext.MessageBox.alert('警告', action.response.statusText);
 			}
 		})
 	},
@@ -118,11 +116,11 @@ Ext.define('HS.controller.VideoSrcController', {
 			records = selModel.getSelection();
 		var deleteVideoSrc = this.deleteVideoSrc;
 		if (records == null || records.length == 0) {
-			Ext.MessageBox.alert('Alarm', 'Please select ONE row!');
+			Ext.MessageBox.alert('警告', '请选择一条记录!');
 			return;
 		} else {
 			Ext.MessageBox.show({
-				title: 'Confirm',
+				title: '确认提示',
 				icon: Ext.MessageBox.WARNING,
 				msg: '确认删除数据？',
 				buttons: Ext.MessageBox.OKCANCEL,
@@ -153,10 +151,10 @@ Ext.define('HS.controller.VideoSrcController', {
 				Ext.Array.each(records, function(record){
 					Ext.getStore('VideoSrcStore').remove(record);
 				});
-				Ext.MessageBox.alert('Info', 'Deleted successfully!');
+				Ext.MessageBox.alert('信息', '删除成功!');
 			},
 			failure: function(response, options) {
-				Ext.MessageBox.alert('Alarm', 'Deleted fail!');
+				Ext.MessageBox.alert('警告', '删除失败!');
 			}
 		});
 	}

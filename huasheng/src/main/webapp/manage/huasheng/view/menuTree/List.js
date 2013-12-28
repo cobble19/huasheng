@@ -1,7 +1,7 @@
 Ext.define('HS.view.menuTree.List', {
 	extend: 'Ext.tree.Panel',
 	alias: 'widget.menutreelist',
-	title: 'Menu Tree',
+	title: '菜单功能',
 	width: 150,
 	minSize: 150,
 	rootVisible: false,

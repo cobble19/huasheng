@@ -2,7 +2,7 @@ Ext.define('HS.view.video.Edit', {
 	extend: 'Ext.window.Window',
 	alias: 'widget.videoedit',
 	
-	title: 'Video Edit',
+	title: '视频编辑',
 	layout: 'fit',
 	autoShow: true,
 	initComponent: function() {
@@ -13,17 +13,17 @@ Ext.define('HS.view.video.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'videoId',
-						fieldLabel: 'Video Id'
+						fieldLabel: '视频唯一标识'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'url',
-						fieldLabel: 'URL'
+						fieldLabel: '视频url'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'orderNum',
-						fieldLabel: 'OrderNum'
+						fieldLabel: '视频排序'
 					}/*, 
 					{
 						xtype: 'textfield',
@@ -46,17 +46,17 @@ Ext.define('HS.view.video.Edit', {
 		];
 		this.buttons = [
 		{
-			text: 'Add',
+			text: '添加',
 			action: 'add',
 			id: 'btnAdd'
 		},
 		{
-			text: 'Update',
+			text: '修改',
 			action: 'update',
 			id: 'btnUpdate'
 		}, 
 		{
-			text: 'Cancel',
+			text: '取消',
 			scope: this,
 			handler: this.close
 		}

@@ -2,7 +2,7 @@ Ext.define('HS.view.videoSrc.Edit', {
 	extend: 'Ext.window.Window',
 	alias: 'widget.videosrcedit',
 	
-	title: 'VideoSrc Edit',
+	title: '视频源编辑',
 	layout: 'fit',
 	autoShow: true,
 	initComponent: function() {
@@ -13,29 +13,29 @@ Ext.define('HS.view.videoSrc.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'videoSrcId',
-						fieldLabel: 'VideoSrc Id'
+						fieldLabel: '视频源唯一标识'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'name',
-						fieldLabel: 'Name'
+						fieldLabel: '视频源名称'
 					}
 				]
 			}
 		];
 		this.buttons = [
 		{
-			text: 'Add',
+			text: '添加',
 			action: 'add',
 			id: 'btnAdd'
 		},
 		{
-			text: 'Update',
+			text: '修改',
 			action: 'update',
 			id: 'btnUpdate'
 		}, 
 		{
-			text: 'Cancel',
+			text: '取消',
 			scope: this,
 			handler: this.close
 		}

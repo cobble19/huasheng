@@ -1,7 +1,7 @@
 Ext.define('HS.view.comboBox.TopicComboBox', {
 	extend: 'Ext.form.field.ComboBox',
 	alias: 'widget.topiccombobox',
-	fieldLabel: 'Select topic',
+	fieldLabel: '选择主题',
 	displayField: 'name',
 	valueField: 'topicId',
 	name:'topicDTO.topicId',

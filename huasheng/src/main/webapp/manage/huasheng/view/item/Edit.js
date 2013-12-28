@@ -2,7 +2,7 @@ Ext.define('HS.view.item.Edit', {
 	extend: 'Ext.window.Window',
 	alias: 'widget.itemedit',
 	
-	title: 'Item Edit',
+	title: '影视编辑',
 	layout: 'fit',
 	autoShow: true,
 	initComponent: function() {
@@ -13,47 +13,47 @@ Ext.define('HS.view.item.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'itemId',
-						fieldLabel: 'Item Id'
+						fieldLabel: '影视唯一标识'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'name',
-						fieldLabel: 'Name'
+						fieldLabel: '影视名称'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'hits',
-						fieldLabel: 'Hits'
+						fieldLabel: '点击率'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'areaName',
-						fieldLabel: 'Area Name'
+						fieldLabel: '地区'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'showDate',
-						fieldLabel: 'Show Date'
+						fieldLabel: '上映时间'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'score',
-						fieldLabel: 'Score'
+						fieldLabel: '评分'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'description',
-						fieldLabel: 'Description'
+						fieldLabel: '描述'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'actorName',
-						fieldLabel: 'Actor Name'
+						fieldLabel: '演员'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'itemType',
-						fieldLabel: 'Item Type'
+						fieldLabel: '影视类别'
 					}/*, 
 					{
 						xtype: 'textfield',
@@ -68,17 +68,17 @@ Ext.define('HS.view.item.Edit', {
 		];
 		this.buttons = [
 		{
-			text: 'Add',
+			text: '添加',
 			action: 'add',
 			id: 'btnAdd'
 		},
 		{
-			text: 'Update',
+			text: '修改',
 			action: 'update',
 			id: 'btnUpdate'
 		}, 
 		{
-			text: 'Cancel',
+			text: '取消',
 			scope: this,
 			handler: this.close
 		}

@@ -2,7 +2,7 @@ Ext.define('HS.view.videoSrc.List', {
 	extend: 'Ext.grid.Panel',
 	alias: 'widget.videosrclist',
 	
-	title: 'VideoSrc List',
+	title: '视频源列表',
 	id: 'videoSrc-list',
 	selType: 'checkboxmodel',
 	selModel: {
@@ -12,17 +12,17 @@ Ext.define('HS.view.videoSrc.List', {
 	tbar: [
 	{
 		xtype: 'button',
-		text: 'Add',
+		text: '添加',
 		action: 'add'
 	},
 	{
 		xtype: 'button',
-		text: 'Update',
+		text: '修改',
 		action: 'update'
 	},
 	{
 		xtype: 'button',
-		text: 'Delete',
+		text: '删除',
 		action: 'delete'
 	}
 	],
@@ -31,16 +31,16 @@ Ext.define('HS.view.videoSrc.List', {
 		{
 			xtype: 'rownumberer',
 			align: 'center',
-			text: 'RowNum',
+			text: '行号',
 			width: '40'
 		},
 		{
-			header: 'VideoSrc Id',
+			header: '视频源唯一标识',
 			dataIndex: 'videoSrcId',
 			flex: 1
 		}, 
 		{
-			header: 'Name',
+			header: '视频源名称',
 			dataIndex: 'name',
 			flex: 1
 		}

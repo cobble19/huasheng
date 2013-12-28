@@ -50,8 +50,6 @@ Ext.define('HS.controller.CategoryController', {
 			success: function(form, action) {
 				win.close();
 				var categoryDTO = action.result.categoryDTO;
-				var encode = Ext.JSON.encode(categoryDTO);
-				var decode = Ext.JSON.decode(encode);
 				var record = Ext.create('HS.model.CategoryModel', {
 					categoryId: categoryDTO.categoryId,
 					name: categoryDTO.name,
@@ -74,7 +72,7 @@ Ext.define('HS.controller.CategoryController', {
 			selModel = grid.getSelectionModel(),
 			records = selModel.getSelection();
 		if (records == null || records.length == 0) {
-			Ext.MessageBox.alert('Alarm', 'Please select ONE row!');
+			Ext.MessageBox.alert('警告', '请选择一条记录!');
 			return;
 		} else {
 			// display edit window
@@ -109,7 +107,7 @@ Ext.define('HS.controller.CategoryController', {
 				Ext.get(tr).addCls('red');*/
 			},
 			failure: function(form, action) {
-				Ext.MessageBox.alert('Alarm', action.response.statusText);
+				Ext.MessageBox.alert('警告', action.response.statusText);
 			}
 		})
 	},
@@ -119,11 +117,11 @@ Ext.define('HS.controller.CategoryController', {
 			records = selModel.getSelection();
 		var deleteCategory = this.deleteCategory;
 		if (records == null || records.length == 0) {
-			Ext.MessageBox.alert('Alarm', 'Please select ONE row!');
+			Ext.MessageBox.alert('警告', '请选择一条记录!');
 			return;
 		} else {
 			Ext.MessageBox.show({
-				title: 'Confirm',
+				title: '确认提示',
 				icon: Ext.MessageBox.WARNING,
 				msg: '确认删除数据？',
 				buttons: Ext.MessageBox.OKCANCEL,
@@ -154,10 +152,10 @@ Ext.define('HS.controller.CategoryController', {
 				Ext.Array.each(records, function(record){
 					Ext.getStore('CategoryStore').remove(record);
 				});
-				Ext.MessageBox.alert('Info', 'Deleted successfully!');
+				Ext.MessageBox.alert('Info', '删除成功!');
 			},
 			failure: function(response, options) {
-				Ext.MessageBox.alert('Alarm', 'Deleted fail!');
+				Ext.MessageBox.alert('警告', '删除失败!');
 			}
 		});
 	}
