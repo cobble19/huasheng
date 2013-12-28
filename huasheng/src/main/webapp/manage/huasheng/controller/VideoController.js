@@ -4,6 +4,10 @@ Ext.define('HS.controller.VideoController', {
 	stores: ['VideoStore'],
 	models: ['VideoModel'],
 	views: ['video.List','video.Edit', 'comboBox.ItemComboBox', 'comboBox.VideoSrcComboBox'],
+	refs: [{
+		ref: 'videoList',
+		selector: 'viewport videolist'
+	}],
 	init: function() {
 		this.control({
 			'viewport videolist button[action=add]': {
@@ -39,6 +43,7 @@ Ext.define('HS.controller.VideoController', {
 		var win = button.up('window'),
 			form = win.down('form'),
 			f = form.getForm();
+		var me = this;
 		f.doAction('submit', {
 			url: Ext.get('contextPath').dom.value + '/json/video!add',
 			method: 'POST',
@@ -57,8 +62,9 @@ Ext.define('HS.controller.VideoController', {
 				var index = 0;
 				var records = Ext.getStore('VideoStore').insert(index, record);
 				// change color
-				var tr = Ext.query('tr[data-recordindex=' + index + ']');
-				Ext.get(tr).addCls('red');
+				me.getVideoList().getView().addRowCls(record, 'red');
+				/*var tr = Ext.query('tr[data-recordindex=' + index + ']');
+				Ext.get(tr).addCls('red');*/
 			},
 			failure: function(form, action) {
 				Ext.MessageBox.alert(action.response.statusText);
@@ -89,6 +95,7 @@ Ext.define('HS.controller.VideoController', {
 			form = win.down('form'),
 			f = form.getForm(),
 			record = form.getRecord();
+		var me = this;
 		f.doAction('submit', {
 			url: Ext.get('contextPath').dom.value + '/json/video!update',
 			method: 'POST',
@@ -99,8 +106,9 @@ Ext.define('HS.controller.VideoController', {
 				// 1. set record, 2. close it.
 				win.close();
 				// change color
-				var tr = Ext.query('tr[data-recordindex=' + record.index + ']');
-				Ext.get(tr).addCls('red');
+				me.getVideoList().getView().addRowCls(record, 'red');
+				/*var tr = Ext.query('tr[data-recordindex=' + record.index + ']');
+				Ext.get(tr).addCls('red');*/
 			},
 			failure: function(form, action) {
 				Ext.MessageBox.alert('Alarm', action.response.statusText);

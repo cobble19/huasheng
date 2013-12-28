@@ -4,10 +4,14 @@ Ext.define('HS.controller.TopicController', {
 	stores: ['TopicStore'],
 	models: ['TopicModel'],
 	views: ['topic.List', 'topic.Edit'],
+	refs: [{
+	    ref: 'topicList',
+	    selector: 'viewport topiclist'
+	}],
 	init: function() {
 		console.log("TopicController init...");
 		this.control({
-			'viewport > topiclist': {
+			'viewport topiclist': {
 				itemdblclick: this.editTopic
 			},
 			'topicedit button[action=save]': {
@@ -55,6 +59,7 @@ Ext.define('HS.controller.TopicController', {
 		var win = button.up('window'),
 			form = win.down('form'), 
 			f = form.getForm();
+		var me = this;
 		f.doAction('submit', {
 			url: Ext.get('contextPath').dom.value + '/json/topic!add',
 			method: 'POST',
@@ -64,8 +69,9 @@ Ext.define('HS.controller.TopicController', {
 				var index = 0;
 				var records = Ext.getStore('TopicStore').insert(index, topicDTO);
 				// change color
-				var tr = Ext.query('tr[data-recordindex=' + index + ']');
-				Ext.get(tr).addCls('red')
+				me.getTopicList().getView().addRowCls(record, 'red');
+				/*var tr = Ext.query('tr[data-recordindex=' + index + ']');
+				Ext.get(tr).addCls('red')*/
 				//Ext.MessageBox.alert(action.response.statusText);
 			},
 			failure: function(form, action) {
@@ -97,6 +103,7 @@ Ext.define('HS.controller.TopicController', {
 		var win = button.up('window'),
 			form = win.down('form'), 
 			f = form.getForm();
+		var me = this;
 		record = form.getRecord();
 		f.doAction('submit', {
 			url: Ext.get('contextPath').dom.value + '/json/topic!update',
@@ -107,8 +114,10 @@ Ext.define('HS.controller.TopicController', {
 				record.commit();
 				win.close();
 				// change color
-				var tr = Ext.query('tr[data-recordindex=' + record.index + ']');
-				Ext.get(tr).addCls('red')
+//				console.log(this.getTopicList());
+				me.getTopicList().getView().addRowCls(record, 'red');
+				/*var tr = Ext.query('tr[data-recordindex=' + record.index + ']');
+				Ext.get(tr).addCls('red')*/
 				
 				//Ext.getStore('TopicStore').sync();
 				//Ext.MessageBox.alert(action.response.statusText);
@@ -169,11 +178,11 @@ Ext.define('HS.controller.TopicController', {
 			}
 		});
 	},
-	/*editTopic: function(grid, record) {
+	editTopic: function(grid, record) {
 		console.log('Double clicked on ' + record.get('name'));
-		var view = Ext.widget('topicedit');
-		view.down('form').loadRecord(record);
-	},*/
+		/*var view = Ext.widget('topicedit');
+		view.down('form').loadRecord(record);*/
+	},
 	/*updateTopic: function(button) {
 		console.log('Clicked the save button.');
 		var win = button.up('window'),

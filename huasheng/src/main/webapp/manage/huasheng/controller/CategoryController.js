@@ -4,6 +4,10 @@ Ext.define('HS.controller.CategoryController', {
 	stores: ['CategoryStore'],
 	models: ['CategoryModel'],
 	views: ['category.List', 'category.Edit', 'comboBox.TopicComboBox'],
+	refs: [{
+		ref: 'categoryList',
+		selector: 'viewport categorylist'
+	}],
 	init: function() {
 		this.control({
 			'viewport categorylist button[action=add]': {
@@ -39,6 +43,7 @@ Ext.define('HS.controller.CategoryController', {
 		var win = button.up('window'),
 			form = win.down('form'),
 			f = form.getForm();
+		var me = this;
 		f.doAction('submit', {
 			url: Ext.get('contextPath').dom.value + '/json/category!add',
 			method: 'POST',
@@ -55,8 +60,9 @@ Ext.define('HS.controller.CategoryController', {
 				var index = 0;
 				var records = Ext.getStore('CategoryStore').insert(index, record);
 				// change color
-				var tr = Ext.query('tr[data-recordindex=' + index + ']');
-				Ext.get(tr).addCls('red');
+				me.getCategoryList().getView().addRowCls(record, 'red');
+				/*var tr = Ext.query('tr[data-recordindex=' + index + ']');
+				Ext.get(tr).addCls('red');*/
 			},
 			failure: function(form, action) {
 				Ext.MessageBox.alert(action.response.statusText);
@@ -87,6 +93,7 @@ Ext.define('HS.controller.CategoryController', {
 			form = win.down('form'),
 			f = form.getForm(),
 			record = form.getRecord();
+		var me = this;
 		f.doAction('submit', {
 			url: Ext.get('contextPath').dom.value + '/json/category!update',
 			method: 'POST',
@@ -97,8 +104,9 @@ Ext.define('HS.controller.CategoryController', {
 				// 1. set record, 2. close it.
 				win.close();
 				// change color
-				var tr = Ext.query('tr[data-recordindex=' + record.index + ']');
-				Ext.get(tr).addCls('red');
+				me.getCategoryList().getView().addRowCls(record, 'red');
+				/*var tr = Ext.query('tr[data-recordindex=' + record.index + ']');
+				Ext.get(tr).addCls('red');*/
 			},
 			failure: function(form, action) {
 				Ext.MessageBox.alert('Alarm', action.response.statusText);
