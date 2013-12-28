@@ -1,7 +1,7 @@
 Ext.define('HS.store.ItemStore', {
 	extend: 'Ext.data.Store',
 	model: 'HS.model.ItemModel',
-	autoLoad: true,
+	autoLoad: false,
 	proxy: {
 		type: 'ajax',
 		api: {

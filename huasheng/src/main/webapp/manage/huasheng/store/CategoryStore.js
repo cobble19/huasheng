@@ -1,7 +1,7 @@
 Ext.define('HS.store.CategoryStore', {
 	extend: 'Ext.data.Store',
 	model: 'HS.model.CategoryModel',
-	autoLoad: true,
+	autoLoad: false,
 	proxy: {
 		type: 'ajax',
 		api: {

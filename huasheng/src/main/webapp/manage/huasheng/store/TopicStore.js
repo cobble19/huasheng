@@ -6,7 +6,7 @@ Ext.define('HS.store.TopicStore', {
 		{topicId: 1, name: 'TopicName1'},
 		{topicId: 2, name: 'topicName2'}
 	]*/
-	autoLoad: true,
+	autoLoad: false,
 	proxy: {
 		type: 'ajax',
 		/*url: Ext.get('contextPath').dom.value + '/json/topic!execute',*/
