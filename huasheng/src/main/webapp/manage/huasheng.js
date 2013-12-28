@@ -25,7 +25,7 @@ Ext.application({
 					region: 'north',
 					id: 'header',
 					height: 40,
-					html: '<h4>Manage Platform</h4>'
+					html: '<h4>Manage Platform <a href="/huasheng/j_spring_security_logout">退出</a></h4>'
 				}, {
 					xtype: 'menutreelist',
 					region: 'west',

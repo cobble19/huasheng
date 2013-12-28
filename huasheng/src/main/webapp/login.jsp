@@ -19,19 +19,20 @@
 </head>
 <body>
 	<div class="login_container">
-		<form action="<%=request.getContextPath() %>/login!execute" id="loginForm" method="post">
+		<%-- <form action="<%=request.getContextPath() %>/login!execute" id="loginForm" method="post"> --%>
+		<form action="<%=request.getContextPath() %>/j_spring_security_check" id="loginForm" method="post">
 			<table>
 				<tbody>
 					<tr>
 						<td class="login_label">用户名:</td>
 						<td>
-							<input class="login_input" id="name" name="userDtoSearch.name" type="text" placeholder="登陆账号"/>
+							<input class="login_input" id="name" name="j_username" type="text" placeholder="登陆账号"/>
 						</td>
 					</tr>
 					<tr>
 						<td class="login_label">密码:</td>
 						<td>
-							<input class="login_input" id="password" name="userDtoSearch.password" type="password" placeholder="密码"/>
+							<input class="login_input" id="password" name="j_password" type="password" placeholder="密码"/>
 						</td>
 					</tr>
 					<tr>
