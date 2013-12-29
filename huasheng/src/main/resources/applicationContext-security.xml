@@ -21,19 +21,50 @@
 		<intercept-url pattern="/login.jsp*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<intercept-url pattern="/manage/**" access="ROLE_USER" />
 		<form-login login-page='/manage/login.jsp' default-target-url='/manage/huasheng.jsp'
-          always-use-default-target='false'/>
+          always-use-default-target='false' authentication-failure-url="/manage/login.jsp?error=authFail"/>
         <!-- <form-login /> -->
 		<logout logout-url="/j_spring_security_logout" delete-cookies="JSESSIONID" />
 		<session-management invalid-session-url="/manage/login.jsp">
 			<!-- <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" /> -->
 		</session-management>
 	</http>
-	<authentication-manager>
+	<!-- <authentication-manager>
 		<authentication-provider>
 			<user-service>
 				<user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
 				<user name="ge" password="ge" authorities="ROLE_USER" />
 			</user-service>
 		</authentication-provider>
+	</authentication-manager> -->
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="userDetailsManager">
+			<password-encoder ref="passwordEncoder">
+				<salt-source user-property="username"/>
+			</password-encoder>
+		</authentication-provider>
 	</authentication-manager>
+	<!--   事件监听:实现了 ApplicationListener监听接口，包括AuthenticationCredentialsNotFoundEvent 事件，
+  		AuthorizationFailureEvent事件，AuthorizedEvent事件， PublicInvocationEvent事件 -->
+	 <b:bean  class="org.springframework.security.authentication.event.LoggerListener" />
+	
+	 <!-- 用户的密码加密或解密 -->
+	 <b:bean id="passwordEncoder"
+	  class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+	 <!-- 用户详细信息管理 : 数据源、用户缓存、启用用户组功能。  -->
+ 	<b:bean id="userDetailsManager"
+	  class="org.springframework.security.provisioning.JdbcUserDetailsManager">
+	  <b:property name="dataSource" ref="dataSource" />
+	  <!-- <b:property name="userCache" ref="userCache" /> -->
+	 </b:bean> 
+	 <!-- <b:bean id="userCache"
+	  class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">
+	  <b:property name="cache" ref="userEhCache" />
+	 </b:bean> -->
+	 <!-- <b:bean id="userEhCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+	  <b:property name="cacheName" value="userCache" />
+	  <b:property name="cacheManager" ref="cacheManager" />
+	 </b:bean> -->
+	 <!-- 缓存用户管理 -->
+	 <!-- <b:bean id="cacheManager"
+	  class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" /> -->
 </b:beans>

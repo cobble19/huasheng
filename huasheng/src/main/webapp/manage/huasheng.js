@@ -25,7 +25,8 @@ Ext.application({
 					region: 'north',
 					id: 'header',
 					height: 40,
-					html: '<h4>Manage Platform <a href="' + Ext.get('contextPath').dom.value + '/j_spring_security_logout">退出</a></h4>'
+					html: '<h4>花生管理台 欢迎【' + Ext.get('username').dom.value + 
+							'】 <a href="' + Ext.get('contextPath').dom.value + '/j_spring_security_logout">退出</a></h4>'
 				}, {
 					xtype: 'menutreelist',
 					region: 'west',

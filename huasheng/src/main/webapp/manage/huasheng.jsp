@@ -19,5 +19,6 @@
 </head>
 <body>
 	<input type="hidden" id="contextPath" value="<%=request.getContextPath() %>"/>
+	<input type="hidden" id="username" value="<%= request.getUserPrincipal().getName()%>" />
 </body>
 </html>

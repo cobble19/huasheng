@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +46,10 @@
 				</tbody>
 			</table>
 		</form>
+		
+		<div>
+			<c:if test="${param.error == 'authFail'}">登陆出现认证失败。</c:if>
+		</div>
 	</div>
 </body>
 </html>
