@@ -31,9 +31,10 @@ Ext.define('HS.view.item.Edit', {
 						fieldLabel: '地区'
 					}, 
 					{
-						xtype: 'textfield',
+						xtype: 'datefield',
 						name: 'showDate',
-						fieldLabel: '上映时间'
+						fieldLabel: '上映时间',
+						format: 'Y-m-d'
 					}, 
 					{
 						xtype: 'textfield',
