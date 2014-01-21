@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/justified-nav.css">
 
 
-<title>Login</title>
+<title>得味驿站登录</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/common.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/login.css">
 </head>

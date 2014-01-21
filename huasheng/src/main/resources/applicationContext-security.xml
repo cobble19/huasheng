@@ -67,4 +67,13 @@
 	 <!-- 缓存用户管理 -->
 	 <!-- <b:bean id="cacheManager"
 	  class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" /> -->
+	  
+	  <b:bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<b:property name="basenames">
+		    <b:list>
+			<b:value>securityMessages</b:value>
+		    </b:list>
+		</b:property>
+	  </b:bean>
 </b:beans>

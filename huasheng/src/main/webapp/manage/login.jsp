@@ -21,7 +21,7 @@
 <body>
 	<div class="login_container">
 		<%-- <form action="<%=request.getContextPath() %>/login!execute" id="loginForm" method="post"> --%>
-		<form action="<%=request.getContextPath() %>/j_spring_security_check" id="loginForm" method="post">
+		<form action="<%=request.getContextPath() %>/j_spring_security_check" id="loginForm" method="POST">
 			<table>
 				<tbody>
 					<tr>
@@ -48,7 +48,11 @@
 		</form>
 		
 		<div>
-			<c:if test="${param.error == 'authFail'}">登陆出现认证失败。</c:if>
+			<%-- <c:if test="${param.error == 'authFail'}">登陆出现认证失败。</c:if> --%>
+			<c:if test="${not empty param.error}">
+				登陆认证失败。<br/>
+				原因：${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+			</c:if>
 		</div>
 	</div>
 </body>
