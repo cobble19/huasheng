@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="publiclzhc@sina.com">
-<title>items</title>
+<title>视频</title>
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.png">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/bootstrap/css/bootstrap.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-1.10.2.js"></script>
@@ -24,7 +24,7 @@
 	<div class="container">
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="<%=request.getContextPath() %>">花生网</a>
+				<a class="navbar-brand" href="<%=request.getContextPath() %>">得味驿站</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<c:forEach items="${topicDTOList}" var="topic" varStatus="st">

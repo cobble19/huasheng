@@ -26,7 +26,7 @@
 	<div class="container">
 		<nav id="header" class="navbar navbar-default" role="navigation">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="<%=request.getContextPath() %>">花生网</a>
+				<a class="navbar-brand" href="<%=request.getContextPath() %>">得味驿站</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<c:forEach items="${topicDTOList}" var="topic" varStatus="st">
