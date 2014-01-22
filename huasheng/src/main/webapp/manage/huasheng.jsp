@@ -13,7 +13,7 @@
 <title>manage > huasheng.jsp</title>
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.png">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/extjs4/resources/css/ext-all.css">
-<script type="text/javascript" src="<%=request.getContextPath() %>/extjs4/ext.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/extjs4/ext-all.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/manage/huasheng.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/extjs-common.css">
 
