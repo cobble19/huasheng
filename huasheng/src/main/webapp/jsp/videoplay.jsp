@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="publiclzhc@sina.com">
-<title>播放</title>
+<title>得味驿站播放</title>
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.png">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/bootstrap/css/bootstrap.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-1.10.2.js"></script>

@@ -87,9 +87,9 @@
 						<div class="tab-content">
 							<div class="tab-pane active" id="home">
 								<div class="media">
-								  <a class="pull-left" href="#">
+								  <!-- <a class="pull-left" href="#">
 								    <img class="media-object" src="http://t3.baidu.com/it/u=3801314049,2971358795&fm=20" alt="照片">
-								  </a>
+								  </a> -->
 								  <div class="media-body">
 										<h4 class="media-heading">
 											<p><span class="c-info-title">地区： </span>${itemDTO.areaName } <span class="c-info-title">上映时间：</span>${itemDTO.showDate} 
@@ -136,7 +136,7 @@
 										<div class="c-video-list">
 											<ul class="nav navbar-nav">
 												<c:forEach items="${videoSrc.videoDTOs }" var="video" varStatus="st">
-														<li <c:if test="${st.index >= 20 }"> class="c-video-more-display" </c:if> ><a href="${video.url}">第${st.count}集</a></li>
+														<li <c:if test="${st.index >= 20 }"> class="c-video-more-display" </c:if> ><a href="<%=request.getContextPath() %>/videoplay!play?url=${video.url}">第${st.count}集</a></li>
 												</c:forEach>
 											</ul>
 										</div>
