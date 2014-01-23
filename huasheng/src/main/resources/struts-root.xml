@@ -35,6 +35,14 @@
  				/jsp/videoplay.jsp
  			</result>
  		</action>
+ 		
+    </package>
+    <package name="manage" namespace="/manage" extends="default">
+ 		<action name="index" class="indexManageAction">
+ 			<result name="success">
+ 				/manage/huasheng.jsp
+ 			</result>
+ 		</action>
     </package>
  <package name="rootjson" namespace="/json" extends="json-default">
  		<action name="topic" class="topicAction">

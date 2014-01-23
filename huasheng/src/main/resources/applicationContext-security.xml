@@ -20,7 +20,7 @@
 	<http>
 		<intercept-url pattern="/login.jsp*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<intercept-url pattern="/manage/**" access="ROLE_USER" />
-		<form-login login-page='/manage/login.jsp' default-target-url='/manage/huasheng.jsp'
+		<form-login login-page='/manage/login.jsp' default-target-url='/manage/index'
           always-use-default-target='false' authentication-failure-url="/manage/login.jsp?error=authFail"/>
         <!-- <form-login /> -->
 		<logout logout-url="/j_spring_security_logout" delete-cookies="JSESSIONID" />
