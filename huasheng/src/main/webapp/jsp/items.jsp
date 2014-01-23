@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/bootstrap/js/respond.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/items.css">
 
