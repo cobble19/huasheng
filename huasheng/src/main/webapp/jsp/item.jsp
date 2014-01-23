@@ -15,6 +15,7 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/bootstrap/js/respond.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/item.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/item.js"></script>
