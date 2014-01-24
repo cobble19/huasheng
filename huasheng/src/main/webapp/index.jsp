@@ -17,6 +17,11 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/bootstrap/js/respond.min.js"></script>
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/bootstrap/css/bootstrap-my-ie6-ie7.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/bootstrap/css/bootstrap-ie6.min.css">
+<![endif]-->
+
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/index.css">
 
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/index.js"></script>
@@ -26,6 +31,7 @@
 	<input type="hidden" id="contextPath" name="contextPath" value="<%=request.getContextPath() %>" />
 	<div class="container">
 		<nav id="header" class="navbar navbar-default" role="navigation">
+		
 			<div class="navbar-header">
 				<a class="navbar-brand" href="<%=request.getContextPath() %>">得味驿站</a>
 			</div>
@@ -40,165 +46,109 @@
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
-				<!-- <li class="active"><a href="#">首页</a></li>
-				<li><a href="#">电视剧</a></li>
-				<li><a href="#">动漫</a></li> -->
 			</ul>
 		</nav>
+	</div>
+	<div class="container">
 		<!-- 行 -->
 		<div class="row">
-			<div class="col-lg-3" role="navigation">
-					<div class="list-group">
-						<c:choose>
-			            		<c:when test="${(empty param.categoryId)}">
-			            			<a class="list-group-item active" href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topicDTO.topicId }"><c:out value="${topicDTO.name}"></c:out> </a>
-			            		</c:when>
-			            		<c:otherwise>
-			            			<a class="list-group-item" href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topicDTO.topicId }"><c:out value="${topicDTO.name}"></c:out> </a>
-			            		</c:otherwise>
-			            	</c:choose>
-			            
-			            <!-- <a href="#" class="list-group-item">Link</a> -->
-			            <c:forEach items="${topicDTO.categoryDTOs }" var="category">
-			            	<c:choose>
-			            		<c:when test="${category.categoryId == param.categoryId}">
-			            			<a class="list-group-item active" href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${category.name }</a>
-			            		</c:when>
-			            		<c:otherwise>
-			            			<a class="list-group-item" href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${category.name }</a>
-			            		</c:otherwise>
-			            	</c:choose>
-			            </c:forEach>
-			        </div>
-				</div>
-			<div class="col-lg-3" role="navigation">
-				<%-- <div class="list-group">
-		            <a href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topicDTO.topicId }" class="list-group-item active"><c:out value="${topicDTO.name}"></c:out> </a>
-		            <!-- <a href="#" class="list-group-item">Link</a> -->
+			<div class="col-xs-3">
+				<div class="list-group">
+					<c:choose>
+	            		<c:when test="${(empty param.categoryId)}">
+	            			<a class="list-group-item active" href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topicDTO.topicId }"><c:out value="${topicDTO.name}"></c:out> </a>
+	            		</c:when>
+	            		<c:otherwise>
+	            			<a class="list-group-item" href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topicDTO.topicId }"><c:out value="${topicDTO.name}"></c:out> </a>
+	            		</c:otherwise>
+	            	</c:choose>
+		            
 		            <c:forEach items="${topicDTO.categoryDTOs }" var="category">
-		            	<a href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }" class="list-group-item">${category.name }</a>
+		            	<c:choose>
+		            		<c:when test="${category.categoryId == param.categoryId}">
+		            			<a class="list-group-item active" href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${category.name }</a>
+		            		</c:when>
+		            		<c:otherwise>
+		            			<a class="list-group-item" href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${category.name }</a>
+		            		</c:otherwise>
+		            	</c:choose>
 		            </c:forEach>
-		        </div> --%>
+		        </div>
 			</div>
-			<div class="col-lg-9">
-				<div class="row">
-					<!-- <div class="col-lg-4">
-						<div class="panel panel-default">
-						  Default panel contents
-						  <div class="panel-heading">
-						  	<h3 class="panel-title">Panel title
-						  		<p class="pull-right"><a href="" class="navbar-link">更多</a></p>
-						  	</h3>
-						  </div>
-						  <div class="row c-panel-title">
-						    	<div class="col-sm-3">排名</div>
-						    	<div class="col-sm-5">名称</div>
-						    	<div class="col-sm-4">点击数</div>
-						    </div>
-						    <div class="row c-panel-content">
-						    	<div class="col-sm-3">1</div>
-						    	<div class="col-sm-5">射雕英雄传</div>
-						    	<div class="col-sm-4"><span class="badge">1367</span></div>
-						    </div>
-						    <div class="row c-panel-content">
-						    	<div class="col-sm-3">2</div>
-						    	<div class="col-sm-5"><a href="#" class="navbar-link">神雕侠侣</a></div>
-						    	<div class="col-sm-4"><span class="badge">42</span></div>
-						    </div>
-						    <div class="row c-panel-content">
-						    	<div class="col-sm-3">3</div>
-						    	<div class="col-sm-5">倚天屠龙记</div>
-						    	<div class="col-sm-4"><span class="badge">123456</span></div>
-						    </div>
-						  <div class="panel-body">
-						    
-						  </div>
-							<div class="panel-footer">
-								<h3 class="panel-title">Panel title
-						  			<p class="pull-right"><a href="" class="navbar-link">更多</a></p>
-						  		</h3>
-							</div>
-						</div>
-					</div> -->
+			<div class="col-xs-9">
 					<c:forEach items="${topicDTO.categoryDTOs }" var="category">
-		            	<div class="col-lg-4">
+		            	<div class="col-md-4">
 							<div class="panel panel-default">
 							  <!-- Default panel contents -->
 							  <div class="panel-heading">
-							  	<h3 class="panel-title">${category.name }
+							  ${category.name }
+							  	<%-- <h3 class="panel-title">${category.name }
 							  		<p class="pull-right">
 										<a href="<%=request.getContextPath() %>/category!getCategoryById?categoryId=${category.categoryId }&topicId=${topicDTO.topicId }" class="navbar-link">更多</a>
 									</p>
-							  	</h3>
+							  	</h3> --%>
 							  </div>
-							  <div class="row c-panel-title">
-							    	<div class="col-sm-3">排名</div>
-							    	<div class="col-sm-5">名称</div>
-							    	<div class="col-sm-4">点击数</div>
-							    </div>
-							    <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
+							  <!-- <div class="row c-panel-title">
+							    	<div class="col-xs-3">排名</div>
+							    	<div class="col-xs-4">名称</div>
+							    	<div class="col-xs-5">点击数</div>
+							    </div> -->
+							    <%-- <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
 							    	<div class="row c-panel-content">
-								    	<div class="col-sm-3">${st.index + 1 }</div>
-								    	<div class="col-sm-5"><a href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${item.name }</a></div>
-								    	<div class="col-sm-4"><span class="badge">${item.hits }</span></div>
+								    	<div class="col-xs-3">${st.index + 1 }</div>
+								    	<div class="col-xs-4"><a href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${item.name }</a></div>
+								    	<div class="col-xs-4"><span class="badge">${item.hits }</span></div>
 								    </div>
-							    </c:forEach>
+							    </c:forEach> --%>
 							    
-							  <div class="panel-body">
-							    
-							  </div>
-								<div class="panel-footer">
-									<h3 class="panel-title">谢谢收看
+							  <!-- <div class="panel-body">
+							  </div> -->
+							  <!-- Table -->
+							  <table class="table table-hover">
+							  	<thead>
+								  	<tr>
+								    	<th>排名</th>
+								    	<th>名称</th>
+								    	<th>点击数</th>
+								    </tr>
+							  	</thead>
+							  	<tbody>
+								    <tr>
+									    <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
+									    	<tr>
+										    	<td>${st.index + 1 }</td>
+										    	<td><a href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${item.name }</a></td>
+										    	<td><span class="badge">${item.hits }</span></td>
+									    	</tr>
+									    </c:forEach>
+								    </tr>
+							  	</tbody>
+							  </table>
+								<div class="panel-footer">谢谢收看
+									<%-- <h3 class="panel-title">谢谢收看
 							  			<p class="pull-right">
 											<a href="<%=request.getContextPath() %>/category!getCategoryById?categoryId=${category.categoryId }&topicId=${topicDTO.topicId }" class="navbar-link">更多</a>
 										</p>
-							  		</h3>
+							  		</h3> --%>
 								</div>
 							</div>
 						</div>
 		            </c:forEach>
-					
-					<!-- <div class="col-lg-4">
-						<div class="panel panel-default">
-						  Default panel contents
-						  <div class="panel-heading">
-						  	<h3 class="panel-title">Panel title</h3>
-						  </div>
-						  <div class="panel-body">
-						    <p>...</p>
-						  </div>
-						  Table
-						  <table class="table">
-						  </table>
-							<div class="panel-footer">Panel footer</div>
-						</div>
-					</div> -->
-					<!-- <div class="col-lg-4">
-						<div class="panel panel-default">
-						  Default panel contents
-						  <div class="panel-heading">
-						  	<h3 class="panel-title">Panel title</h3>
-						  </div>
-						  <div class="panel-body">
-						    <p>...</p>
-						  </div>
-						  Table
-						  <table class="table">
-						  	<tr>
-						  		<td>td</td>
-						  	</tr>
-						  </table>
-							<div class="panel-footer">Panel footer</div>
-						</div>
-					</div> -->
-				
-				</div>
 			</div>
 		</div>
+	</div> <!-- container end -->
+	
 		<!-- 底部 -->
-		<div class="footer">
-			<p>&copy; Email: publiclzhc@sina.com 2013</p>
+		<hr>
+		<div class="container">
+			<footer>
+			  <p>&copy; Email: publiclzhc@sina.com 2013</p>
+			</footer>
+			<!-- <div class="row">
+				<div class="footer">
+					<p>&copy; Email: publiclzhc@sina.com 2013</p>
+				</div>
+			</div> -->
 		</div>
-	</div>
 </body>
 </html>

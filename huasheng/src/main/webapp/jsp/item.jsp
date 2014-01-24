@@ -17,6 +17,10 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/bootstrap/js/respond.min.js"></script>
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/bootstrap/css/bootstrap-my-ie6-ie7.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/bootstrap/css/bootstrap-ie6.min.css">
+<![endif]-->
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/item.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/item.js"></script>
@@ -45,9 +49,11 @@
 				<li><a href="#">动漫</a></li> -->
 			</ul>
 		</nav> <!-- header nav end -->
+	</div>
+	<div class="container">
 		<!-- 行 -->
 		<div class="row">
-			<div class="col-lg-3" role="navigation">
+			<div class="col-xs-3" role="navigation">
 				<div class="list-group">
 					<c:choose>
 		            		<c:when test="${(empty param.categoryId)}">
@@ -71,7 +77,7 @@
 		            </c:forEach>
 		        </div>
 			</div> <!-- col -->
-			<div class="col-lg-9">
+			<div class="col-xs-9">
 				<div class="panel panel-default c-item-panel">
 					<!-- Default panel contents -->
 					<div class="panel-heading">
@@ -84,18 +90,28 @@
 						<li><a href="#messages" data-toggle="tab">Messages</a></li>
 						<li><a href="#settings" data-toggle="tab">Settings</a></li> -->
 					</ul>
-					<div class="panel-body">
+					<!-- <div class="panel-body"> -->
 						<!-- Tab panes -->
 						<div class="tab-content">
-							<div class="tab-pane active" id="home">
-								<div class="media">
+							<div class="tab-pane active" style="color:black;" id="home">
+								<span class="c-info-title">地区： </span>${itemDTO.areaName } <span class="c-info-title">上映时间：</span>${itemDTO.showDate} 
+												<span class="c-info-title">豆瓣评分：</span>${itemDTO.score}
+											<p><span class="c-info-title">主演： </span>
+													${itemDTO.actorName}
+											</p>
+											<p><span class="c-info-title">类型： </span>
+												${itemDTO.itemType}
+											</p>
+											<p><span class="c-info-title">简介：</span> ${itemDTO.description}
+											</p>
+								<%-- <div class="media">
 								  <!-- <a class="pull-left" href="#">
 								    <img class="media-object" src="http://t3.baidu.com/it/u=3801314049,2971358795&fm=20" alt="照片">
 								  </a> -->
 								  <div class="media-body">
 										<h4 class="media-heading">
-											<p><span class="c-info-title">地区： </span>${itemDTO.areaName } <span class="c-info-title">上映时间：</span>${itemDTO.showDate} 
-												<span class="c-info-title">豆瓣评分：</span>${itemDTO.score}</p>
+											<span class="">地区： </span>${itemDTO.areaName } <span class="c-info-title">上映时间：</span>${itemDTO.showDate} 
+												<span class="c-info-title">豆瓣评分：</span>${itemDTO.score}
 											<p><span class="c-info-title">主演： </span>
 													${itemDTO.actorName}
 											</p>
@@ -106,7 +122,7 @@
 											</p>
 										</h4>
 									</div>
-								</div>
+								</div> --%>
 							</div>
 							<div class="tab-pane" id="profile">PROFILE</div>
 							<div class="tab-pane" id="messages">MESSAGES</div>
@@ -119,15 +135,7 @@
 								<li <c:if test="${st.index == 0 }"> class="active"</c:if> >
 									<a href="#${videoSrc.videoSrcId}" data-toggle="tab">${videoSrc.name}</a>
 								</li>
-								<%-- <c:if test="${st.index == 0 }">
-									<li class="active"><a href="#${videoSrc.videoSrcId}" data-toggle="tab">${videoSrc.name}</a></li>
-								</c:if>
-								<c:if test="${st.index >0 }">
-									<li><a href="#${videoSrc.videoSrcId}" data-toggle="tab">${videoSrc.name}</a></li>
-								</c:if> --%>
 							</c:forEach>
-							<!-- <li class="active"><a href="#tudou" data-toggle="tab">土豆</a></li>
-							<li><a href="#youku" data-toggle="tab">优酷</a></li> -->
 						</ul>
 						<div class="tab-content c-video-content">
 							<c:forEach items="${itemDTO.videoSrcDTOs}" var="videoSrc" varStatus="st">
@@ -148,53 +156,9 @@
 											<a class="c-video-collpase" href="">收起》</a>
 										</div>
 									</div>
-								<%-- <c:if test="${st.index >0 }">
-									<div class="tab-pane" id="${videoSrc.videoSrcId}">
-										<div class="c-video-list">
-											<ul class="nav navbar-nav">
-												<c:forEach items="${videoSrc.videoDTOs }" var="video" varStatus="st">
-													<c:if test="${st.index < 1 }">
-														<li><a href="${video.url}">${st.count}_${video.videoId}</a></li>
-													</c:if>
-													<c:if test="${st.index >= 1 }">
-														<li class="c-video-more-display"><a href="${video.url}">${st.count}_${video.videoId}</a></li>
-													</c:if>
-												</c:forEach>
-											</ul>
-										</div>
-										<div class="clearfix"></div>
-										<div class="pull-right">
-											<a class="c-video-expanse" href="">展开》</a>
-											<a class="c-video-collpase" href="">收起》</a>
-										</div>
-									</div>
-								</c:if> --%>
 							</c:forEach>
-							<%-- <div class="tab-pane active" id="tudou">
-								<div class="c-video-list">
-									<ul class="nav navbar-nav">
-										<c:forEach items="${itemDTO.videoDTOs }" var="video" varStatus="st">
-											<li><a href="<%=request.getContextPath() %>/videoplay/videoplay!play?url=${video.url}">${st.count }</a></li>
-										</c:forEach>
-										<!-- <li><a href="videoplay.html">第1集</a></li>
-										<li><a href="http://www.tudou.com/albumplay/YS-uKkKkgNI/sQkn0l1Smqo.html?resourceId=0_06_02_99">第1集</a></li>
-										<li><a href="">第1集</a></li>
-										<li><a href="">第1集</a></li>
-										<li><a href="">第1集</a></li>
-										<li class="c-video-more-display"><a href="">第4集</a></li>
-										<li class="c-video-more-display"><a href="">第5集</a></li> -->
-									</ul>
-								</div>
-								<div class="clearfix"></div>
-								<div class="pull-right">
-									<a class="c-video-expanse" href="">展开》</a>
-									<a class="c-video-collpase" href="">收起》</a>
-								</div>
-							</div>
-							<div class="tab-pane" id="youku">
-							</div> --%>
 						</div>
-					</div> <!-- panel-body -->
+					<!-- </div> --> <!-- panel-body -->
 				</div> <!-- panel -->
 				
 			</div><!-- col end -->

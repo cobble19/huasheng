@@ -17,9 +17,12 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/bootstrap/js/respond.min.js"></script>
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/bootstrap/css/bootstrap-my-ie6-ie7.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/bootstrap/css/bootstrap-ie6.min.css">
+<![endif]-->
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/items.css">
-
 
 </head>
 <body>
@@ -44,9 +47,11 @@
 				<li><a href="#">动漫</a></li> -->
 			</ul>
 		</nav> <!-- header nav end -->
+	</div>
+	<div class="container">
 		<!-- 行 -->
 		<div class="row">
-			<div class="col-lg-3" role="navigation">
+			<div class="col-xs-3" role="navigation">
 				<div class="list-group">
 					<c:choose>
 		            		<c:when test="${(empty param.categoryId)}">
@@ -70,14 +75,34 @@
 		            </c:forEach>
 		        </div>
 			</div> <!-- col -->
-			<div class="col-lg-9">
+			<div class="col-xs-9">
 				<div class="panel panel-default">
 				  <!-- Default panel contents -->
 				  <div class="panel-heading">
 				  	<h3 class="panel-title">${categoryDTO.name}
 				  	</h3>
 				  </div>
-					<div class="row c-panel-title">
+				  <table class="table table-hover">
+				  	<thead>
+					  	<tr>
+					    	<th>排名</th>
+					    	<th>名称</th>
+					    	<th>点击数</th>
+					    </tr>
+				  	</thead>
+				  	<tbody>
+					    <tr>
+						    <c:forEach items="${categoryDTO.itemDTOs }" var="item" varStatus="st">
+						    	<tr>
+							    	<td>${st.index + 1 }</td>
+							    	<td><a href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topicDTO.topicId }&categoryId=${categoryDTO.categoryId }">${item.name }</a></td>
+							    	<td><span class="badge">${item.hits }</span></td>
+						    	</tr>
+						    </c:forEach>
+					    </tr>
+				  	</tbody>
+				  </table>
+					<%-- <div class="row c-panel-title">
 				    	<div class="col-sm-3">排名</div>
 				    	<div class="col-sm-5">名称</div>
 				    	<div class="col-sm-4">点击数</div>
@@ -89,47 +114,18 @@
 					    	<div class="col-sm-4"><span class="badge">${item.hits }</span></div>
 					    </div>
 				    </c:forEach>
-				    <!-- <div class="row c-panel-content">
-				    	<div class="col-sm-3">1</div>
-				    	<div class="col-sm-5">射雕英雄传</div>
-				    	<div class="col-sm-4"><span class="badge">1367</span></div>
-				    </div>
-				    <div class="row c-panel-content">
-				    	<div class="col-sm-3">2</div>
-				    	<div class="col-sm-5"><a href="#" class="navbar-link">神雕侠侣</a></div>
-				    	<div class="col-sm-4"><span class="badge">42</span></div>
-				    </div>
-					<div class="row c-panel-content">
-						<div class="col-sm-3">3</div>
-						<div class="col-sm-5">倚天屠龙记</div>
-						<div class="col-sm-4"><span class="badge">123456</span></div>
-					</div>
-				    <div class="row c-panel-content">
-				    	<div class="col-sm-3">1</div>
-				    	<div class="col-sm-5">射雕英雄传</div>
-				    	<div class="col-sm-4"><span class="badge">1367</span></div>
-				    </div>
-				    <div class="row c-panel-content">
-				    	<div class="col-sm-3">2</div>
-				    	<div class="col-sm-5"><a href="#" class="navbar-link">神雕侠侣</a></div>
-				    	<div class="col-sm-4"><span class="badge">42</span></div>
-				    </div>
-					<div class="row c-panel-content">
-						<div class="col-sm-3">3</div>
-						<div class="col-sm-5">倚天屠龙记</div>
-						<div class="col-sm-4"><span class="badge">123456</span></div>
-					</div> -->
-				    
-				  <!-- <div class="panel-body">
-				    
-				  </div> -->
-				</div>
-			</div> <!-- col end -->
+				</div> --%>
+			</div>
+		</div> <!-- col end -->
 		</div><!-- content row end -->
 		<!-- 底部 -->
-		<div class="footer">
+		<hr>
+		<footer>
+		  <p>&copy; Email: publiclzhc@sina.com 2013</p>
+		</footer>
+		<!-- <div class="footer">
 			<p>&copy; Email: publiclzhc@sina.com 2013</p>
-		</div>
+		</div> -->
 	</div> <!-- container end -->
 </body>
 </html>

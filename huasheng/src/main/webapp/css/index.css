@@ -2,14 +2,14 @@ body {
 	padding-top: 20px;
 }
 .c-panel-title {
-	border-bottom: 1px solod #e5e5e5;
+	/* border-bottom: 1px solod #e5e5e5; */
 	background-color: #d5d5d5;
-	margin: 0px 0px;
+	/* margin: 0px 0px; */
 	text-align: center;
 }
 .c-panel-content {
-	border-top: 1px dotted;
-	margin: 0px 0px;
+	/* border-top: 1px dotted;
+	margin: 0px 0px; */
 	text-align: center;
 }
 .footer {

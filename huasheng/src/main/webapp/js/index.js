@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	console.log("index.js");
+	//console.log("index.js");
 	/*$.ajax({
 		url: $("#contextPath").val() + "/topicJson/topic!execute",
 		dataType: "json",
