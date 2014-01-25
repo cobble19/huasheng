@@ -5,9 +5,14 @@
  
 <struts>
     <package name="root" namespace="/" extends="default">
- 		<action name="topic" class="topicAction">
+ 		<!-- <action name="topic" class="topicAction">
  			<result name="success">
  				/index.jsp
+ 			</result>
+ 		</action> -->
+ 		<action name="topic" class="topicAction">
+ 			<result name="success">
+ 				/versionII/ys.jsp
  			</result>
  		</action>
  		<action name="category" class="categoryAction">
