@@ -53,6 +53,7 @@ Ext.define('HS.controller.CategoryController', {
 				var record = Ext.create('HS.model.CategoryModel', {
 					categoryId: categoryDTO.categoryId,
 					name: categoryDTO.name,
+					orderNo: categoryDTO.orderNo,
 					'topicDTO.topicId': categoryDTO.topicDTO.topicId
 				});
 				var index = 0;

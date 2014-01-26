@@ -41,6 +41,11 @@ Ext.define('HS.view.category.List', {
 			header: '类型名称',
 			dataIndex: 'name',
 			flex: 1
+		},  
+		{
+			header: '排序',
+			dataIndex: 'orderNo',
+			flex: 1
 		}, 
 		{
 			header: '主题唯一标识',

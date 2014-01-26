@@ -13,6 +13,8 @@ public class CategoryEntity extends BaseEntity {
 	private Long categoryId;
 	// 类别名称
 	private String name;
+	// 排序
+	private Integer orderNo;
 	// 所属主题
 	private TopicEntity topicEntity;
 	// 拥有的个体，如一部电视剧
@@ -40,6 +42,12 @@ public class CategoryEntity extends BaseEntity {
 	}
 	public void setItemEntities(List<ItemEntity> itemEntities) {
 		this.itemEntities = itemEntities;
+	}
+	public Integer getOrderNo() {
+		return orderNo;
+	}
+	public void setOrderNo(Integer orderNo) {
+		this.orderNo = orderNo;
 	}
 	
 }

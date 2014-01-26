@@ -9,6 +9,7 @@ import com.cobble.huasheng.entity.TopicEntity;
 public class CategoryDTO extends BaseDTO {
 	private Long categoryId;
 	private String name;
+	private Integer orderNo;
 	private TopicDTO topicDTO;
 	private List<ItemDTO> itemDTOs;
 	public Long getCategoryId() {
@@ -34,6 +35,12 @@ public class CategoryDTO extends BaseDTO {
 	}
 	public void setItemDTOs(List<ItemDTO> itemDTOs) {
 		this.itemDTOs = itemDTOs;
+	}
+	public Integer getOrderNo() {
+		return orderNo;
+	}
+	public void setOrderNo(Integer orderNo) {
+		this.orderNo = orderNo;
 	}
 	
 }

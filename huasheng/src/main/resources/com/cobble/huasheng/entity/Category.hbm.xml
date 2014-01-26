@@ -9,6 +9,7 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="name" column="NAME" not-null="true"></property>
+		<property name="orderNo" column="ORDER_NO"></property>
 		<many-to-one name="topicEntity" column="TOPIC_ID" not-null="false"></many-to-one>
 		<bag name="itemEntities" inverse="true" cascade="delete" order-by="hits desc">
 			<key column="CATEGORY_ID" />

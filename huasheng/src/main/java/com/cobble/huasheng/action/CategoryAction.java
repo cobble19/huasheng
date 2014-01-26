@@ -26,6 +26,7 @@ public class CategoryAction extends BaseAction {
 	// 
 	private Long categoryId;
 	private String name;
+	private Integer orderNo;
 	// 
 	private Long topicId;
 	private TopicService topicService;
@@ -57,6 +58,7 @@ public class CategoryAction extends BaseAction {
 	public String add() throws Exception {
 		categoryDTO = new CategoryDTO();
 		categoryDTO.setName(name);
+		categoryDTO.setOrderNo(orderNo);
 		/*topicDTO = new TopicDTO();
 		topicDTO.setTopicId(topicId);*/
 		categoryDTO.setTopicDTO(topicDTO);
@@ -69,6 +71,7 @@ public class CategoryAction extends BaseAction {
 		categoryDTO = new CategoryDTO();
 		categoryDTO.setCategoryId(categoryId);
 		categoryDTO.setName(name);
+		categoryDTO.setOrderNo(orderNo);
 		/*topicDTO = new TopicDTO();
 		topicDTO.setTopicId(topicId);*/
 		categoryDTO.setTopicDTO(topicDTO);
@@ -176,6 +179,14 @@ public class CategoryAction extends BaseAction {
 
 	public void setIds(String ids) {
 		this.ids = ids;
+	}
+
+	public Integer getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(Integer orderNo) {
+		this.orderNo = orderNo;
 	}
 
 }

@@ -19,16 +19,14 @@ Ext.define('HS.view.category.Edit', {
 						xtype: 'textfield',
 						name: 'name',
 						fieldLabel: '类型名称'
-					}/*, 
+					}, 
 					{
 						xtype: 'textfield',
-						name: 'topicDTO.topicId',
-						fieldLabel: 'Topic Id'
-					}*/, 
+						name: 'orderNo',
+						fieldLabel: '排序'
+					}, 
 					{
-						xtype: 'topiccombobox'/*,
-						name: 'topicDTO.topicId',
-						fieldLabel: 'Topic Id'*/
+						xtype: 'topiccombobox'
 					}
 				]
 			}

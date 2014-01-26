@@ -21,7 +21,7 @@ public class CategoryDAOImpl extends CommonDAOImpl implements CategoryDAO {
 	public List<CategoryEntity> finds(CategoryEntitySearch stEntity) throws Exception {
 		List<CategoryEntity> ret = null;
 		try {
-			 Query query = this.getCurrentSession().createQuery("from CategoryEntity");
+			 Query query = this.getCurrentSession().createQuery("from CategoryEntity c order by c.orderNo asc");
 			 ret = (List<CategoryEntity>) query.list();
 		} catch (Exception e) {
 			throw e;
