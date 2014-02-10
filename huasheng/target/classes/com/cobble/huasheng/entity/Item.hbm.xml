@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cobble.huasheng.entity">
+	<class name="ItemEntity" table="B_ITEM">
+		<id name="itemId" column="ITEM_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="NAME" not-null="true"></property>
+		<property name="hits" column="HITS"></property>
+		
+		<property name="areaName" column="AREA_NAME"></property>
+		<property name="showDate" column="SHOW_DATE"></property>
+		<property name="score" column="SCORE"></property>
+		<property name="description" column="DESCRIPTION"></property>
+		<property name="actorName" column="ACTOR_NAME"></property>
+		<property name="itemType" column="ITEM_TYPE"></property>
+		
+		<!-- <one-to-one name="itemBaseInfoEntity" property-ref="itemEntity"></one-to-one> -->
+		<many-to-one name="categoryEntity" column="CATEGORY_ID"></many-to-one>
+		<bag name="VideoSrcEntities" table="R_ITEM_VIDEO_SRC" cascade="delete">
+			<key column="ITEM_ID"></key>
+			<many-to-many class="VideoSrcEntity" column="VIDEO_SRC_ID"></many-to-many>
+		</bag>
+		<bag name="videoEntities" inverse="true" cascade="all" order-by="orderNum asc">
+			<key column="ITEM_ID" />
+			<one-to-many class="VideoEntity"/>
+		</bag>
+	</class>
+</hibernate-mapping>
