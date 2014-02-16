@@ -1,11 +1,13 @@
 package com.cobble.huasheng.action;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
@@ -45,6 +47,14 @@ public class ItemAction extends BaseAction {
 	private String actorName;
 	// 个体种类, 如剧情，动作，[,]分割
 	private String itemType;
+	// 导演
+	private String director;
+	/*// 图片
+	private String imgUrl;*/
+	// 图片 File
+	private File upload;
+	private String uploadContentType;
+	private String uploadFileName;
 	
 	private Set<CategoryDTO> categoryDTOs = new HashSet<CategoryDTO>(); 
 	private CategoryDTO categoryDTO = new CategoryDTO();
@@ -93,11 +103,21 @@ public class ItemAction extends BaseAction {
 		itemDTO.setShowDate(showDate);
 		itemDTO.setDescription(description);
 		itemDTO.setItemType(itemType);
+		itemDTO.setDirector(director);
+		if (upload != null) {
+			String imgUrl = "upload" + File.separator + uploadFileName;
+			String realPath = this.request.getSession().getServletContext().getRealPath("/");
+			String filePath = realPath + imgUrl;
+			File destFile = new File(filePath);
+			FileUtils.copyFile(upload, destFile);
+			itemDTO.setImgUrl(imgUrl);
+		}
 		itemDTO.setCategoryDTO(categoryDTO);
 		itemService.create(itemDTO);
 		this.setSuccess(true);
 		return SUCCESS;
 	}
+	
 	
 	public String update() throws Exception {
 		itemDTO = new ItemDTO();
@@ -110,6 +130,15 @@ public class ItemAction extends BaseAction {
 		itemDTO.setShowDate(showDate);
 		itemDTO.setDescription(description);
 		itemDTO.setItemType(itemType);
+		itemDTO.setDirector(director);
+		if (upload != null) {
+			String imgUrl = "upload" + File.separator + uploadFileName;
+			String realPath = this.request.getSession().getServletContext().getRealPath("/");
+			String filePath = realPath + imgUrl;
+			File destFile = new File(filePath);
+			FileUtils.copyFile(upload, destFile);
+			itemDTO.setImgUrl(imgUrl);
+		}
 		itemDTO.setCategoryDTO(categoryDTO);
 		itemService.update(itemDTO);
 		this.setSuccess(true);
@@ -287,6 +316,46 @@ public class ItemAction extends BaseAction {
 
 	public void setCategoryDTO(CategoryDTO categoryDTO) {
 		this.categoryDTO = categoryDTO;
+	}
+
+	public String getDirector() {
+		return director;
+	}
+
+	public void setDirector(String director) {
+		this.director = director;
+	}
+
+	/*public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}*/
+
+	public File getUpload() {
+		return upload;
+	}
+
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+
+	public String getUploadContentType() {
+		return uploadContentType;
+	}
+
+	public void setUploadContentType(String uploadContentType) {
+		this.uploadContentType = uploadContentType;
+	}
+
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
 	}
 
 }

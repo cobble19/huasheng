@@ -52,7 +52,41 @@ public class TopicServiceImpl implements TopicService {
 			List<TopicEntity> topicEntities = topicDAO.finds(topicEntitySearch);
 			if (ListUtil.isNotEmpty(topicEntities)) {
 				for (TopicEntity topicEntity : topicEntities) {
+					if (topicEntity == null) {
+						continue;
+					}
 					TopicDTO topicDTO = ConvertFactory.getTopicConvert().toDTO(topicEntity);
+					// get all category->item
+					List<CategoryEntity> categoryEntities = topicEntity.getCategoryEntities();
+					if (topicEntity != null && ListUtil.isNotEmpty(categoryEntities)) {
+						List<CategoryDTO> categoryDTOs = new ArrayList<CategoryDTO>();
+						for (CategoryEntity categoryEntity : categoryEntities) {
+							if (categoryEntity == null) {
+								continue;
+							}
+							CategoryDTO categoryDTO = ConvertFactory.getCategoryConvert().toDTO(categoryEntity);
+							categoryDTOs.add(categoryDTO);
+							List<ItemEntity> itemEntities = categoryEntity.getItemEntities();
+							if (ListUtil.isNotEmpty(itemEntities)) {
+								List<ItemDTO> itemDTOs = new ArrayList<ItemDTO>();
+								for (ItemEntity itemEntity : itemEntities) {
+									if (itemEntity == null) {
+										continue;
+									}
+									ItemDTO itemDTO = ConvertFactory.getItemConvert().toDTO(itemEntity);
+									itemDTOs.add(itemDTO);
+									/*ItemBaseInfoEntity itemBaseInfoEntity = itemEntity.getItemBaseInfoEntity();
+									if (itemBaseInfoEntity != null) {
+										ItemBaseInfoDTO itemBaseInfoDTO = ConvertFactory.getItemBaseInfoConvert().toDTO(itemBaseInfoEntity);
+										itemDTO.setItemBaseInfoDTO(itemBaseInfoDTO);
+									}*/
+								}
+								categoryDTO.setItemDTOs(itemDTOs);
+							}
+						}
+						topicDTO.setCategoryDTOs(categoryDTOs);
+					}
+					
 					ret.add(topicDTO);
 				}
 			}

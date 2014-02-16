@@ -52,8 +52,8 @@
 			<div class="videotop-dh-m"><a>排行</a><p>|</p><a href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topic.topicId }">更多</a></div>
 		 </div>
 	     <div class="videotop-dh-fl">
-		 <c:forEach items="${topicDTO.categoryDTOs }" var="category">
-		 <a href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">${category.name }</a>
+		 <c:forEach items="${topic.categoryDTOs }" var="category">
+		 <a href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topic.topicId }&categoryId=${category.categoryId }">${category.name }</a>
 		 </c:forEach>
 		 </div>
 	  </div>
@@ -70,21 +70,21 @@
             <ul>
 			    <div class="video-index-lbbt">${topic.name}</div>
 				
-				<c:forEach items="${topicDTO.categoryDTOs }" var="category">
+				<c:forEach items="${topic.categoryDTOs }" var="category">
 				<li><a href="#${category.categoryId}"><span>${category.name }</span></a></li>
 				</c:forEach>
 				
                 <div class="video-index-lbmore"><a href="http://#">更多>></a></div>
             </ul>
 			
-            <c:forEach items="${topicDTO.categoryDTOs }" var="category">
+            <c:forEach items="${topic.categoryDTOs }" var="category">
             <div id="${category.categoryId}">
                
                <ul class="video-index-lb">
                    <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
 			       <li>
 				       <a class="video-index-tp"><img src="images/lb.jpg" /></a>
-					   <a class="video-index-bt" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topicDTO.topicId }&categoryId=${category.categoryId }" target=_blank>${item.name }</a>
+					   <a class="video-index-bt" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank>${item.name }</a>
 					   <p class="video-index-ms">苏定方出任监军</p>
 				   </li>
 				   </c:forEach>
@@ -102,7 +102,7 @@
 				  <UL class=nr-item-list>
                   <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
                   <LI class=nr-current>
-                  <DIV class=nr-item-hd><SPAN class=ph-num>${st.index + 1 }</SPAN> <A class=nr-list-title title="${item.name }" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topicDTO.topicId }&categoryId=${category.categoryId }" target=_blank>${item.name }</A><SPAN class=video-index-rise>${item.hits }</SPAN></DIV>
+                  <DIV class=nr-item-hd><SPAN class=ph-num>${st.index + 1 }</SPAN> <A class=nr-list-title title="${item.name }" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank>${item.name }</A><SPAN class=video-index-rise>${item.hits }</SPAN></DIV>
                   </LI>
                   </c:forEach>
                   </UL>  

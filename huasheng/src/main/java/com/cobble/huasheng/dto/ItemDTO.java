@@ -20,6 +20,10 @@ public class ItemDTO extends BaseDTO {
 	private String actorName;
 	// 个体种类, 如剧情，动作，[,]分割
 	private String itemType;
+	// 导演
+	private String director;
+	// 图片
+	private String imgUrl;
 	// 用于创建和修改
 	private CategoryDTO categoryDTO;
 	/*private List<CategoryDTO> categoryDTOs;*/
@@ -104,6 +108,18 @@ public class ItemDTO extends BaseDTO {
 	}
 	public void setCategoryDTO(CategoryDTO categoryDTO) {
 		this.categoryDTO = categoryDTO;
+	}
+	public String getDirector() {
+		return director;
+	}
+	public void setDirector(String director) {
+		this.director = director;
+	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 	
 }
