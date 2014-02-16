@@ -40,7 +40,7 @@
 <div class="videotop-main">
   <div class="videotop-tou">
 
-      <div class="logo"><img src="<%=request.getContextPath()%>/versionII/images/logo.jpg" /></div>
+      <div class="logo"><a href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath()%>/versionII/images/logo.jpg" /></a></div>
 
   </div>
   
