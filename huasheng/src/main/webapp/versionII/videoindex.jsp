@@ -83,7 +83,7 @@
                <ul class="video-index-lb">
                    <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
 			       <li>
-				       <a class="video-index-tp"><img src="images/lb.jpg" /></a>
+				       <a class="video-index-tp"><img src="<%=request.getContextPath()%>/${item.imgUrl}" /></a>
 					   <a class="video-index-bt" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank>${item.name }</a>
 					   <p class="video-index-ms">苏定方出任监军</p>
 				   </li>
