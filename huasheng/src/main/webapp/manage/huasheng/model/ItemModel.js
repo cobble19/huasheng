@@ -12,6 +12,7 @@ Ext.define('HS.model.ItemModel', {
 		{name: 'itemType', type: 'string'},
 		{name: 'director', type: 'string'},
 		{name: 'imgUrl', type: 'string'},
+		{name: 'upload', type: 'string'},
 		{name: 'categoryDTO.categoryId', type: 'long'}
 	]
 })
