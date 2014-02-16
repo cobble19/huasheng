@@ -49,8 +49,8 @@ public class ItemAction extends BaseAction {
 	private String itemType;
 	// 导演
 	private String director;
-	/*// 图片
-	private String imgUrl;*/
+	// 图片
+	private String imgUrl;
 	// 图片 File
 	private File upload;
 	private String uploadContentType;
@@ -105,13 +105,13 @@ public class ItemAction extends BaseAction {
 		itemDTO.setItemType(itemType);
 		itemDTO.setDirector(director);
 		if (upload != null) {
-			String imgUrl = "upload" + File.separator + uploadFileName;
+			imgUrl = "upload" + "/" + uploadFileName;
 			String realPath = this.request.getSession().getServletContext().getRealPath("/");
 			String filePath = realPath + imgUrl;
 			File destFile = new File(filePath);
 			FileUtils.copyFile(upload, destFile);
-			itemDTO.setImgUrl(imgUrl);
 		}
+		itemDTO.setImgUrl(imgUrl);
 		itemDTO.setCategoryDTO(categoryDTO);
 		itemService.create(itemDTO);
 		this.setSuccess(true);
@@ -132,13 +132,13 @@ public class ItemAction extends BaseAction {
 		itemDTO.setItemType(itemType);
 		itemDTO.setDirector(director);
 		if (upload != null) {
-			String imgUrl = "upload" + File.separator + uploadFileName;
+			imgUrl = "upload" + "/" + uploadFileName;
 			String realPath = this.request.getSession().getServletContext().getRealPath("/");
 			String filePath = realPath + imgUrl;
 			File destFile = new File(filePath);
 			FileUtils.copyFile(upload, destFile);
-			itemDTO.setImgUrl(imgUrl);
 		}
+		itemDTO.setImgUrl(imgUrl);
 		itemDTO.setCategoryDTO(categoryDTO);
 		itemService.update(itemDTO);
 		this.setSuccess(true);
@@ -356,6 +356,14 @@ public class ItemAction extends BaseAction {
 
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 }

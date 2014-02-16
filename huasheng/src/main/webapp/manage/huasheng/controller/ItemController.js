@@ -82,8 +82,9 @@ Ext.define('HS.controller.ItemController', {
 			Ext.each(btns, function(btn){
 				Ext.get(btn).hide();
 			});
+			var record = records[0];
 			// load rowdata that will be updated 
-			view.down('form').loadRecord(records[0]);
+			view.down('form').loadRecord(record);
 		}
 	},
 	updateItem: function(button) {
@@ -98,6 +99,11 @@ Ext.define('HS.controller.ItemController', {
 			success: function(form, action) {
 				record = form.getRecord();
 				record.set(form.getValues());
+				var cmp = Ext.getCmp('upload');
+				var v = cmp.getValue();
+				v = cmp.getRawValue();
+				v = action.result.itemDTO.imgUrl;
+				record.set('imgUrl', v);
 				record.commit();
 				// 1. set record, 2. close it.
 				win.close();

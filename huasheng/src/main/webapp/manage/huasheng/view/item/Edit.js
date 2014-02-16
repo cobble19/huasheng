@@ -62,7 +62,13 @@ Ext.define('HS.view.item.Edit', {
 						fieldLabel: '导演'
 					}, 
 					{
+						xtype: 'hiddenfield',
+						name: 'imgUrl',
+						fieldLabel: '图片URL'
+					}, 
+					{
 						xtype: 'filefield',
+						id: 'upload',
 						name: 'upload',
 						fieldLabel: '图片',
 						emptyText: '请选择图片...',
