@@ -77,6 +77,16 @@ Ext.define('HS.view.item.List', {
 			flex: 1
 		}, 
 		{
+			header: '导演',
+			dataIndex: 'director',
+			flex: 1
+		}, 
+		{
+			header: '图片',
+			dataIndex: 'imgUrl',
+			flex: 1
+		}, 
+		{
 			header: '类别唯一标识',
 			dataIndex: 'categoryDTO.categoryId',
 			flex: 1

@@ -28,6 +28,10 @@ public class ItemEntity extends BaseEntity {
 	private String actorName;
 	// 个体种类, 如剧情，动作，[,]分割
 	private String itemType;
+	// 导演
+	private String director;
+	// 图片
+	private String imgUrl;
 		
 	/*private ItemBaseInfoEntity itemBaseInfoEntity;*/
 	/*private List<CategoryEntity> categoryEntities;*/
@@ -105,6 +109,18 @@ public class ItemEntity extends BaseEntity {
 	}
 	public void setVideoEntities(List<VideoEntity> videoEntities) {
 		this.videoEntities = videoEntities;
+	}
+	public String getDirector() {
+		return director;
+	}
+	public void setDirector(String director) {
+		this.director = director;
+	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 	
 }

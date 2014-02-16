@@ -55,6 +55,21 @@ Ext.define('HS.view.item.Edit', {
 						xtype: 'textfield',
 						name: 'itemType',
 						fieldLabel: '影视类别'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'director',
+						fieldLabel: '导演'
+					}, 
+					{
+						xtype: 'filefield',
+						name: 'upload',
+						fieldLabel: '图片',
+						emptyText: '请选择图片...',
+						msgTarget: 'side',
+				        allowBlank: true,
+				        anchor: '100%',
+				        buttonText: '浏览...'
 					}/*, 
 					{
 						xtype: 'textfield',

@@ -17,6 +17,8 @@
 		<property name="description" column="DESCRIPTION"></property>
 		<property name="actorName" column="ACTOR_NAME"></property>
 		<property name="itemType" column="ITEM_TYPE"></property>
+		<property name="director" column="DIRECTOR"></property>
+		<property name="imgUrl" column="IMG_URL"></property>
 		
 		<!-- <one-to-one name="itemBaseInfoEntity" property-ref="itemEntity"></one-to-one> -->
 		<many-to-one name="categoryEntity" column="CATEGORY_ID"></many-to-one>

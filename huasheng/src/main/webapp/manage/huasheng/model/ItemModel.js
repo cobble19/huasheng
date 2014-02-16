@@ -10,6 +10,8 @@ Ext.define('HS.model.ItemModel', {
 		{name: 'description', type: 'string'},
 		{name: 'actorName', type: 'string'},
 		{name: 'itemType', type: 'string'},
+		{name: 'director', type: 'string'},
+		{name: 'imgUrl', type: 'string'},
 		{name: 'categoryDTO.categoryId', type: 'long'}
 	]
 })
