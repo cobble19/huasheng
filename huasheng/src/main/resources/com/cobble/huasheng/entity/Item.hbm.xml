@@ -14,7 +14,7 @@
 		<property name="areaName" column="AREA_NAME"></property>
 		<property name="showDate" column="SHOW_DATE"></property>
 		<property name="score" column="SCORE"></property>
-		<property name="description" column="DESCRIPTION"></property>
+		<property name="description" column="DESCRIPTION" length="4000"></property>
 		<property name="actorName" column="ACTOR_NAME"></property>
 		<property name="itemType" column="ITEM_TYPE"></property>
 		<property name="director" column="DIRECTOR"></property>
