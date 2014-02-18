@@ -20,16 +20,6 @@
 
         <script src="<%=request.getContextPath()%>/versionII/js/ui.tabs.js" type="text/javascript"></script>
 
-        <script type="text/javascript">
-
-            $(function() {
-
-                $('#rotate > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('rotate', 0);
-
-            });
-
-        </script> 
-
 
 </head>
 
@@ -64,8 +54,17 @@
       
   </div>
   <c:forEach items="${topicDTOList}" var="topic" varStatus="st">
+  <script type="text/javascript">
+
+       $(function() {
+
+           $('#rotate${topic.topicId } > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('rotate', 0);
+
+       });
+
+  </script> 
   <div class="video-index-lbk">
-       <div id="rotate">
+       <div id="rotate${topic.topicId }">
             
             <ul>
 			    <div class="video-index-lbbt">${topic.name}</div>

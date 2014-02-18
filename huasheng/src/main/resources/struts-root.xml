@@ -32,7 +32,7 @@
  		</action> -->
  		<action name="item" class="itemAction">
  			<result name="success">
- 				/versionII/ysnr.jsp
+ 				/versionII/videocontent.jsp
  			</result>
  		</action>
  		<action name="videoSrc" class="videoSrcAction">

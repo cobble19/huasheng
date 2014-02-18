@@ -46,6 +46,7 @@ a:active {
 .video-index-lb{ margin-right:0px;}
 .video-index-lb li{ width:138px; height:231px; float:left; margin-right:14px; margin-bottom:10px;}
 .video-index-tp{ width:138px; height:185px; display:block;}
+.video-index-tp img{max-width:138px;width:expression(document.body.clientWidth > 138?"138px":"auto" );display:block;border:0}
 .video-index-bt{ width:138px; height:24px; display:block; line-height:24px; text-align:center; font-family:"新宋体"; font-size:14px; font-weight:bolder;}
 .video-index-bt:hover {text-decoration: none; color:#4773d2;}
 .video-index-ms{ width:138px; height:22px; line-height:22px; text-align:center; color:#878787; font-size:12px;}
