@@ -73,7 +73,7 @@
 				<li><a href="#${category.categoryId}"><span>${category.name }</span></a></li>
 				</c:forEach>
 				
-                <div class="video-index-lbmore"><a href="http://#">更多>></a></div>
+                <div class="video-index-lbmore"><a href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topic.topicId }">更多>></a></div>
             </ul>
 			
             <c:forEach items="${topic.categoryDTOs }" var="category">
@@ -82,9 +82,9 @@
                <ul class="video-index-lb">
                    <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
 			       <li>
-				       <a class="video-index-tp"><img src="<%=request.getContextPath()%>/${item.imgUrl}" /></a>
+				       <a class="video-index-tp" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank><img src="<%=request.getContextPath()%>/${item.imgUrl}" /></a>
 					   <a class="video-index-bt" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank>${item.name }</a>
-					   <p class="video-index-ms">苏定方出任监军</p>
+					   <p class="video-index-ms">${item.itemType}</p>
 				   </li>
 				   </c:forEach>
 			   </ul>

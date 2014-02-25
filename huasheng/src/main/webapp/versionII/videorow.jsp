@@ -38,7 +38,7 @@
 		       <c:forEach items="${topicDTOList}" var="topic" varStatus="st">
 			   <c:choose>
 				<c:when test="${param.topicId == topic.topicId}">
-	            <div class="select-top-y"><a href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topic.topicId }">${topic.name}</a></div>
+	            <div class="select-top-y"><a class="select" href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topic.topicId }">${topic.name}</a></div>
 				</c:when>
 				<c:otherwise>
 				<div class="select-top-n"><a href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topic.topicId }">${topic.name}</a></div>
@@ -61,17 +61,11 @@
 	      </div>
 	  </div>
   </div>
-  <c:forEach items="${topicDTO.categoryDTOs }" var="category">
-  <div class="videoclass-lbk">
-            
-            <ul class="videoclass-lbtk">
-			    <div class="videoclass-lbbt">${category.name}剧</div>
-				
-                <div class="videoclass-lbmore"><a title="${category.name }" href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">更多>></a></div>
-            </ul>
 
-            <ul class="videoclass-lb">
-                   <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
+  <div class="videorow-lbk">
+
+            <ul class="videorow-lb">
+                   <c:forEach items="${categoryDTO.itemDTOs }" var="item" varStatus="st">
 			       <li>
 				       <a class="videoclass-tp" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank><img src="<%=request.getContextPath()%>/${item.imgUrl}" /></a>
 					   <a class="videoclass-bt" title="${item.name }"
@@ -82,22 +76,7 @@
 			   </ul>
 
     </div>
-  <div class="videoclass-ph">
-  
-      <div class="video-index-pht">${category.name}剧排行榜</div>
 
-      <div class="nr_ph_lb">
-
-				  <UL class=nr-item-list>
-                  <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
-                  <LI class=nr-current>
-                  <DIV class=nr-item-hd><SPAN class=ph-num>${st.index + 1 }</SPAN> <A class=nr-list-title title="${item.name }" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topicDTO.topicId }&categoryId=${category.categoryId }" target=_blank>${item.name }</A><SPAN class=video-index-rise>${item.hits }</SPAN></DIV>
-                  </LI>
-                  </c:forEach>
-                  </UL>  
-		</div>
-  </div>
-  </c:forEach>
 </div>
 
 

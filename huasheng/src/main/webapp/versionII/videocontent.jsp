@@ -39,7 +39,8 @@
 			  <div class="tvjs-wz-dy"><p>导演：</p> <span>${itemDTO.director}</span></div>
 			  <div class="tvjs-wz-dq"><p>地区：</p> <span>${itemDTO.areaName }</span></div>
 			  <div class="tvjs-wz-bq"><p>标签：</p> <span>${itemDTO.itemType}</span></div>
-			  <div class="tvjs-wz-jj"><p>简介：</p> ${itemDTO.description}</div>
+			  <div class="tvjs-wz-jj" id="hutia"><p>简介：</p> ${itemDTO.description}</div>
+			  <script src="<%=request.getContextPath()%>/versionII/js/ss.js" type="text/javascript"></script>
 		  </div>
 		  
 		  

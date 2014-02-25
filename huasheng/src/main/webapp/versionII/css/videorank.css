@@ -92,7 +92,7 @@ a:active {
 .main-y{ width:200px; margin-left:45px; float:left; margin-top:15px;}
 .tvjsk{width:690px;}
 .tvjs-tp{ width:224px; height:300px; border:1px solid #d9d9d9; float:left;}
-.tvjs-wz{ width:439px; float:left; margin-left:24px; display:block;}
+.tvjs-wz{ width:439px; min-height:310px; float:left; margin-left:24px; display:block;}
 .tvjs-wz p{ color:#a7a9ac; float:left;}
 .tvjs-wz span{ color:#4272b0;}
 .tvjs-wz-mz{ width:439px; height:54px; margin-top:26px; font-size:18px; line-height:54px; color:#e4407a; font-size:30px;}
