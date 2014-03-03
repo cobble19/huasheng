@@ -21,10 +21,12 @@ a:active {
  text-decoration: none;
  color: #000000;
 }
+
+.main{width:960px;margin:0 auto;}
 /* 影视首页面头部 */
-.videotop-main{width:960px;margin:0 auto;}
-.videotop-tou{width:960px; height:115px; background:#f8f6e7;  border-bottom:4px solid #226f8b;}
-.logo{ width:282px; height:115px; float:left;}
+.videotop-main{width:960px; float:left;}
+.videotop-tou{width:960px;  background:#f8f6e7;  border-bottom:4px solid #226f8b;}
+.logo{ width:282px; height:115px;}
 .videotop-dh-k{width:960px; height:112px; margin-top:5px; margin-bottom:20px; padding-top:20px; border-top:1px solid #c1c7cf;}
 .videotop-dh{ width:190px; height:112px; padding-right:20px; border-right:1px dashed #c1c7cf; margin-right:10px; float:left;}
 .videotop-dh-s{ width:190px; height:28px;}
@@ -34,11 +36,12 @@ a:active {
 .videotop-dh-m a:hover{ color:#226f8b; text-decoration:none;}
 .videotop-dh-m p{ float:right;}
 .videotop-dh-fl{width:190px; height:84px;}
-.videotop-dh-fl a{ margin-left:10px; line-height:24px;color:#9c9c9c;}
+.videotop-dh-fl a{ margin-left:6px; line-height:24px;color:#9c9c9c;}
 .videotop-dh-r{ width:76px; height:112px; float:left;}
 .videotop-dh-r a{ margin-left:6px; line-height:24px;}
 
 /* 影视首页面 */
+.video-index-main{width:960px; float:left;}
 .video-index-lbk{ width:760px; float:left;}
 .video-index-lbbt{ color:#2b2b2b; text-align:left; float:left; width: 97px; height:26px; font-size:24px; border-left:8px solid #005bcc; padding-left:13px;}
 .video-index-lbmore{ float:right; font-size:12px;}
@@ -46,6 +49,7 @@ a:active {
 .video-index-lb{ margin-right:0px;}
 .video-index-lb li{ width:138px; height:231px; float:left; margin-right:14px; margin-bottom:10px;}
 .video-index-tp{ width:138px; height:185px; display:block;}
+.video-index-tp img{max-width:138px;width:expression(document.body.clientWidth > 138?"138px":"auto" );display:block;border:0}
 .video-index-bt{ width:138px; height:24px; display:block; line-height:24px; text-align:center; font-family:"新宋体"; font-size:14px; font-weight:bolder;}
 .video-index-bt:hover {text-decoration: none; color:#4773d2;}
 .video-index-ms{ width:138px; height:22px; line-height:22px; text-align:center; color:#878787; font-size:12px;}
@@ -175,7 +179,6 @@ a:active {
 }
 
 
-
 /* 影视分类页面 */
 .videoclass-dhk{ width:960px; height:80px; margin:0 auto; margin-top:5px; border-top:1px solid #cccccc; padding-top:10px;} 
 .videoclass-dhk-zuo{ width:100px; height:80px; float:left; border-right:1px solid #cccccc;}
@@ -185,9 +188,15 @@ a:active {
 .videoclass-dhk-zuo-bottom p{ margin-left:10px; line-height:40px; color:#000000; font-size:14px;}
 .videoclass-dhk-you{ width:859px; height:80px; float:left;}
 .videoclass-dhk-you-top{ width:779px; height:40px; float:left;}
-.videoclass-dhk-you-top a{ margin-left:10px; line-height:40px;color:#46612c; font-size:14px;}
+.select-top-y{ margin-left:10px; float:left;}
+.select-top-y a{line-height:40px; font-size:14px; background:#6baeff; color:#FFFFFF; padding:2px;}
+.select-top-n{ margin-left:10px; float:left;}
+.select-top-n a{line-height:40px; font-size:14px; color:#46612c;}
 .videoclass-dhk-you-bottom{ width:859px; height:40px;}
-.videoclass-dhk-you-bottom a{ margin-left:10px; line-height:40px;color:#9c9c9c; font-size:12px;}
+.select-bottom-y{ margin-left:10px; float:left;}
+.select-bottom-y a{line-height:40px; font-size:12px; background:#6baeff; color:#FFFFFF; padding:2px;}
+.select-bottom-n{ margin-left:10px; float:left;}
+.select-bottom-n a{line-height:40px; font-size:12px; color:#9c9c9c; }
 .fhsy{ width:60px; line-height:40px; font-size:12px; float:left; text-align:right; padding-right:20px;}
 .videoclass-lbk{ width:760px; float:left; margin-top:30px;}
 .videoclass-lbtk{ width:760px;  height:26px;}
@@ -197,17 +206,22 @@ a:active {
 .videoclass-lb{ margin-top:10px;}
 .videoclass-lb li{ width:138px; height:231px; float:left; margin-right:14px; margin-bottom:10px;}
 .videoclass-tp{ width:138px; height:185px; display:block;}
+.videoclass-tp img{max-width:138px;width:expression(document.body.clientWidth > 138?"138px":"auto" );display:block;border:0}
 .videoclass-bt{ width:138px; height:24px; display:block; line-height:24px; text-align:center; font-family:"新宋体"; font-size:14px; font-weight:bolder;}
 .videoclass-bt:hover {text-decoration: none; color:#4773d2;}
 .videoclass-ms{ width:138px; height:22px; line-height:22px; text-align:center; color:#878787; font-size:12px;}
 .videoclass-ph{ width:180px; margin-left:20px; float:left; margin-top:30px;}
 
+/* 影视二级分类页面 */
+.videorow-lbk{ width:960px; margin:0 auto; margin-top:30px;}
+.videorow-lb{width:950px; margin-top:10px; margin-left:-5px; overflow:hidden;}
+.videorow-lb li{ width:138px; height:231px; float:left; margin-left:20px; margin-bottom:10px;}
 
-
-
-
-
-
+/* 网站底部 */
+.bottom{width:960px; height:100px; line-height:24px; margin-top:20px; border-top:2px solid #226f8b; float:left;}
+.bottom p{ text-align:center;}
+/* 网站广告 */
+.videoindexgg{ width:180px; height:100px; }
 
 
 

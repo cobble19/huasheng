@@ -5,8 +5,11 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.cobble.huasheng.dto.ItemDTO;
+import com.cobble.huasheng.dto.ItemDTOSearch;
 import com.cobble.huasheng.dto.TopicDTO;
 import com.cobble.huasheng.dto.TopicDTOSearch;
+import com.cobble.huasheng.service.ItemService;
 import com.cobble.huasheng.service.TopicService;
 import com.cobble.huasheng.util.ListUtil;
 
@@ -14,6 +17,8 @@ import com.cobble.huasheng.util.ListUtil;
 public class IndexAction extends BaseAction {
 	private final static Logger logger = Logger.getLogger(IndexAction.class);
 	private TopicService topicService;
+	private ItemService itemService;
+	private List<ItemDTO> itemDTOList;
 	private TopicDTOSearch topicDTOSearch = new TopicDTOSearch();
 	private TopicDTO topicDTO = new TopicDTO();
 	private List<TopicDTO> topicDTOList = new ArrayList<TopicDTO>(0);
@@ -28,6 +33,7 @@ public class IndexAction extends BaseAction {
 			topicId = topicDTOList.get(0).getTopicId();
 		}
 		topicDTO = topicService.findById(topicId);
+		itemDTOList = itemService.finds(null);
 		return this.SUCCESS;
 	}
 	
@@ -70,6 +76,18 @@ public class IndexAction extends BaseAction {
 
 	public void setTopicDTOList(List<TopicDTO> topicDTOList) {
 		this.topicDTOList = topicDTOList;
+	}
+
+	public void setItemService(ItemService itemService) {
+		this.itemService = itemService;
+	}
+
+	public List<ItemDTO> getItemDTOList() {
+		return itemDTOList;
+	}
+
+	public void setItemDTOList(List<ItemDTO> itemDTOList) {
+		this.itemDTOList = itemDTOList;
 	}
 
 }

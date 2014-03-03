@@ -20,6 +20,7 @@
 	</bean>
 	<bean id="indexAction" class="com.cobble.huasheng.action.IndexAction" scope="prototype">
 		<property name="topicService" ref="topicService"></property>
+		<property name="itemService" ref="itemService"></property>
 	</bean>
 	<bean id="topicAction" class="com.cobble.huasheng.action.TopicAction" scope="prototype">
 		<property name="topicService" ref="topicService"></property>

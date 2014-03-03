@@ -9,11 +9,13 @@ import com.cobble.huasheng.dao.VideoDAO;
 import com.cobble.huasheng.dto.CategoryDTO;
 import com.cobble.huasheng.dto.ItemDTO;
 import com.cobble.huasheng.dto.ItemDTOSearch;
+import com.cobble.huasheng.dto.TopicDTO;
 import com.cobble.huasheng.dto.VideoDTO;
 import com.cobble.huasheng.dto.VideoSrcDTO;
 import com.cobble.huasheng.entity.CategoryEntity;
 import com.cobble.huasheng.entity.ItemEntity;
 import com.cobble.huasheng.entity.ItemEntitySearch;
+import com.cobble.huasheng.entity.TopicEntity;
 import com.cobble.huasheng.entity.VideoEntity;
 import com.cobble.huasheng.entity.VideoSrcEntity;
 import com.cobble.huasheng.factory.ConvertFactory;
@@ -75,6 +77,9 @@ public class ItemServiceImpl implements ItemService {
 					ItemDTO itemDTO = ConvertFactory.getItemConvert().toDTO(itemEntity);
 					CategoryEntity categoryEntity = itemEntity.getCategoryEntity();
 					CategoryDTO categoryDTO = ConvertFactory.getCategoryConvert().toDTO(categoryEntity);
+					TopicEntity topicEntity = categoryEntity.getTopicEntity();
+					TopicDTO topicDTO = ConvertFactory.getTopicConvert().toDTO(topicEntity);
+					categoryDTO.setTopicDTO(topicDTO);
 					itemDTO.setCategoryDTO(categoryDTO);
 					ret.add(itemDTO);
 				}

@@ -12,7 +12,7 @@
  		</action> -->
  		<action name="topic" class="topicAction">
  			<result name="success">
- 				/versionII/videoindex.jsp
+ 				/versionII/videoclass.jsp
  			</result>
  		</action>
  		<!--<action name="category" class="categoryAction">
@@ -22,7 +22,7 @@
  		</action> -->
 		<action name="category" class="categoryAction">
  			<result name="success">
- 				/versionII/videoclass.jsp
+ 				/versionII/videorow.jsp
  			</result>
  		</action>
  		<!--<action name="item" class="itemAction">
@@ -32,7 +32,7 @@
  		</action> -->
  		<action name="item" class="itemAction">
  			<result name="success">
- 				/versionII/ysnr.jsp
+ 				/versionII/videocontent.jsp
  			</result>
  		</action>
  		<action name="videoSrc" class="videoSrcAction">

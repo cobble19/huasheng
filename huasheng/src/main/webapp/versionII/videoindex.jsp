@@ -20,23 +20,13 @@
 
         <script src="<%=request.getContextPath()%>/versionII/js/ui.tabs.js" type="text/javascript"></script>
 
-        <script type="text/javascript">
-
-            $(function() {
-
-                $('#rotate > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('rotate', 0);
-
-            });
-
-        </script> 
-
 
 </head>
 
 
 
 <body>
-
+<div class="main">
 <div class="videotop-main">
   <div class="videotop-tou">
 
@@ -63,9 +53,20 @@
 	  </div>
       
   </div>
+</div>
   <c:forEach items="${topicDTOList}" var="topic" varStatus="st">
+  <script type="text/javascript">
+
+       $(function() {
+
+           $('#rotate${topic.topicId } > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('rotate', 0);
+
+       });
+
+  </script> 
+<div class="video-index-main">
   <div class="video-index-lbk">
-       <div id="rotate">
+       <div id="rotate${topic.topicId }">
             
             <ul>
 			    <div class="video-index-lbbt">${topic.name}</div>
@@ -74,7 +75,7 @@
 				<li><a href="#${category.categoryId}"><span>${category.name }</span></a></li>
 				</c:forEach>
 				
-                <div class="video-index-lbmore"><a href="http://#">更多>></a></div>
+                <div class="video-index-lbmore"><a href="<%=request.getContextPath() %>/topic!getTopicById?topicId=${topic.topicId }">更多>></a></div>
             </ul>
 			
             <c:forEach items="${topic.categoryDTOs }" var="category">
@@ -83,9 +84,9 @@
                <ul class="video-index-lb">
                    <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
 			       <li>
-				       <a class="video-index-tp"><img src="<%=request.getContextPath()%>/${item.imgUrl}" /></a>
+				       <a class="video-index-tp" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank><img src="<%=request.getContextPath()%>/${item.imgUrl}" /></a>
 					   <a class="video-index-bt" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank>${item.name }</a>
-					   <p class="video-index-ms">苏定方出任监军</p>
+					   <p class="video-index-ms">${item.itemType}</p>
 				   </li>
 				   </c:forEach>
 			   </ul>
@@ -100,17 +101,29 @@
       <div class="nr_ph_lb">
 
 				  <UL class=nr-item-list>
-                  <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
-                  <LI class=nr-current>
-                  <DIV class=nr-item-hd><SPAN class=ph-num>${st.index + 1 }</SPAN> <A class=nr-list-title title="${item.name }" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank>${item.name }</A><SPAN class=video-index-rise>${item.hits }</SPAN></DIV>
-                  </LI>
-                  </c:forEach>
+                  	<c:forEach items="${itemDTOList}" var="item" varStatus="st">
+                  		<c:if test="${item.categoryDTO.topicDTO.topicId == topic.topicId}">
+							<LI class=nr-current>
+								<DIV class=nr-item-hd>
+									<SPAN class=ph-num>${st.index + 1 }</SPAN> <A
+										class=nr-list-title title="${item.name }"
+										href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${item.categoryDTO.topicDTO.topicId }&categoryId=${item.categoryDTO.categoryId }"
+										target=_blank>${item.name }</A><SPAN class=video-index-rise>${item.hits }</SPAN>
+								</DIV>
+							</LI>
+                  		</c:if>
+					</c:forEach>
                   </UL>  
 		</div>
+		<div class="videoindexgg"></div>
    </div>
    </c:forEach>
    </div>
+<%@ include file="bottom.jsp"%>
 
+
+
+</div>
 </body>
 
 </html>

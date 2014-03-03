@@ -25,7 +25,7 @@ public class ItemDAOImpl extends CommonDAOImpl implements ItemDAO {
 	public List<ItemEntity> finds(ItemEntitySearch st) throws Exception {
 		List<ItemEntity> ret = null;
 		try {
-			 Query query = this.getCurrentSession().createQuery("from ItemEntity");
+			 Query query = this.getCurrentSession().createQuery("from ItemEntity order by hits desc ");
 			 ret = (List<ItemEntity>) query.list();
 		} catch (Exception e) {
 			throw e;

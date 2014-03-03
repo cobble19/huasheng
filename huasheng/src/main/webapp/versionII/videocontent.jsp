@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>得味驿站</title>
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.png">
-<link href="<%=request.getContextPath()%>/versionII/css/ys.css" type="text/css" rel="stylesheet" media="print, projection, screen"/>
+<link href="<%=request.getContextPath()%>/versionII/css/videorank.css" type="text/css" rel="stylesheet" media="print, projection, screen"/>
         <script src="<%=request.getContextPath()%>/versionII/js/jquery-1.2.4b.js" type="text/javascript"></script>
         <script src="<%=request.getContextPath()%>/versionII/js/ui.core.js" type="text/javascript"></script>
         <script src="<%=request.getContextPath()%>/versionII/js/ui.tabs.js" type="text/javascript"></script>
@@ -32,14 +32,15 @@
 	  </ul>
   </div>
   <div class="main-z">
-	      <div class="tvjs-tp"><img src="images/jh.jpg" /></div>
+	      <div class="tvjs-tp"><img src="<%=request.getContextPath()%>/${itemDTO.imgUrl}" /></div>
 		  <div class="tvjs-wz">
 		      <div class="tvjs-wz-mz">${itemDTO.name}</div>
 			  <div class="tvjs-wz-zy"><p>主演：</p> <span>${itemDTO.actorName}</span></div>
-			  <div class="tvjs-wz-dy"><p>导演：</p> <span>刘江</span></div>
+			  <div class="tvjs-wz-dy"><p>导演：</p> <span>${itemDTO.director}</span></div>
 			  <div class="tvjs-wz-dq"><p>地区：</p> <span>${itemDTO.areaName }</span></div>
 			  <div class="tvjs-wz-bq"><p>标签：</p> <span>${itemDTO.itemType}</span></div>
-			  <div class="tvjs-wz-jj"><p>简介：</p> ${itemDTO.description}</div>
+			  <div class="tvjs-wz-jj" id="hutia"><p>简介：</p> ${itemDTO.description}</div>
+			  <script src="<%=request.getContextPath()%>/versionII/js/ss.js" type="text/javascript"></script>
 		  </div>
 		  
 		  

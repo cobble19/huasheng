@@ -22,7 +22,9 @@ a:active {
  color: #000000;
 }
 
-/* 影视首页面 */
+
+
+/* 影视排行首页面 */
 .main{width:960px;margin:0 auto;}
 .tou{width:960px; height:115px; background:#f8f6e7;}
 .logo{ width:282px; height:115px; float:left;}
@@ -68,7 +70,7 @@ a:active {
 .list-title {DISPLAY: inline; FLOAT: left; margin-left:10px;}
 .icon-rise {TEXT-ALIGN: right; float:right; WIDTH: 70px; MARGIN-right:20px;}
 
-/* 影视列表页面 */
+/* 影视排行列表页面 */
 .main_lb_k{ width:808px; float:left; border:solid 1px #d4d4d9;}
 .main_lb_t{ background:url(../images/yslb_01.jpg) repeat-x; width:808px; height:31px;}
 .main_lb_t p{ font-size:14px; font-family:"宋体"; color:#000000; line-height:31px; margin-left:15px;}
@@ -77,7 +79,7 @@ a:active {
 .main_lb{ width:808px;}
 .item-hd-lb{PADDING-BOTTOM: 9px; PADDING-LEFT: 14px; PADDING-RIGHT: 4px; HEIGHT: 15px; PADDING-TOP: 8px; background:url(../images/yslb_02.jpg) bottom no-repeat;}
 .lb_js{  width:776px; height:86px; padding-top:15px; padding-left:15px; padding-right:15px; padding-bottom:15px;}
-.lb_js_tp{ width:50px; height:80px; border:1px solid #e8e8e8; float:left;}
+.lb_js_tp{ width:60px; height:80px; border:1px solid #e8e8e8; float:left;}
 .lb_js_wz{ width:706px; height:82px; float:right; line-height:18px; color:#4d4d4d;}
 .list-lb-title {DISPLAY: inline; FLOAT: left; margin-left:30px;}
 .tt-lb-index {PADDING-RIGHT: 20px; FLOAT: left; MARGIN-RIGHT: 5px; BORDER-RIGHT: #fff 1px solid;}
@@ -85,11 +87,12 @@ a:active {
 .tt-lb-value {WIDTH: 70px; DISPLAY: inline; FLOAT: right;}
 .icon-lb-rise {TEXT-ALIGN: right; float:right; WIDTH: 70px; MARGIN-right:20px;}
 
-/* 影视内容页面 */
+/* 影视排行内容页面 */
 .main-z{width:690px; float:left; margin-top:15px;margin-left:25px;}
 .main-y{ width:200px; margin-left:45px; float:left; margin-top:15px;}
-.tvjs-tp{ width:225px; height:300px; border:1px solid #d9d9d9; float:left;}
-.tvjs-wz{ width:439px; height:318px; float:left; margin-left:23px;}
+.tvjsk{width:690px;}
+.tvjs-tp{ width:224px; height:300px; border:1px solid #d9d9d9; float:left;}
+.tvjs-wz{ width:439px; min-height:310px; float:left; margin-left:24px; display:block;}
 .tvjs-wz p{ color:#a7a9ac; float:left;}
 .tvjs-wz span{ color:#4272b0;}
 .tvjs-wz-mz{ width:439px; height:54px; margin-top:26px; font-size:18px; line-height:54px; color:#e4407a; font-size:30px;}
