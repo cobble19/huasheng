@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<div class="main">
 <div class="videotop-main">
 
   <div class="videotop-tou">
@@ -61,6 +62,7 @@
 	      </div>
 	  </div>
   </div>
+  <div class="video-index-main">
   <c:forEach items="${topicDTO.categoryDTOs }" var="category">
   <div class="videoclass-lbk">
             
@@ -101,7 +103,8 @@
 </div>
 
 
-
+<%@ include file="bottom.jsp"%>
+</div>
 </body>
 
 </html>

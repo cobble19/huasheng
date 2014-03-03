@@ -26,7 +26,7 @@
 
 
 <body>
-
+<div class="main">
 <div class="videotop-main">
   <div class="videotop-tou">
 
@@ -53,6 +53,7 @@
 	  </div>
       
   </div>
+</div>
   <c:forEach items="${topicDTOList}" var="topic" varStatus="st">
   <script type="text/javascript">
 
@@ -63,6 +64,7 @@
        });
 
   </script> 
+<div class="video-index-main">
   <div class="video-index-lbk">
        <div id="rotate${topic.topicId }">
             
@@ -106,10 +108,15 @@
                   </c:forEach>
                   </UL>  
 		</div>
+		<div class="videoindexgg"></div>
    </div>
    </c:forEach>
    </div>
+<%@ include file="bottom.jsp"%>
 
+
+
+</div>
 </body>
 
 </html>
