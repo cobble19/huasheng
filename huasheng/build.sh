@@ -17,5 +17,5 @@ mkdir -p target/huasheng/upload
 /bin/cp -R temp/upload/* target/huasheng/upload/
 echo "Start tomcat..."
 sh ${CATALINA_HOME}/bin/startup.sh
-echo "build finished..."
+echo "Build finished..."
 
