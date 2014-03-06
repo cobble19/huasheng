@@ -42,9 +42,9 @@ Ext.define('HS.view.item.Edit', {
 						fieldLabel: '评分'
 					}, 
 					{
-						xtype: 'textfield',
+						xtype: 'textareafield',
 						name: 'description',
-						fieldLabel: '描述'
+						fieldLabel: '简介'
 					}, 
 					{
 						xtype: 'textfield',
@@ -54,7 +54,7 @@ Ext.define('HS.view.item.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'itemType',
-						fieldLabel: '影视类别'
+						fieldLabel: '类型'
 					}, 
 					{
 						xtype: 'textfield',

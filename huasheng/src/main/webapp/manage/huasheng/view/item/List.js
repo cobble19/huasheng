@@ -62,7 +62,7 @@ Ext.define('HS.view.item.List', {
 			flex: 1
 		}, 
 		{
-			header: '描述',
+			header: '简介',
 			dataIndex: 'description',
 			flex: 1
 		}, 
@@ -72,7 +72,7 @@ Ext.define('HS.view.item.List', {
 			flex: 1
 		}, 
 		{
-			header: '影视类别',
+			header: '类型',
 			dataIndex: 'itemType',
 			flex: 1
 		}, 

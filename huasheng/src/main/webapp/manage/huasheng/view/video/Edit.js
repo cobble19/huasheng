@@ -17,6 +17,11 @@ Ext.define('HS.view.video.Edit', {
 					}, 
 					{
 						xtype: 'textfield',
+						name: 'name',
+						fieldLabel: '名称'
+					},  
+					{
+						xtype: 'textfield',
 						name: 'url',
 						fieldLabel: '视频url'
 					}, 

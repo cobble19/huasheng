@@ -26,6 +26,8 @@ public class VideoAction extends BaseAction {
 	
 	// 唯一标识
 	private Long videoId;
+	// 名称
+	private String name;
 	// 视频地址
 	private String url;
 	// 第几集， 顺序
@@ -44,6 +46,7 @@ public class VideoAction extends BaseAction {
 
 	public String add() throws Exception {
 		videoDTO = new VideoDTO();
+		videoDTO.setName(name);
 		videoDTO.setUrl(url);
 		videoDTO.setOrderNum(orderNum);
 		videoDTO.setItemDTO(itemDTO);
@@ -56,6 +59,7 @@ public class VideoAction extends BaseAction {
 	public String update() throws Exception {
 		videoDTO = new VideoDTO();
 		videoDTO.setVideoId(videoId);
+		videoDTO.setName(name);
 		videoDTO.setUrl(url);
 		videoDTO.setOrderNum(orderNum);
 		videoDTO.setItemDTO(itemDTO);
@@ -152,6 +156,14 @@ public class VideoAction extends BaseAction {
 
 	public void setOrderNum(Integer orderNum) {
 		this.orderNum = orderNum;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

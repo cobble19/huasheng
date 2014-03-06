@@ -8,6 +8,7 @@
 		<id name="videoId" column="VIDEO_ID">
 			<generator class="increment"></generator>
 		</id>
+		<property name="name" column="NAME"></property>
 		<property name="url" column="URL" not-null="true"></property>
 		<property name="orderNum" column="ORDER_NUM" not-null="true"></property>
 		<many-to-one name="itemEntity" column="ITEM_ID" cascade="all"></many-to-one>

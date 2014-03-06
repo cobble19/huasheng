@@ -40,6 +40,11 @@ Ext.define('HS.view.video.List', {
 			flex: 1
 		}, 
 		{
+			header: '名称',
+			dataIndex: 'name',
+			flex: 1
+		}, 
+		{
 			header: '视频URL',
 			dataIndex: 'url',
 			flex: 1

@@ -52,6 +52,7 @@ Ext.define('HS.controller.VideoController', {
 				var videoDTO = action.result.videoDTO;
 				var record = Ext.create('HS.model.VideoModel', {
 					videoId: videoDTO.videoId,
+					name: videoDTO.name,
 					url: videoDTO.url,
 					orderNum: videoDTO.orderNum,
 					"itemDTO.itemId": videoDTO.itemDTO.itemId,
