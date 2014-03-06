@@ -8,6 +8,8 @@ package com.cobble.huasheng.entity;
 public class VideoEntity extends BaseEntity {
 	// 唯一标识
 	private Long videoId;
+	// 名称
+	private String name;
 	// 视频地址
 	private String url;
 	// 第几集， 顺序
@@ -45,5 +47,11 @@ public class VideoEntity extends BaseEntity {
 	}
 	public void setOrderNum(Integer orderNum) {
 		this.orderNum = orderNum;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }

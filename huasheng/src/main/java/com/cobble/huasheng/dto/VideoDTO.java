@@ -2,6 +2,8 @@ package com.cobble.huasheng.dto;
 
 public class VideoDTO extends BaseDTO {
 	private Long videoId;
+	// 名称
+	private String name;
 	private String url;
 	private Integer orderNum;
 	private ItemDTO itemDTO;
@@ -58,5 +60,11 @@ public class VideoDTO extends BaseDTO {
 		} else if (!videoId.equals(other.videoId))
 			return false;
 		return true;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }

@@ -2,6 +2,8 @@ package com.cobble.huasheng.dto;
 
 public class VideoDTOSearch extends BaseDTOSearch {
 	private Long videoId;
+	// 名称
+	private String name;
 	private String url;
 	private ItemDTO itemDTO;
 	private VideoSrcDTO videoSrcDTO;
@@ -28,5 +30,11 @@ public class VideoDTOSearch extends BaseDTOSearch {
 	}
 	public void setVideoSrcDTO(VideoSrcDTO videoSrcDTO) {
 		this.videoSrcDTO = videoSrcDTO;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }

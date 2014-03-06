@@ -2,6 +2,7 @@ package com.cobble.huasheng.entity;
 
 public class VideoEntitySearch extends BaseEntitySearch {
 	private Long videoId;
+	private String name;
 	private String url;
 	private ItemEntity itemEntity;
 	private VideoSrcEntity videoSrcEntity;
@@ -28,5 +29,11 @@ public class VideoEntitySearch extends BaseEntitySearch {
 	}
 	public void setVideoSrcEntity(VideoSrcEntity videoSrcEntity) {
 		this.videoSrcEntity = videoSrcEntity;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }
