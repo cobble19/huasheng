@@ -101,7 +101,7 @@
       <div class="nr_ph_lb">
 
 				  <UL class=nr-item-list>
-                  	<c:forEach items="${itemDTOList}" var="item" varStatus="st">
+                  	<c:forEach items="${itemDTOList}" var="item" varStatus="st" begin="0" end="9" step="1">
                   		<c:if test="${item.categoryDTO.topicDTO.topicId == topic.topicId}">
 							<LI class=nr-current>
 								<DIV class=nr-item-hd>

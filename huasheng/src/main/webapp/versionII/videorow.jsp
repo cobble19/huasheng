@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<div class="main">
 <div class="videotop-main">
 
   <div class="videotop-tou">
@@ -61,7 +62,8 @@
 	      </div>
 	  </div>
   </div>
-
+</div>
+<div class="video-index-main">
   <div class="videorow-lbk">
 
             <ul class="videorow-lb">
@@ -79,8 +81,8 @@
 
 </div>
 
-
-
+<%@ include file="bottom.jsp"%>
+</div>
 </body>
 
 </html>
