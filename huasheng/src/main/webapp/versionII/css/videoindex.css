@@ -50,9 +50,9 @@ a:active {
 .video-index-lb li{ width:138px; height:231px; float:left; margin-right:14px; margin-bottom:10px;}
 .video-index-tp{ width:138px; height:185px; display:block;}
 .video-index-tp img{max-width:138px;width:expression(document.body.clientWidth > 138?"138px":"auto" );display:block;border:0}
-.video-index-bt{ width:138px; height:24px; display:block; line-height:24px; text-align:center; font-family:"新宋体"; font-size:14px; font-weight:bolder;}
+.video-index-bt{ width:138px; height:24px; display:block; line-height:24px; text-align:center; font-family:"新宋体"; font-size:14px; font-weight:bolder; overflow:hidden;}
 .video-index-bt:hover {text-decoration: none; color:#4773d2;}
-.video-index-ms{ width:138px; height:22px; line-height:22px; text-align:center; color:#878787; font-size:12px;}
+.video-index-ms{ width:138px; height:22px; line-height:22px; text-align:center; color:#878787; font-size:12px; overflow:hidden;}
 
 .video-index-ph{ width:180px; margin-left:20px; float:left;}
 .video-index-pht{ width:159px; height:20px; border-left:6px solid #f26522; padding-left:15px; line-height:20px; font-size:16px; font-weight:bold;}
@@ -60,9 +60,9 @@ a:active {
 .nr-item-list LI {MARGIN-TOP: -1px; WIDTH: 100%; OVERFLOW: hidden;}
 .nr-current {}
 .nr-item-hd {PADDING-BOTTOM: 9px; PADDING-LEFT: 2px; PADDING-RIGHT: 4px; HEIGHT: 15px; PADDING-TOP: 8px; FONT-SIZE: 14px; line-height:15px;}
-.nr-list-title {DISPLAY: inline; FLOAT: left; margin-left:10px; font-size:14px;}
+.nr-list-title {DISPLAY: inline; FLOAT: left; margin-left:10px; font-size:14px; width:120px; height:15px; overflow:hidden;}
 .ph-num { TEXT-ALIGN: center;  LINE-HEIGHT: 15px; WIDTH: 15px; DISPLAY: inline; BACKGROUND: #f26522; FLOAT: left; HEIGHT: 15px; COLOR: #fff; FONT-SIZE: 14px;}
-.video-index-rise {TEXT-ALIGN: right; float:right; MARGIN-right:10px; font-size:12px;}
+.video-index-rise {TEXT-ALIGN: right; float:right; MARGIN-right:10px; font-size:12px; display:none;}
 
 
 

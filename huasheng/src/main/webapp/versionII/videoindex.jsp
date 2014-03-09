@@ -82,10 +82,10 @@
             <div id="${category.categoryId}">
                
                <ul class="video-index-lb">
-                   <c:forEach items="${category.itemDTOs }" var="item" varStatus="st">
+                   <c:forEach items="${category.itemDTOs }" var="item" varStatus="st" begin="0" end="9" step="1">
 			       <li>
-				       <a class="video-index-tp" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank><img src="<%=request.getContextPath()%>/${item.imgUrl}" /></a>
-					   <a class="video-index-bt" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" target=_blank>${item.name }</a>
+				       <a class="video-index-tp" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" title="${item.name }" target=_blank><img src="<%=request.getContextPath()%>/${item.imgUrl}" /></a>
+					   <a class="video-index-bt" href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${topic.topicId }&categoryId=${category.categoryId }" title="${item.name }" target=_blank>${item.name }</a>
 					   <p class="video-index-ms">${item.itemType}</p>
 				   </li>
 				   </c:forEach>

@@ -67,7 +67,7 @@
   <div class="videoclass-lbk">
             
             <ul class="videoclass-lbtk">
-			    <div class="videoclass-lbbt">${category.name}剧</div>
+			    <div class="videoclass-lbbt">${category.name}</div>
 				
                 <div class="videoclass-lbmore"><a title="${category.name }" href="<%=request.getContextPath() %>/category!getCategoryById?topicId=${topicDTO.topicId }&categoryId=${category.categoryId }">更多>></a></div>
             </ul>

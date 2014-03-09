@@ -38,7 +38,7 @@
 			  <div class="tvjs-wz-zy"><p>主演：</p> <span>${itemDTO.actorName}</span></div>
 			  <div class="tvjs-wz-dy"><p>导演：</p> <span>${itemDTO.director}</span></div>
 			  <div class="tvjs-wz-dq"><p>地区：</p> <span>${itemDTO.areaName }</span></div>
-			  <div class="tvjs-wz-bq"><p>标签：</p> <span>${itemDTO.itemType}</span></div>
+			  <div class="tvjs-wz-bq"><p>描述：</p> <span>${itemDTO.itemType}</span></div>
 			  <div class="tvjs-wz-jj" id="hutia"><p>简介：</p> ${itemDTO.description}</div>
 			  <script src="<%=request.getContextPath()%>/versionII/js/ss.js" type="text/javascript"></script>
 		  </div>
@@ -56,7 +56,7 @@
 			<div id="${videoSrc.videoSrcId}">
                <ul class="myj">
 			     <c:forEach items="${videoSrc.videoDTOs }" var="video" varStatus="st">
-			       <li><a href="<%=request.getContextPath() %>/videoplay!play?url=${video.url}">第${st.count}集</a></li>
+			       <li><a href="<%=request.getContextPath() %>/videoplay!play?url=${video.url}" target="_blank">${video.name}</a></li>
 				 </c:forEach>
 			   </ul>
             </div>
