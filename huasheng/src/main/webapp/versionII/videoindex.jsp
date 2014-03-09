@@ -101,16 +101,20 @@
       <div class="nr_ph_lb">
 
 				  <UL class=nr-item-list>
-                  	<c:forEach items="${itemDTOList}" var="item" varStatus="st" begin="0" end="9" step="1">
+                  	<c:set var="count" value="0"></c:set>
+                  	<c:forEach items="${itemDTOList}" var="item" varStatus="st">
                   		<c:if test="${item.categoryDTO.topicDTO.topicId == topic.topicId}">
-							<LI class=nr-current>
-								<DIV class=nr-item-hd>
-									<SPAN class=ph-num>${st.index + 1 }</SPAN> <A
-										class=nr-list-title title="${item.name }"
-										href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${item.categoryDTO.topicDTO.topicId }&categoryId=${item.categoryDTO.categoryId }"
-										target=_blank>${item.name }</A><SPAN class=video-index-rise>${item.hits }</SPAN>
-								</DIV>
-							</LI>
+                  			<c:set var="count" value="${count + 1}"></c:set>
+                  			<c:if test="${count <= 10}">
+								<LI class=nr-current>
+									<DIV class=nr-item-hd>
+										<SPAN class=ph-num>${count}</SPAN> <A
+											class=nr-list-title title="${item.name }"
+											href="<%=request.getContextPath() %>/item/item!getItemById?itemId=${item.itemId}&topicId=${item.categoryDTO.topicDTO.topicId }&categoryId=${item.categoryDTO.categoryId }"
+											target=_blank>${item.name }</A><SPAN class=video-index-rise>${item.hits }</SPAN>
+									</DIV>
+								</LI>
+                  			</c:if>
                   		</c:if>
 					</c:forEach>
                   </UL>  
