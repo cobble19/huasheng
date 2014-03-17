@@ -23,8 +23,12 @@
 
 </head>
 <body>
-	<iframe id="mainIframe" src="${url }"
+	<%-- <iframe id="mainIframe" src="${url }"
 		frameborder="0" height="100%" width="100%" scrolling="auto">
-	</iframe>
+	</iframe> --%>
+	<input id="url" hidden="true" value="${url }">
+	<script language="JavaScript">
+		window.location = $('#url').val();
+	</script>
 </body>
 </html>

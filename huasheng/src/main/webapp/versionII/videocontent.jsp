@@ -57,6 +57,8 @@
                <ul class="myj">
 			     <c:forEach items="${videoSrc.videoDTOs }" var="video" varStatus="st">
 			       <li><a href="<%=request.getContextPath() %>/videoplay!play?url=${video.url}" target="_blank">${video.name}</a></li>
+			      <!-- <li><a target="_blank" href="<%=request.getContextPath() %>/videoplay!play?url=${video.url}">第${st.count}集</a></li>-->
+			       <%-- <li><a target="_blank" href="${video.url}">第${st.count}集</a></li> --%>
 				 </c:forEach>
 			   </ul>
             </div>
