@@ -2,6 +2,7 @@ package com.cobble.huasheng.dao.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Query;
 
 import com.cobble.huasheng.dao.TopicDAO;
@@ -21,11 +22,23 @@ public class TopicDAOImpl extends CommonDAOImpl implements TopicDAO {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<TopicEntity> finds(TopicEntitySearch st) throws Exception {
 		List<TopicEntity> ret = null;
 		try {
-			 Query query = this.getCurrentSession().createQuery("from TopicEntity");
-			 ret = (List<TopicEntity>) query.list();
+			StringBuilder hql = new StringBuilder("from TopicEntity t where 1 > 0 ");
+			if (st != null) {
+				if (StringUtils.isNotBlank(st.getName())) {
+					hql.append(" and t.name like " + ":name");
+				}
+			}
+			Query query = this.getCurrentSession().createQuery(hql.toString());
+			if (st != null) {
+				if (StringUtils.isNotBlank(st.getName())) {
+					query.setString("name", "%" + st.getName() + "%");
+				}
+			}
+			ret = (List<TopicEntity>) query.list();
 		} catch (Exception e) {
 			throw e;
 		}

@@ -10,8 +10,11 @@ Ext.define('HS.store.TopicStore', {
 	proxy: {
 		type: 'ajax',
 		/*url: Ext.get('contextPath').dom.value + '/json/topic!execute',*/
+		actionMethods: {
+			read: 'POST'
+		},
 		api: {
-			read: Ext.get('contextPath').dom.value + '/json/topic!execute',
+			read: encodeURI(encodeURI(Ext.get('contextPath').dom.value + '/json/topic!execute')),
 			update: Ext.get('contextPath').dom.value + '/json/topic!update',
 			create: '',
 			destroy: ''

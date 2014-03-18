@@ -17,6 +17,9 @@ Ext.define('HS.controller.TopicController', {
 			'topicedit button[action=save]': {
 				click: this.updateTopic
 			},
+			'viewport topiclist button[action=search]': {
+				click: this.searchTopic
+			},
 			'viewport topiclist button[action=add]': {
 				click: this.openDialog4Add
 			},
@@ -36,6 +39,17 @@ Ext.define('HS.controller.TopicController', {
 				render: this.onPanelRendered
 			}*/
 		});
+	},
+	searchTopic: function(button) {
+		var nameEle = Ext.ComponentQuery.query('panel textfield[name=topicDTOSearch.name]')[0];
+		name = nameEle.getValue();
+		var store = this.getTopicStoreStore();
+		store.load({
+			params: {
+	            'topicDTOSearch.name': name
+	        }
+		});
+		console.log('searchTopic...' + name);
 	},
 	openDialog4Add: function(button) {
 		console.log('add dialog...');
