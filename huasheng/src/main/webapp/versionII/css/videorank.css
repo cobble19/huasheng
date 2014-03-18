@@ -95,7 +95,7 @@ a:active {
 .tvjs-wz{ width:439px; min-height:310px; float:left; margin-left:24px; display:block;}
 .tvjs-wz p{ color:#a7a9ac; float:left;}
 .tvjs-wz span{ color:#4272b0;}
-.tvjs-wz-mz{ width:439px; height:54px; margin-top:26px; font-size:18px; line-height:54px; color:#e4407a; font-size:30px;}
+.tvjs-wz-mz{ width:439px; height:54px; margin-top:26px; line-height:54px; color:#e4407a; font-size:30px;}
 .tvjs-wz-zy{width:439px; height:22px; font-size:12px; line-height:22px;}
 .tvjs-wz-dy{width:439px; height:22px; font-size:12px; line-height:22px;}
 .tvjs-wz-dq{width:439px; height:22px; font-size:12px; line-height:22px;}
@@ -112,6 +112,12 @@ a:active {
 .ph-num { TEXT-ALIGN: center;  LINE-HEIGHT: 19px; WIDTH: 22px; DISPLAY: inline; BACKGROUND: #f26522; FLOAT: left; HEIGHT: 19px; COLOR: #fff; FONT-SIZE: 14px;}
 .pht{ width:179px; height:20px; border-left:6px solid #f26522; padding-left:15px; margin-top:26px; line-height:20px; font-size:16px; font-weight:bold;}
 .zxgk{color:#27537a; text-align: center; text-decoration: none; float:left; width: 65px; height:18px; position: relative; bottom:-5px;}
+.dyspy{width:690px; height:20px; line-height:20px; margin-top:10px;}
+.dyspy-t{ float:left; font-size:14px; line-height:20px;}
+.dyspy-r{ float:left;}
+.dyspy-r a{ float:left; margin-left:10px;}
+
+
 
 
 @media projection, screen {
@@ -226,7 +232,9 @@ a:active {
 
 
 
-
+/* 网站底部 */
+.bottom{width:960px; height:100px; line-height:24px; margin-top:20px; border-top:2px solid #226f8b; float:left;}
+.bottom p{ text-align:center;}
 
 
 

@@ -42,9 +42,18 @@
 			  <div class="tvjs-wz-jj" id="hutia"><p>简介：</p> ${itemDTO.description}</div>
 			  <script src="<%=request.getContextPath()%>/versionII/js/ss.js" type="text/javascript"></script>
 		  </div>
-		  
-		  
-		  
+		  <c:choose>
+		  <c:when test="${param.topicId == 2}">
+		  <div class="dyspy">
+		      <div class="dyspy-t">请选择视频源前往观看：</div>
+			  <div class="dyspy-r">
+			      <c:forEach items="${itemDTO.videoSrcDTOs}" var="videoSrc" varStatus="st">
+				    <a href="${videoSrc.url}">${videoSrc.name}</a>
+				  </c:forEach>
+			  </div>
+		  </div>
+		  </c:when>
+		  <c:otherwise>
 		  <div id="rotate">
             <ul>
                 <div class="zxgk">在线观看:</div>
@@ -57,14 +66,17 @@
                <ul class="myj">
 			     <c:forEach items="${videoSrc.videoDTOs }" var="video" varStatus="st">
 			       <li><a href="<%=request.getContextPath() %>/videoplay!play?url=${video.url}" target="_blank">${video.name}</a></li>
-			      <!-- <li><a target="_blank" href="<%=request.getContextPath() %>/videoplay!play?url=${video.url}">第${st.count}集</a></li>-->
+			      <!-- <li><a target="_blank" href="<%=request.getContextPath() %>/videoplay!play?url=${video.url}">第${st.count}集</a></li>
+-->
 			       <%-- <li><a target="_blank" href="${video.url}">第${st.count}集</a></li> --%>
 				 </c:forEach>
 			   </ul>
             </div>
 
 			</c:forEach>
-    </div>
+          </div>
+		  </c:otherwise>
+		  </c:choose>
 		  
 		  
 		  
@@ -91,7 +103,7 @@
   
   
   </div>
-
+<%@ include file="bottom.jsp"%>
 </div>
 </body>
 </html>
