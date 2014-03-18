@@ -9,7 +9,23 @@ Ext.define('HS.view.topic.List', {
 		checkOnly: true*/
 	},
 	store: 'TopicStore',
+	dockedItems: [{
+        xtype: 'toolbar',
+        //height: 60,
+        //dock: 'top',
+        items: [{
+        	xtype: 'textfield',
+			name: 'topicDTOSearch.name',
+			fieldLabel: '主题名称',
+			labelAlign: 'right'
+        }]
+    }],
 	tbar: [
+		{
+			xtype: 'button',
+			text: '查询',
+			action: 'search'
+		},
 		{
 			xtype: 'button',
 			text: '添加',
