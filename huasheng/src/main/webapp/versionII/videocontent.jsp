@@ -44,19 +44,29 @@
 		  </div>
 		  <c:choose>
 		  <c:when test="${param.topicId == 2}">
-		  <div class="dyspy">
-		      <div class="dyspy-t">请选择视频源前往观看：</div>
-			  <div class="dyspy-r">
-			      <c:forEach items="${itemDTO.videoSrcDTOs}" var="videoSrc" varStatus="st">
-				    <a href="${videoSrc.url}">${videoSrc.name}</a>
-				  </c:forEach>
-			  </div>
-		  </div>
+          <div id="rotate">
+            <ul>
+                <div class="zxgk">选择视频源观看:</div>
+				<c:forEach items="${itemDTO.videoSrcDTOs}" var="videoSrc" varStatus="st">
+				    <li><a href="#${videoSrc.videoSrcId}"><span>${videoSrc.name}</span></a></li>
+				</c:forEach>
+            </ul>
+			<c:forEach items="${itemDTO.videoSrcDTOs}" var="videoSrc" varStatus="st">  
+			<div id="${videoSrc.videoSrcId}">
+               <ul class="myj">
+			     <c:forEach items="${videoSrc.videoDTOs }" var="video" varStatus="st">
+			       <li><a href="<%=request.getContextPath() %>/videoplay!play?url=${video.url}" target="_blank">${video.name}</a></li>	       
+				 </c:forEach>
+			   </ul>
+            </div>
+
+			</c:forEach>
+          </div>
 		  </c:when>
 		  <c:otherwise>
 		  <div id="rotate">
             <ul>
-                <div class="zxgk">在线观看:</div>
+                <div class="zxgk">选择视频源观看:</div>
 				<c:forEach items="${itemDTO.videoSrcDTOs}" var="videoSrc" varStatus="st">
 				    <li><a href="#${videoSrc.videoSrcId}"><span>${videoSrc.name}</span></a></li>
 				</c:forEach>
