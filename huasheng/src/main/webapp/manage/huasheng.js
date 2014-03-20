@@ -10,7 +10,8 @@ Ext.application({
 		'CategoryController',
 		'ItemController',
 		'VideoSrcController',
-		'VideoController'
+		'VideoController',
+		'FragmentController'
 	],
 	stores: ['TopicStore'],
 	models: ['TopicModel'],

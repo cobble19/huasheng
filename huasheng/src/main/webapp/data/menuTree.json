@@ -23,6 +23,10 @@ children: [{
         text:'视频',
         id:'video',
         leaf:true
+    },{
+        text:'URL',
+        id:'fragment',
+        leaf:true
     }]
 }]
 }
