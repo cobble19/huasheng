@@ -34,7 +34,8 @@ Ext.define('HS.view.item.Edit', {
 						xtype: 'datefield',
 						name: 'showDate',
 						fieldLabel: '上映时间',
-						format: 'Y-m-d'
+						//format: 'Y-m-d',
+						renderer : Ext.util.Format.dateRenderer('Y-m-d')
 					}, 
 					{
 						xtype: 'textfield',

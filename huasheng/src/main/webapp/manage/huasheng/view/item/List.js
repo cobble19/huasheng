@@ -50,10 +50,10 @@ Ext.define('HS.view.item.List', {
 			flex: 1
 		}, 
 		{
-			header: '上映时间',
+			header: '上映年份',
 			dataIndex: 'showDate',
 			xtype: 'datecolumn',
-			format: 'Y-m-d',
+			format: 'Y',
 			flex: 1
 		}, 
 		{

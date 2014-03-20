@@ -114,5 +114,16 @@
  				</param>
  			</result>
  		</action>
+ 		<action name="handleUrl" class="handleUrlAction">
+ 			<result name="success" type="json">
+ 				<param name="ignoreHierarchy">false</param>
+ 				<!-- <param name="noCache">true</param> -->
+ 				<param name="includeProperties">
+ 					videoDTO\.\w+, videoDTO\.\w+\.\w+, ^videoDTOList\[\d+\]\.\w+, ^videoDTOList\[\d+\]\.\w+\.\w+, 
+ 					success,
+ 					page, start, limit
+ 				</param>
+ 			</result>
+ 		</action>
     </package>
 </struts>
