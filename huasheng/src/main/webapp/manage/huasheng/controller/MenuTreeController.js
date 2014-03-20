@@ -14,7 +14,7 @@ Ext.define('HS.controller.MenuTreeController', {
 		});
 	},
 	onSelect: function(selModel, record, index, options) {
-		console.log("selected: " + record.get('text') + ", index=" + index);
+		console.log("selected: " + record.getId() + " " + record.get('text') + ", index=" + index);
 		if (record.get('leaf')) {
 			Ext.getCmp('content-panel').layout.setActiveItem(record.getId() + '-list');
 			Ext.getCmp('content-panel').layout.getActiveItem().getStore().load();

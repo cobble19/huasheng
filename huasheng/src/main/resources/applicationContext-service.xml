@@ -36,4 +36,6 @@
 	<bean id="videoSrcService" class="com.cobble.huasheng.service.impl.VideoSrcServiceImpl">
 		<property name="videoSrcDAO" ref="videoSrcDAO"></property>
 	</bean>
+	<bean id="handleUrlService" class="com.cobble.huasheng.service.impl.HandleUrlServiceImpl">
+	</bean>
 </beans>

@@ -45,4 +45,7 @@
 	<!-- manage -->
 	<bean id="indexManageAction" class="com.cobble.huasheng.manage.action.IndexAction" scope="prototype">
 	</bean>
+	<bean id="handleUrlAction" class="com.cobble.huasheng.manage.action.HandleUrlAction" scope="prototype">
+		<property name="handleUrlService" ref="handleUrlService"></property>
+	</bean>
 </beans>

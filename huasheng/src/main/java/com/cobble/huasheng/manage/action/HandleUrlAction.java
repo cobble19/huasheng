@@ -1,10 +1,11 @@
-package com.cobble.huasheng.action;
+package com.cobble.huasheng.manage.action;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.cobble.huasheng.action.BaseAction;
 import com.cobble.huasheng.dto.VideoDTO;
 import com.cobble.huasheng.service.HandleUrlService;
 
@@ -13,12 +14,15 @@ public class HandleUrlAction extends BaseAction {
 	private final static Logger logger = Logger.getLogger(HandleUrlAction.class);
 	private HandleUrlService handleUrlService;
 	private String url = null;
-	private List<VideoDTO> videoDTOs = new ArrayList<VideoDTO>(0);
+	private List<VideoDTO> videoDTOList = new ArrayList<VideoDTO>(0);
 	
 	@Override
 	public String execute() throws Exception {
 		logger.debug("execute() start...");
-		videoDTOs = handleUrlService.getVideoByUrl(url);
+		videoDTOList = handleUrlService.getVideoByUrl(url);
+		if (videoDTOList == null) {
+			videoDTOList = new ArrayList<VideoDTO>(0);
+		}
 		this.setSuccess(true);
 		return this.SUCCESS;
 	}
@@ -31,16 +35,16 @@ public class HandleUrlAction extends BaseAction {
 		this.url = url;
 	}
 
-	public List<VideoDTO> getVideoDTOs() {
-		return videoDTOs;
-	}
-
-	public void setVideoDTOs(List<VideoDTO> videoDTOs) {
-		this.videoDTOs = videoDTOs;
-	}
-
 	public void setHandleUrlService(HandleUrlService handleUrlService) {
 		this.handleUrlService = handleUrlService;
+	}
+
+	public List<VideoDTO> getVideoDTOList() {
+		return videoDTOList;
+	}
+
+	public void setVideoDTOList(List<VideoDTO> videoDTOList) {
+		this.videoDTOList = videoDTOList;
 	}
 
 }
