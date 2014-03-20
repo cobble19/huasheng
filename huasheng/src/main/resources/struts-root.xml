@@ -120,6 +120,7 @@
  				<!-- <param name="noCache">true</param> -->
  				<param name="includeProperties">
  					videoDTO\.\w+, videoDTO\.\w+\.\w+, ^videoDTOList\[\d+\]\.\w+, ^videoDTOList\[\d+\]\.\w+\.\w+, 
+ 					^fragmentDTOList\[\d+\]\.\w+, ^fragmentDTOList\[\d+\]\.\w+\.\w+,
  					success,
  					page, start, limit
  				</param>
