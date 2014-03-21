@@ -11,7 +11,7 @@ echo "Bak [upload] directory..."
 echo "cd ${HS_BASE} ..."
 cd ${HS_BASE}
 echo "Start git pull..."
-git pull -q 
+git pull 
 echo "Start mvn..."
 mvn clean install -Dmaven.test.skip=true
 # Restore upload dir
