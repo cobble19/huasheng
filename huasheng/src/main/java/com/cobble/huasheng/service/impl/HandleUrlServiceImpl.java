@@ -10,6 +10,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.cobble.huasheng.dto.FragmentDTO;
 import com.cobble.huasheng.dto.VideoDTO;
 import com.cobble.huasheng.service.HandleUrlService;
 
@@ -31,6 +32,29 @@ public class HandleUrlServiceImpl implements HandleUrlService {
 				ret.add(videoDTO);
 			}
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return ret;
+	}
+
+	@Override
+	public List<FragmentDTO> getFragmentByUrl(String url) {
+		if (StringUtils.isBlank(url)) {
+			return null;
+		}
+		List<FragmentDTO> ret = new ArrayList<FragmentDTO>();
+		try {
+			//Document doc = Jsoup.parse(url, "http://v.qq.com", null);
+			Document doc = Jsoup.connect(url).get();
+			Elements elements = doc.select("div#mod_coverinfo");
+			for (Element el : elements) {
+				String content = el.html();
+				FragmentDTO fragmentDTO = new FragmentDTO();
+				fragmentDTO.setContent(content);
+				ret.add(fragmentDTO);
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		

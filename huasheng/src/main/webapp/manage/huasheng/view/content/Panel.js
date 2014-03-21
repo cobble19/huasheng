@@ -16,5 +16,7 @@ Ext.define('HS.view.content.Panel', {
 		xtype: 'videosrclist'
 	}, {
 		xtype: 'videolist'
+	}, {
+		xtype: 'fragmentlist'
 	}]
 })
