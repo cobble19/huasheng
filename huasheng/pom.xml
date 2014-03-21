@@ -4,7 +4,7 @@
   <groupId>com.cobble</groupId>
   <artifactId>huasheng</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2</version>
   <name>huasheng Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <build>
@@ -17,11 +17,25 @@
   			<activeByDefault>true</activeByDefault>
   		</activation>
   		<properties>
+  			<junit.version>4.11</junit.version>
   			<struts2.version>2.3.15.2</struts2.version>
   			<spring.version>3.2.6.RELEASE</spring.version>
   			<spring.security.version>3.2.0.RELEASE</spring.security.version>
   			<hibernate.version>4.2.5.Final</hibernate.version>
   			<java.home>${JAVA_HOME}</java.home>
+  			<log4j.version>1.2.14</log4j.version>
+  			<aspectj.version>1.7.3</aspectj.version>
+  			<mysql.version>5.1.26</mysql.version>
+  			<commons-dbcp.version>1.4</commons-dbcp.version>
+  			<commons-beanutils.version>1.8.3</commons-beanutils.version>
+  			<commons-collections.version>3.2.1</commons-collections.version>
+  			<servlet-api.version>2.5</servlet-api.version>
+  			<jsp-api.version>2.0</jsp-api.version>
+  			<jstl.version>1.2</jstl.version>
+  			<jackson.version>1.9.13</jackson.version>
+  			<ehcache.version>2.7.4</ehcache.version>
+  			<ehcache-core.version>2.6.6</ehcache-core.version>
+  			<jsoup.version>1.7.3</jsoup.version>
   		</properties>
   	</profile>
   </profiles>
@@ -30,7 +44,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
     <!-- struts2 -->
@@ -48,7 +62,7 @@
 	<dependency>
 	    <groupId>log4j</groupId>
 	    <artifactId>log4j</artifactId>
-	    <version>1.2.14</version>
+	    <version>${log4j.version}</version>
 	</dependency>
      
 	<!-- spring -->
@@ -110,7 +124,7 @@
 	<dependency>
 		<groupId>org.aspectj</groupId>
 		<artifactId>aspectjweaver</artifactId>
-		<version>1.7.3</version>
+		<version>${aspectj.version}</version>
 	</dependency>
 	<!-- hibernate -->
 	<dependency>
@@ -121,34 +135,34 @@
 	<dependency>
 		<groupId>mysql</groupId>
 	    <artifactId>mysql-connector-java</artifactId>
-	    <version>5.1.26</version>
+	    <version>${mysql.version}</version>
 	</dependency>
 	<!-- 功能的一些工具 -->
 	<dependency>
 		<groupId>commons-dbcp</groupId>
 		<artifactId>commons-dbcp</artifactId>
-		<version>1.4</version>
+		<version>${commons-dbcp.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>commons-beanutils</groupId>
 		<artifactId>commons-beanutils</artifactId>
-		<version>1.8.3</version>
+		<version>${commons-beanutils.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>commons-collections</groupId>
 		<artifactId>commons-collections</artifactId>
-		<version>3.2.1</version>
+		<version>${commons-collections.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>javax.servlet</groupId>
 		<artifactId>servlet-api</artifactId>
-		<version>2.5</version>
+		<version>${servlet-api.version}</version>
 		<scope>provided</scope>
 	</dependency>
 	<dependency>
 		<groupId>javax.servlet</groupId>
 		<artifactId>jsp-api</artifactId>
-		<version>2.0</version>
+		<version>${jsp-api.version}</version>
 		<scope>provided</scope>
 	</dependency>
 	<!-- struts and spring integrate -->
@@ -160,29 +174,29 @@
 	<dependency>
 		<groupId>jstl</groupId>
 		<artifactId>jstl</artifactId>
-		<version>1.2</version>
+		<version>${jstl.version}</version>
 	</dependency>
 	<!-- JSON<->OBJECT -->
 	<dependency>
 		<groupId>org.codehaus.jackson</groupId>
 		<artifactId>jackson-mapper-asl</artifactId>
-		<version>1.9.13</version>
+		<version>${jackson.version}</version>
 	</dependency>
 	<!-- <dependency>
 		<groupId>net.sf.ehcache</groupId>
 		<artifactId>ehcache</artifactId>
-		<version>2.7.4</version>
+		<version>${ehcache.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>net.sf.ehcache</groupId>
 		<artifactId>ehcache-core</artifactId>
-		<version>2.6.6</version>
+		<version>${ehcache-core.version}</version>
 	</dependency> -->
 	<dependency>
 	  <!-- jsoup HTML parser library @ http://jsoup.org/ -->
 	  <groupId>org.jsoup</groupId>
 	  <artifactId>jsoup</artifactId>
-	  <version>1.7.3</version>
+	  <version>${jsoup.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>com.sun</groupId>
