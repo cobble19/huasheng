@@ -59,8 +59,6 @@ Ext.define('HS.controller.ItemController', {
 				var records = Ext.getStore('ItemStore').insert(index, record);
 				// change color
 				me.getItemList().getView().addRowCls(record, 'red');
-				/*var tr = Ext.query('tr[data-recordindex=' + index + ']');
-				Ext.get(tr).addCls('red');*/
 			},
 			failure: function(form, action) {
 				Ext.MessageBox.alert(action.response.statusText);

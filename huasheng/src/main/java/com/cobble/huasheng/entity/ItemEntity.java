@@ -20,6 +20,8 @@ public class ItemEntity extends BaseEntity {
 	private String areaName;
 	// 上映日期
 	private Date showDate;
+	// added @03/21/2014
+	private Integer year;
 	// 总评分
 	private Double score;
 	// 描述
@@ -121,6 +123,12 @@ public class ItemEntity extends BaseEntity {
 	}
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+	public Integer getYear() {
+		return year;
+	}
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 	
 }

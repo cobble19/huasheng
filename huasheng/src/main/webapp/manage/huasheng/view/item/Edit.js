@@ -39,6 +39,11 @@ Ext.define('HS.view.item.Edit', {
 					}, 
 					{
 						xtype: 'textfield',
+						name: 'year',
+						fieldLabel: '上映年份'
+					}, 
+					{
+						xtype: 'textfield',
 						name: 'score',
 						fieldLabel: '评分'
 					}, 

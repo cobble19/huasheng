@@ -6,6 +6,7 @@ Ext.define('HS.model.ItemModel', {
 		{name: 'hits', type: 'long', convert: null},
 		{name: 'areaName', type: 'string'},
 		{name: 'showDate', type: 'date'},
+		{name: 'year', type: 'int'},
 		{name: 'score', type: 'double'},
 		{name: 'description', type: 'string'},
 		{name: 'actorName', type: 'string'},
