@@ -39,6 +39,8 @@ public class ItemAction extends BaseAction {
 	private String areaName;
 	// 上映日期
 	private Date showDate;
+	// added @03/21/2014
+	private Integer year;
 	// 总评分
 	private Double score;
 	// 描述
@@ -101,6 +103,7 @@ public class ItemAction extends BaseAction {
 		itemDTO.setActorName(actorName);
 		itemDTO.setScore(score);
 		itemDTO.setShowDate(showDate);
+		itemDTO.setYear(year);
 		itemDTO.setDescription(description);
 		itemDTO.setItemType(itemType);
 		itemDTO.setDirector(director);
@@ -128,6 +131,7 @@ public class ItemAction extends BaseAction {
 		itemDTO.setActorName(actorName);
 		itemDTO.setScore(score);
 		itemDTO.setShowDate(showDate);
+		itemDTO.setYear(year);
 		itemDTO.setDescription(description);
 		itemDTO.setItemType(itemType);
 		itemDTO.setDirector(director);
@@ -364,6 +368,14 @@ public class ItemAction extends BaseAction {
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+
+	public Integer getYear() {
+		return year;
+	}
+
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 
 }
