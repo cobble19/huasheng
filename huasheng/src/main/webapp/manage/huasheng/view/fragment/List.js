@@ -6,7 +6,8 @@ Ext.define('HS.view.fragment.List', {
 	id: 'fragment-list',
 	selType: 'checkboxmodel',
 	selModel: {
-		model: 'MULTI'
+		model: 'MULTI',
+		singleSelect:false
 	},
 	store: 'FragmentStore',
 	dockedItems: [{

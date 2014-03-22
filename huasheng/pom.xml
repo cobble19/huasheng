@@ -36,6 +36,7 @@
   			<ehcache.version>2.7.4</ehcache.version>
   			<ehcache-core.version>2.6.6</ehcache-core.version>
   			<jsoup.version>1.7.3</jsoup.version>
+  			<httpclient.version>4.3.3</httpclient.version>
   		</properties>
   	</profile>
   </profiles>
@@ -198,6 +199,12 @@
 	  <artifactId>jsoup</artifactId>
 	  <version>${jsoup.version}</version>
 	</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>${httpclient.version}</version>
+	</dependency>
+	
 	<dependency>
 		<groupId>com.sun</groupId>
 		<artifactId>tools</artifactId>
