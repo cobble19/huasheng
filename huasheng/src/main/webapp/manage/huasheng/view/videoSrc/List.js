@@ -9,7 +9,28 @@ Ext.define('HS.view.videoSrc.List', {
 		model: 'MULTI'
 	},
 	store: 'VideoSrcStore',
+	dockedItems: [{
+        xtype: 'toolbar',
+        //height: 60,
+        //dock: 'top',
+        items: [{
+        	xtype: 'textfield',
+			name: 'videoSrcDTOSearch.name',
+			fieldLabel: '主题名称',
+			labelAlign: 'right'
+        }]
+    }, {
+        xtype: 'pagingtoolbar',
+        store: 'VideoSrcStore',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    }],
 	tbar: [
+	{
+		xtype: 'button',
+		text: '查询',
+		action: 'search'
+	},
 	{
 		xtype: 'button',
 		text: '添加',

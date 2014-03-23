@@ -46,7 +46,9 @@ public class VideoAction extends BaseAction {
 	@Override
 	public String execute() throws Exception {
 		logger.debug("execute() start...");
-		videoDTOList = videoService.finds(videoDTOSearch);
+		videoDTOList = videoService.finds(videoDTOSearch, this.getStart(), this.getLimit());
+		long total = videoService.getCount(videoDTOSearch);
+		this.setTotal((int) total);
 		return this.SUCCESS;
 	}
 

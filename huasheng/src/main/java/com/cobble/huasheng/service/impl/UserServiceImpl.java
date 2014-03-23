@@ -39,15 +39,20 @@ public class UserServiceImpl implements UserService {
 			throw e;
 		}
 	}
-
 	public List<UserDTO> finds(UserDTOSearch userDTOSearch) throws Exception {
+		return this.finds(userDTOSearch, true, -1, -1);
+	}
+	public List<UserDTO> finds(UserDTOSearch userDTOSearch, int start, int limit) throws Exception {
+		return this.finds(userDTOSearch, false, start, limit);
+	}
+	public List<UserDTO> finds(UserDTOSearch userDTOSearch, Boolean all, int start, int limit) throws Exception {
 		List<UserDTO> ret = new ArrayList<UserDTO>(0);
 		try {
 			UserEntitySearch userEntitySearch = new UserEntitySearch();
 			if (userDTOSearch != null) {
 				BeanUtil.copyProperties(userEntitySearch, userDTOSearch);
 			}
-			List<UserEntity> userEntityList = userDAO.finds(userEntitySearch);
+			List<UserEntity> userEntityList = userDAO.finds(userEntitySearch, all, start, limit);
 			if (ListUtil.isNotEmpty(userEntityList)) {
 				for (UserEntity userEntity : userEntityList) {
 					UserDTO userDTO = new UserDTO();
@@ -55,7 +60,6 @@ public class UserServiceImpl implements UserService {
 					ret.add(userDTO);
 				}
 			}
-			
 		} catch (Exception e) {
 			logger.fatal("update excep", e);
 			throw e;
@@ -93,16 +97,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public void delete(UserDTO tDTO) throws Exception {
-		UserEntity userEntity = userDAO.findById(tDTO.getUserId());
-		userDAO.delete(userEntity);
+		try {
+			UserEntity userEntity = userDAO.findById(tDTO.getUserId());
+			userDAO.delete(userEntity);
+		} catch (Exception e) {
+			logger.fatal("Delete exception.", e);
+			throw e;
+		}
 	}
-
-	@Override
-	public List<UserDTO> finds(UserDTOSearch stDTO, int start, int limit)
-			throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 }

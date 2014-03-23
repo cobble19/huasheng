@@ -2,8 +2,12 @@ Ext.define('HS.store.CategoryStore', {
 	extend: 'Ext.data.Store',
 	model: 'HS.model.CategoryModel',
 	autoLoad: false,
+	pageSize: 10,
 	proxy: {
 		type: 'ajax',
+		actionMethods: {
+			read: 'POST'
+		},
 		api: {
 			read: Ext.get('contextPath').dom.value + '/json/category!execute',
 			update: Ext.get('contextPath').dom.value + '/json/category!update',

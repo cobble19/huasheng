@@ -10,6 +10,9 @@ Ext.define('HS.controller.VideoController', {
 	}],
 	init: function() {
 		this.control({
+			'viewport videolist button[action=search]': {
+				click: this.searchVideo
+			},
 			'viewport videolist button[action=add]': {
 				click: this.openDialog4Add
 			},
@@ -26,6 +29,17 @@ Ext.define('HS.controller.VideoController', {
 				click: this.openDialog4Delete
 			}
 		});
+	},
+	searchVideo: function(button) {
+		var nameEle = Ext.ComponentQuery.query('panel textfield[name=videoDTOSearch.name]')[0];
+		name = nameEle.getValue();
+		var store = this.getVideoStoreStore();
+		store.load({
+			params: {
+	            'videoDTOSearch.name': name
+	        }
+		});
+		console.log('searchVideo...' + name);
 	},
 	openDialog4Add: function(button) {
 		console.log('open dialog for add');

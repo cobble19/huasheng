@@ -10,6 +10,9 @@ Ext.define('HS.controller.ItemController', {
 	}],
 	init: function() {
 		this.control({
+			'viewport itemlist button[action=search]': {
+				click: this.searchItem
+			},
 			'viewport itemlist button[action=add]': {
 				click: this.openDialog4Add
 			},
@@ -26,6 +29,17 @@ Ext.define('HS.controller.ItemController', {
 				click: this.openDialog4Delete
 			}
 		});
+	},
+	searchItem: function(button) {
+		var nameEle = Ext.ComponentQuery.query('panel textfield[name=itemDTOSearch.name]')[0];
+		name = nameEle.getValue();
+		var store = this.getItemStoreStore();
+		store.load({
+			params: {
+	            'itemDTOSearch.name': name
+	        }
+		});
+		console.log('searchItem...' + name);
 	},
 	openDialog4Add: function(button) {
 		console.log('open dialog for add');
