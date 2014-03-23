@@ -18,7 +18,11 @@ Ext.define('HS.view.category.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'name',
-						fieldLabel: '类型名称'
+						fieldLabel: '类型名称',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					}, 
 					{
 						xtype: 'textfield',
@@ -26,7 +30,11 @@ Ext.define('HS.view.category.Edit', {
 						fieldLabel: '排序'
 					}, 
 					{
-						xtype: 'topiccombobox'
+						xtype: 'topiccombobox',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					}
 				]
 			}

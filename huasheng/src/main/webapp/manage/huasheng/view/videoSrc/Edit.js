@@ -18,7 +18,11 @@ Ext.define('HS.view.videoSrc.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'name',
-						fieldLabel: '视频源名称'
+						fieldLabel: '视频源名称',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					}
 				]
 			}

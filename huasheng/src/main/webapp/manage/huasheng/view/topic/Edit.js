@@ -18,7 +18,11 @@ Ext.define('HS.view.topic.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'name',
-						fieldLabel: '主题名称'
+						fieldLabel: '主题名称',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					}
 				]
 			}

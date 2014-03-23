@@ -19,19 +19,35 @@ Ext.define('HS.view.fragment.List', {
 			name: 'fragmentDTOSearch.url',
 			fieldLabel: 'URL',
 			labelAlign: 'right',
-			value: 'http://v.qq.com/cover/8/8fpoa2lh15bycyu.html'
+			value: 'http://v.qq.com/cover/8/8fpoa2lh15bycyu.html',
+			allowBlank: false,
+			blankText: '不能为空',
+			allowOnlyWhitespace: false,
+			msgTarget: 'under'
         }, {
         	xtype: 'textfield',
 			name: 'fragmentDTOSearch.atag',
 			fieldLabel: 'a标签',
 			labelAlign: 'right',
-			value: 'div#mod_videolist a'
+			value: 'div#mod_videolist a',
+			allowBlank: false,
+			blankText: '不能为空',
+			allowOnlyWhitespace: false,
+			msgTarget: 'under'
         },
 		{
-			xtype: 'itemcombobox'
+			xtype: 'itemcombobox',
+			allowBlank: true,
+			blankText: '不能为空',
+			allowOnlyWhitespace: false,
+			msgTarget: 'under'
 		},
 		{
-			xtype: 'videosrccombobox'
+			xtype: 'videosrccombobox',
+			allowBlank: true,
+			blankText: '不能为空',
+			allowOnlyWhitespace: false,
+			msgTarget: 'under'
 		}]
     }],
 	tbar: [

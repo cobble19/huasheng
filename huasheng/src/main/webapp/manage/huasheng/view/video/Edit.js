@@ -18,17 +18,29 @@ Ext.define('HS.view.video.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'name',
-						fieldLabel: '名称'
+						fieldLabel: '名称',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					},  
 					{
 						xtype: 'textfield',
 						name: 'url',
-						fieldLabel: '视频url'
+						fieldLabel: '视频url',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'orderNum',
-						fieldLabel: '视频排序'
+						fieldLabel: '视频排序',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					}, 
 					{
 						xtype: 'textfield',
@@ -46,10 +58,18 @@ Ext.define('HS.view.video.Edit', {
 						fieldLabel: '打开方式'
 					},
 					{
-						xtype: 'itemcombobox'
+						xtype: 'itemcombobox',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					},
 					{
-						xtype: 'videosrccombobox'
+						xtype: 'videosrccombobox',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					}
 				]
 			}

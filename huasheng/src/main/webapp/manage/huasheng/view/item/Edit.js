@@ -18,7 +18,11 @@ Ext.define('HS.view.item.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'name',
-						fieldLabel: '影视名称'
+						fieldLabel: '影视名称',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					}, 
 					{
 						xtype: 'textfield',
@@ -89,7 +93,11 @@ Ext.define('HS.view.item.Edit', {
 						fieldLabel: 'Category Id'
 					}*/,
 					{
-						xtype: 'categorycombobox'
+						xtype: 'categorycombobox',
+						allowBlank: false,
+						blankText: '不能为空',
+						allowOnlyWhitespace: false,
+						msgTarget: 'under'
 					}
 				]
 			}
