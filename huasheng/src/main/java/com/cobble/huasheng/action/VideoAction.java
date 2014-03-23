@@ -32,6 +32,12 @@ public class VideoAction extends BaseAction {
 	private String url;
 	// 第几集， 顺序
 	private Integer orderNum;
+	// title
+	private String title;
+	// text
+	private String text;
+	// target
+	private String target;
 	private ItemDTO itemDTO;
 	private VideoSrcDTO videoSrcDTO;
 	// for delete, id1,id2,id3. [,]分割
@@ -49,6 +55,9 @@ public class VideoAction extends BaseAction {
 		videoDTO.setName(name);
 		videoDTO.setUrl(url);
 		videoDTO.setOrderNum(orderNum);
+		videoDTO.setTitle(title);
+		videoDTO.setText(text);
+		videoDTO.setTarget(target);
 		videoDTO.setItemDTO(itemDTO);
 		videoDTO.setVideoSrcDTO(videoSrcDTO);
 		videoService.create(videoDTO);
@@ -62,6 +71,9 @@ public class VideoAction extends BaseAction {
 		videoDTO.setName(name);
 		videoDTO.setUrl(url);
 		videoDTO.setOrderNum(orderNum);
+		videoDTO.setTitle(title);
+		videoDTO.setText(text);
+		videoDTO.setTarget(target);
 		videoDTO.setItemDTO(itemDTO);
 		videoDTO.setVideoSrcDTO(videoSrcDTO);
 		videoService.update(videoDTO);
@@ -164,6 +176,30 @@ public class VideoAction extends BaseAction {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public String getTarget() {
+		return target;
+	}
+
+	public void setTarget(String target) {
+		this.target = target;
 	}
 
 }

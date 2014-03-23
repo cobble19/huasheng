@@ -10,8 +10,11 @@
 		</id>
 		<property name="name" column="NAME"></property>
 		<property name="url" column="URL" not-null="true"></property>
-		<property name="orderNum" column="ORDER_NUM" not-null="true"></property>
-		<many-to-one name="itemEntity" column="ITEM_ID" cascade="all"></many-to-one>
-		<many-to-one name="videoSrcEntity" column="VIDEO_SRC_ID" cascade="all" lazy="false"></many-to-one>
+		<property name="orderNum" column="ORDER_NUM"></property>
+		<property name="title" column="TITLE"></property>
+		<property name="text" column="TEXT"></property>
+		<property name="target" column="TARGET"></property>
+		<many-to-one name="itemEntity" column="ITEM_ID"></many-to-one>
+		<many-to-one name="videoSrcEntity" column="VIDEO_SRC_ID" lazy="false"></many-to-one>
 	</class>
 </hibernate-mapping>

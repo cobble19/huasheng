@@ -5,6 +5,13 @@ public class VideoDTOSearch extends BaseDTOSearch {
 	// 名称
 	private String name;
 	private String url;
+	private Integer orderNum;
+	// title
+	private String title;
+	// text
+	private String text;
+	// target
+	private String target;
 	private ItemDTO itemDTO;
 	private VideoSrcDTO videoSrcDTO;
 	public Long getVideoId() {
@@ -36,5 +43,29 @@ public class VideoDTOSearch extends BaseDTOSearch {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public Integer getOrderNum() {
+		return orderNum;
+	}
+	public void setOrderNum(Integer orderNum) {
+		this.orderNum = orderNum;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	public String getTarget() {
+		return target;
+	}
+	public void setTarget(String target) {
+		this.target = target;
 	}
 }

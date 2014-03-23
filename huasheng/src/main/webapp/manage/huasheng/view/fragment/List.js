@@ -20,13 +20,29 @@ Ext.define('HS.view.fragment.List', {
 			fieldLabel: 'URL',
 			labelAlign: 'right',
 			value: 'http://v.qq.com/cover/8/8fpoa2lh15bycyu.html'
-        }]
+        }, {
+        	xtype: 'textfield',
+			name: 'fragmentDTOSearch.atag',
+			fieldLabel: 'a标签',
+			labelAlign: 'right',
+			value: 'div#mod_videolist a'
+        },
+		{
+			xtype: 'itemcombobox'
+		},
+		{
+			xtype: 'videosrccombobox'
+		}]
     }],
 	tbar: [
 	{
 		xtype: 'button',
 		text: '查询',
 		action: 'search'
+	},{
+		xtype: 'button',
+		text: '添加',
+		action: 'add'
 	}
 	],
 	initComponent: function() {
