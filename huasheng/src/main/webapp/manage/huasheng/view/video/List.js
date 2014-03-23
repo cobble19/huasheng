@@ -55,6 +55,21 @@ Ext.define('HS.view.video.List', {
 			flex: 1
 		}, 
 		{
+			header: '标题',
+			dataIndex: 'title',
+			flex: 1
+		}, 
+		{
+			header: '显示内容',
+			dataIndex: 'text',
+			flex: 1
+		}, 
+		{
+			header: '打开方式',
+			dataIndex: 'target',
+			flex: 1
+		}, 
+		{
 			header: '影视唯一标识',
 			dataIndex: 'itemDTO.itemId',
 			flex: 1

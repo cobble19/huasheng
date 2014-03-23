@@ -55,6 +55,9 @@ Ext.define('HS.controller.VideoController', {
 					name: videoDTO.name,
 					url: videoDTO.url,
 					orderNum: videoDTO.orderNum,
+					title: videoDTO.title,
+					text: videoDTO.text,
+					target: videoDTO.target,
 					"itemDTO.itemId": videoDTO.itemDTO.itemId,
 					"videoSrcDTO.videoSrcId": videoDTO.videoSrcDTO.videoSrcId
 				});

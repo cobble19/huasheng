@@ -19,12 +19,17 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.jsoup.select.Selector;
 
+import com.cobble.huasheng.dao.VideoDAO;
 import com.cobble.huasheng.dto.FragmentDTO;
+import com.cobble.huasheng.dto.FragmentDTOSearch;
 import com.cobble.huasheng.dto.VideoDTO;
 import com.cobble.huasheng.service.HandleUrlService;
+import com.cobble.huasheng.service.VideoService;
 
 public class HandleUrlServiceImpl implements HandleUrlService {
 	private static Logger logger = Logger.getLogger(HandleUrlServiceImpl.class);
+	//private VideoDAO videoDAO;
+	private VideoService videoService;
 	
 	@Override
 	public List<VideoDTO> getVideoByUrl(String url) {
@@ -89,6 +94,7 @@ public class HandleUrlServiceImpl implements HandleUrlService {
 			Elements e = doc.select("body>div:not(.info_container)").remove();
 			e = doc.select("div.info_container > div:not(#mod_coverinfo)").remove();
 			String content = doc.html();
+			logger.debug("content=" + content);
 			FragmentDTO fragmentDTO = new FragmentDTO();
 			fragmentDTO.setContent(content);
 			ret.add(fragmentDTO);
@@ -108,6 +114,76 @@ public class HandleUrlServiceImpl implements HandleUrlService {
 		}
 		
 		return ret;
+	}
+
+	@Override
+	public void addVideo(FragmentDTOSearch fragmentDTOSearch) {
+		if (fragmentDTOSearch == null || fragmentDTOSearch.getUrl() == null
+				|| fragmentDTOSearch.getAtag() == null) {
+			return ;
+		}
+		String atag = fragmentDTOSearch.getAtag();
+		URL url = null;
+		String html = "";
+		try {
+			url = new URL(fragmentDTOSearch.getUrl());
+			// HTTP Client
+			CloseableHttpClient httpclient = HttpClients.createDefault();
+			HttpGet httpget = new HttpGet(url.toString());
+			CloseableHttpResponse httpResponse = httpclient.execute(httpget);
+			try {
+			    HttpEntity entity = httpResponse.getEntity();
+			    if (entity != null) {
+			        long len = entity.getContentLength();
+			        logger.info("url=" + url.toString() + ", ContentLength=" + len);
+			        html = EntityUtils.toString(entity, "UTF-8");
+			        logger.debug("html=" + html);
+			    }
+			} finally {
+				httpResponse.close();
+			}
+			// Jsoup
+			String baseUri = url.getProtocol() + "://" + url.getHost();
+			Document doc = Jsoup.parse(html, baseUri);
+			// 2. get html
+			// modify href to full path
+			Elements aElements = doc.select("a");
+			for (Element ele : aElements) {
+				String href = ele.attr("href");
+				if (StringUtils.isNotBlank(href) && href.contains("javascript")) {
+					// do nothing
+				} else {
+					ele.attr("href", ele.absUrl("href"));
+				}
+			}
+			// 3. get all a tag
+			aElements = doc.select(atag);
+			for (int i = 0; i < aElements.size(); i++) {
+				Element ele = aElements.get(i);
+				String href = ele.attr("abs:href");
+				String title = ele.attr("title");
+				String text = ele.text();
+				VideoDTO videoDTO = new VideoDTO();
+				videoDTO.setName(text);
+				videoDTO.setUrl(href);
+				videoDTO.setTitle(title);
+				videoDTO.setText(text);
+				videoDTO.setOrderNum(i + 1);
+				videoDTO.setItemDTO(fragmentDTOSearch.getItemDTO());
+				videoDTO.setVideoSrcDTO(fragmentDTOSearch.getVideoSrcDTO());
+				videoService.create(videoDTO);
+			} 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return ;
+		
+	}
+
+	public void setVideoService(VideoService videoService) {
+		this.videoService = videoService;
 	}
 
 }

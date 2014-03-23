@@ -27,7 +27,7 @@
 			<key column="ITEM_ID"></key>
 			<many-to-many class="VideoSrcEntity" column="VIDEO_SRC_ID"></many-to-many>
 		</bag>
-		<bag name="videoEntities" inverse="true" cascade="all" order-by="orderNum asc">
+		<bag name="videoEntities" cascade="all" order-by="orderNum asc">
 			<key column="ITEM_ID" />
 			<one-to-many class="VideoEntity"/>
 		</bag>

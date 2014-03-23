@@ -29,17 +29,22 @@ Ext.define('HS.view.video.Edit', {
 						xtype: 'textfield',
 						name: 'orderNum',
 						fieldLabel: '视频排序'
-					}/*, 
-					{
-						xtype: 'textfield',
-						name: 'itemDTO.itemId',
-						fieldLabel: 'Item Id'
 					}, 
 					{
 						xtype: 'textfield',
-						name: 'videoSrcDTO.videoSrcId',
-						fieldLabel: 'VideoSrc Id'
-					}*/,
+						name: 'title',
+						fieldLabel: '标题'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'text',
+						fieldLabel: '显示内容'
+					}, 
+					{
+						xtype: 'textfield',
+						name: 'target',
+						fieldLabel: '打开方式'
+					},
 					{
 						xtype: 'itemcombobox'
 					},
