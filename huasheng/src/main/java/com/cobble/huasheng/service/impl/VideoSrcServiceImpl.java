@@ -89,4 +89,11 @@ public class VideoSrcServiceImpl implements VideoSrcService {
 		videoSrcDAO.delete(videoSrcEntity);
 	}
 
+	@Override
+	public List<VideoSrcDTO> finds(VideoSrcDTOSearch stDTO, int start, int limit)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

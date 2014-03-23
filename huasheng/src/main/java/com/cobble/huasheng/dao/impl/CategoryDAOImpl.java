@@ -55,4 +55,11 @@ public class CategoryDAOImpl extends CommonDAOImpl implements CategoryDAO {
 		this.getCurrentSession().delete(tEntity);
 	}
 
+	@Override
+	public List<CategoryEntity> finds(CategoryEntitySearch st, Boolean all,
+			int start, int limit) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

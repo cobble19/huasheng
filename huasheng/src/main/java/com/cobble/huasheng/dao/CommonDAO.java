@@ -6,6 +6,8 @@ public interface CommonDAO<TEntity, STEntity> {
 	public void create(TEntity tEntity) throws Exception;
 	public void update(TEntity tEntity) throws Exception;
 	public List<TEntity> finds(STEntity stEntity) throws Exception;
+	public List<TEntity> finds(STEntity st, Boolean all, int start,
+			int limit) throws Exception;
 	public TEntity findById(Long id) throws Exception;
 	public long getCount(STEntity stEntity) throws Exception;
 	public void delete(TEntity tEntity) throws Exception;

@@ -97,5 +97,12 @@ public class UserServiceImpl implements UserService {
 		userDAO.delete(userEntity);
 	}
 
+	@Override
+	public List<UserDTO> finds(UserDTOSearch stDTO, int start, int limit)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

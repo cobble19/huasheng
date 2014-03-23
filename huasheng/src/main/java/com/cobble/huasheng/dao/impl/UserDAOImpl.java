@@ -72,4 +72,11 @@ public class UserDAOImpl extends CommonDAOImpl implements UserDAO {
 		this.getCurrentSession().delete(tEntity);
 	}
 
+	@Override
+	public List<UserEntity> finds(UserEntitySearch st, Boolean all, int start,
+			int limit) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

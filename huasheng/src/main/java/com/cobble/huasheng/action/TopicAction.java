@@ -33,7 +33,9 @@ public class TopicAction extends BaseAction {
 	@Override
 	public String execute() throws Exception {
 		logger.debug("execute() start...");
-		topicDTOList = topicService.finds(topicDTOSearch);
+		topicDTOList = topicService.finds(topicDTOSearch, this.getStart(), this.getLimit());
+		long total = topicService.getCount(topicDTOSearch);
+		this.setTotal((int) total);
 		// only for test
 		/*topicId = ListUtil.isNotEmpty(topicDTOList) ? topicDTOList.get(0).getTopicId() : (-10000L);
 		topicDTO = topicService.findById(topicId);*/

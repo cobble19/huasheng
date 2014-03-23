@@ -57,4 +57,11 @@ public class VideoDAOImpl extends CommonDAOImpl implements VideoDAO {
 		this.getCurrentSession().delete(tEntity);
 	}
 
+	@Override
+	public List<VideoEntity> finds(VideoEntitySearch st, Boolean all,
+			int start, int limit) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

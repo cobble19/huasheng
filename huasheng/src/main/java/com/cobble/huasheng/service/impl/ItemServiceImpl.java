@@ -186,4 +186,11 @@ public class ItemServiceImpl implements ItemService {
 		this.categoryDAO = categoryDAO;
 	}
 
+	@Override
+	public List<ItemDTO> finds(ItemDTOSearch stDTO, int start, int limit)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -126,4 +126,11 @@ public class CategoryServiceImpl implements CategoryService {
 		this.topicDAO = topicDAO;
 	}
 
+	@Override
+	public List<CategoryDTO> finds(CategoryDTOSearch stDTO, int start, int limit)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

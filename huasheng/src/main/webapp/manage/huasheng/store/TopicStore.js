@@ -7,6 +7,7 @@ Ext.define('HS.store.TopicStore', {
 		{topicId: 2, name: 'topicName2'}
 	]*/
 	autoLoad: false,
+	pageSize: 10,
 	proxy: {
 		type: 'ajax',
 		/*url: Ext.get('contextPath').dom.value + '/json/topic!execute',*/
@@ -22,7 +23,8 @@ Ext.define('HS.store.TopicStore', {
 		reader: {
 			type: 'json',
 			root: 'topicDTOList',
-			successProperty: 'success'
+			successProperty: 'success',
+			totalProperty: 'total'
 		},
 		writer: {
             encode: true,

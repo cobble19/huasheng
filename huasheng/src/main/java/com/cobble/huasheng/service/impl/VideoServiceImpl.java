@@ -163,4 +163,11 @@ public class VideoServiceImpl implements VideoService {
 		this.videoSrcDAO = videoSrcDAO;
 	}
 
+	@Override
+	public List<VideoDTO> finds(VideoDTOSearch stDTO, int start, int limit)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

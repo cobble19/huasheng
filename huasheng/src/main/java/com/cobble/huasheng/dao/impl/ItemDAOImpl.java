@@ -74,5 +74,12 @@ public class ItemDAOImpl extends CommonDAOImpl implements ItemDAO {
 		this.getCurrentSession().delete(tEntity);
 	}
 
+	@Override
+	public List<ItemEntity> finds(ItemEntitySearch st, Boolean all, int start,
+			int limit) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
