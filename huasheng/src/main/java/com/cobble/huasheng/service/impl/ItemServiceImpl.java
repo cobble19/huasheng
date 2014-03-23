@@ -3,6 +3,8 @@ package com.cobble.huasheng.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.cobble.huasheng.dao.CategoryDAO;
 import com.cobble.huasheng.dao.ItemDAO;
 import com.cobble.huasheng.dao.VideoDAO;
@@ -24,6 +26,7 @@ import com.cobble.huasheng.util.BeanUtil;
 import com.cobble.huasheng.util.ListUtil;
 
 public class ItemServiceImpl implements ItemService {
+	private static final Logger logger = Logger.getLogger(ItemServiceImpl.class);
 	private ItemDAO itemDAO;
 	private VideoDAO videoDAO;
 	private CategoryDAO categoryDAO;
@@ -46,6 +49,7 @@ public class ItemServiceImpl implements ItemService {
 			}
 //			tDTO = ConvertFactory.getItemConvert().toDTO(itemEntity);
 		} catch (Exception e) {
+			logger.fatal("Create exception.", e);
 			throw e;
 		}
 	}
@@ -62,16 +66,18 @@ public class ItemServiceImpl implements ItemService {
 			}
 			itemDAO.update(itemEntity);
 		} catch (Exception e) {
+			logger.fatal("Update exception.", e);
 			throw e;
 		}
 	}
 
-	public List<ItemDTO> finds(ItemDTOSearch stDTO) throws Exception {
+	public List<ItemDTO> finds(ItemDTOSearch stDTO, Boolean all, int start, int limit)
+			throws Exception {
 		List<ItemDTO> ret = new ArrayList<ItemDTO>(0);
 		try {
 			ItemEntitySearch itemEntitySearch = new ItemEntitySearch();
 			itemEntitySearch = ConvertFactory.getItemConvert().toEntitySearch(stDTO);
-			List<ItemEntity> itemEntities = itemDAO.finds(itemEntitySearch);
+			List<ItemEntity> itemEntities = itemDAO.finds(itemEntitySearch, all, start, limit);
 			if (ListUtil.isNotEmpty(itemEntities)) {
 				for (ItemEntity itemEntity : itemEntities) {
 					ItemDTO itemDTO = ConvertFactory.getItemConvert().toDTO(itemEntity);
@@ -85,11 +91,18 @@ public class ItemServiceImpl implements ItemService {
 				}
 			}
 		} catch (Exception e) {
+			logger.fatal("Find exception.", e);
 			throw e;
 		}
 		return ret;
 	}
-
+	
+	public List<ItemDTO> finds(ItemDTOSearch stDTO) throws Exception {
+		return this.finds(stDTO, true, -1, -1);
+	}
+	public List<ItemDTO> finds(ItemDTOSearch stDTO, int start, int limit) throws Exception {
+		return this.finds(stDTO, false, start, limit);
+	}
 	public ItemDTO findById(Long id) throws Exception {
 		ItemDTO ret = new ItemDTO();
 		try {
@@ -129,29 +142,9 @@ public class ItemServiceImpl implements ItemService {
 					}
 				}
 				ret.setVideoSrcDTOs(videoSrcDTOs);
-				
-				/*List<VideoSrcEntity> videoSrcEntities = itemEntity.getVideoSrcEntities();
-				if (ListUtil.isNotEmpty(videoSrcEntities)) {
-					List<VideoSrcDTO> videoSrcDTOs = new ArrayList<VideoSrcDTO>();
-					for (VideoSrcEntity videoSrcEntity : videoSrcEntities) {
-						VideoSrcDTO videoSrcDTO = ConvertFactory.getVideoSrcConvert().toDTO(videoSrcEntity);
-						videoSrcDTOs.add(videoSrcDTO);
-						
-						List<VideoEntity> videoEntities = videoSrcEntity.getVideoEntities();
-						if (ListUtil.isNotEmpty(videoEntities)) {
-							List<VideoDTO> videoDTOs = new ArrayList<VideoDTO>();
-							for (VideoEntity videoEntity : videoEntities) {
-								VideoDTO videoDTO = ConvertFactory.getVideoConvert().toDTO(videoEntity);
-								videoDTOs.add(videoDTO);
-							}
-							videoSrcDTO.setVideoDTOs(videoDTOs);
-						}
-					}
-					ret.setVideoSrcDTOs(videoSrcDTOs);
-				}*/
-				
 			}
 		} catch (Exception e) {
+			logger.fatal("Find by id exception.", e);
 			throw e;
 		}
 		return ret;
@@ -164,6 +157,7 @@ public class ItemServiceImpl implements ItemService {
 			BeanUtil.copyProperties(itemEntitySearch, stDTO);
 			ret = itemDAO.getCount(itemEntitySearch);
 		} catch (Exception e) {
+			logger.fatal("Get count exception.", e);
 			throw e;
 		}
 		return ret;
@@ -178,19 +172,17 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	public void delete(ItemDTO tDTO) throws Exception {
-		ItemEntity itemEntity = itemDAO.findById(tDTO.getItemId());
-		itemDAO.delete(itemEntity);
+		try {
+			ItemEntity itemEntity = itemDAO.findById(tDTO.getItemId());
+			itemDAO.delete(itemEntity);
+		} catch (Exception e) {
+			logger.fatal("Delete exception.", e);
+			throw e;
+		}
 	}
 
 	public void setCategoryDAO(CategoryDAO categoryDAO) {
 		this.categoryDAO = categoryDAO;
-	}
-
-	@Override
-	public List<ItemDTO> finds(ItemDTOSearch stDTO, int start, int limit)
-			throws Exception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

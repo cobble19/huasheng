@@ -77,7 +77,9 @@ public class ItemAction extends BaseAction {
 	@Override
 	public String execute() throws Exception {
 		logger.debug("execute() start...");
-		itemDTOList = itemService.finds(itemDTOSearch);
+		itemDTOList = itemService.finds(itemDTOSearch, this.getStart(), this.getLimit());
+		long total = itemService.getCount(itemDTOSearch);
+		this.setTotal((int) total);
 		return this.SUCCESS;
 	}
 	

@@ -43,7 +43,11 @@ public class HandleUrlAction extends BaseAction {
 		this.setSuccess(true);
 		return this.SUCCESS;
 	}
-	
+	/**
+	 * need params:url atag
+	 * @return
+	 * @throws Exception
+	 */
 	public String add() throws Exception {
 		logger.debug("add() start...");
 		fragmentDTOSearch.setItemDTO(itemDTO);

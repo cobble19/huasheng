@@ -1,16 +1,10 @@
 Ext.define('HS.store.TopicStore', {
 	extend: 'Ext.data.Store',
-	/*fields: ['topicId', 'name'],*/
 	model: 'HS.model.TopicModel',
-	/*data: [
-		{topicId: 1, name: 'TopicName1'},
-		{topicId: 2, name: 'topicName2'}
-	]*/
 	autoLoad: false,
 	pageSize: 10,
 	proxy: {
 		type: 'ajax',
-		/*url: Ext.get('contextPath').dom.value + '/json/topic!execute',*/
 		actionMethods: {
 			read: 'POST'
 		},

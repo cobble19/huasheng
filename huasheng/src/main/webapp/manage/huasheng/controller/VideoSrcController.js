@@ -10,6 +10,9 @@ Ext.define('HS.controller.VideoSrcController', {
 	}],
 	init: function() {
 		this.control({
+			'viewport videosrclist button[action=search]': {
+				click: this.searchVideoSrc
+			},
 			'viewport videosrclist button[action=add]': {
 				click: this.openDialog4Add
 			},
@@ -26,6 +29,17 @@ Ext.define('HS.controller.VideoSrcController', {
 				click: this.openDialog4Delete
 			}
 		});
+	},
+	searchVideoSrc: function(button) {
+		var nameEle = Ext.ComponentQuery.query('panel textfield[name=videoSrcDTOSearch.name]')[0];
+		name = nameEle.getValue();
+		var store = this.getVideoSrcStoreStore();
+		store.load({
+			params: {
+	            'videoSrcDTOSearch.name': name
+	        }
+		});
+		console.log('searchVideoSrc...' + name);
 	},
 	openDialog4Add: function(button) {
 		console.log('open dialog for add');

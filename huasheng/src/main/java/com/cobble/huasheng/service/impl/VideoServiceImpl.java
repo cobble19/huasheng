@@ -3,6 +3,8 @@ package com.cobble.huasheng.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.cobble.huasheng.dao.ItemDAO;
 import com.cobble.huasheng.dao.VideoDAO;
 import com.cobble.huasheng.dao.VideoSrcDAO;
@@ -20,6 +22,7 @@ import com.cobble.huasheng.util.BeanUtil;
 import com.cobble.huasheng.util.ListUtil;
 
 public class VideoServiceImpl implements VideoService {
+	private static final Logger logger = Logger.getLogger(VideoServiceImpl.class);
 	private VideoDAO videoDAO;
 	private ItemDAO itemDAO;
 	private VideoSrcDAO videoSrcDAO;
@@ -50,6 +53,7 @@ public class VideoServiceImpl implements VideoService {
 				tDTO.setVideoSrcDTO(videoSrcDTO);
 			}
 		} catch (Exception e) {
+			logger.fatal("Create exception.", e);
 			throw e;
 		}
 	}
@@ -81,16 +85,27 @@ public class VideoServiceImpl implements VideoService {
 			}
 			
 		} catch (Exception e) {
+			logger.fatal("Update exception.", e);
 			throw e;
 		}
 	}
 
-	public List<VideoDTO> finds(VideoDTOSearch stDTO) throws Exception {
+
+	@Override
+	public List<VideoDTO> finds(VideoDTOSearch stDTO, int start, int limit)
+			throws Exception {
+		return this.finds(stDTO, false, start, limit);
+	}
+	public List<VideoDTO> finds(VideoDTOSearch stDTO)
+			throws Exception {
+		return this.finds(stDTO, true, -1, -1);
+	}
+	public List<VideoDTO> finds(VideoDTOSearch stDTO, Boolean all, int start, int limit) throws Exception {
 		List<VideoDTO> ret = new ArrayList<VideoDTO>(0);
 		try {
 			VideoEntitySearch videoEntitySearch = new VideoEntitySearch();
 			videoEntitySearch = ConvertFactory.getVideoConvert().toEntitySearch(stDTO);
-			List<VideoEntity> videoEntities = videoDAO.finds(videoEntitySearch);
+			List<VideoEntity> videoEntities = videoDAO.finds(videoEntitySearch, all, start, limit);
 			if (ListUtil.isNotEmpty(videoEntities)) {
 				for (VideoEntity videoEntity : videoEntities) {
 					VideoDTO videoDTO = ConvertFactory.getVideoConvert().toDTO(videoEntity);
@@ -108,6 +123,7 @@ public class VideoServiceImpl implements VideoService {
 				}
 			}
 		} catch (Exception e) {
+			logger.fatal("Find exception.", e);
 			throw e;
 		}
 		return ret;
@@ -129,6 +145,7 @@ public class VideoServiceImpl implements VideoService {
 				ret.setVideoSrcDTO(videoSrcDTO);
 			}
 		} catch (Exception e) {
+			logger.fatal("Find by id exception.", e);
 			throw e;
 		}
 		return ret;
@@ -141,6 +158,7 @@ public class VideoServiceImpl implements VideoService {
 			BeanUtil.copyProperties(videoEntitySearch, stDTO);
 			ret = videoDAO.getCount(videoEntitySearch);
 		} catch (Exception e) {
+			logger.fatal("Get count exception.", e);
 			throw e;
 		}
 		return ret;
@@ -151,8 +169,13 @@ public class VideoServiceImpl implements VideoService {
 	}
 
 	public void delete(VideoDTO tDTO) throws Exception {
-		VideoEntity videoEntity = videoDAO.findById(tDTO.getVideoId());
-		videoDAO.delete(videoEntity);
+		try {
+			VideoEntity videoEntity = videoDAO.findById(tDTO.getVideoId());
+			videoDAO.delete(videoEntity);
+		} catch (Exception e) {
+			logger.fatal("Delete exception.", e);
+			throw e;
+		}
 	}
 
 	public void setItemDAO(ItemDAO itemDAO) {
@@ -161,13 +184,6 @@ public class VideoServiceImpl implements VideoService {
 
 	public void setVideoSrcDAO(VideoSrcDAO videoSrcDAO) {
 		this.videoSrcDAO = videoSrcDAO;
-	}
-
-	@Override
-	public List<VideoDTO> finds(VideoDTOSearch stDTO, int start, int limit)
-			throws Exception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

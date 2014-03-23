@@ -77,7 +77,7 @@
  				<param name="includeProperties">
  					categoryDTO\.\w+, categoryDTO\.\w+\.\w+, ^categoryDTOList\[\d+\]\.\w+, ^categoryDTOList\[\d+\]\.\w+\.\w+, 
  					success,
- 					page, start, limit
+ 					page, start, limit, total
  				</param>
  			</result>
  		</action>
@@ -88,7 +88,7 @@
  				<param name="includeProperties">
  					itemDTO\.\w+, itemDTO\.categoryDTO\.\w+, itemDTO\.\w+\.\w+, ^itemDTOList\[\d+\]\.\w+, ^itemDTOList\[\d+\]\.\w+\.\w+, 
  					success,
- 					page, start, limit
+ 					page, start, limit, total
  				</param>
  			</result>
  		</action>
@@ -99,7 +99,7 @@
  				<param name="includeProperties">
  					videoSrcDTO\.\w+, videoSrcDTO\.\w+\.\w+, ^videoSrcDTOList\[\d+\]\.\w+, ^videoSrcDTOList\[\d+\]\.\w+\.\w+, 
  					success,
- 					page, start, limit
+ 					page, start, limit, total
  				</param>
  			</result>
  		</action>
@@ -110,7 +110,7 @@
  				<param name="includeProperties">
  					videoDTO\.\w+, videoDTO\.\w+\.\w+, ^videoDTOList\[\d+\]\.\w+, ^videoDTOList\[\d+\]\.\w+\.\w+, 
  					success,
- 					page, start, limit
+ 					page, start, limit, total
  				</param>
  			</result>
  		</action>
@@ -122,7 +122,7 @@
  					videoDTO\.\w+, videoDTO\.\w+\.\w+, ^videoDTOList\[\d+\]\.\w+, ^videoDTOList\[\d+\]\.\w+\.\w+, 
  					^fragmentDTOList\[\d+\]\.\w+, ^fragmentDTOList\[\d+\]\.\w+\.\w+,
  					success,
- 					page, start, limit
+ 					page, start, limit, total
  				</param>
  			</result>
  		</action>

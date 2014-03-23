@@ -48,13 +48,6 @@ Ext.define('HS.view.topic.List', {
 		}
 	],
 	initComponent: function() {
-		/*this.store = {
-			fields: ['topicId', 'name'],
-			data: [
-				{topicId: 1, name: 'topic_name1'},
-				{topicId: 2, name: 'topic_name2'}
-			]
-		};*/
 		this.columns = [
 			{xtype: 'rownumberer'},
 			{header: '主题唯一标识', dataIndex: 'topicId', flex: 1},

@@ -12,7 +12,7 @@ Ext.define('HS.controller.TopicController', {
 		console.log("TopicController init...");
 		this.control({
 			'viewport topiclist': {
-				itemdblclick: this.editTopic
+				itemdblclick: this.openDialog4Update
 			},
 			'topicedit button[action=save]': {
 				click: this.updateTopic
@@ -53,14 +53,6 @@ Ext.define('HS.controller.TopicController', {
 	},
 	openDialog4Add: function(button) {
 		console.log('add dialog...');
-		/*var grid = button.up('topiclist'),
-			selModel = grid.getSelectionModel( ),
-			records = selModel.getSelection();
-		if (records == null || records.length == 0) {
-			Ext.MessageBox.alert('Info', 'please select ONE row');
-		} else {
-			Ext.MessageBox.alert('Info', records);
-		}*/
 		var view = Ext.widget('topicedit');
 		var btns = Ext.query('a[id=btnSave]');
 		Ext.Array.each(btns, function(btn) {
@@ -88,9 +80,6 @@ Ext.define('HS.controller.TopicController', {
 				var records = Ext.getStore('TopicStore').insert(index, record);
 				// change color
 				me.getTopicList().getView().addRowCls(record, 'red');
-				/*var tr = Ext.query('tr[data-recordindex=' + index + ']');
-				Ext.get(tr).addCls('red')*/
-				//Ext.MessageBox.alert(action.response.statusText);
 			},
 			failure: function(form, action) {
 				Ext.MessageBox.alert(action.response.statusText);
@@ -132,13 +121,7 @@ Ext.define('HS.controller.TopicController', {
 				record.commit();
 				win.close();
 				// change color
-//				console.log(this.getTopicList());
 				me.getTopicList().getView().addRowCls(record, 'red');
-				/*var tr = Ext.query('tr[data-recordindex=' + record.index + ']');
-				Ext.get(tr).addCls('red')*/
-				
-				//Ext.getStore('TopicStore').sync();
-				//Ext.MessageBox.alert(action.response.statusText);
 			},
 			failure: function(form, action) {
 				Ext.MessageBox.alert(action.response.statusText);
@@ -196,22 +179,6 @@ Ext.define('HS.controller.TopicController', {
 			}
 		});
 	},
-	editTopic: function(grid, record) {
-		console.log('Double clicked on ' + record.get('name'));
-		/*var view = Ext.widget('topicedit');
-		view.down('form').loadRecord(record);*/
-	},
-	/*updateTopic: function(button) {
-		console.log('Clicked the save button.');
-		var win = button.up('window'),
-			form = win.down('form'),
-			record = form.getRecord(),
-			values = form.getValues();
-		record.set(values);
-		win.close();
-		// synchronize the store
-		this.getStore('TopicStore').sync();
-	},*/
 	onPanelRendered : function() {
 		console.log('The panel was rendered.')
 	}

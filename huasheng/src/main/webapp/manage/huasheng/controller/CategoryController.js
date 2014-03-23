@@ -10,6 +10,9 @@ Ext.define('HS.controller.CategoryController', {
 	}],
 	init: function() {
 		this.control({
+			'viewport categorylist button[action=search]': {
+				click: this.searchCategory
+			},
 			'viewport categorylist button[action=add]': {
 				click: this.openDialog4Add
 			},
@@ -26,6 +29,17 @@ Ext.define('HS.controller.CategoryController', {
 				click: this.openDialog4Delete
 			}
 		});
+	},
+	searchCategory: function(button) {
+		var nameEle = Ext.ComponentQuery.query('panel textfield[name=categoryDTOSearch.name]')[0];
+		name = nameEle.getValue();
+		var store = this.getCategoryStoreStore();
+		store.load({
+			params: {
+	            'categoryDTOSearch.name': name
+	        }
+		});
+		console.log('searchCategory...' + name);
 	},
 	openDialog4Add: function(button) {
 		console.log('open dialog for add');

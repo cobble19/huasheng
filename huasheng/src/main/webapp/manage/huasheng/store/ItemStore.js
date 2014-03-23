@@ -2,8 +2,12 @@ Ext.define('HS.store.ItemStore', {
 	extend: 'Ext.data.Store',
 	model: 'HS.model.ItemModel',
 	autoLoad: false,
+	pageSize: 10,
 	proxy: {
 		type: 'ajax',
+		actionMethods: {
+			read: 'POST'
+		},
 		api: {
 			read: Ext.get('contextPath').dom.value + '/json/item!execute',
 			update: Ext.get('contextPath').dom.value + '/json/item!update',

@@ -3,6 +3,8 @@ package com.cobble.huasheng.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.cobble.huasheng.dao.CategoryDAO;
 import com.cobble.huasheng.dao.TopicDAO;
 import com.cobble.huasheng.dto.CategoryDTO;
@@ -19,6 +21,7 @@ import com.cobble.huasheng.util.BeanUtil;
 import com.cobble.huasheng.util.ListUtil;
 
 public class CategoryServiceImpl implements CategoryService {
+	private static final Logger logger = Logger.getLogger(CategoryServiceImpl.class);
 	private CategoryDAO categoryDAO;
 	private TopicDAO topicDAO;
 
@@ -36,6 +39,7 @@ public class CategoryServiceImpl implements CategoryService {
 			BeanUtil.copyProperties(tDTO, categoryEntity);
 			/*tDTO = ConvertFactory.getCategoryConvert().toDTO(categoryEntity);*/
 		} catch (Exception e) {
+			logger.fatal("Create exception.", e);
 			throw e;
 		}
 	}
@@ -54,16 +58,29 @@ public class CategoryServiceImpl implements CategoryService {
 			
 			categoryDAO.update(categoryEntity);
 		} catch (Exception e) {
+			logger.fatal("Update exception.", e);
 			throw e;
 		}
 	}
 
+
+	@Override
 	public List<CategoryDTO> finds(CategoryDTOSearch stDTO) throws Exception {
+		return this.finds(stDTO, true, -1, -1);
+	}
+	
+	@Override
+	public List<CategoryDTO> finds(CategoryDTOSearch stDTO, int start, int limit)
+			throws Exception {
+		return this.finds(stDTO, false, start, limit);
+	}
+	
+	private List<CategoryDTO> finds(CategoryDTOSearch stDTO, Boolean all, int start, int limit) throws Exception {
 		List<CategoryDTO> ret = new ArrayList<CategoryDTO>(0);
 		try {
 			CategoryEntitySearch categoryEntitySearch = new CategoryEntitySearch();
 			categoryEntitySearch = ConvertFactory.getCategoryConvert().toEntitySearch(stDTO);
-			List<CategoryEntity> categoryEntities = categoryDAO.finds(categoryEntitySearch);
+			List<CategoryEntity> categoryEntities = categoryDAO.finds(categoryEntitySearch, all, start, limit);
 			if (ListUtil.isNotEmpty(categoryEntities)) {
 				for (CategoryEntity categoryEntity : categoryEntities) {
 					CategoryDTO categoryDTO = ConvertFactory.getCategoryConvert().toDTO(categoryEntity);
@@ -74,6 +91,7 @@ public class CategoryServiceImpl implements CategoryService {
 				}
 			}
 		} catch (Exception e) {
+			logger.fatal("Find exception.", e);
 			throw e;
 		}
 		return ret;
@@ -96,6 +114,7 @@ public class CategoryServiceImpl implements CategoryService {
 				}
 			}
 		} catch (Exception e) {
+			logger.fatal("Find exception.", e);
 			throw e;
 		}
 		return ret;
@@ -108,6 +127,8 @@ public class CategoryServiceImpl implements CategoryService {
 			BeanUtil.copyProperties(categoryEntitySearch, stDTO);
 			ret = categoryDAO.getCount(categoryEntitySearch);
 		} catch (Exception e) {
+
+			logger.fatal("Get count exception.", e);
 			throw e;
 		}
 		return ret;
@@ -118,19 +139,17 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	public void delete(CategoryDTO tDTO) throws Exception {
-		CategoryEntity categoryEntity = categoryDAO.findById(tDTO.getCategoryId());
-		categoryDAO.delete(categoryEntity);
+		try {
+			CategoryEntity categoryEntity = categoryDAO.findById(tDTO.getCategoryId());
+			categoryDAO.delete(categoryEntity);
+		} catch (Exception e) {
+			logger.fatal("Delete exception.", e);
+			throw e;
+		}
 	}
 
 	public void setTopicDAO(TopicDAO topicDAO) {
 		this.topicDAO = topicDAO;
-	}
-
-	@Override
-	public List<CategoryDTO> finds(CategoryDTOSearch stDTO, int start, int limit)
-			throws Exception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
