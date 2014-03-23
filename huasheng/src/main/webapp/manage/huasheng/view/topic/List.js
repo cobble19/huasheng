@@ -19,6 +19,11 @@ Ext.define('HS.view.topic.List', {
 			fieldLabel: '主题名称',
 			labelAlign: 'right'
         }]
+    }, {
+        xtype: 'pagingtoolbar',
+        store: 'TopicStore',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
     }],
 	tbar: [
 		{

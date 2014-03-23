@@ -21,6 +21,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware, Se
 	private Integer start;
 	private Integer limit;
 	private Boolean success = true;
+	private Integer total;
 	
 
 	public void setServletResponse(HttpServletResponse response) {
@@ -73,6 +74,14 @@ public class BaseAction extends ActionSupport implements ServletRequestAware, Se
 
 	public void setSuccess(Boolean success) {
 		this.success = success;
+	}
+
+	public Integer getTotal() {
+		return total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
 	}
 
 

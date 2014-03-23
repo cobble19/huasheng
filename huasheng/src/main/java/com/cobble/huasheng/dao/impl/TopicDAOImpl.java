@@ -21,9 +21,8 @@ public class TopicDAOImpl extends CommonDAOImpl implements TopicDAO {
 		this.getCurrentSession().update(t);
 
 	}
-
-	@SuppressWarnings("unchecked")
-	public List<TopicEntity> finds(TopicEntitySearch st) throws Exception {
+	
+	public List<TopicEntity> finds(TopicEntitySearch st, Boolean all, int start, int limit) throws Exception {
 		List<TopicEntity> ret = null;
 		try {
 			StringBuilder hql = new StringBuilder("from TopicEntity t where 1 > 0 ");
@@ -38,11 +37,20 @@ public class TopicDAOImpl extends CommonDAOImpl implements TopicDAO {
 					query.setString("name", "%" + st.getName() + "%");
 				}
 			}
+			if (!all) {
+				query.setFirstResult(start);
+				query.setMaxResults(limit);
+			}
 			ret = (List<TopicEntity>) query.list();
 		} catch (Exception e) {
 			throw e;
 		}
 		return ret;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<TopicEntity> finds(TopicEntitySearch st) throws Exception {
+		return this.finds(st, true, -1, -1);
 	}
 
 	public TopicEntity findById(Long id) throws Exception {
@@ -58,7 +66,7 @@ public class TopicDAOImpl extends CommonDAOImpl implements TopicDAO {
 	public long getCount(TopicEntitySearch st) throws Exception {
 		long ret = 0;
 		try {
-			Query query = this.getCurrentSession().createQuery("select count(1) from TopicEntity");
+			Query query = this.getCurrentSession().createQuery("select count(*) from TopicEntity");
 			Object object = query.uniqueResult();
 			ret = Long.parseLong(object.toString());
 		} catch (Exception e) {

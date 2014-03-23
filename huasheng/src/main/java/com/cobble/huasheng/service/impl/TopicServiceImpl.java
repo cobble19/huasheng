@@ -43,13 +43,12 @@ public class TopicServiceImpl implements TopicService {
 			throw e;
 		}
 	}
-
-	public List<TopicDTO> finds(TopicDTOSearch stDTO) throws Exception {
+	private List<TopicDTO> finds(TopicDTOSearch stDTO, Boolean all, int start, int limit) throws Exception {
 		List<TopicDTO> ret = new ArrayList<TopicDTO>(0);
 		try {
 			TopicEntitySearch topicEntitySearch = new TopicEntitySearch();
 			topicEntitySearch = ConvertFactory.getTopicConvert().toEntitySearch(stDTO);
-			List<TopicEntity> topicEntities = topicDAO.finds(topicEntitySearch);
+			List<TopicEntity> topicEntities = topicDAO.finds(topicEntitySearch, all, start, limit);
 			if (ListUtil.isNotEmpty(topicEntities)) {
 				for (TopicEntity topicEntity : topicEntities) {
 					if (topicEntity == null) {
@@ -95,7 +94,17 @@ public class TopicServiceImpl implements TopicService {
 		}
 		return ret;
 	}
+	@Override
+	public List<TopicDTO> finds(TopicDTOSearch stDTO) throws Exception {
+		return this.finds(stDTO, true, -1, -1);
+	}
 
+	@Override
+	public List<TopicDTO> finds(TopicDTOSearch stDTO, int start, int limit)
+			throws Exception {
+		return this.finds(stDTO, false, start, limit);
+	}
+	
 	public TopicDTO findById(Long id) throws Exception {
 		if (id == null) {
 			return null;
