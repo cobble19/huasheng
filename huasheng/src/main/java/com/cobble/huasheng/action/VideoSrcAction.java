@@ -29,6 +29,10 @@ public class VideoSrcAction extends BaseAction {
 	@Override
 	public String execute() throws Exception {
 		logger.debug("execute() start...");
+		// For comboBox
+		if (videoSrcDTOSearch != null && this.getQuery() != null) {
+			videoSrcDTOSearch.setName(this.getQuery());
+		}
 		videoSrcDTOList = videoSrcService.finds(videoSrcDTOSearch, this.getStart(), this.getLimit());
 		long total = videoSrcService.getCount(videoSrcDTOSearch);
 		this.setTotal((int) total);

@@ -33,6 +33,10 @@ public class TopicAction extends BaseAction {
 	@Override
 	public String execute() throws Exception {
 		logger.debug("execute() start...");
+		// For comboBox
+		if (topicDTOSearch != null && this.getQuery() != null) {
+			topicDTOSearch.setName(this.getQuery());
+		}
 		topicDTOList = topicService.finds(topicDTOSearch, this.getStart(), this.getLimit());
 		long total = topicService.getCount(topicDTOSearch);
 		this.setTotal((int) total);

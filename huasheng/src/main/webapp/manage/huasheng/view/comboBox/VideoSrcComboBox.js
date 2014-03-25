@@ -5,8 +5,10 @@ Ext.define('HS.view.comboBox.VideoSrcComboBox', {
 	displayField: 'name',
 	valueField: 'videoSrcId',
 	name:'videoSrcDTO.videoSrcId',
-	/*width: 400,
-	labelWidth: 100,*/
+	width: 350,
+	//labelWidth: 100,
 	store: 'VideoSrcStore',
-	queryModel: 'remote'
+	queryModel: 'remote',
+	minChars: 1,
+	pageSize: 10
 })

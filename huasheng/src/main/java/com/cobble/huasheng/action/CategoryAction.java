@@ -39,6 +39,10 @@ public class CategoryAction extends BaseAction {
 	@Override
 	public String execute() throws Exception {
 		logger.debug("execute() start...");
+		// For comboBox
+		if (categoryDTOSearch != null && this.getQuery() != null) {
+			categoryDTOSearch.setName(this.getQuery());
+		}
 		categoryDTOList = categoryService.finds(categoryDTOSearch, this.getStart(), this.getLimit());
 		long total = categoryService.getCount(categoryDTOSearch);
 		this.setTotal((int) total);

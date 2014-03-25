@@ -77,6 +77,10 @@ public class ItemAction extends BaseAction {
 	@Override
 	public String execute() throws Exception {
 		logger.debug("execute() start...");
+		// For comboBox
+		if (itemDTOSearch != null && this.getQuery() != null) {
+			itemDTOSearch.setName(this.getQuery());
+		}
 		itemDTOList = itemService.finds(itemDTOSearch, this.getStart(), this.getLimit());
 		long total = itemService.getCount(itemDTOSearch);
 		this.setTotal((int) total);

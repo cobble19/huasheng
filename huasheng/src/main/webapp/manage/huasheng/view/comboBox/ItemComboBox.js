@@ -5,8 +5,10 @@ Ext.define('HS.view.comboBox.ItemComboBox', {
 	displayField: 'name',
 	valueField: 'itemId',
 	name:'itemDTO.itemId',
-	/*width: 400,
-	labelWidth: 100,*/
+	width: 350,
+	//labelWidth: 100,
 	store: 'ItemStore',
-	queryModel: 'remote'
+	queryModel: 'remote',
+	minChars: 1,
+	pageSize: 10
 })

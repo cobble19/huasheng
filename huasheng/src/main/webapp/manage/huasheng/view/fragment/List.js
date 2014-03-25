@@ -12,6 +12,10 @@ Ext.define('HS.view.fragment.List', {
 	store: 'FragmentStore',
 	dockedItems: [{
         xtype: 'toolbar',
+        layout:'column',
+        defaults: { // defaults are applied to items, not the container
+			columnWidth: 0.4
+        },
         //height: 60,
         //dock: 'top',
         items: [{
@@ -37,6 +41,7 @@ Ext.define('HS.view.fragment.List', {
         },
 		{
 			xtype: 'itemcombobox',
+			labelAlign: 'right',
 			allowBlank: true,
 			blankText: '不能为空',
 			allowOnlyWhitespace: false,
@@ -44,6 +49,7 @@ Ext.define('HS.view.fragment.List', {
 		},
 		{
 			xtype: 'videosrccombobox',
+			labelAlign: 'right',
 			allowBlank: true,
 			blankText: '不能为空',
 			allowOnlyWhitespace: false,

@@ -20,6 +20,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware, Se
 	private Integer page;
 	private Integer start;
 	private Integer limit;
+	private String query;
 	private Boolean success = true;
 	private Integer total;
 	
@@ -82,6 +83,14 @@ public class BaseAction extends ActionSupport implements ServletRequestAware, Se
 
 	public void setTotal(Integer total) {
 		this.total = total;
+	}
+
+	public String getQuery() {
+		return query;
+	}
+
+	public void setQuery(String query) {
+		this.query = query;
 	}
 
 
