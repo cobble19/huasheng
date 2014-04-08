@@ -10,5 +10,5 @@ Ext.define('HS.view.comboBox.CategoryComboBox', {
 	store: 'CategoryStore',
 	queryModel: 'remote',
 	minChars: 1,
-	pageSize: 10
+	pageSize: 20
 })

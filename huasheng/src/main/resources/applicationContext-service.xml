@@ -13,9 +13,6 @@
            http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 	
-	<bean id="userService" class="com.cobble.huasheng.service.impl.UserServiceImpl">
-		<property name="userDAO" ref="userDAO"></property>
-	</bean>
 	<bean id="topicService" class="com.cobble.huasheng.service.impl.TopicServiceImpl">
 		<property name="topicDAO" ref="topicDAO"></property>
 	</bean>
@@ -38,5 +35,14 @@
 	</bean>
 	<bean id="handleUrlService" class="com.cobble.huasheng.service.impl.HandleUrlServiceImpl">
 		<property name="videoService" ref="videoService"></property>
+	</bean>
+	<bean id="userService" class="com.cobble.huasheng.springsecurity.service.impl.UserServiceImpl">
+		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	<bean id="roleService" class="com.cobble.huasheng.springsecurity.service.impl.RoleServiceImpl">
+		<property name="roleDAO" ref="roleDAO"></property>
+	</bean>
+	<bean id="privilegeService" class="com.cobble.huasheng.springsecurity.service.impl.PrivilegeServiceImpl">
+		<property name="privilegeDAO" ref="privilegeDAO"></property>
 	</bean>
 </beans>

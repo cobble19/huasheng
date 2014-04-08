@@ -3,6 +3,8 @@ package com.cobble.huasheng.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.cobble.huasheng.dao.TopicDAO;
 import com.cobble.huasheng.dto.CategoryDTO;
 import com.cobble.huasheng.dto.ItemDTO;
@@ -18,6 +20,7 @@ import com.cobble.huasheng.util.BeanUtil;
 import com.cobble.huasheng.util.ListUtil;
 
 public class TopicServiceImpl implements TopicService {
+	private static final Logger logger = Logger.getLogger(TopicServiceImpl.class);
 	private TopicDAO topicDAO;
 
 	public void create(TopicDTO tDTO) throws Exception {
@@ -171,8 +174,24 @@ public class TopicServiceImpl implements TopicService {
 		if (tDTO == null || tDTO.getTopicId() == null) {
 			return;
 		}
-		TopicEntity topicEntity = topicDAO.findById(tDTO.getTopicId());
-		topicDAO.delete(topicEntity);
+		try {
+			TopicEntity topicEntity = topicDAO.findById(tDTO.getTopicId());
+			topicDAO.delete(topicEntity);
+		} catch (Exception e) {
+			logger.fatal("Delete exception.", e);
+			throw e;
+		}
+	}
+
+	@Override
+	public void deleteById(Long id) throws Exception {
+		try {
+			TopicEntity topicEntity = topicDAO.findById(id);
+			topicDAO.delete(topicEntity);
+		} catch (Exception e) {
+			logger.fatal("Delete exception.", e);
+			throw e;
+		}
 	}
 
 }

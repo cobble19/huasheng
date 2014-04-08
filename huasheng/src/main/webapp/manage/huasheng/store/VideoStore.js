@@ -2,7 +2,7 @@ Ext.define('HS.store.VideoStore', {
 	extend: 'Ext.data.Store',
 	model: 'HS.model.VideoModel',
 	autoLoad: false,
-	pageSize: 10,
+	pageSize: 20,
 	proxy: {
 		type: 'ajax',
 		actionMethods: {

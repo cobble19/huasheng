@@ -13,9 +13,6 @@
            http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 	
-	<bean id="userDAO" class="com.cobble.huasheng.dao.impl.UserDAOImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
 	<bean id="topicDAO" class="com.cobble.huasheng.dao.impl.TopicDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -29,6 +26,15 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean id="videoSrcDAO" class="com.cobble.huasheng.dao.impl.VideoSrcDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userDAO" class="com.cobble.huasheng.springsecurity.dao.impl.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="roleDAO" class="com.cobble.huasheng.springsecurity.dao.impl.RoleDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="privilegeDAO" class="com.cobble.huasheng.springsecurity.dao.impl.PrivilegeDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 </beans>

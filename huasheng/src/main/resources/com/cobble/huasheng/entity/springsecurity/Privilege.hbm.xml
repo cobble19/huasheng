@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cobble.huasheng.springsecurity.entity">
+	<class name="PrivilegeEntity" table="S_PRIVILEGE">
+		<id name="privilegeId" column="PRIVILEGE_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="NAME" not-null="true"></property>
+		<property name="resource" column="RESOURCE" not-null="true"></property>
+		<bag name="roleEntities" table="R_PRIVILEGE_ROLE" inverse="true">
+			<key column="PRIVILEGE_ID"></key>
+			<many-to-many class="RoleEntity" column="ROLE_ID"></many-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

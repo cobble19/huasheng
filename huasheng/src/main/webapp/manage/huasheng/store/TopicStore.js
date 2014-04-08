@@ -2,7 +2,7 @@ Ext.define('HS.store.TopicStore', {
 	extend: 'Ext.data.Store',
 	model: 'HS.model.TopicModel',
 	autoLoad: false,
-	pageSize: 10,
+	pageSize: 20,
 	proxy: {
 		type: 'ajax',
 		actionMethods: {

@@ -40,14 +40,17 @@
 		<!-- <property name="configLocation" value="hibernate.cfg.xml"/> -->
 		<property name="mappingResources">
 			<list>
-				<value>com/cobble/huasheng/entity/User.hbm.xml</value>
+				<!-- <value>com/cobble/huasheng/entity/User.hbm.xml</value> -->
 				<value>com/cobble/huasheng/entity/Topic.hbm.xml</value>
 				<value>com/cobble/huasheng/entity/Category.hbm.xml</value>
 				<value>com/cobble/huasheng/entity/Item.hbm.xml</value>
 				<value>com/cobble/huasheng/entity/VideoSrc.hbm.xml</value>
 				<value>com/cobble/huasheng/entity/Video.hbm.xml</value>
-				<value>com/cobble/huasheng/entity/springsecurity/Users.hbm.xml</value>
-				<value>com/cobble/huasheng/entity/springsecurity/Authorities.hbm.xml</value>
+				<!-- <value>com/cobble/huasheng/entity/springsecurity/Users.hbm.xml</value>
+				<value>com/cobble/huasheng/entity/springsecurity/Authorities.hbm.xml</value> -->
+				<value>com/cobble/huasheng/entity/springsecurity/User.hbm.xml</value>
+				<value>com/cobble/huasheng/entity/springsecurity/Role.hbm.xml</value>
+				<value>com/cobble/huasheng/entity/springsecurity/Privilege.hbm.xml</value>
 			</list>
 		</property>
 		<!-- <property name="packagesToScan">
@@ -66,7 +69,7 @@
 		      	
 		        <prop key="current_session_context_class">thread</prop>
 		      	
-		        <prop key="connection.pool_size">3</prop>
+		        <prop key="connection.pool_size">10</prop>
 		        
 		        <prop key="hibernate.hbm2ddl.auto">update</prop>
 		        
@@ -76,7 +79,7 @@
 		        
 		        <!-- <prop key="javax.persistence.validation.mode">none</prop> -->
 		        
-		        <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+		        <!-- <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop> -->
 			</props>
 		</property>
 	</bean>
@@ -96,8 +99,8 @@
 	<!-- 使用声明式事务 -->
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-			<tx:method name="find*" read-only="true" propagation="REQUIRED" />
-			<tx:method name="get*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="find*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="REQUIRED" />
 			<tx:method name="add*" propagation="REQUIRED"/>
 			<tx:method name="create*" propagation="REQUIRED"/>
 			<tx:method name="update*" propagation="REQUIRED"/>

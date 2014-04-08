@@ -113,4 +113,15 @@ public class VideoSrcServiceImpl implements VideoSrcService {
 		}
 	}
 
+	@Override
+	public void deleteById(Long id) throws Exception {
+		try {
+			VideoSrcEntity videoSrcEntity = videoSrcDAO.findById(id);
+			videoSrcDAO.delete(videoSrcEntity);
+		} catch (Exception e) {
+			logger.fatal("Delete exception.", e);
+			throw e;
+		}
+	}
+
 }

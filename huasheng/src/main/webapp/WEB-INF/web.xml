@@ -2,17 +2,18 @@
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	id="WebApp_ID" version="2.4">
-	<display-name>leho</display-name>
+	<display-name>huasheng</display-name>
+	<description>这是一个Spring, Struts2, Hibernate项目</description>
 	<!-- 设置log4j存放Log文件位置（通过spring统一进行管理） -->
 	 <context-param>
 	  <param-name>webAppRootKey</param-name>
-	  <param-value>huasheng.root</param-value>
+	  <param-value>app.root</param-value>
 	 </context-param>
 	
 	 <!-- 加载log4j的配置文件 -->
 	 <context-param>
 	  <param-name>log4jConfigLocation</param-name>
-	  <param-value>classpath:/log4j.xml</param-value>
+	  <param-value>classpath:/log4j.properties</param-value>
 	 </context-param>
 	
 	 <!--Spring默认刷新Log4j配置文件的间隔,单位为millisecond-->

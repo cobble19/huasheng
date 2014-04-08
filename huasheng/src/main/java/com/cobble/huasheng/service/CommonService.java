@@ -17,4 +17,5 @@ public interface CommonService<TDTO, STDTO> {
 	public TDTO findById(Long id) throws Exception;
 	public long getCount(STDTO stDTO) throws Exception;
 	public void delete(TDTO tDTO)  throws Exception;
+	public void deleteById(Long id)  throws Exception;
 }

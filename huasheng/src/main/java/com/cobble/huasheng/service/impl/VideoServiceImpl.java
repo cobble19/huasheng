@@ -186,4 +186,15 @@ public class VideoServiceImpl implements VideoService {
 		this.videoSrcDAO = videoSrcDAO;
 	}
 
+	@Override
+	public void deleteById(Long id) throws Exception {
+		try {
+			VideoEntity videoEntity = videoDAO.findById(id);
+			videoDAO.delete(videoEntity);
+		} catch (Exception e) {
+			logger.fatal("Delete exception.", e);
+			throw e;
+		}
+	}
+
 }

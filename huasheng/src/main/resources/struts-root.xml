@@ -126,5 +126,40 @@
  				</param>
  			</result>
  		</action>
+ 		<action name="role" class="roleAction">
+ 			<result name="success" type="json">
+ 				<param name="ignoreHierarchy">false</param>
+ 				<!-- <param name="noCache">true</param> -->
+ 				<param name="includeProperties">
+ 					roleEntity\.\w+, roleEntity\.\w+\.\w+, ^roleEntityList\[\d+\]\.\w+, ^roleEntityList\[\d+\]\.\w+\.\w+, 
+ 					^roleEntityList\[\d+\]\.userEntities\[\d+\]\.\w+, 
+ 					success,
+ 					page, start, limit, total
+ 				</param>
+ 			</result>
+ 		</action>
+ 		<action name="user" class="userAction">
+ 			<result name="success" type="json">
+ 				<param name="ignoreHierarchy">false</param>
+ 				<!-- <param name="noCache">true</param> -->
+ 				<param name="includeProperties">
+ 					userEntity\.\w+, userEntity\.\w+\.\w+, ^userEntityList\[\d+\]\.\w+, ^userEntityList\[\d+\]\.\w+\.\w+, 
+ 					success,
+ 					page, start, limit, total
+ 				</param>
+ 			</result>
+ 		</action>
+ 		<action name="privilege" class="privilegeAction">
+ 			<result name="success" type="json">
+ 				<param name="ignoreHierarchy">false</param>
+ 				<!-- <param name="noCache">true</param> -->
+ 				<param name="includeProperties">
+ 					privilegeEntity\.\w+, privilegeEntity\.\w+\.\w+, ^privilegeEntityList\[\d+\]\.\w+, ^privilegeEntityList\[\d+\]\.\w+\.\w+, 
+ 					^privilegeEntityList\[\d+\]\.roleEntities\[\d+\]\.\w+,
+ 					success,
+ 					page, start, limit, total
+ 				</param>
+ 			</result>
+ 		</action>
     </package>
 </struts>

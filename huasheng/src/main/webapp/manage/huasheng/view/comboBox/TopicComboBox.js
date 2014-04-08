@@ -10,5 +10,5 @@ Ext.define('HS.view.comboBox.TopicComboBox', {
 	store: 'TopicStore',
 	queryModel: 'remote',
 	minChars: 1,
-	pageSize: 10
+	pageSize: 20
 })

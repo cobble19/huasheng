@@ -185,4 +185,15 @@ public class ItemServiceImpl implements ItemService {
 		this.categoryDAO = categoryDAO;
 	}
 
+	@Override
+	public void deleteById(Long id) throws Exception {
+		try {
+			ItemEntity itemEntity = itemDAO.findById(id);
+			itemDAO.delete(itemEntity);
+		} catch (Exception e) {
+			logger.fatal("Delete exception.", e);
+			throw e;
+		}
+	}
+
 }

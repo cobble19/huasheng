@@ -11,11 +11,14 @@ Ext.application({
 		'ItemController',
 		'VideoSrcController',
 		'VideoController',
-		'FragmentController'
+		'FragmentController',
+		'RoleController',
+		'UserController',
+		'PrivilegeController'
 	],
 	stores: ['TopicStore'],
 	models: ['TopicModel'],
-	views: ['content.Panel'],
+	views: ['content.Panel', 'checkbox.PrivilegeCheckboxGroup'],
 	launch: function() {
 		Ext.create('Ext.container.Viewport', {
 			layout: "border",

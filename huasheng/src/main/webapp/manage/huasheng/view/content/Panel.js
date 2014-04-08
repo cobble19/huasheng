@@ -18,5 +18,11 @@ Ext.define('HS.view.content.Panel', {
 		xtype: 'videolist'
 	}, {
 		xtype: 'fragmentlist'
+	}, {
+		xtype: 'rolelist'
+	}, {
+		xtype: 'privilegelist'
+	}, {
+		xtype: 'userlist'
 	}]
 })

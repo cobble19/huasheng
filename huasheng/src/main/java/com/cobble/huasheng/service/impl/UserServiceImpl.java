@@ -106,4 +106,15 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	@Override
+	public void deleteById(Long id) throws Exception {
+		try {
+			UserEntity userEntity = userDAO.findById(id);
+			userDAO.delete(userEntity);
+		} catch (Exception e) {
+			logger.fatal("Delete exception.", e);
+			throw e;
+		}
+	}
+
 }

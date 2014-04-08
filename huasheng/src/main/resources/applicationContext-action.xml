@@ -15,9 +15,6 @@
 	
 	<bean id="loginAction" class="com.cobble.huasheng.action.LoginAction" scope="prototype">
 	</bean>	
-	<bean id="userAction" class="com.cobble.huasheng.action.UserAction" scope="prototype">
-		<property name="userService" ref="userService"></property>
-	</bean>
 	<bean id="indexAction" class="com.cobble.huasheng.action.IndexAction" scope="prototype">
 		<property name="topicService" ref="topicService"></property>
 		<property name="itemService" ref="itemService"></property>
@@ -47,5 +44,14 @@
 	</bean>
 	<bean id="handleUrlAction" class="com.cobble.huasheng.manage.action.HandleUrlAction" scope="prototype">
 		<property name="handleUrlService" ref="handleUrlService"></property>
+	</bean>
+	<bean id="userAction" class="com.cobble.huasheng.springsecurity.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<bean id="roleAction" class="com.cobble.huasheng.springsecurity.action.RoleAction" scope="prototype">
+		<property name="roleService" ref="roleService"></property>
+	</bean>
+	<bean id="privilegeAction" class="com.cobble.huasheng.springsecurity.action.PrivilegeAction" scope="prototype">
+		<property name="privilegeService" ref="privilegeService"></property>
 	</bean>
 </beans>
