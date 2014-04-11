@@ -10,4 +10,5 @@ import com.cobble.huasheng.springsecurity.entity.UserEntitySearch;
 public interface UserService extends CommonService<UserEntity, UserEntitySearch> {
 	List<RoleEntity> findRolesByUserName(String userName) throws Exception;
 	UserEntity findByUserName(String userName) throws Exception;
+	void changePwd(UserEntity userEntity) throws Exception;
 }

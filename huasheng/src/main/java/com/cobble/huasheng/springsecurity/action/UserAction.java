@@ -83,6 +83,13 @@ public class UserAction extends BaseAction {
 		this.setSuccess(true);
 		return SUCCESS;
 	}
+
+	public String changePwd() throws Exception {
+		this.fillEntity();
+		userService.changePwd(userEntity);
+		this.setSuccess(true);
+		return SUCCESS;
+	}
 	
 	public UserEntitySearch getUserEntitySearch() {
 		return userEntitySearch;

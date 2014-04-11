@@ -9,11 +9,17 @@
 	
 	<security:http pattern="/index*" security="none" />
 	<security:http pattern="/topic*" security="none" />
+	<security:http pattern="/topic*/*" security="none" />
 	<security:http pattern="/category*" security="none" />
+	<security:http pattern="/category*/*" security="none" />
 	<security:http pattern="/item*" security="none" />
+	<security:http pattern="/item*/*" security="none" />
 	<security:http pattern="/videoSrc*" security="none" />
+	<security:http pattern="/videoSrc*/*" security="none" />
 	<security:http pattern="/video*" security="none" />
+	<security:http pattern="/video*/*" security="none" />
 	<security:http pattern="/videoplay*" security="none" />
+	<security:http pattern="/videoplay*/*" security="none" />
 	
 	
 	

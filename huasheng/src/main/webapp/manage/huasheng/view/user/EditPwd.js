@@ -1,8 +1,8 @@
-Ext.define('HS.view.user.Edit', {
+Ext.define('HS.view.user.EditPwd', {
 	extend: 'Ext.window.Window',
-	alias: 'widget.useredit',
+	alias: 'widget.usereditpwd',
 	
-	title: '用户',
+	title: '用户修改密码',
 	layout: 'fit',
 	autoShow: true,
 	initComponent: function() {
@@ -13,16 +13,14 @@ Ext.define('HS.view.user.Edit', {
 					{
 						xtype: 'textfield',
 						name: 'userId',
-						fieldLabel: '用户唯一标识'
+						fieldLabel: '用户唯一标识',
+						readOnly: true
 					}, 
 					{
 						xtype: 'textfield',
 						name: 'userName',
 						fieldLabel: '用户名称',
-						allowBlank: false,
-						blankText: '不能为空',
-						allowOnlyWhitespace: false,
-						msgTarget: 'under'
+						readOnly: true
 					}, 
 					{
 						xtype: 'textfield',
@@ -33,27 +31,15 @@ Ext.define('HS.view.user.Edit', {
 						blankText: '不能为空',
 						allowOnlyWhitespace: false,
 						msgTarget: 'under'
-					}, 
-					{
-						xtype: 'textfield',
-						name: 'enabled',
-						fieldLabel: '有效'
-					}, {
-						xtype: 'rolecheckboxgroup'
 					}
 				]
 			}
 		];
 		this.buttons = [
 		{
-			text: '添加',
-			action: 'add',
-			id: 'btnAdd'
-		},
-		{
 			text: '修改',
-			action: 'update',
-			id: 'btnUpdate'
+			action: 'changePwd',
+			id: 'btnChangePwd'
 		}, 
 		{
 			text: '取消',

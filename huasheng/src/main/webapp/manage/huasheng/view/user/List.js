@@ -45,6 +45,11 @@ Ext.define('HS.view.user.List', {
 		xtype: 'button',
 		text: '删除',
 		action: 'delete'
+	},
+	{
+		xtype: 'button',
+		text: '修改密码',
+		action: 'changePwd'
 	}
 	],
 	initComponent: function() {

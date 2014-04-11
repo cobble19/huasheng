@@ -85,4 +85,13 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	@Override
+	public void changePwd(UserEntity userEntity) throws Exception {
+		String password = userEntity.getPassword();
+		Md5PasswordEncoder md5PasswordEncoder = new Md5PasswordEncoder();
+		password = md5PasswordEncoder.encodePassword(password, userEntity.getUserName());
+		userEntity.setPassword(password);
+		userDAO.changePwd(userEntity);
+	}
+
 }

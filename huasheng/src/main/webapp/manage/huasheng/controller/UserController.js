@@ -3,7 +3,7 @@ Ext.define('HS.controller.UserController', {
 	requires: ['Ext.window.MessageBox'],
 	stores: ['UserStore'],
 	models: ['UserModel'],
-	views: ['user.List','user.Edit', 'checkbox.RoleCheckboxGroup'],
+	views: ['user.List','user.Edit', 'user.EditPwd', 'checkbox.RoleCheckboxGroup'],
 	refs: [{
 		ref: 'userList',
 		selector: 'viewport userlist'
@@ -27,7 +27,13 @@ Ext.define('HS.controller.UserController', {
 			},
 			'viewport userlist button[action=delete]': {
 				click: this.openDialog4Delete
-			}
+			},
+			'viewport userlist button[action=changePwd]': {
+				click: this.openDialog4ChangePwd
+			},
+			'usereditpwd button[action=changePwd]': {
+				click: this.changePwd
+			},
 		});
 	},
 	searchUser: function(button) {
@@ -88,6 +94,15 @@ Ext.define('HS.controller.UserController', {
 		} else {
 			// display edit window
 			var view = Ext.widget('useredit');
+			// hide password modify text
+			var passwords = Ext.query('input[name=password]');
+			passItem = Ext.ComponentQuery.query('panel textfield[name=password]')[0];
+			passItem.allowBlank=true;
+			passItem.clearInvalid();
+			
+			Ext.each(passwords, function(password){
+				Ext.get(password).parent().parent().parent().parent().hide();
+			});
 			// hide add button
 			var btns = Ext.query('a[id=btnAdd]');
 			Ext.each(btns, function(btn){
@@ -116,9 +131,9 @@ Ext.define('HS.controller.UserController', {
 				me.getUserList().getView().addRowCls(record, 'red');
 			},
 			failure: function(form, action) {
-				Ext.MessageBox.alert('警告', action.response.statusText);
+				Ext.MessageBox.alert('警告', "failure");
 			}
-		})
+		});
 	},
 	openDialog4Delete: function(button) {
 		var grid = button.up('userlist'),
@@ -167,5 +182,42 @@ Ext.define('HS.controller.UserController', {
 				Ext.MessageBox.alert('警告', '删除失败!');
 			}
 		});
+	},
+	openDialog4ChangePwd: function(button) {
+		var grid = button.up('userlist'),
+			selModel = grid.getSelectionModel(),
+			records = selModel.getSelection();
+		if (records == null || records.length == 0) {
+			Ext.MessageBox.alert('警告', '请选择一条记录!');
+			return;
+		} else {
+			// display edit window
+			var view = Ext.widget('usereditpwd');
+			// load rowdata that will be updated 
+			view.down('form').loadRecord(records[0]);
+		}
+	},
+	changePwd: function(button) {
+		var win = button.up('window'),
+			form = win.down('form'),
+			f = form.getForm(),
+			record = form.getRecord();
+		var me = this;
+		f.doAction('submit', {
+			url: Ext.get('contextPath').dom.value + '/json/user!changePwd',
+			method: 'POST',
+			success: function(form, action) {
+				record = form.getRecord();
+				record.set(form.getValues());
+				record.commit();
+				// 1. set record, 2. close it.
+				win.close();
+				// change color
+				me.getUserList().getView().addRowCls(record, 'red');
+			},
+			failure: function(form, action) {
+				Ext.MessageBox.alert('警告', action);
+			}
+		})
 	}
 })

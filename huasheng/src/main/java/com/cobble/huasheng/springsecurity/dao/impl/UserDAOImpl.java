@@ -155,4 +155,21 @@ public class UserDAOImpl extends CommonDAOImpl implements UserDAO {
 		return ret;
 	}
 
+	@Override
+	public void changePwd(UserEntity userEntity) throws Exception {
+		try {
+			StringBuilder sb = new StringBuilder("update UserEntity user ");
+			sb.append(" set user.password = :password ");
+			sb.append(" where user.userId = :userId");
+			Query query = this.getCurrentSession().createQuery(sb.toString());
+			query.setString("password", userEntity.getPassword());
+			query.setLong("userId", userEntity.getUserId());
+			int count = query.executeUpdate();
+		} catch (Exception e) {
+			logger.fatal("Find user by userName occur exception.", e);
+			throw e;
+		}
+		return ;
+	}
+
 }

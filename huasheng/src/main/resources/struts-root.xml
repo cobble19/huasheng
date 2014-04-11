@@ -136,6 +136,9 @@
  					success,
  					page, start, limit, total
  				</param>
+ 				<param name="excludeProperties">
+ 					^roleEntityList\[\d+\]\.userEntities\[\d+\]\.password
+ 				</param>
  			</result>
  		</action>
  		<action name="user" class="userAction">
@@ -146,6 +149,9 @@
  					userEntity\.\w+, userEntity\.\w+\.\w+, ^userEntityList\[\d+\]\.\w+, ^userEntityList\[\d+\]\.\w+\.\w+, 
  					success,
  					page, start, limit, total
+ 				</param>
+ 				<param name="excludeProperties">
+ 					userEntity\.password, ^userEntityList\[\d+\]\.password, ^userEntityList\[\d+\]\.password
  				</param>
  			</result>
  		</action>

@@ -9,7 +9,8 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="userName" column="USER_NAME" not-null="true"></property>
-		<property name="password" column="PASSWORD" not-null="true"></property>
+		<!-- mannual update -->
+		<property name="password" column="PASSWORD" not-null="true" update="false"></property>
 		<property name="enabled" column="ENABLED"></property>
 		<bag name="roleEntities" table="R_USER_ROLE" inverse="false">
 			<key column="USER_ID"></key>

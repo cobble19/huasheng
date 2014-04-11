@@ -10,7 +10,7 @@ Ext.define('HS.view.checkbox.RoleCheckboxGroup', {
 	items: [
 	],
 	listeners: {
-		beforerender: function(cmp, eOpts) {
+		afterrender: function(cmp, eOpts) {
 			//console.log('cmp:' + cmp);
 			Ext.getStore('RoleStore').load({
 			    scope: this,
