@@ -67,7 +67,7 @@
 		      	
 		        <prop key="hibernate.show_sql">true</prop>
 		      	
-		        <prop key="current_session_context_class">thread</prop>
+		        <!-- <prop key="current_session_context_class">thread</prop> -->
 		      	
 		        <prop key="connection.pool_size">100</prop>
 		        
@@ -85,22 +85,27 @@
 	</bean>
 	
 	<!-- 开启事务管理 -->
-	<bean id="txManager"
+	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	<aop:config>
 		<aop:pointcut id="bussinessService"
-			expression="execution(public * com.cobble.huasheng.service.*.*(..))" />
+			expression="execution(* com.cobble.huasheng.service..*.*(..))" />
+		
+		<aop:pointcut id="securityService"
+			expression="execution(* com.cobble.huasheng.springsecurity.service..*.*(..))" />
 		<aop:advisor pointcut-ref="bussinessService"
+			advice-ref="txAdvice" />
+		<aop:advisor pointcut-ref="securityService"
 			advice-ref="txAdvice" />
 	</aop:config>
 	
 	<!-- 使用声明式事务 -->
-	<tx:advice id="txAdvice" transaction-manager="txManager">
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="find*" propagation="NEVER" read-only="true"/>
-			<tx:method name="get*" propagation="NEVER" read-only="true"/>
+			<tx:method name="find*" propagation="REQUIRED" read-only="true"/>
+			<tx:method name="get*" propagation="REQUIRED" read-only="true"/>
 			<tx:method name="add*" propagation="REQUIRED"/>
 			<tx:method name="create*" propagation="REQUIRED"/>
 			<tx:method name="update*" propagation="REQUIRED"/>

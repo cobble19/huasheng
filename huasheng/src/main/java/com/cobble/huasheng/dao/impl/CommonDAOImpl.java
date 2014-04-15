@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class CommonDAOImpl implements Serializable {
+public abstract class CommonDAOImpl implements Serializable {
 	private static final Logger logger = Logger.getLogger(CommonDAOImpl.class);
 	private SessionFactory sessionFactory;
 
