@@ -20,6 +20,12 @@ Ext.application({
 	models: ['TopicModel'],
 	views: ['content.Panel', 'checkbox.PrivilegeCheckboxGroup'],
 	launch: function() {
+		console.log('Ext Ajax');
+
+		Ext.Ajax.on('beforerequest', this.testFunB, this);
+		Ext.Ajax.on('requestcomplete', this.testFunC, this);
+		Ext.Ajax.on('requestexception', this.testFunE, this);
+		
 		Ext.create('Ext.container.Viewport', {
 			layout: "border",
 			title: 'manage platform view',
@@ -52,6 +58,22 @@ Ext.application({
 				}
 			]
 		});
+	},
+	testFunB : function(conn, opts) {
+		console.log('testFunB... ajax...');
+	},
+	testFunC : function(conn, response, opts) {
+		console.log('testFunC... ajax...');
+		var ajaxText = response.responseText;
+		ajaxText = Ext.decode(ajaxText);
+		if (ajaxText.status == false) {
+			console.log('ajaxText.status=' + ajaxText.status);
+			alert("权限不足或过期。请重新登录。");
+			window.location.href = Ext.get('contextPath').dom.value + "/manage/login.jsp";  
+		}
+	},
+	testFunE : function(conn, response, opts) {
+		console.log('testFunE... ajax...');
 	}
 	
 })

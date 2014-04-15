@@ -14,5 +14,14 @@
 			</result>
 		</action>
     </package>
+    <package name="loginadmin" namespace="/manage" extends="default">
+		<action name="login" class="loginAction">
+			<result name="login">/manage/login.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="namespace">/manage</param>
+				<param name="actionName">index</param>
+			</result>
+		</action>
+    </package>
  
 </struts>

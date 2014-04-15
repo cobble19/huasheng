@@ -30,6 +30,12 @@ Ext.define('HS.store.RoleStore', {
 		},
 		add: function(store, records, index, eOpts) {
 			console.log('record been added. index=' + index);
+		},
+		load: function( store, records, successful, eOpts ) {
+			console.log(store + "-" + records + "-" + successful + "-" + eOpts);
+			if (!successful) {
+				window.location.href = Ext.get('contextPath').dom.value + "/manage/login.jsp";
+			}
 		}
 	}
 })

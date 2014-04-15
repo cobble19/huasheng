@@ -69,7 +69,7 @@
 		      	
 		        <prop key="current_session_context_class">thread</prop>
 		      	
-		        <prop key="connection.pool_size">10</prop>
+		        <prop key="connection.pool_size">100</prop>
 		        
 		        <prop key="hibernate.hbm2ddl.auto">update</prop>
 		        
@@ -99,8 +99,8 @@
 	<!-- 使用声明式事务 -->
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-			<tx:method name="find*" propagation="REQUIRED" />
-			<tx:method name="get*" propagation="REQUIRED" />
+			<tx:method name="find*" propagation="NEVER" read-only="true"/>
+			<tx:method name="get*" propagation="NEVER" read-only="true"/>
 			<tx:method name="add*" propagation="REQUIRED"/>
 			<tx:method name="create*" propagation="REQUIRED"/>
 			<tx:method name="update*" propagation="REQUIRED"/>
