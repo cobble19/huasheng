@@ -1,5 +1,6 @@
 package com.cobble.huasheng.action;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 
@@ -14,6 +15,11 @@ public class VideoplayAction extends BaseAction {
 	}
 	
 	public String play() throws Exception {
+		String queryString = request.getQueryString();
+		String prefix = "url=";
+		if (StringUtils.isNotEmpty(queryString) && url.length() > prefix.length()) {
+			url = queryString.substring(prefix.length());
+		}
 		return this.SUCCESS;
 	}
 

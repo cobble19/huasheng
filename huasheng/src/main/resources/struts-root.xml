@@ -50,6 +50,11 @@
  				/jsp/videoplay.jsp
  			</result>
  		</action>
+ 		<action name="videoCrawler" class="handleUrlAction">
+ 			<result name="success">
+ 				/versionII/video_crawler.jsp
+ 			</result>
+ 		</action>
  		
     </package>
     <package name="manage" namespace="/manage" extends="default">

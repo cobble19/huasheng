@@ -56,6 +56,16 @@ public class HandleUrlAction extends BaseAction {
 		this.setSuccess(true);
 		return this.SUCCESS;
 	}
+	
+	public String video() throws Exception {
+		logger.debug("video() start...");
+		videoDTOList = handleUrlService.findVideos(fragmentDTOSearch);
+		if (videoDTOList == null) {
+			videoDTOList = new ArrayList<VideoDTO>(0);
+		}
+		this.setSuccess(true);
+		return this.SUCCESS;
+	}
 
 	public void setHandleUrlService(HandleUrlService handleUrlService) {
 		this.handleUrlService = handleUrlService;

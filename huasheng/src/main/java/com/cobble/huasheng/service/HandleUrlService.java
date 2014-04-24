@@ -11,4 +11,5 @@ public interface HandleUrlService {
 	List<VideoDTO> getVideoByUrl(String url);
 	List<FragmentDTO> getFragmentByUrl(String url);
 	void addVideo(FragmentDTOSearch fragmentDTOSearch);
+	List<VideoDTO> findVideos(FragmentDTOSearch fragmentDTOSearch);
 }
