@@ -28,7 +28,7 @@
   			<mysql.version>5.1.26</mysql.version>
   			<commons-dbcp.version>1.4</commons-dbcp.version>
   			<commons-beanutils.version>1.8.3</commons-beanutils.version>
-  			<commons-collections.version>3.2.1</commons-collections.version>
+  			<commons-collections.version>3.2.2</commons-collections.version>
   			<servlet-api.version>2.5</servlet-api.version>
   			<jsp-api.version>2.0</jsp-api.version>
   			<jstl.version>1.2</jstl.version>
